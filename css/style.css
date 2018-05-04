@@ -39,7 +39,8 @@ max-height: 100%;
 	   background-color: #D4D4D4;
 	   color: #000;
 	   min-width: 50px;
-	   max-height: 400px
+	   max-height: 400px;
+	   z-index: 500;
 }
   
 .panel-left-mid{
@@ -54,4 +55,5 @@ max-height: 100%;
 	   border:1px solid #000;
 	   background-color: #fff;
 	   color: #000;
+	   z-index: 500;
 }
