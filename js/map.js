@@ -38,6 +38,24 @@ function map(){
 	        onEachFeature: function(feature, layer) {}
 	      });
 
+
+    /*var LU = new L.Shapefile("./data/LU_merged.zip",{
+            onEachFeature: function(feature, layer) {}
+          });
+
+    {
+    style: function(feature) {
+        switch (feature.properties.LU_Code) {
+            case '1': return {color: "#ff0000"};
+            case '3':   return {color: "#0000ff"};
+        }
+    }
+}*/
+
+    var rec = new L.Shapefile("./data/rec_results.zip",{
+            onEachFeature: function(feature, layer) {}
+          });
+
 	var raster = './data/Geobosque_2013_2016.jpeg',
     imageBounds = [[-10.99, -69.7], [-10.9, -69.5]],
     geobosque = L.imageOverlay(raster, imageBounds);
@@ -84,6 +102,7 @@ function createCheckboxForLayer(cssSelector, layer) {
 
 // Layers per checkbox
 createCheckboxForLayer('#rivers', geosur)
+createCheckboxForLayer('#checkbox2', rec)
 createCheckboxForLayer('#wildlife', geobosque)
 
 

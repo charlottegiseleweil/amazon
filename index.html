@@ -15,6 +15,7 @@
 
 	  <link rel="stylesheet" href="css/style.css"/>
 	  <link rel="stylesheet" href="css/sliders.css"/>
+	  <link rel="stylesheet" href="css/tabs.css"/>
 
 	  
 	<!--jQuery-->
@@ -30,28 +31,63 @@
 
 
 	  <div id="column" class="panel-left-bottom">
-		  <h3> Activos naturales </h3>
-			<p><label class="switch"><input type="checkbox" id='rivers'><span class="slider"></span></label> Test Land Use vector</p>
-			<p><label class="switch"><input type="checkbox" id='wildlife'><span class="slider"></span></label> Test Land Use raster</p>
-		  <h3> Contribucion de la naturaleza </h3>
-		  	<p><label class="switch"><input type="checkbox"><span class="slider"></span></label> ES #1</p>
-		  	<p><label class="switch"><input type="checkbox"><span class="slider"></span></label> ES #2</p>
-		  	<p><label class="switch"><input type="checkbox"><span class="slider"></span></label> ...</p>
-	  </div>
 
-	  <div id="key" class="key">
+	  	<div class="tab">
+		  <button class="tablinks" onclick="openTab(event, 'Uso del suelo')">Suelo</button>
+		  <button class="tablinks" onclick="openTab(event, 'Carbono')">Carbono</button>
+		  <button class="tablinks" onclick="openTab(event, 'SDR')">Agua</button>
+		</div>
+
+		<div id="Uso" class="tabcontent">
+		  <h3>London</h3>
+		  <p>London is the capital city of England.</p>
+		</div>
+
+		<div id="Carbono" class="tabcontent">
+		  <h3>Paris</h3>
+		  <p>Paris is the capital of France.</p> 
+		</div>
+
+		<div id="SDR" class="tabcontent">
+		  <h3>Tokyo</h3>
+		  <p>Tokyo is the capital of Japan.</p>
+		</div>
+
+
+			<div id="Activos Naturales">
+				<fieldset><legend><b>Activos naturales</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='rivers'><span class="slider"></span></label> Test Land Use vector</p>
+					 <p><label class="switch"><input type="checkbox" id='checkbox2'><span class="slider"></span></label>Rec model results</p>
+					 <p><label class="switch"><input type="checkbox" id='wildlife'><span class="slider"></span></label> Test Land Use raster</p>
+				</fieldset>
+
+				<fieldset><legend><b>Contribucion de la naturaleza</b></legend>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> ES #1</p>
+				</fieldset>
+			</div>
+
+
+
+		</div>
+
+
+
+
+	  <!--<div id="key" class="key hide">
 	  	<p> Key </p>
 	  </div>
 
-	  <div id="zf" class="map-legend">  
+	  <div id="zf" class="map-legend hide">  
 	  	<p> map-legend </p>
-	  </div>
+	  </div>-->
 
 	 <script src="js/lib/leaflet.shpfile.js"></script>
 	 <script src="js/lib/shp.js"></script>
 
 	 <script src='js/map.js'> </script>
 	 <script src='js/main.js'> </script>
+	 <script src='js/tabs.js'> </script>
+
 
 	
 	</body>

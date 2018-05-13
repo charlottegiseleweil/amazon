@@ -19,6 +19,10 @@ max-height: 100%;
   margin:20px;
 }*/
 
+.hide{
+	display: none;
+}
+
 .column {
     float:right;
     width: 20%;
