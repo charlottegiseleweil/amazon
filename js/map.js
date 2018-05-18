@@ -8,7 +8,7 @@ function map(){
 
     var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
     {
-    attribution: 'Interface Charlotte Gisèle Weil. Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+    attribution: 'Interface Charlotte Gisèle Weil, with <a href="https://www.naturalcapitalproject.org/" target="_blank">The Natural Capital Project</a>. Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
     maxZoom: 12
     });
 
@@ -30,7 +30,7 @@ function map(){
 
     ////////////////////////////////////////////
 
-
+    map_styling();
     ////////////////////////////////////////////
     ////// Data ////////////////////////////////
 
@@ -56,9 +56,31 @@ function map(){
             onEachFeature: function(feature, layer) {}
           });
 
-	var raster = './data/Geobosque_2013_2016.jpeg',
-    imageBounds = [[-10.99, -69.7], [-10.9, -69.5]],
-    geobosque = L.imageOverlay(raster, imageBounds);
+    
+
+ var aoi = new L.Shapefile("./data/aoi.zip",{
+            style: AOIstyle},{
+            onEachFeature: function(feature, layer) {}
+          });
+
+
+
+/*var landuse = new L.Shapefile("./data/LU_merged.zip",{
+            style: stylee},{
+            onEachFeature: function(feature, layer) {}
+          });
+          */
+
+var watersheds = new L.Shapefile("./data/watersheds.zip",{
+            style: stylee},{
+            onEachFeature: function(feature, layer) {}
+          });
+
+	
+    var raster = './data/Geobosque_2013_2016.jpeg',
+    imageBounds = [[-10.99, -69.7], [-10.9, -69.5]];
+
+    var geobosque = L.imageOverlay(raster, imageBounds);
 
 	////////////////////////////////////////////
 
@@ -104,7 +126,9 @@ function createCheckboxForLayer(cssSelector, layer) {
 createCheckboxForLayer('#rivers', geosur)
 createCheckboxForLayer('#checkbox2', rec)
 createCheckboxForLayer('#wildlife', geobosque)
-
+createCheckboxForLayer('#landuse', landuse)
+createCheckboxForLayer('#watersheds', watersheds)
+createCheckboxForLayer('#aoi', aoi)
 
 
 };

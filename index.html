@@ -33,29 +33,19 @@
 	  <div id="column" class="panel-left-bottom">
 
 	  	<div class="tab">
-		  <button class="tablinks" onclick="openTab(event, 'Uso del suelo')">Suelo</button>
+		  <button class="tablinks" onclick="openTab(event, 'Uso')">Geographia</button>
 		  <button class="tablinks" onclick="openTab(event, 'Carbono')">Carbono</button>
-		  <button class="tablinks" onclick="openTab(event, 'SDR')">Agua</button>
+		  <button class="tablinks" onclick="openTab(event, 'SDR')">SDR</button>
+		  <button class="tablinks" onclick="openTab(event, 'About')">About</button>
 		</div>
 
 		<div id="Uso" class="tabcontent">
-		  <h3>London</h3>
-		  <p>London is the capital city of England.</p>
-		</div>
-
-		<div id="Carbono" class="tabcontent">
-		  <h3>Paris</h3>
-		  <p>Paris is the capital of France.</p> 
-		</div>
-
-		<div id="SDR" class="tabcontent">
-		  <h3>Tokyo</h3>
-		  <p>Tokyo is the capital of Japan.</p>
-		</div>
-
-
-			<div id="Activos Naturales">
+		  <div id="Activos Naturales">
 				<fieldset><legend><b>Activos naturales</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>Uso del suelo</p>
+					 <p><label class="switch"><input type="checkbox" id='watersheds'><span class="slider"></span></label>Watersheds</p>
+					 <p><label class="switch"><input type="checkbox" id='aoi'><span class="slider"></span></label>Area of interest</p>
+
 					 <p><label class="switch"><input type="checkbox" id='rivers'><span class="slider"></span></label> Test Land Use vector</p>
 					 <p><label class="switch"><input type="checkbox" id='checkbox2'><span class="slider"></span></label>Rec model results</p>
 					 <p><label class="switch"><input type="checkbox" id='wildlife'><span class="slider"></span></label> Test Land Use raster</p>
@@ -64,8 +54,67 @@
 				<fieldset><legend><b>Contribucion de la naturaleza</b></legend>
 			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> ES #1</p>
 				</fieldset>
-			</div>
 
+				<fieldset><legend><b>Test GeoJSON</b></legend>
+			  		<p><label class="switch small"><input type="checkbox" id='geoj1'><span class="slider"></span></label>vector</p>
+			  		<p><label class="switch small"><input type="checkbox" id='geoj2'><span class="slider"></span></label>raster</p>
+				</fieldset>
+
+			</div>
+		</div>
+
+		<div id="Carbono" class="tabcontent">
+	
+				<fieldset><legend><b>InVEST Carbon results</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>Forest Edge Effect Model</p>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbon'><span class="slider"></span></label>Storage Model</p>
+				</fieldset>
+
+				<fieldset><legend><b>Validation datasets</b></legend>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Peru Carbon Map (Asner 200x)</p>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Brazil Carbon Map (ref)</p>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Bolivia Carbon Map (ref)</p>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Full Carbon Map (ref)</p>
+				</fieldset>
+
+		</div>
+
+		<div id="SDR" class="tabcontent">
+				<fieldset><legend><b>Per pixel</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>sediment exported reaching stream [tons/pixel]</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>potential soil loss [tons/pixel]</p>
+					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>sediment retention [tons/pixel]</p>
+					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
+				</fieldset>
+
+				<fieldset><legend><b>Per watershed</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>sediment exported reaching stream [tons/watershed]</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>potential soil loss [tons/watershed]</p>
+					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>sediment retention [tons/watershed</p>
+				</fieldset>
+
+		</div>
+
+
+
+		<div id="About" class="tabcontent">
+				<fieldset><legend><b>The Natural Capital Project</b></legend>
+					 <p><a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40">   The Natural Capital Project</a> develops practical tools and approaches to account for nature’s contributions to society, so that leaders of countries, companies, communities, and organizations worldwide can make smarter decisions for a more sustainable future</p>
+				</fieldset>
+
+				<fieldset><legend><b>Collaborators</b></legend>
+			  		<p>
+			  			<a href="http://www.minam.gob.pe/" target="_blank"><img src="img/minam_small.jpg" alt="MINAM" width="202" height="38"></a>
+			  			<a href="http://cincia.wfu.edu/en/" target="_blank"><img src="img/cincia.png" alt="CINCIA" width="170" height="44"></a>
+			  			<a href="http://www.unamad.edu.pe/" target="_blank"><img src="img/unamad.png" alt="UNAMAD" width="240" height="40"></a>
+			  			<a href="http://www.ufac.br/" target="_blank"><img src="img/ufac.png" alt="UFAC" width="50" height="70"></a>
+			  			<a href="https://www.usaid.gov/" target="_blank"><img src="img/usaid.png" alt="USAID" width="129" height="40"></a>
+			  			<a href="https://www.moore.org/" target="_blank"><img src="img/moore2.png" alt="Moore" width="100" height="40"></a>
+			  			<a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40"></a>
+			  		</p>
+			  		
+				</fieldset>
+		</div>
 
 
 		</div>
@@ -84,6 +133,7 @@
 	 <script src="js/lib/leaflet.shpfile.js"></script>
 	 <script src="js/lib/shp.js"></script>
 
+	 <script src='js/map_styling.js'> </script>
 	 <script src='js/map.js'> </script>
 	 <script src='js/main.js'> </script>
 	 <script src='js/tabs.js'> </script>

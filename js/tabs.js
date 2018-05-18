@@ -16,4 +16,5 @@ function tabs(){
         evt.currentTarget.className += " active";
     };
 
+    window.openTab = openTab;
 };
