@@ -25,6 +25,10 @@ let COLORS_Files = { // Dictionary to select the color of the map
     Urbano: "#ff8ce5", // rosado
     Vegetacion_secundaria: "#d77686", // rosado
 }
+let array_load_files = [];
+
+array_load_files.push('Test');
+
 
 
 window.onload = () => {
@@ -95,6 +99,8 @@ function loadMapFiles() {
         topoLayer[0].addData(data);
         topoLayer[0].eachLayer(handleLayer_1);
         topoLayer[0].addTo(map);
+        array_load_files.push('simplified_geo_LU_Agricultura');
+
     });
     readJsonFile("assets/data/amazon/simplified_geo_LU_Agua.json", function (text) {
         let data = JSON.parse(text);
@@ -283,7 +289,7 @@ function handleLayer(layer) {
 }
 
 function handleLayer_1(layer) { //Agricultura: "#cbde67", //verde
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#cbde67",
@@ -291,146 +297,146 @@ function handleLayer_1(layer) { //Agricultura: "#cbde67", //verde
 }
 
 function handleLayer_2(layer) { //Agua: "#004392", //azul
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#004392",
       });
 }
 function handleLayer_3(layer) { //Aguajal: "#84a4ff", // azul
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#84a4ff",
       });
 }
 function handleLayer_4(layer) { //Bosque_inundable: "#0038a2", //azul
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#0038a2",
       });
 }
 function handleLayer_5(layer) { //Bosque_montano: "#e9cc40", //amarillo
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#e9cc40",
       });
 }
 function handleLayer_6(layer) { //Bosque_no_inundable: "#440b47", // cafe
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#440b47",
       });
 }
 function handleLayer_7(layer) { //Carreteras_no_pavimentadas: "#ab2e05", // rojo
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#ab2e05",
       });
 }
 function handleLayer_8(layer) { //Carreteras_pavimentadas: "#cf2f3b", // rojo
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#cf2f3b",
       });
 }
 function handleLayer_9(layer) { //Glaciar: "#c12e96", //morado
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#c12e96",
       });
 }
 function handleLayer_10(layer) { //Humedales: "#251469", //lila
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#251469",
       });
 }
 function handleLayer_11(layer) { //Matorral: "#6d69ad", // lila
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#6d69ad",
       });
 }
 function handleLayer_12(layer) { //Mineria: "#ffa458", // anaranjado
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#ffa458",
       });
 }
 function handleLayer_13(layer) { //Pajonal_andino: "#8c003d", // cafe 
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#8c003d",
       });
 }
 function handleLayer_14(layer) { //Pasto_Agricultura: "#44d372", //verde
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#44d372",
       });
 }
 function handleLayer_15(layer) { //Pasto_Herbazal: "#01e4ab", // verde
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#01e4ab",
       });
 }
 function handleLayer_16(layer) { //Pasto: "#3e5300", // verde
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#3e5300",
       });
 }
 function handleLayer_17(layer) { //Pedregales: "#701200", // cafe
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#701200",
       });
 }
 function handleLayer_18(layer) { //Sabana_humedales: "#ff5e71", // rojo
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#ff5e71",
       });
 }
 function handleLayer_19(layer) { //Suelo_desnudo: "#f188fb", // rosado
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#f188fb",
       });
 }
 function handleLayer_20(layer) { //Urbano: "#ff8ce5", // rosado
-    console.log(layer);
+    // console.log(layer);
   
       layer.setStyle({
           color: "#ff8ce5",
       });
 }
 function handleLayer_21(layer) { //Vegetacion_secundaria: "#d77686", // rosado
-    console.log(layer);
-  
+    // console.log(layer);
+    console.log(array_load_files);
+    
       layer.setStyle({
           color: "#d77686",
       });
 }
-
 
 
 
