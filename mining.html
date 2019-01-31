@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Amazonicos Pro-Agua</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="assets/css/index.css" />
+        <link rel="stylesheet" href="assets/css/transitions.css" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css"
+        />
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+        <script src="https://d3js.org/topojson.v3.min.js"></script>
+        <script src="assets/js/mining.js"></script>
+        <script src="assets/js/mineria_area_viz.js"></script>
+        <script src="assets/js/helpers.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto"
+        />
+
+        <link rel="shortcut icon" href="#" />
+    </head>
+
+    <body>
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+                <a href="/" class="w3-bar-item w3-button"> <b>PRO-AGUA</b> </a>
+                <!-- Float links to the right. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="/" class="w3-bar-item w3-button"> Land Use </a>
+                    <a href="/mining" class="w3-bar-item w3-button"> Mining </a>
+                    <a href="about.html" class="w3-bar-item w3-button">About</a>
+                    <a href="help.html" class="w3-bar-item w3-button">Help</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="map"></div>
+
+            <div
+                id="option1"
+                class="button options leaflet-control type selected"
+                data-type="hm"
+            >
+                <div class="image"></div>
+                <label> Heavy Machinery </label>
+            </div>
+
+            <div
+                id="option2"
+                class="button options leaflet-control type selected"
+                data-type="sp"
+            >
+                <div class="image"></div>
+                <label> Suction Pumps </label>
+            </div>
+
+            <div id="sectorBtns" class="sector leaflet-control">
+                <div
+                    id="deltaBtn"
+                    class="button options leaflet-control"
+                    data-sector="delta"
+                >
+                    Delta
+                </div>
+
+                <div
+                    id="huepetuheBtn"
+                    class="button options leaflet-control"
+                    data-sector="huepetuhe"
+                >
+                    Huepetuhe
+                </div>
+
+                <div
+                    id="smallMinesBtn"
+                    class="button options leaflet-control"
+                    data-sector="smallmines"
+                >
+                    Small Mines
+                </div>
+
+                <div
+                    id="pampaBtn"
+                    class="button options leaflet-control"
+                    data-sector="pampa"
+                >
+                    Pampa
+                </div>
+            </div>
+
+            <div id="storyTelling" class="description">
+                <h1 class="mainTitle" style="font-size: 22px">
+                    Amazonic Rain Forest Mining Activity
+                </h1>
+                <div class="scroll-tooltip">▼Scroll down here▼</div>
+                <div
+                    id="container0"
+                    class="intro-container story-container inFocus"
+                >
+                    <h2>Introduction</h2>
+                    <p>
+                        The Amazon rainforest plays a vital role not just to
+                        South America but to the entire world. It represents
+                        over half of the planet's remaining rainforest and
+                        comprises one of the largest and most biodiverse
+                        ecosystems in the world. However the gold mining
+                        activity is destroying this ecosystem.<br /><br />
+                        This visualization shows the evolution of the mining
+                        activity in the Peruvian Amazon forest. In the year
+                        2017, gold mining has destroyed almost
+                        <b id="value_counter_0"> 10000</b> hectares of
+                        rainforest in the Peruvian Amazon region, almost the
+                        size of Paris of rainforest was destroyed. <br /><br />
+                        This activity is not only destroying the rainforest,
+                        which is considered as the "lung of the world" because
+                        of the key role it represents fighting the climate
+                        change, but is also contaminating the soil and rivers
+                        with toxic compounds that are used to extract and
+                        processed the gold, which are dragged by the rivers to
+                        the nearest towns where high levels of mercury have been
+                        detected and menacing both terrestrial and aquatic life.
+                        <br />
+                        <br />
+                        There are two different types of mining types in the
+                        Amazonia:
+                        <mark class="hm_text"> “Heavy Machinery“ </mark> that
+                        uses big trucks and heavy machines to extract the gold
+                        from the soil, and
+                        <mark class="sp_text">“Suction Pumps”</mark> which is
+                        composed of washers and more traditional methods to
+                        extract the gold.
+                    </p>
+
+                    <p></p>
+                    <div id="chartContainer">
+                        <h2>
+                            Heavy Machinery and Suction Pumps.<br />
+                            During the period: 1985 &ndash; 2017
+                        </h2>
+                    </div>
+                    <div class="chart-footer">
+                        * Chart areas are clickeable. Try them!
+                    </div>
+                </div>
+                <div id="container1" class="story-container">
+                    <h2><b>1985</b></h2>
+                    <p>
+                        The first record of gold mining at this region is in
+                        1985, as you can see in the map it started with 73.9 ha
+                        and distributed between the sectors : Huepetuhe, Delta
+                        and Small Mines. <br /><br />
+                        At this time the sector with the highest percentage of
+                        mining activity was :
+                        <mark class="hm_text huepetuhe"
+                            >Huepetue-Heavy Machinery</mark
+                        >
+                        with <b id="value_counter_11"> 35.73 </b> <b>ha</b>. The
+                        relation between the two different mining methods was
+                        <b id="value_counter_12">55</b><b>%</b>
+                        <b>for Heavy Machinery </b> and 45% for Suction Pumps.
+                    </p>
+                </div>
+                <div id="container2" class="story-container">
+                    <h2><b>1993</b></h2>
+                    <p>
+                        In the year 1993, we can observe an alarming increase in
+                        mining activity, with a total increase of
+                        <b id="value_counter_21">1036</b><b>%</b>. The area of
+                        the mining activity was
+                        <b id="value_counter_22">839.5</b> <b>ha</b> distributed
+                        between the sectors: Huepetuhe, Delta and small mines.
+
+                        <br /><br />As you can observe the sector with the
+                        highest percentage remain as
+                        <b>
+                            <mark class="hm_text huepetuhe"
+                                >Huepetue - Heavy Machinery mining</mark
+                            >
+                        </b>
+                        with <b id="value_counter_23">695.6</b> <b>ha</b>, this
+                        method had 83% of the total mining area at that time.
+                        This was the preferred method to extract gold at this
+                        time, which can be confirmed comparing the increase in
+                        percentage compared to the previous year with an
+                        incredible <b id="value_counter_24">1618</b>%.
+                    </p>
+                </div>
+                <div id="container3" class="story-container">
+                    <h2><b>2001</b></h2>
+                    <p>
+                        The things remain almost the same in 2001 in terms of
+                        total area used for mining with an increase of
+                        <b id="value_counter_31">10</b><b>%</b> with a total of
+                        919.6 ha. <br /><br />However if we go deeper into the
+                        data we can see that we had an abrupt change between the
+                        preferred method to mine the gold
+                        <b> <mark class="sp_text">Suction Pumps</mark> </b> had
+                        a total of <b id="value_counter_32">77</b
+                        ><b>%</b> compared to just
+                        <b id="value_counter_33">17</b><b>%</b> in the previous
+                        period with a total of 708 ha, an increase of
+                        <b id="value_counter_34">392</b><b>%</b>, mostly
+                        distributed on the sector of
+                        <mark class="sp_text smallmines">small mines </mark> .
+                        And the Heavy Machinery decreased by 70 % with a total
+                        of only 211.1 ha.
+                    </p>
+                </div>
+                <div id="container4" class="story-container">
+                    <h2><b>2009</b></h2>
+                    <p>
+                        In 2009 the increase of mining activity compared to 1985
+                        was alarming, an increase of 151% over the area used for
+                        mining, a total of <b id="value_counter_41">2304.6 </b>
+                        <b>ha</b> of the Peruvian Amazon rainforest was
+                        destroyed and contaminated because of the gold mining.
+                        The sectors where the mining was done: Huepetuhe, Delta,
+                        Pampa, and small mines. The sector with the highest
+                        percentage was :
+                        <b>
+                            <mark class="sp_text pampa"
+                                >Pampa-Suction Pumps mining</mark
+                            >
+                        </b>
+                        with <b id="value_counter_42">962.47</b> <b>ha</b>.
+                        <br />The relation between the two different mining
+                        methods was 20%-80% for heavy machinery and suction
+                        pumps. We can see that the suction pump remains as the
+                        main method for mining the gold. We have an increase of
+                        161% for suction pumps with a total of
+                        <b id="value_counter_43"> 1846.1</b> <b>ha</b> and an
+                        increase of 117% for heavy machinery and a total of
+                        458.4 ha
+                    </p>
+                </div>
+                <div id="container5" class="story-container">
+                    <h2><b>2017</b></h2>
+                    <p>
+                        In 2017 things became critical, the gold mining activity
+                        had an increase of 328% compared to 2009, with an area
+                        of <b id="value_counter_51">9859.8</b> <b>ha</b>, almost
+                        the size of Paris of Peruvian Amazon rainforest was
+                        destroyed and contaminated. At this moment the activity
+                        was distributed over the sectors: Huepetuhe, Delta,
+                        Pampa, and small mines. The sector with the highest
+                        percentage of mining is
+                        <mark class="sp_text pampa">
+                            Small Mines-Suction Pumps</mark
+                        >
+                        <b id="value_counter_52"> 4486.9</b> <b>ha</b>.
+
+                        <br />The relation between the two different mining
+                        methods was 34%-66% for heavy machinery and suction
+                        pumps. We can see that the suction pump is the main
+                        method for mining gold, with an increase of 252% and a
+                        total of 6497.5 ha compared to an increase of 633% for
+                        heavy machinery and a total of 3362.3 ha.
+                    </p>
+                </div>
+                <div id="container6" class="story-container">
+                    <h2><b>The Reality</b></h2>
+                    <img
+                        src="assets/static/7peru_aerial_0148.jpg "
+                        alt="Huepetuhe Mine"
+                        height="280"
+                        width="400"
+                    />
+                    <div id="footer" class="chart-footer">
+                        <p>
+                            <b>Huepetuhe Mines around the river</b> <br />
+                            https://news.mongabay.com/2015/08/mining-at-the-heart-of-the-mother-of-god-perus-gold-rush-claims-more-forest/
+                        </p>
+                    </div>
+                </div>
+                <div class="space-at-the-bottom">
+                    <button id="back-to-top">
+                        <small>▲ Go Back to the Top ▲</small>
+                    </button>
+                </div>
+
+                <div id="footer">
+                    <p>
+                        <strong>Source:</strong> Data was provided by PRO-AGUA
+                        project in collaboration with Standford
+                    </p>
+                </div>
+
+                <footer class="w3-center w3-black w3-padding-16">
+                    <p>Powered by AMAZONICOS</p>
+                </footer>
+            </div>
+            <div id="slider"></div>
+        </div>
+    </body>
+</html>

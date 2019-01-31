@@ -1,0 +1,63 @@
+html, body, #map {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+margin: 0;
+padding: 0px;
+border: 0;
+height: 100%;  0
+max-height: 100%; 
+}
+
+/*#map{ 
+  width: 900px; 
+  height: 500px; 
+  display: inline-block;
+  margin:20px;
+}*/
+
+.hide{
+	display: none;
+}
+
+.column {
+    float:right;
+    width: 20%;
+    display: inline-block;
+    margin: 10px;
+    z-index:10;
+}
+
+
+.panel-left-bottom{
+	   border-radius: 5px;
+	   position: absolute;
+	   bottom: 35px;
+	   left: 10px;
+	   padding-left: 20px;
+	   padding-right: 20px;
+	   border:1px solid #000;
+	   background-color: #D4D4D4;
+	   color: #000;
+	   min-width: 50px;
+	   max-height: 400px;
+	   z-index: 500;
+}
+  
+.panel-left-mid{
+	   border-radius: 5px;
+	   position: absolute;
+	   bottom: 420px;
+	   left: 0px;
+	   padding-bottom: 10px;
+	   padding-top: 10px;
+	   padding-left: 20px;
+	   padding-right: 20px;
+	   border:1px solid #000;
+	   background-color: #fff;
+	   color: #000;
+	   z-index: 500;
+}

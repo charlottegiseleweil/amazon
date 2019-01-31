@@ -1,144 +1,56 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-	   <title>MAP Agua - Scoping phase - an exploratory map draft</title>
-	
-	  <!-- Leaflet & Plugins -->
-	  <link rel="stylesheet" href="src/Control.MiniMap.css" />
-	  <link rel="stylesheet" href="css/leaflet.draw.css"/>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
-	  <script src="js/lib/leaflet.draw.js"></script>
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"/>
-	   <script src="src/Control.MiniMap.js" type="text/javascript"></script> 
+    <head>
+        <title>Amazonicos Pro-Agua</title>
 
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	  <link rel="stylesheet" href="css/style.css"/>
-	  <link rel="stylesheet" href="css/sliders.css"/>
-	  <link rel="stylesheet" href="css/tabs.css"/>
+        <link rel="stylesheet" href="assets/css/index.css" />
+        <link rel="stylesheet" href="assets/css/transitions.css" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css"
+        />
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+        <script src="https://d3js.org/topojson.v3.min.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/helpers.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto"
+        />
 
-	  
-	<!--jQuery-->
-	<script src="js/lib/jquery-2.1.1.min.js"></script> 
-	  
-	</head>
+        <link rel="shortcut icon" href="#" />
+    </head>
 
+    <body>
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+                <a href="/" class="w3-bar-item w3-button"> <b>PRO-AGUA</b> </a>
+                <!-- Float links to the right. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="/" class="w3-bar-item w3-button"> Land Use </a>
+                    <a href="/mining.html" class="w3-bar-item w3-button">
+                        Mining
+                    </a>
+                    <a href="about.html" class="w3-bar-item w3-button">About</a>
+                    <a href="help.html" class="w3-bar-item w3-button">Help</a>
+                </div>
+            </div>
+        </div>
 
-
-	<body>
-
-	  <div id="map"></div>
-
-
-	  <div id="column" class="panel-left-bottom">
-
-	  	<div class="tab">
-		  <button class="tablinks" onclick="openTab(event, 'Uso')">Geographia</button>
-		  <button class="tablinks" onclick="openTab(event, 'Carbono')">Carbono</button>
-		  <button class="tablinks" onclick="openTab(event, 'SDR')">SDR</button>
-		  <button class="tablinks" onclick="openTab(event, 'About')">About</button>
-		</div>
-
-		<div id="Uso" class="tabcontent">
-		  <div id="Activos Naturales">
-				<fieldset><legend><b>Activos naturales</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>Uso del suelo</p>
-					 <p><label class="switch"><input type="checkbox" id='watersheds'><span class="slider"></span></label>Watersheds</p>
-					 <p><label class="switch"><input type="checkbox" id='aoi'><span class="slider"></span></label>Area of interest</p>
-
-					 <p><label class="switch"><input type="checkbox" id='rivers'><span class="slider"></span></label> Test Land Use vector</p>
-					 <p><label class="switch"><input type="checkbox" id='checkbox2'><span class="slider"></span></label>Rec model results</p>
-					 <p><label class="switch"><input type="checkbox" id='wildlife'><span class="slider"></span></label> Test Land Use raster</p>
-				</fieldset>
-
-				<fieldset><legend><b>Contribucion de la naturaleza</b></legend>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> ES #1</p>
-				</fieldset>
-
-				<fieldset><legend><b>Test GeoJSON</b></legend>
-			  		<p><label class="switch small"><input type="checkbox" id='geoj1'><span class="slider"></span></label>vector</p>
-			  		<p><label class="switch small"><input type="checkbox" id='geoj2'><span class="slider"></span></label>raster</p>
-				</fieldset>
-
-			</div>
-		</div>
-
-		<div id="Carbono" class="tabcontent">
-	
-				<fieldset><legend><b>InVEST Carbon results</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>Forest Edge Effect Model</p>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbon'><span class="slider"></span></label>Storage Model</p>
-				</fieldset>
-
-				<fieldset><legend><b>Validation datasets</b></legend>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Peru Carbon Map (Asner 200x)</p>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Brazil Carbon Map (ref)</p>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Bolivia Carbon Map (ref)</p>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Full Carbon Map (ref)</p>
-				</fieldset>
-
-		</div>
-
-		<div id="SDR" class="tabcontent">
-				<fieldset><legend><b>Per pixel</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>sediment exported reaching stream [tons/pixel]</p>
-					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>potential soil loss [tons/pixel]</p>
-					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>sediment retention [tons/pixel]</p>
-					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
-				</fieldset>
-
-				<fieldset><legend><b>Per watershed</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>sediment exported reaching stream [tons/watershed]</p>
-					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>potential soil loss [tons/watershed]</p>
-					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>sediment retention [tons/watershed</p>
-				</fieldset>
-
-		</div>
-
-
-
-		<div id="About" class="tabcontent">
-				<fieldset><legend><b>The Natural Capital Project</b></legend>
-					 <p><a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40">   The Natural Capital Project</a> develops practical tools and approaches to account for nature’s contributions to society, so that leaders of countries, companies, communities, and organizations worldwide can make smarter decisions for a more sustainable future</p>
-				</fieldset>
-
-				<fieldset><legend><b>Collaborators</b></legend>
-			  		<p>
-			  			<a href="http://www.minam.gob.pe/" target="_blank"><img src="img/minam_small.jpg" alt="MINAM" width="202" height="38"></a>
-			  			<a href="http://cincia.wfu.edu/en/" target="_blank"><img src="img/cincia.png" alt="CINCIA" width="170" height="44"></a>
-			  			<a href="http://www.unamad.edu.pe/" target="_blank"><img src="img/unamad.png" alt="UNAMAD" width="240" height="40"></a>
-			  			<a href="http://www.ufac.br/" target="_blank"><img src="img/ufac.png" alt="UFAC" width="50" height="70"></a>
-			  			<a href="https://www.usaid.gov/" target="_blank"><img src="img/usaid.png" alt="USAID" width="129" height="40"></a>
-			  			<a href="https://www.moore.org/" target="_blank"><img src="img/moore2.png" alt="Moore" width="100" height="40"></a>
-			  			<a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40"></a>
-			  		</p>
-			  		
-				</fieldset>
-		</div>
-
-
-		</div>
-
-
-
-
-	  <!--<div id="key" class="key hide">
-	  	<p> Key </p>
-	  </div>
-
-	  <div id="zf" class="map-legend hide">  
-	  	<p> map-legend </p>
-	  </div>-->
-
-	 <script src="js/lib/leaflet.shpfile.js"></script>
-	 <script src="js/lib/shp.js"></script>
-
-	 <script src='js/map_styling.js'> </script>
-	 <script src='js/map.js'> </script>
-	 <script src='js/main.js'> </script>
-	 <script src='js/tabs.js'> </script>
-
-
-	
-	</body>
+        <div id="main">
+            <div id="map"></div>
+            <div id="slider"></div>
+        </div>
+    </body>
 </html>
