@@ -23,6 +23,7 @@
         <script src="https://d3js.org/topojson.v3.min.js"></script>
         <script src="assets/js/index.js"></script>
         <script src="assets/js/helpers.js"></script>
+        <script src="assets/js/filters.js"></script>
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto"
@@ -50,7 +51,104 @@
 
         <div id="main">
             <div id="map"></div>
-            <div id="slider"></div>
+            <div id="filters-container">
+                <div id="land-use-container">
+                <div id="filters-button">Filters - Land Use</div>
+                <div id="checkboxes-container">
+                    <label class="checkbox-container">Agriculture
+                        <input id="check-agriculture" type="checkbox" checked="checked" data-id="0">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Water
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Swamp
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Floodable Forest
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Mountain Forest
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Non-Floodable Forest
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Unpaved Roads
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Paved Roads
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Glacier
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Pasture
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Wetland
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Thicket
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Mining
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Andean Scrubland
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Grass
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Agriculture Grass
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Pasture Grass
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Rocky Ground
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Savannah
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Wet Savannah
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Naked Land
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Urban
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Secondary Vegetation
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
         </div>
     </body>
 </html>
