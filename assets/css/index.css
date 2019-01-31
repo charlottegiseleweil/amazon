@@ -2728,7 +2728,7 @@ div[data-type='sp'][data-sector='pampa'].selected {
 }
 
 #checkboxes-container {
-    max-height: 450px;
+    max-height: 350px;
     overflow-y: auto;
 }
 
