@@ -78,6 +78,7 @@ window.onload = () => {
         }
     });
     loadMapFiles();
+    setFilterEvents();
 };
 
 function readJsonFile(filename, callback) {
