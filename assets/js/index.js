@@ -64,161 +64,161 @@ function readJsonFile(filename, callback) {
 }
 
 function loadMapFiles() {
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Agricultura.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Agricultura.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[0] = new L.TopoJSON();
         topoLayer[0].addData(data);
         topoLayer[0].eachLayer(handleLayer);
         topoLayer[0].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Agua.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Agua.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[1] = new L.TopoJSON();
         topoLayer[1].addData(data);
         topoLayer[1].eachLayer(handleLayer);
         topoLayer[1].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Aguajal.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Aguajal.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[2] = new L.TopoJSON();
         topoLayer[2].addData(data);
         topoLayer[2].eachLayer(handleLayer);
         topoLayer[2].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Bosque_inundable.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Bosque_inundable.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[3] = new L.TopoJSON();
         topoLayer[3].addData(data);
         topoLayer[3].eachLayer(handleLayer);
         topoLayer[3].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Bosque_montano.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Bosque_montano.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[4] = new L.TopoJSON();
         topoLayer[4].addData(data);
         topoLayer[4].eachLayer(handleLayer);
         topoLayer[4].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Bosque_no_inundable.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Bosque_no_inundable.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[5] = new L.TopoJSON();
         topoLayer[5].addData(data);
         topoLayer[5].eachLayer(handleLayer);
         topoLayer[5].addTo(map);
     }); //weird
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Carreteras_no_pavimentadas.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Carreteras_no_pavimentadas.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[6] = new L.TopoJSON();
         topoLayer[6].addData(data);
         topoLayer[6].eachLayer(handleLayer);
         topoLayer[6].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Carreteras_pavimentadas.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Carreteras_pavimentadas.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[7] = new L.TopoJSON();
         topoLayer[7].addData(data);
         topoLayer[7].eachLayer(handleLayer);
         topoLayer[7].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Glaciar.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Glaciar.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[8] = new L.TopoJSON();
         topoLayer[8].addData(data);
         topoLayer[8].eachLayer(handleLayer);
         topoLayer[8].addTo(map);
     });
-    // readJsonFile("assets/data/amazon/simplified_geo_LU_Herbazal.geojson", function (text) {
+    // readJsonFile("assets/data/amazon/simplified_geo_LU_Herbazal.json", function (text) {
     //     let data = JSON.parse(text);
     //     topoLayer[9] = new L.TopoJSON();
     //     topoLayer[9].addData(data);
     //     topoLayer[9].eachLayer(handleLayer);
     //     topoLayer[9].addTo(map);
     // }); // EMPTY???
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Humedales.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Humedales.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[10] = new L.TopoJSON();
         topoLayer[10].addData(data);
         topoLayer[10].eachLayer(handleLayer);
         topoLayer[10].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Matorral.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Matorral.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[11] = new L.TopoJSON();
         topoLayer[11].addData(data);
         topoLayer[11].eachLayer(handleLayer);
         topoLayer[11].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Mineria.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Mineria.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[12] = new L.TopoJSON();
         topoLayer[12].addData(data);
         topoLayer[12].eachLayer(handleLayer);
         topoLayer[12].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Pajonal_andino.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Pajonal_andino.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[13] = new L.TopoJSON();
         topoLayer[13].addData(data);
         topoLayer[13].eachLayer(handleLayer);
         topoLayer[13].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Pasto-Agricultura.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Pasto-Agricultura.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[14] = new L.TopoJSON();
         topoLayer[14].addData(data);
         topoLayer[14].eachLayer(handleLayer);
         topoLayer[14].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Pasto-Herbazal.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Pasto-Herbazal.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[15] = new L.TopoJSON();
         topoLayer[15].addData(data);
         topoLayer[15].eachLayer(handleLayer);
         topoLayer[15].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Pasto.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Pasto.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[16] = new L.TopoJSON();
         topoLayer[16].addData(data);
         topoLayer[16].eachLayer(handleLayer);
         topoLayer[16].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Pedregales.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Pedregales.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[17] = new L.TopoJSON();
         topoLayer[17].addData(data);
         topoLayer[17].eachLayer(handleLayer);
         topoLayer[17].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana_humedales.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana_humedales.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[18] = new L.TopoJSON();
         topoLayer[18].addData(data);
         topoLayer[18].eachLayer(handleLayer);
         topoLayer[18].addTo(map);
     });
-    // readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana.geojson", function (text) {
+    // readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana.json", function (text) {
     //     let data = JSON.parse(text);
     //     topoLayer[19] = new L.TopoJSON();
     //     topoLayer[19].addData(data);
     //     topoLayer[19].eachLayer(handleLayer);
     //     topoLayer[19].addTo(map);
     // }); // EMPTY?
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Suelo_desnudo.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Suelo_desnudo.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[20] = new L.TopoJSON();
         topoLayer[20].addData(data);
         topoLayer[20].eachLayer(handleLayer);
         topoLayer[20].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Urbano.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Urbano.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[21] = new L.TopoJSON();
         topoLayer[21].addData(data);
         topoLayer[21].eachLayer(handleLayer);
         topoLayer[21].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Vegetacion_secundaria.geojson", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Vegetacion_secundaria.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[22] = new L.TopoJSON();
         topoLayer[22].addData(data);
