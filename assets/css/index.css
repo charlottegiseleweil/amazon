@@ -2747,7 +2747,7 @@ div[data-type='sp'][data-sector='pampa'].selected {
     bottom: 100%;
     background-color: #c5c5c5;
     border: black solid 1px;
-    padding: 5px 5px 0 5px;
+    padding: 6px 8px 0 8px;
     width: 350px;
 }
 
@@ -2791,12 +2791,17 @@ div[data-type='sp'][data-sector='pampa'].selected {
     left: 0;
     height: 20px;
     width: 20px;
-    background-color: #eee;
+    background-color: #efefef;
   }
   
   /* On mouse-over, add a grey background color */
   .checkbox-container:hover input ~ .checkmark {
     background-color: #999;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .checkbox-container.disabled {
+    text-decoration: line-through;
   }
   
   /* When the checkbox is checked, add a blue background */

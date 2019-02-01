@@ -219,20 +219,20 @@ function loadMapFiles() {
         topoLayer[17].eachLayer(handleLayer_17);
         // topoLayer[17].addTo(map);
     });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana_humedales.json", function (text) {
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[18] = new L.TopoJSON();
         topoLayer[18].addData(data);
-        topoLayer[18].eachLayer(handleLayer_18);
-        // topoLayer[18].addTo(map);
-    });
-    readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana.json", function (text) {
+        topoLayer[18].eachLayer(handleLayer);
+        // topoLayer[19].addTo(map);
+    }); // EMPTY?
+    readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana_humedales.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[19] = new L.TopoJSON();
         topoLayer[19].addData(data);
-        topoLayer[19].eachLayer(handleLayer);
-        // topoLayer[19].addTo(map);
-    }); // EMPTY?
+        topoLayer[19].eachLayer(handleLayer_18);
+        // topoLayer[18].addTo(map);
+    });
     readJsonFile("assets/data/amazon/simplified_geo_LU_Suelo_desnudo.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[20] = new L.TopoJSON();

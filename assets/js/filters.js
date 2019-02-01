@@ -16,7 +16,7 @@ function setFilterEvents() {
     document.getElementById("check-unpaved_roads").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-paved_oads").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-glacier").addEventListener("click", handleCheckboxClick);
-    document.getElementById("check-pasture").addEventListener("click", handleCheckboxClick);
+    // document.getElementById("check-pasture").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-wetland").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-thicket").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-mining").addEventListener("click", handleCheckboxClick);
@@ -25,7 +25,7 @@ function setFilterEvents() {
     document.getElementById("check-agriculture_grass").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-pasture_grass").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-rocky_ground").addEventListener("click", handleCheckboxClick);
-    document.getElementById("check-savannah").addEventListener("click", handleCheckboxClick);
+    // document.getElementById("check-savannah").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-wet_savannah").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-naked_land").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-urban").addEventListener("click", handleCheckboxClick);
