@@ -1,5 +1,5 @@
 let firstLoad = true;
-let topoLayer = [];
+let topoLayer = ['1', '12', '17'];
 let map;
 
 let COLORS_Files = { // Dictionary to select the color of the map 
@@ -105,7 +105,7 @@ function loadMapFiles() {
         topoLayer[1] = new L.TopoJSON();
         topoLayer[1].addData(data);
         topoLayer[1].eachLayer(handleLayer_2);
-        // topoLayer[1].addTo(map);
+        topoLayer[1].addTo(map);
     });
     readJsonFile("assets/data/amazon/simplified_geo_LU_Aguajal.json", function (text) {
         let data = JSON.parse(text);
@@ -182,7 +182,7 @@ function loadMapFiles() {
         topoLayer[12] = new L.TopoJSON();
         topoLayer[12].addData(data);
         topoLayer[12].eachLayer(handleLayer_12);
-        // topoLayer[12].addTo(map);
+        topoLayer[12].addTo(map);
     });
     readJsonFile("assets/data/amazon/simplified_geo_LU_Pajonal_andino.json", function (text) {
         let data = JSON.parse(text);
@@ -217,7 +217,7 @@ function loadMapFiles() {
         topoLayer[17] = new L.TopoJSON();
         topoLayer[17].addData(data);
         topoLayer[17].eachLayer(handleLayer_17);
-        // topoLayer[17].addTo(map);
+        topoLayer[17].addTo(map);
     });
     readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana.json", function (text) {
         let data = JSON.parse(text);
