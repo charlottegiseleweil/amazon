@@ -27,8 +27,8 @@ function setFilterEvents() {
     document.getElementById("check-agriculture_grass").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-pasture_grass").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-rocky_ground").addEventListener("click", handleCheckboxClick);
-    // document.getElementById("check-savannah").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-wet_savannah").addEventListener("click", handleCheckboxClick);
+    // document.getElementById("check-savannah").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-naked_land").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-urban").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-secondary_vegetation").addEventListener("click", handleCheckboxClick);

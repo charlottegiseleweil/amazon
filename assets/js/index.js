@@ -224,14 +224,14 @@ function loadMapFiles() {
         topoLayer[18] = new L.TopoJSON();
         topoLayer[18].addData(data);
         topoLayer[18].eachLayer(handleLayer);
-        // topoLayer[19].addTo(map);
+        // topoLayer[18].addTo(map);
     }); // EMPTY?
     readJsonFile("assets/data/amazon/simplified_geo_LU_Sabana_humedales.json", function (text) {
         let data = JSON.parse(text);
         topoLayer[19] = new L.TopoJSON();
         topoLayer[19].addData(data);
         topoLayer[19].eachLayer(handleLayer_18);
-        // topoLayer[18].addTo(map);
+        // topoLayer[19].addTo(map);
     });
     readJsonFile("assets/data/amazon/simplified_geo_LU_Suelo_desnudo.json", function (text) {
         let data = JSON.parse(text);
