@@ -2785,6 +2785,98 @@ div[data-type='sp'][data-sector='pampa'].selected {
   .checkbox-container input:checked ~ .checkmark {
     background-color: #2196F3;
   }
+
+  .checkbox-container input#check-agriculture:checked ~ .checkmark {
+    background-color: #cbde67;
+  }
+  .checkbox-container input#check-water:checked ~ .checkmark {
+    background-color: #004392;
+  }
+  
+  .checkbox-container input#check-swamp:checked ~ .checkmark {
+    background-color: #84a4ff;
+  }
+  
+  .checkbox-container input#check-floodable_forest:checked ~ .checkmark {
+    background-color: #0038a2;
+  }
+  
+  .checkbox-container input#check-mountain_forest:checked ~ .checkmark {
+    background-color: #e9cc40;
+  }
+  
+  .checkbox-container input#check-non_floodable_forest:checked ~ .checkmark {
+    background-color: #440b47;
+  }
+  
+  .checkbox-container input#check-unpaved_roads:checked ~ .checkmark {
+    background-color: #ab2e05;
+  }
+  
+  .checkbox-container input#check-paved_oads:checked ~ .checkmark {
+    background-color: #cf2f3b;
+  }
+  
+  .checkbox-container input#check-glacier:checked ~ .checkmark {
+    background-color: #c12e96;
+  }
+  
+  .checkbox-container input#check-pasture:checked ~ .checkmark {
+    background-color: #6d69ad;
+  }
+  
+  .checkbox-container input#check-wetland:checked ~ .checkmark {
+    background-color: #251469;
+  }
+  
+  .checkbox-container input#check-thicket:checked ~ .checkmark {
+    background-color: #8c003d;
+  }
+  
+  .checkbox-container input#check-mining:checked ~ .checkmark {
+    background-color: #ffa458;
+  }
+  
+  .checkbox-container input#check-andean_scrubland:checked ~ .checkmark {
+    background-color: #8c003d;
+  }
+  
+  .checkbox-container input#check-grass:checked ~ .checkmark {
+    background-color: #44d372;
+  }
+  
+  .checkbox-container input#check-agriculture_grass:checked ~ .checkmark {
+    background-color: #01e4ab;
+  }
+  
+  .checkbox-container input#check-pasture_grass:checked ~ .checkmark {
+    background-color: #3e5300;
+  }
+  
+  .checkbox-container input#check-rocky_ground:checked ~ .checkmark {
+    background-color: #701200;
+  }
+  
+  .checkbox-container input#check-savannah:checked ~ .checkmark {
+    background-color: #red;
+  }
+  
+  .checkbox-container input#check-wet_savannah:checked ~ .checkmark {
+    background-color: #ff5e71;
+  }
+  
+  .checkbox-container input#check-naked_land:checked ~ .checkmark {
+    background-color: #f188fb;
+  }
+  
+  .checkbox-container input#check-urban:checked ~ .checkmark {
+    background-color: #ff8ce5;
+  }
+  
+  .checkbox-container input#check-secondary_vegetation:checked ~ .checkmark {
+    background-color: #d77686;
+  }
+  
   
   /* Create the checkmark/indicator (hidden when not checked) */
   .checkmark:after {
