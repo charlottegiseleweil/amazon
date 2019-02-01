@@ -20,8 +20,8 @@ let COLORS_Files = { // Dictionary to select the color of the map
     Pasto_Herbazal: "#01e4ab", // verde
     Pasto: "#3e5300", // verde
     Pedregales: "#701200", // cafe
-    Sabana_humedales: "#ff5e71", // rojo
-    Suelo_desnudo: "#f188fb", // rosado
+    Sabana_humedales: "#f188fb", // rojo
+    Suelo_desnudo: "#ff5e71", // rosado
     Urbano: "#ff8ce5", // rosado
     Vegetacion_secundaria: "#d77686", // rosado
 }
@@ -410,14 +410,14 @@ function handleLayer_18(layer) { //Sabana_humedales: "#ff5e71", // rojo
     // console.log(layer);
   
       layer.setStyle({
-          color: "#ff5e71",
+          color: "#f188fb",
       });
 }
 function handleLayer_19(layer) { //Suelo_desnudo: "#f188fb", // rosado
     // console.log(layer);
   
       layer.setStyle({
-          color: "#f188fb",
+          color: "#ff5e71",ff5e71
       });
 }
 function handleLayer_20(layer) { //Urbano: "#ff8ce5", // rosado
