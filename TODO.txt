@@ -1,0 +1,5 @@
+TODO LiST
+-------------
+1. Estilos de los filtros -- mismos colores que los mapas
+2. Scroll back bonito
+3. Fix links of the top ! 
