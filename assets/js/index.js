@@ -33,7 +33,7 @@ window.onload = () => {
         [-59.450451, -109.47493] //Northeast
     ];
     map = new L.map("map", {
-        center: [-10.95, -69.59],
+        center: [-11.60, -69.59],
         zoom: 7,
         maxBounds: maxBounds,
         maxBoundsViscosity: 1.0,
@@ -43,7 +43,7 @@ window.onload = () => {
         attributionControl: false
     });
     const layerOptions = {
-        maxZoom: 13,
+        maxZoom: 12,
         minZoom: 5
     };
 
