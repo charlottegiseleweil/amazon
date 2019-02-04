@@ -2740,7 +2740,7 @@ div[data-type='sp'][data-sector='pampa'].selected {
 }
 
 #checkboxes-container {
-    visibility: hidden;
+    visibility: visible;
     position: absolute;
     max-height: 400px;
     overflow: auto;
@@ -2836,7 +2836,7 @@ div[data-type='sp'][data-sector='pampa'].selected {
     background-color: #B8050B;
   }
   
-  .checkbox-container input#check-paved_oads:checked ~ .checkmark {
+  .checkbox-container input#check-paved_roads:checked ~ .checkmark {
     background-color: #C31A1B;
   }
   
@@ -2926,3 +2926,98 @@ div[data-type='sp'][data-sector='pampa'].selected {
     transform: rotate(45deg);
   }
 
+  .square-tooltip {
+      width: 5px;
+      height: 5px;
+  }
+
+  .square-tooltip.agriculture {
+    background-color: #085E12;
+  }
+  .square-tooltip.water {
+    background-color: #04059A;
+  }
+  
+  .square-tooltip.swamp { 
+    background-color: #239C2B;
+  }
+  
+  .square-tooltip.floodable_forest {
+    background-color: #6870DE;
+  }
+  
+  .square-tooltip.mountain_forest {
+    background-color: #30BB37;
+  }
+  
+  .square-tooltip.non_floodable_forest {
+    background-color: #3EDA44;
+  }
+  
+  .square-tooltip.unpaved_roads {
+    background-color: #B8050B;
+  }
+  
+  .square-tooltip.paved_roads {
+    background-color: #C31A1B;
+  }
+  
+  .square-tooltip.glacier {
+    background-color: #1D1FAB;
+  }
+  
+  .square-tooltip.pasture {
+    background-color: #0E6D18;
+  }
+  
+  .square-tooltip.wetland {
+    background-color: #363ABC;
+  }
+  
+  .square-tooltip.thicket {
+    background-color: #6B4001;
+  }
+  
+  .square-tooltip.mining {
+    background-color: #000000;
+  }
+  
+  .square-tooltip.andean_scrubland {
+    background-color: #A16D26;
+  }
+  
+  .square-tooltip.grass {
+    background-color: #0E6D18;
+  }
+  
+  .square-tooltip.agriculture_grass {
+    background-color: #157D1E;
+  }
+  
+  .square-tooltip.pasture_grass {
+    background-color: #1C8C24;
+  }
+  
+  .square-tooltip.rocky_ground {
+    background-color: #F2B15F;
+  }
+  
+  .square-tooltip.savannah {
+    background-color: red;
+  }
+  
+  .square-tooltip.wet_savannah {
+    background-color: #4F55CD;
+  }
+  
+  .square-tooltip.naked_land {
+    background-color: #CF2F2C;
+  }
+  
+  .square-tooltip.urban {
+    background-color: #DA453D;
+  }
+  
+  .square-tooltip.secondary_vegetation {
+    background-color: #4CFA51;
+  }

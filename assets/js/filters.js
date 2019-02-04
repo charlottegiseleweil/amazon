@@ -1,6 +1,6 @@
 let n = 23;
 
-let array_load_files = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21', '22', '23'];
+let array_load_files = ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21', '22'];
 // array_load_files = Array(n).fill().map((e,i)=>'i+1');
 console.log(array_load_files);
 // topoLayer[1].addTo(map);
@@ -20,7 +20,7 @@ function setFilterEvents() {
     document.getElementById("check-mountain_forest").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-non_floodable_forest").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-unpaved_roads").addEventListener("click", handleCheckboxClick);
-    document.getElementById("check-paved_oads").addEventListener("click", handleCheckboxClick);
+    document.getElementById("check-paved_roads").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-glacier").addEventListener("click", handleCheckboxClick);
     // document.getElementById("check-pasture").addEventListener("click", handleCheckboxClick);
     document.getElementById("check-wetland").addEventListener("click", handleCheckboxClick);
@@ -56,8 +56,8 @@ function handleCheckboxClick(event) {
 
     // }
     // if (array_load_files.length < 6 && event.target.checked === true )
-    if (array_load_files.length < 23)
-    {
+    // if (array_load_files.length < 23)
+    // {
         if (array_load_files.indexOf(event.target.dataset.filter_id) > -1)
         { 
              console.log("Already exists!!!")
@@ -73,29 +73,29 @@ function handleCheckboxClick(event) {
             console.log("First Time adding! " + array_load_files)
             topoLayer[event.target.dataset.filter_id].addTo(map);
         }
-    }
-    else{
+    // }
+    // else{
 
-        if (array_load_files.indexOf(event.target.dataset.filter_id) > -1)
-        {
-            console.log("Already exists!!!")
-             map.removeLayer(topoLayer[event.target.dataset.filter_id]);
-             index_rem = array_load_files.indexOf(event.target.dataset.filter_id);
-             array_load_files.splice(index_rem, 1);
-            //  document.querySelectorAll("[data-filter_id='"+ event.target.dataset.filter_id +"']")[0].checked = false;
-             console.log(array_load_files)
-        }
-        else
-        {
-            out = array_load_files.shift();
-            document.querySelectorAll("[data-filter_id='"+ out +"']")[0].checked = false;
-            map.removeLayer(topoLayer[out]);
-            array_load_files.push(event.target.dataset.filter_id);
-            topoLayer[event.target.dataset.filter_id].addTo(map); 
-            console.log(array_load_files)
-        }
+    //     if (array_load_files.indexOf(event.target.dataset.filter_id) > -1)
+    //     {
+    //         console.log("Already exists!!!")
+    //          map.removeLayer(topoLayer[event.target.dataset.filter_id]);
+    //          index_rem = array_load_files.indexOf(event.target.dataset.filter_id);
+    //          array_load_files.splice(index_rem, 1);
+    //         //  document.querySelectorAll("[data-filter_id='"+ event.target.dataset.filter_id +"']")[0].checked = false;
+    //          console.log(array_load_files)
+    //     }
+    //     else
+    //     {
+    //         out = array_load_files.shift();
+    //         document.querySelectorAll("[data-filter_id='"+ out +"']")[0].checked = false;
+    //         map.removeLayer(topoLayer[out]);
+    //         array_load_files.push(event.target.dataset.filter_id);
+    //         topoLayer[event.target.dataset.filter_id].addTo(map); 
+    //         console.log(array_load_files)
+    //     }
         
-    }
+    // }
 
 }
 
@@ -108,7 +108,7 @@ function handleLandUseButtonClick(event) {
             document.getElementById("checkboxes-container").style.visibility = "visible";
             break;
         default:
-            document.getElementById("checkboxes-container").style.visibility = "visible";
+            document.getElementById("checkboxes-container").style.visibility = "hidden";
             break;
     }
 }
