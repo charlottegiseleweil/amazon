@@ -2810,74 +2810,74 @@ div[data-type='sp'][data-sector='pampa'].selected {
   }
 
   .checkbox-container input#check-agriculture:checked ~ .checkmark {
-    background-color: #cbde67;
+    background-color: #085E12;
   }
   .checkbox-container input#check-water:checked ~ .checkmark {
-    background-color: #004392;
+    background-color: #04059A;
   }
   
-  .checkbox-container input#check-swamp:checked ~ .checkmark {
-    background-color: #84a4ff;
+  .checkbox-container input#check-swamp:checked ~ .checkmark { 
+    background-color: #239C2B;
   }
   
   .checkbox-container input#check-floodable_forest:checked ~ .checkmark {
-    background-color: #0038a2;
+    background-color: #6870DE;
   }
   
   .checkbox-container input#check-mountain_forest:checked ~ .checkmark {
-    background-color: #e9cc40;
+    background-color: #30BB37;
   }
   
   .checkbox-container input#check-non_floodable_forest:checked ~ .checkmark {
-    background-color: #440b47;
+    background-color: #3EDA44;
   }
   
   .checkbox-container input#check-unpaved_roads:checked ~ .checkmark {
-    background-color: #ab2e05;
+    background-color: #B8050B;
   }
   
   .checkbox-container input#check-paved_oads:checked ~ .checkmark {
-    background-color: #cf2f3b;
+    background-color: #C31A1B;
   }
   
   .checkbox-container input#check-glacier:checked ~ .checkmark {
-    background-color: #c12e96;
+    background-color: #1D1FAB;
   }
   
   .checkbox-container input#check-pasture:checked ~ .checkmark {
-    background-color: #6d69ad;
+    background-color: #0E6D18;
   }
   
   .checkbox-container input#check-wetland:checked ~ .checkmark {
-    background-color: #251469;
+    background-color: #363ABC;
   }
   
   .checkbox-container input#check-thicket:checked ~ .checkmark {
-    background-color: #8c003d;
+    background-color: #6B4001;
   }
   
   .checkbox-container input#check-mining:checked ~ .checkmark {
-    background-color: #ffa458;
+    background-color: #000000;
   }
   
   .checkbox-container input#check-andean_scrubland:checked ~ .checkmark {
-    background-color: #8c003d;
+    background-color: #A16D26;
   }
   
   .checkbox-container input#check-grass:checked ~ .checkmark {
-    background-color: #44d372;
+    background-color: #0E6D18;
   }
   
   .checkbox-container input#check-agriculture_grass:checked ~ .checkmark {
-    background-color: #01e4ab;
+    background-color: #157D1E;
   }
   
   .checkbox-container input#check-pasture_grass:checked ~ .checkmark {
-    background-color: #3e5300;
+    background-color: #1C8C24;
   }
   
   .checkbox-container input#check-rocky_ground:checked ~ .checkmark {
-    background-color: #701200;
+    background-color: #F2B15F;
   }
   
   .checkbox-container input#check-savannah:checked ~ .checkmark {
@@ -2885,19 +2885,19 @@ div[data-type='sp'][data-sector='pampa'].selected {
   }
   
   .checkbox-container input#check-wet_savannah:checked ~ .checkmark {
-    background-color: #f188fb;
+    background-color: #4F55CD;
   }
   
   .checkbox-container input#check-naked_land:checked ~ .checkmark {
-    background-color: #ff5e71;
+    background-color: #CF2F2C;
   }
   
   .checkbox-container input#check-urban:checked ~ .checkmark {
-    background-color: #ff8ce5;
+    background-color: #DA453D;
   }
   
   .checkbox-container input#check-secondary_vegetation:checked ~ .checkmark {
-    background-color: #d77686;
+    background-color: #4CFA51;
   }
   
   

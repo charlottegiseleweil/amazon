@@ -1,4 +1,8 @@
-let array_load_files = ['1', '12', '17'];
+let n = 23;
+
+let array_load_files = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21', '22', '23'];
+// array_load_files = Array(n).fill().map((e,i)=>'i+1');
+console.log(array_load_files);
 // topoLayer[1].addTo(map);
 // topoLayer[12].addTo(map);
 // topoLayer[17].addTo(map);
@@ -52,7 +56,7 @@ function handleCheckboxClick(event) {
 
     // }
     // if (array_load_files.length < 6 && event.target.checked === true )
-    if (array_load_files.length < 6)
+    if (array_load_files.length < 23)
     {
         if (array_load_files.indexOf(event.target.dataset.filter_id) > -1)
         { 

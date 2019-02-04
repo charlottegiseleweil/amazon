@@ -1,163 +1,184 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Amazonicos Pro-Agua</title>
 
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <title>Amazonicos Pro-Agua</title>
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/index.css" />
-        <link rel="stylesheet" href="assets/css/transitions.css" />
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css"
-        />
-        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
-        <script src="https://d3js.org/topojson.v3.min.js"></script>
-        <script src="assets/js/index.js"></script>
-        <script src="assets/js/helpers.js"></script>
-        <script src="assets/js/filters.js"></script>
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto"
-        />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="shortcut icon" href="#" />
-    </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/transitions.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/helpers.js"></script>
+    <script src="assets/js/filters.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
 
-    <body>
-        <!-- Navbar (sit on top) -->
-        <div class="w3-top">
-            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-                <a href="/" class="w3-bar-item w3-button"> <b>PRO-AGUA</b> </a>
-                <!-- Float links to the right. Hide them on small screens -->
-                <div class="w3-right w3-hide-small">
-                    <a href="/" class="w3-bar-item w3-button"> Land Use </a>
-                    <a href="/mining.html" class="w3-bar-item w3-button">
-                        Mining
-                    </a>
-                    <a href="about.html" class="w3-bar-item w3-button">About</a>
-                    <a href="help.html" class="w3-bar-item w3-button">Help</a>
-                </div>
+    <link rel="shortcut icon" href="#" />
+</head>
+
+<body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+            <a href="/" class="w3-bar-item w3-button"> <b>PRO-AGUA</b> </a>
+            <!-- Float links to the right. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+                <a href="/" class="w3-bar-item w3-button"> Land Use </a>
+                <a href="/mining.html" class="w3-bar-item w3-button">
+                    Mining
+                </a>
+                <a href="about.html" class="w3-bar-item w3-button">About</a>
+                <a href="help.html" class="w3-bar-item w3-button">Help</a>
             </div>
         </div>
+    </div>
 
-        <div id="main">
-            <div id="map"></div>
-            <div id="filters-container">
-                <div id="land-use-container">
+    <div id="main">
+        <div id="map"></div>
+        <div id="filters-container">
+            <div id="land-use-container">
                 <div id="land-use-button"><i class="fas fa-filter"></i>Land Use</div>
                 <div id="checkboxes-container">
                     <div class="column-left">
-                    <label class="checkbox-container">Agriculture
-                        <input id="check-agriculture" type="checkbox" data-filter_id="0">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Water
-                        <input id="check-water" type="checkbox" checked="true"  data-filter_id="1">                  
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">Swamp
-                        <input id="check-swamp" type="checkbox" data-filter_id="2">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Floodable Forest
-                        <input id="check-floodable_forest" type="checkbox" data-filter_id="3">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Mountain Forest
-                        <input id="check-mountain_forest" type="checkbox" data-filter_id="4">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Non-Floodable Forest
-                        <input id="check-non_floodable_forest" type="checkbox" data-filter_id="5">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Unpaved Roads
-                        <input id="check-unpaved_roads" type="checkbox" data-filter_id="6">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Paved Roads
-                        <input id="check-paved_oads" type="checkbox" data-filter_id="7">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Glacier
-                        <input id="check-glacier" type="checkbox" data-filter_id="8">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <!-- <label class="checkbox-container disabled">Pasture
+                        <label class="checkbox-container">Agriculture
+                            <input id="check-agriculture" type="checkbox" checked="true" data-filter_id="0">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Grass
+                            <input id="check-grass" type="checkbox" checked="true" data-filter_id="14">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Agriculture Grass
+                            <input id="check-agriculture_grass" type="checkbox" checked="true" data-filter_id="15">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Pasture Grass
+                            <input id="check-pasture_grass" type="checkbox" checked="true" data-filter_id="16">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Swamp
+                            <input id="check-swamp" type="checkbox" checked="true" data-filter_id="2">
+                            <span class="checkmark round"></span>
+                        </label>
+
+                        <label class="checkbox-container">Mountain Forest
+                            <input id="check-mountain_forest" type="checkbox" checked="true" data-filter_id="4">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Non-Floodable Forest
+                            <input id="check-non_floodable_forest" type="checkbox" checked="true" data-filter_id="5">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Secondary Vegetation
+                            <input id="check-secondary_vegetation" type="checkbox" checked="true" data-filter_id="22">
+                            <span class="checkmark round"></span>
+                        </label>
+
+
+
+                        <!-- <label class="checkbox-container disabled">Pasture
                         <input id="check-pasture" type="checkbox" data-filter_id="9">
                         <span class="checkmark round"></span>
                     </label> -->
-                    <label class="checkbox-container">Wetland
-                        <input id="check-wetland" type="checkbox" data-filter_id="10">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Thicket
-                        <input id="check-thicket" type="checkbox" data-filter_id="11">
-                        <span class="checkmark round"></span>
-                    </label>
+
+                        <label class="checkbox-container">Thicket
+                            <input id="check-thicket" type="checkbox" checked="true" data-filter_id="11">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Andean Scrubland
+                            <input id="check-andean_scrubland" type="checkbox" checked="true" data-filter_id="13">
+                            <span class="checkmark round"></span>
+                        </label>
+
+                        <label class="checkbox-container">Rocky Ground
+                            <input id="check-rocky_ground" type="checkbox" checked="true" data-filter_id="17">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
                     </div>
+
+
+
+
+
+
+
+
+
+
+
                     <div class="column-right">
-                    <label class="checkbox-container">Mining
-                        <input id="check-mining" type="checkbox" checked="true" data-filter_id="12">
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">Andean Scrubland
-                        <input id="check-andean_scrubland" type="checkbox" data-filter_id="13">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Grass
-                        <input id="check-grass" type="checkbox" data-filter_id="14">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Agriculture Grass
-                        <input id="check-agriculture_grass" type="checkbox" data-filter_id="15">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Pasture Grass
-                        <input id="check-pasture_grass" type="checkbox" data-filter_id="16">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Rocky Ground
-                        <input id="check-rocky_ground" type="checkbox" checked="true" data-filter_id="17">
-                        <input type="checkbox" >
-                        <span class="checkmark"></span>
-                    </label>
-                    <!-- <label class="checkbox-container disabled">Savannah
+                        <label class="checkbox-container">Water
+                            <input id="check-water" type="checkbox" checked="true" data-filter_id="1">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">Glacier
+                            <input id="check-glacier" type="checkbox" checked="true" data-filter_id="8">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Wetland
+                            <input id="check-wetland" type="checkbox" checked="true" data-filter_id="10">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Wet Savannah
+                            <input id="check-wet_savannah" type="checkbox" checked="true" data-filter_id="19">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Floodable Forest
+                            <input id="check-floodable_forest" type="checkbox" checked="true" data-filter_id="3">
+                            <span class="checkmark round"></span>
+                        </label>
+
+
+
+
+                        <label class="checkbox-container">Mining
+                            <input id="check-mining" type="checkbox" checked="true" data-filter_id="12">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <!-- <label class="checkbox-container disabled">Savannah
                         <input id="check-savannah" type="checkbox" data-filter_id="18">
                         <span class="checkmark round"></span>
                     </label> -->
-                    <label class="checkbox-container">Wet Savannah
-                        <input id="check-wet_savannah" type="checkbox" data-filter_id="19">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Naked Land
-                        <input id="check-naked_land" type="checkbox" data-filter_id="20">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Urban
-                        <input id="check-urban" type="checkbox" data-filter_id="21">
-                        <span class="checkmark round"></span>
-                    </label>
-                    <label class="checkbox-container">Secondary Vegetation
-                        <input id="check-secondary_vegetation" type="checkbox" data-filter_id="22">
-                        <span class="checkmark round"></span>
-                    </label>
+                        <label class="checkbox-container">Unpaved Roads
+                            <input id="check-unpaved_roads" type="checkbox" checked="true" data-filter_id="6">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Paved Roads
+                            <input id="check-paved_oads" type="checkbox" checked="true" data-filter_id="7">
+                            <span class="checkmark round"></span>
+                        </label>
+
+                        <label class="checkbox-container">Naked Land
+                            <input id="check-naked_land" type="checkbox" checked="true" data-filter_id="20">
+                            <span class="checkmark round"></span>
+                        </label>
+                        <label class="checkbox-container">Urban
+                            <input id="check-urban" type="checkbox" checked="true" data-filter_id="21">
+                            <span class="checkmark round"></span>
+                        </label>
+
+
+
                     </div>
-                </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
