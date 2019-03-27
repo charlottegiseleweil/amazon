@@ -1,22 +1,29 @@
-# Amazonic Rain Forest Mining Activity
+# Natural Capital en la Amazonia ~ Visualizador (prototipo)
+## The PRO-Agua project
 
-## Prerequites
-In order to start the http server, you will need to have python installed.
-Please follow the instuctions found in https://www.python.org/downloads/
+* Building a community of practice that includes decision-makers, researchers, students, and decision-
+makers, to achieve community-driven outcomes.
+* Advancing scientific knowledge and adapting models and software tools to local conditions and priorities.
+* Building a case for integrated watershed planning, by linking land management to water and other benefits that nature provides for people.
+* Empowering decision makers who influence land use planning: leaders, practitioners, technical staff, and students.
 
-To run preprocessing scripts you need to have PyShp, geojson, transform, MapShaper 
-and topojson installed
 
-You can follow the instructions on each github page:
+## El Proyecto PRO-Agua
+El Proyecto PRO-Agua tiene las siguientes metas compartidas:
 
+* Construir una comunidad de práctica que incluye tomadores de decisión, investigadores, estudiantes y
+representantes de la comunidad para lograr resultados relevantes para la gente local.
+* Avanzar en el conocimiento científico adaptando herramientas para las condiciones y prioridades locales.
+* Construir un caso para la planificación integrada de cuencas, al conectar el manejo del suelo con agua y otros beneficios que tiene la naturaleza para la gente.
+* Empoderar a los tomadores de decisión que influyen en el ordenamiento territorial: líderes, personal técnico, estudiantes y otros actores clave.
+
+## Preprocessing scripts you need to have PyShp, geojson, transform, MapShaper 
  - PyShp : https://github.com/GeospatialPython/pyshp
  - GeoJson : https://github.com/frewsxcv/python-geojson
  - PyProj : https://github.com/jswhit/pyproj 
  - MapShaper : https://github.com/mbloch/mapshaper
  - TopoJSON : https://github.com/topojson/topojson
 
-## Preprocessing
-To run preprocessing scripts first you have to run the following commands:
 ```bash
 python preprocessing.py
 ```
@@ -25,42 +32,3 @@ Then to simplify the spatial file an convert it to TopoJSON execute:
 ```bash
 sh topojson.sh
 ```
-
-## Starting the http server
-You can start the http server by running the `start.sh` script.
-In a console opened at the directory of the project files, run the following command
-```bash
-bash start.sh
-```
-
-Now open your web browser (preferably Google Chrome with a resolution of 1920x108p) 
-and in the address bar enter: `localhost:8000`.
-
-
-
-## Map Interactions
-
-Use the buttons to filter mining activity data by mining type Mining activity has two types:
-
-- Suction Pumps
-- Heavy Machinery
-
-Each mining type has its own group of sectors which can be:
-
-- Delta
-- Huepetuhe
-- Small Mines
-- Pampa
-
-Those will be displayed as buttons above its mining type, try to use them to filter the map! Each combination of type and sector is using a different color for a better visualization.
-
-Alongside this buttons, a slider is presented to display the evolution of mining types and sectors across the years Data available is from 1985 to 2017, slider uses 8 years interval to show map layers.
-
-At the right side there is a storytelling content element where the user can scroll and watch the major insight of each interval. There are also a few animations and visualization charts linking maps with the storytelling, to make it easier to understand for any user.
-
-## Contact
-
-For any question or further information do not hesitate to contact us by our emails:
-- Ariel Alba: ariel.albarios@epfl.ch
-- Andrés Montero: andres.monterocassab@epfl.ch
-- Elias Poroma: elias.poromawiri@epfl.ch
