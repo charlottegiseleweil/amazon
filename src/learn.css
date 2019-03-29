@@ -1,0 +1,10 @@
+.hide-child .child {
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+}
+.hide-child:active .child,
+.hide-child:focus .child,
+.hide-child:hover .child {
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
+}
