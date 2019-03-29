@@ -1,0 +1,1447 @@
+@font-face {
+  font-family: ourFont;
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.box-container {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  background: #696969 radial-gradient(circle at 37% center, #494949 36%, #3A3A3A 42%, black 61%, black 91%) repeat scroll 0% 0%
+  /* background: radial-gradient(circle at 37%, rgb(236, 246, 255) 36%, rgb(228, 255, 255) 42%, rgb(215, 254, 255) 49%, rgb(204, 245, 255) 56%, rgb(191, 234, 255) 63%, rgb(147, 193, 227) 70%, rgb(147, 193, 227) 77%, rgb(147, 193, 227) 84%, rgb(81, 119, 164) 91%); */
+}
+
+.title-container {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: rgb(247, 246, 241);
+}
+
+.title-container2 {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(247, 246, 241);
+}
+
+#map-name-1 {
+  display: none;
+  font-family: ourFont;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  transform: translate(5vw, -1vh);
+  margin: 0;
+  padding: 0;
+  z-index: 100000;
+  margin-bottom: -1vh;
+}
+
+.box {
+  text-align: center;
+  color: gray;
+  font-family: ourFont;
+  font-size: 3.6vh;
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.legendThreshold {
+  fill: white;
+  font-size: 40%;
+  font-family: sans-serif;
+}
+
+.feature.active {
+  fill: #484D60;
+}
+
+.mesh {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.country {
+  stroke: #fff;
+}
+
+.caption {
+  fill: white;
+  font-weight: bold;
+}
+
+line {
+  stroke: tomato;
+  stroke-width: 0.4vh;
+}
+
+.box.box-3-header {
+  text-align: center;
+  font-size: 2vh;
+}
+
+#box-3-header {
+  margin-top: 7vh;
+  font-size: 2.8vh;
+}
+
+input {
+  cursor: pointer;
+}
+
+#box-3-header-2 {
+  text-align: center;
+  margin-top: -1vh;
+  font-size: 2.5vh;
+}
+
+#box-3-sub-header {
+  text-align: left;
+  font-size: 2vh;
+}
+
+#text-box {
+  text-align: left;
+  font-size: 1.5vh;
+}
+
+.box-1 {
+  width: 8%;
+  box-sizing: border-box;
+}
+
+/* For the maps and slider  */
+
+.map1 {
+  grid-area: 'map1';
+  pointer-events: all;
+}
+
+.map-diff-line {
+  grid-area: 'map-diff-line';
+  margin: 0 auto;
+  padding: 0;
+  width: 0%;
+  background-color: #ccc;
+}
+
+.map2 {
+  grid-area: 'map2';
+  pointer-events: all;
+}
+
+.map-slider {
+  z-index: 1000;
+  grid-area: 'map-slider';
+  display: block;
+}
+
+.box-3 {
+  background-color: white;
+  width: 30%;
+  font-size: 1vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.description_text {
+  font-family: ourFont, sans-serif;
+  font-size: 2vh;
+}
+
+.box-small {
+  font-size: 1.7vh;
+  background-color: white;
+  flex-direction: column;
+  margin-top: 2vh;
+  margin-left: -2vh;
+}
+
+.box-small2 {
+  font-size: 1.7vh;
+  background-color: white;
+  flex-direction: column;
+  margin-top: -2vh;
+  margin-left: -2vh;
+  display: flex;
+  flex-flow: row wrap;
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+}
+
+img {
+  opacity: 0.85;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 7vh;
+  font-weight: bold;
+  font-family: "ourFont", sans-serif;
+  text-shadow: black 0vh 0vh 2vh;
+}
+
+.topleft {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 40%;
+  width: auto;
+}
+
+.quote-container {
+  height: 36%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+.h1_page {
+  color: rgb(0, 0, 0);
+  font-family: 'ourFont', sans-serif;
+  font-size: 5vh;
+  font-weight: bold;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
+.h2_page {
+  font-family: ourFont;
+  font-size: 4vh;
+  font-weight: bold;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+  color: black;
+}
+
+.p_page1 {
+  color: #222;
+  font-family: ourFont;
+  font-weight: 400;
+  font-size: 3vh;
+  line-height: 4vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: -0.7vh;
+  text-align: center;
+}
+
+.p_page2 {
+  color: #222;
+  font-family: ourFont;
+  font-weight: 400;
+  font-size: 2.4vh;
+  line-height: 3vh;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.column {
+  float: left;
+  width: 31.5%;
+  height: 2vh;
+  padding: 1vh;
+}
+
+.switch_3_ways {
+  margin: auto;
+  margin-top: 0%;
+  margin-bottom: 2%;
+  font-size: 2.2vh;
+  font-family: ourFont;
+  height: 3.1vh;
+  border-radius: 0.5em;
+  background: #ccc;
+  position: relative;
+  display: block;
+  float: left;
+}
+
+.switch.ssp1, .switch.ssp3, .switch.ssp5 {
+  cursor: pointer;
+  display: block;
+  float: left;
+  -webkit-transition: 300ms ease-out;
+  -moz-transition: 300ms ease-out;
+  transition: 300ms ease-out;
+  padding: 0 1em;
+}
+
+.selector {
+  text-align: center;
+  position: absolute;
+  width: 0;
+  box-sizing: border-box;
+  -webkit-transition: 300ms ease-out;
+  -moz-transition: 300ms ease-out;
+  transition: 300ms ease-out;
+  border-radius: 0.3em;
+  color: white;
+  width: 2vh;
+  -moz-box-shadow: 0vh 0.2vh 1.3vh 0vh #9b9b9b;
+  -webkit-box-shadow: 0vh 0.2vh 1.3vh 0vh #9b9b9b;
+  -o-box-shadow: 0vh 0.2vh 1.3vh 0vh #9b9b9b;
+  box-shadow: 0vh 0.2vh 1.3vh 0vh #9b9b9b;
+  left: 0;
+  background-color: #777777;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color=#9b9b9b, Direction=180, Strength=13);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 6vh;
+  height: 3.5vh;
+  margin-bottom: 2vh;
+  display: flex;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* for the popup window */
+
+.grad1 {
+  background-color: #2c3e50;
+  /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom, #2c3e50, #3498db);
+  /* Standard syntax (must be last) */
+  opacity: 0.9;
+}
+
+#ac-wrapper {
+  position: fixed;
+  z-index: 10000 !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#popup {
+  border-radius: 1.8vh;
+  -moz-border-radius: 1.8vh;
+  -webkit-border-radius: 1.8vh;
+  height: 47vh;
+  width: 50vw;
+  margin: 0;
+  position: absolute;
+  top: 50vh;
+  -ms-transform: translateY(-50%) translateX(50%);
+  transform: translateY(-50%) translateX(50%);
+}
+
+#popup-medium {
+  border-radius: 1.8vh;
+  -moz-border-radius: 1.8vh;
+  -webkit-border-radius: 1.8vh;
+  height: 33vh;
+  width: 50vw;
+  margin: 0;
+  position: absolute;
+  top: 50vh;
+  -ms-transform: translateY(-50%) translateX(50%);
+  transform: translateY(-50%) translateX(50%);
+}
+
+#popup-small {
+  border-radius: 1.8vh;
+  -moz-border-radius: 1.8vh;
+  -webkit-border-radius: 1.8vh;
+  height: 18vh;
+  width: 50vw;
+  margin: 0;
+  position: absolute;
+  top: 50vh;
+  -ms-transform: translateY(-50%) translateX(50%);
+  transform: translateY(-50%) translateX(50%);
+}
+
+#title_2d_change {
+  font-size: 2.5vh;
+}
+
+.h2_popup {
+  color: rgb(247, 246, 241);
+  font-family: 'ourFont', sans-serif;
+  font-size: 4vh;
+  font-weight: bold;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
+.p_popup {
+  color: white;
+  font-family: ourFont;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 110%;
+  text-align: left;
+}
+
+.parent-button-div {
+  width: 3%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.button-title {
+  width: 3vw;
+  transform: translateY(550%) rotate(-90deg);
+  font-size: 1.15vw;
+  font-family: ourFont;
+  margin: 0vh;
+  color: black;
+}
+
+.data-link {
+  color: white;
+  text-decoration: none;
+}
+
+.plot-point:hover {
+  fill: orangered;
+}
+
+.folate-button:hover {
+  box-shadow: 1vh 1vh 5vh rgba(33, 33, 33, .7);
+}
+
+.vitamin-button:hover {
+  box-shadow: 1vh 1vh 5vh rgba(33, 33, 33, .7);
+}
+
+.energy-button:hover {
+  box-shadow: 1vh 1vh 5vh rgba(33, 33, 33, .7);
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+.info-button {
+  width: 6vh;
+  height: 3vh;
+  margin-bottom: 2vh;
+}
+
+.switch-proj {
+  position: relative;
+  display: inline-block;
+  width: 6vh;
+  height: 3.4vh;
+  margin-bottom: 2vh;
+  display: flex;
+}
+
+.info-button:hover {
+  background-color: white;
+}
+
+.globe-button:hover {
+  background-color: white;
+}
+
+.map-button {
+  width: 6vh;
+  height: 4vh;
+  margin-left: 0.1vh;
+}
+
+.globe-button {
+  width: 6vh;
+  height: 4vh;
+}
+
+.map-button:hover {
+  background-color: white;
+}
+
+.graph2d {
+  margin-left: -1.5vw;
+}
+
+.nav-bar {
+  border-bottom: 0.2vh solid rgba(0, 0, 0, 0.25);
+  color: gray;
+  margin-top: 1vh;
+  margin-bottom: 0vh;
+}
+
+.nav-bar-white {
+  border-bottom: 0.2vh solid rgba(255, 255, 255, 0.25);
+  margin-top: 1vh;
+  margin-bottom: 0vh;
+}
+
+.nav-bar-hidden {
+  border-bottom: 0.2vh solid rgba(0, 0, 0, 0.25);
+  color: gray;
+  margin-top: 1vh;
+  margin-bottom: 0vh;
+}
+
+.ver-bar {
+  border-left: 0.3vh solid rgba(0, 0, 0, 0.25);
+  height: 30vh;
+  margin-left: -2vh;
+  top: 0;
+}
+
+#box_population {
+  flex-basis: 33%;
+  margin-right: 5vh;
+}
+
+#box_production {
+  flex-basis: 33%;
+}
+
+.docsChart {
+  font-size: 2.5vh;
+  fill: #5B8BE3;
+  font-family: ourFont, sans-serif;
+}
+
+.docsChart2 {
+  font-size: 2.5vh;
+  fill: #5B8BE3;
+  font-family: ourFont, sans-serif;
+}
+
+.box_unmet {
+  flex-basis: 11vw;
+}
+
+.box_contribution {
+  flex-basis: 11vw;
+}
+
+.small-title {
+  margin-left: -2vh;
+  margin-top: 4vh;
+}
+
+.axis path, .line2 {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1.7;
+}
+
+.legend {
+  font-size: 1.9vh;
+  font-weight: bold;
+  text-anchor: middle;
+}
+
+.graph {
+  margin-left: -1.3vw;
+}
+
+.svg_graph {
+  width: 29vw;
+  height: 30vh;
+}
+
+.percentage {
+  width: 10vw;
+}
+
+#limit {
+  stroke: #FED966;
+  stroke-width: 3;
+  stroke-dasharray: 3 6;
+}
+
+#story {
+  font-size: 1vw;
+}
+
+#story-text {
+  font-size: 1.3vw;
+}
+
+.img-story {
+  margin-top: 1vh;
+  width: 108%;
+  margin-left: -1.1vw;
+  margin-bottom: 1vh;
+}
+
+.img-story2 {
+  margin-top: 1vh;
+  width: 110%;
+  height: 22%;
+  margin-left: -1.1vw;
+  margin-bottom: 1vh;
+}
+
+.bar {
+  fill: #80cbc4;
+}
+
+.divergence {
+  font-size: 1.15em;
+  fill: #fff;
+}
+
+.value {
+  font-size: 1.5em;
+  fill: #fff;
+}
+
+.labelGraph {
+  margin-top: -5vh;
+}
+
+.labelGraphY {
+  transform: rotate(-90deg);
+  margin-top: -16.3vh;
+  margin-left: -26.5vw;
+}
+
+#box-3-global-header {
+  font-size: 3vh;
+  color: white;
+  font-family: ourFont;
+  font-weight: bold;
+}
+
+#box-3-global-text {
+  font-size: 1.7em;
+  font-family: ourFont;
+  color: white;
+  padding: 2vh;
+  font-weight: bold;
+}
+
+#box-3-global-text-link {
+  font-size: 1.7vh;
+  font-family: ourFont;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.box-2 {
+  width: 62%;
+  /* box-sizing: border-box; */
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.box-2-global {
+  width: 72%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.map-title {
+  /*transform: translateY(5vh);*/
+  font-size: 1.5em;
+  font-family: ourFont;
+  color: white;
+  z-index: 1000;
+}
+
+.box-1-global {
+  width: 0%;
+  box-sizing: border-box;
+}
+
+.box-3-global {
+  background-color: rgb(0, 0, 0);
+  width: 30%;
+  font-size: 0.9vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-bottom: 2vh;
+}
+
+.label2DLegendX {
+  font-size: 0.33em;
+  margin-top: 0.7vh;
+  color: white;
+  font-family: ourFont;
+}
+
+.title2DLegend {
+  font-family: ourFont;
+  color: white;
+  font-size: 0.5em;
+}
+
+.label2DLegendY {
+  font-size: 0.33em;
+  margin-top: -8.5vh;
+  margin-left: -8vw;
+  color: white;
+  transform: rotate(-90deg);
+  font-family: ourFont;
+}
+
+span {
+  content: "\2192";
+  color: white;
+  transform: translate(0.5vw, 6.7vh);
+}
+
+.back-button {
+  transform: translateY(-25vh);
+  width: 6vh;
+  height: 3vh;
+}
+
+/*style wrapper to give some space*/
+
+.wrapper {
+  position: relative;
+  margin-bottom: -2vh;
+}
+
+/*style label to give some more space*/
+
+.wrapper label {
+  display: block;
+  padding: 0vw 0vw 0vw 2.5vw;
+}
+
+/*style and hide original checkbox*/
+
+.wrapper input {
+  height: 10vh;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 10vw;
+}
+
+/*position new box*/
+
+.wrapper input+label::before {
+  border: 2px solid;
+  content: "";
+  height: 4.3vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 2.5vw;
+}
+
+/*create check symbol with pseudo element*/
+
+.wrapper input+label::after {
+  content: "";
+  border: 0.5vh solid;
+  border-left: 0;
+  border-top: 0;
+  height: 2.5vh;
+  left: 0.9vw;
+  opacity: 0;
+  position: absolute;
+  top: 0.5vh;
+  transform: rotate(45deg);
+  transition: opacity 0.2s ease-in-out;
+  width: 0.7vw;
+}
+
+/*reveal check for 'on' state*/
+
+.wrapper input:checked+label::after {
+  opacity: 1;
+}
+
+.about-button {
+  background-color: rgb(0, 0, 0);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ourFont;
+  font-size: 0.55em;
+  font-weight: bold;
+  padding: 0.5vh 2vh;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 7vh;
+}
+
+.about-button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+  background: -moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+  background: -webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+  background: -o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+  background: -ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+  background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef', GradientType=0);
+  background-color: #019ad2;
+}
+
+.about-button:active {
+  position: relative;
+  top: 0.2vh;
+}
+
+span2 {
+  content: "\2191";
+  margin-left: -6vw;
+  transform: translate(-0.5vw, 1.3vh);
+}
+
+/* THIS CSS PART IS FOR REPLACING THE SLIDER IN 2D */
+
+#radios {
+  position: relative;
+  z-index: 5;
+  width: 17%;
+  height: 5%;
+  display: none;
+  margin-left: -50%;
+  /* transform: translateX(-20vw); */
+  justify-content: space-between;
+}
+
+/* input {
+  transform: translateY(8vh);
+} */
+
+#bckgrnd, .labels {
+  width: 3vw;
+  height: 2.77vh;
+  font-family: ourFont;
+  font-size: 2vh;
+  display: block;
+  margin-right: -3px;
+  cursor: pointer;
+  /*outline: 1px solid black;*/
+  z-index: 2;
+}
+
+#bckgrnd {
+  background-color: #40e0d0;
+  position: absolute;
+  left: 0.87vh;
+  top: 1.7vh;
+  z-index: -1;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  width: 18%;
+  height: 18%;
+  top: 80vh;
+  left: 8vh;
+  right: 0;
+  bottom: 0;
+  /*background-color: rgba(0,0,0,0.5);*/
+  z-index: 2;
+  cursor: pointer;
+}
+
+.overlay2 {
+  position: fixed;
+  display: none;
+  width: 18%;
+  height: 18%;
+  top: 80vh;
+  left: 8vh;
+  right: 0;
+  bottom: 0;
+  /*background-color: rgba(0,0,0,0.5);*/
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* THIS IS FOR ANIMATION WHEN YOU CHANGE THE OPTION */
+
+#rad1:checked~#bckgrnd {
+  transform: translateX(0vw);
+  transition: transform 0.5s ease-in-out;
+}
+
+#rad2:checked~#bckgrnd {
+  transform: translateX(3.2vw);
+  transition: transform 0.5s ease-in-out;
+}
+
+#rad3:checked~#bckgrnd {
+  transform: translateX(6.5vw);
+  transition: transform 0.5s ease-in-out;
+}
+
+.img-legend {
+  /*transform:translate(0.5vw, 20vh);*/
+  width: 29%;
+  height: 80%;
+  opacity: 2
+}
+
+@keyframes click-wave {
+  0% {
+    height: 6vh;
+    width: 6vh;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 30vh;
+    width: 15vw;
+    margin-left: -12vh;
+    margin-top: -6vw;
+    opacity: 0;
+  }
+}
+
+#options-radios {
+  font-size: 2vh;
+  display: grid;
+  text-align: initial;
+  margin-top: -4.8vh;
+  transform: translate(-3vw, 10vh);
+  color: white;
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  top: 1vh;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3.15vh;
+  width: 3.15vh;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+  font-size: 10px;
+}
+
+.option-input:hover {
+  background: #9faab7;
+}
+
+.option-input:checked {
+  background: #40e0d0;
+}
+
+.option-input:checked::before {
+  height: 3.15vh;
+  width: 3.15vh;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 2.85vh;
+  text-align: center;
+  line-height: 3.15vh;
+}
+
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.option-input.radio {
+  border-radius: 50%;
+}
+
+.option-input.radio::after {
+  border-radius: 50%;
+}
+
+#container {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  display: none;
+  margin-bottom: -3.5vh;
+}
+
+/*#container-2D {
+  display: flex;
+  width: 100%;
+  height: 5%;
+  background-color: black;
+  display: none;
+}*/
+
+.container-column {
+  /*background-color: blue;*/
+  width: 25%;
+  z-index: 1000;
+  height: 100%;
+  float: left;
+  color: black;
+  font-size: 2vh;
+}
+
+/*.container-column-2D {
+  width: 25%;
+  z-index: 1000;
+  height: 100%;
+  float: left;
+  color: black;
+  font-size: 2vh;
+}
+
+*/
+
+.container-column:hover {
+  background-color: #40e0d0;
+}
+
+.active-btn {
+  background-color: #0070BB;
+}
+
+.nature-help-button {
+  background-color: #000000;
+  border: 1px solid #8c8c8c;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ourFont;
+  font-size: 0.75em;
+  padding: 0.3vh 1vw;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #090a09;
+  width: 50%;
+  margin-bottom: 2vh;
+  transform: translateX(-27vh);
+}
+
+.nature-help-button:active {
+  background-color: #000000;
+}
+
+.risk-button {
+  background-color: #9c9c9c;
+  border: 1px solid #8c8c8c;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ourFont;
+  font-size: 0.75em;
+  padding: 0.3vh 2vw;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #090a09;
+  transform: translate(15.2vw, -7.1vh);
+}
+
+.risk-button:active {
+  position: relative;
+  background-color: #000000;
+}
+
+.future-button {
+  background-color: #000000;
+  border: 1px solid #8c8c8c;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ourFont;
+  font-size: 0.55em;
+  padding: 5px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #090a09;
+}
+
+.future-button:active {
+  position: relative;
+}
+
+.impact-button {
+  background-color: #9c9c9c;
+  border: 1px solid #8c8c8c;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ourFont;
+  font-size: 0.55em;
+  padding: 5px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #090a09;
+}
+
+.impact-button:active {
+  position: relative;
+}
+
+.historical-button {
+  background-color: #9c9c9c;
+  border: 1px solid #8c8c8c;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ourFont;
+  font-size: 0.55em;
+  padding: 5px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #090a09;
+}
+
+.historical-button:active {
+  position: relative;
+}
+
+.modeling-button {
+  background-color: #9c9c9c;
+  border: 1px solid #8c8c8c;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: ourFont;
+  font-size: 0.55em;
+  padding: 5px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #090a09;
+}
+
+.modeling-button:active {
+  position: relative;
+}
+
+.metric-button {
+  background-color: #000000;
+  border: 0.1vh solid #000000;
+  display: inline-block;
+  cursor: auto;
+  color: #fcfcfc;
+  font-family: ourFont;
+  font-size: 0.75em;
+  padding: 5px 20px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #000000;
+  transform: translateY(-13vh);
+}
+
+.site-navigation {
+  display: block;
+  font-family: ourFont;
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-left: 4vw;
+  margin-top: -10vh;
+  /* transform: translate(6vw, -8.5vh); */
+}
+
+.site-navigation ul {
+  background: #000000;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.site-navigation li {
+  color: #fff;
+  background: #000000;
+  display: block;
+  float: left;
+  margin: 0 0.5vw 0 0;
+  padding: 1.1vw;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-navigation li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.site-navigation li:hover {
+  @include transition(background, 0.1s);
+  background: #52a6df;
+  cursor: pointer;
+}
+
+.site-navigation ul li ul {
+  background: #52a6df;
+  visibility: hidden;
+  float: left;
+  min-width: 3vw;
+  position: absolute;
+  transition: visibility 0.65s ease-in;
+  margin-top: 12px;
+  left: 0;
+  z-index: 999;
+}
+
+.site-navigation ul li:hover>ul, .site-navigation ul li ul:hover {
+  visibility: visible;
+}
+
+.site-navigation ul li ul li {
+  clear: both;
+  padding: 5px 0 5px 18px;
+  width: 100%;
+}
+
+.site-navigation ul li ul li:hover {
+  background: #74b7e4;
+}
+
+/* This class is applied to the containing div <div class="nav"> and is used to set the background color and height of the navbar */
+
+.nav {
+  font-family: ourFont;
+  background-color: black;
+  width: 100%;
+}
+
+/* This rule centers the nav items verticaly in the bar with the height and line height properties. Spacing between the nav items is controlled by setting right and left padding.  */
+
+.nav li {
+  display: inline-block;
+  list-style: none;
+  top: 4vh;
+  line-height: 4vh;
+  /* should be the same as height */
+  padding: 0 3.2vw;
+  /* "0" sets top and bottom padding to none */
+}
+
+/* :hover allows you change the background color of the nav items when you mouse over them. Play around with the transition value to change the speed of the hover transition. */
+
+.nav li:hover {
+  /* color: "black"; */
+  transition: background .2s;
+}
+
+/* This rule is applied to the link <a> tag. It lets you turn off the link underline and set the link text color. */
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-global {
+  font-family: ourFont;
+  background-color: black;
+  width: 100%;
+  font-size: 1.315em;
+  text-decoration: none;
+}
+
+/* This rule centers the nav items verticaly in the bar with the height and line height properties. Spacing between the nav items is controlled by setting right and left padding.  */
+
+.nav-global li {
+  display: inline-block;
+  list-style: none;
+  top: 4vh;
+  line-height: 4vh;
+  /* should be the same as height */
+  padding: 0 5.5vw;
+  /* "0" sets top and bottom padding to none */
+  text-decoration: none;
+}
+
+/* :hover allows you change the background color of the nav items when you mouse over them. Play around with the transition value to change the speed of the hover transition. */
+
+.nav-global li:hover {
+  /* background: black; */
+  transition: background .2s;
+  text-decoration: none;
+}
+
+/* This rule is applied to the link <a> tag. It lets you turn off the link underline and set the link text color. */
+
+.menu-box-1-global {
+  /* transform: translate(-2.4vw, -3.5vh); */
+  position: absolute;
+  width: 102.4vw;
+  z-index: 10000;
+  /*float:left;*/
+}
+
+.menu-box-1 {
+  padding: 0.7vw 0vh;
+  margin-left: -2.4vw;
+  margin-top: -3.4vh;
+  position: fixed;
+  width: 102.4vw;
+  z-index: 10000;
+  /*float:left;*/
+}
+
+.year-text-2015 {
+  color: white;
+  font-family: ourFont;
+  position: fixed;
+  font-size: 1.7em;
+  top: 3vh;
+  left: 2.5vw;
+  z-index: 1000000;
+}
+
+.year-text-2050 {
+  color: white;
+  font-family: ourFont;
+  position: absolute;
+  font-size: 1.7em;
+  top: 50vh;
+  left: 2.5vw;
+  z-index: 1000000;
+}
+
+.pop-up-big {
+  background-color: black;
+  overflow: scroll;
+  border-radius: 1.8vh;
+  margin: 3%;
+  opacity: 0.97;
+  background-color: lightgrey;
+  position: absolute;
+  display: inline;
+  z-index: 90000000000;
+}
+
+.close-btn {
+  position: absolute;
+  right: 22px;
+  top: 0px;
+  font-size: 90px;
+  background-color: transparent;
+  border: transparent;
+  color: black;
+}
+
+.close-btn:hover {
+  color: grey;
+}
+
+a:hover {
+  color: darkgrey;
+}
+
+.darkgrey {
+  color: darkgrey;
+  font-size: 300%;
+}
+
+span1 {
+  margin-top: -10vh;
+}
+
+span3 {
+  display: block;
+}
+
+.loader {
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -50px 0 0 -50px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add animation to "page content" */
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0
+  }
+  to {
+    bottom: 0px;
+    opacity: 1
+  }
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0
+  }
+  to {
+    bottom: 0;
+    opacity: 1
+  }
+}
