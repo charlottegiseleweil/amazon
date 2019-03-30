@@ -11,6 +11,8 @@ export const link = ({
   style = [],
   _baseStyle = base_class
 }) => {
+  console.log(!!onClick);
+
   return html`
     <a
       href="#"
