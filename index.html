@@ -48,69 +48,14 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto"
     />
-
+    <link rel="stylesheet" href="./tachyons.min.css" />
+    <link rel="stylesheet" href="./src/dropdown.css" />
     <link rel="shortcut icon" href="#" />
   </head>
 
   <body>
     <!-- Menu Navbar -->
-    <div class="w3-top">
-      <div class="nav-global w3-bar w3-theme-d2 w3-left-align">
-        <a
-          href="#"
-          class="nav-link w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link"
-          onclick="load_global()"
-          >Home</a
-        >
-        <a
-          href="#"
-          class="nav-link w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link 2015-tab"
-          onclick="projection2D()"
-          >Reforestación de la Pampa</a
-        >
-        <a
-          href="../viz_risk/poll_pop.html"
-          class="nav-link w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link"
-          >Desarollo futuro</a
-        >
-
-        <button
-          onclick="myFunction()"
-          class="dropdown nav-link w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link"
-        >
-          Desarollo futuro
-        </button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">Region de Puerto Maldonado</a>
-          <a href="#">Region de Tahamanu-Cobija</a>
-        </div>
-
-        <a
-          href="Pollination_historical.html"
-          class="nav-link w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link"
-          onclick="projection3D()"
-          >Servicios ecosistemicos area MAP</a
-        >
-        <a
-          href="methods_polli.html"
-          class="nav-link w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link"
-          >Todo el basin Amazonico</a
-        >
-
-        <a
-          href="#"
-          class="nav-link w3-right w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link"
-          onclick="showNow()"
-          >&#9432;</a
-        >
-        <a
-          href="#"
-          class="nav-link w3-right w3-bar-item w3-button w3-hide-small w3-hover-grey nav-link"
-          onclick="showAbout()"
-          >About</a
-        >
-      </div>
-    </div>
+    <div class="w3-top" id="navbar"></div>
     <!-- End Menu Navbar -->
 
     <div id="main">
@@ -356,5 +301,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="src/navbar.lit.js"></script>
   </body>
 </html>
