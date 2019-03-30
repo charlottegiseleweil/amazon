@@ -1,3 +1,8 @@
+const load_global = () => console.log("load_global");
+const projection2D = () => console.log("projection2D");
+const goto = arg => () => console.log("gotoing ", arg);
+const show = arg => () => console.log("showing ", arg);
+
 export const navbar = [
   { title: "Home", onclick: load_global },
   { title: "Reforestación de la Pampa", onclick: projection2D },

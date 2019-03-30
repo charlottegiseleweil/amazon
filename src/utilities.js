@@ -3,5 +3,8 @@ export const killDefault = fx => e => {
   return fx(e);
 };
 
-export const classFromProps = ({ style, _baseStyle }) =>
-  `class="${(_baseStyle + style).join(" ")}"`;
+export const classFromProps = ({ style = [], _baseStyle = [] }) =>
+  _baseStyle.concat(style).reduce((agg, cur) => {
+    agg[cur] = true;
+    return agg;
+  }, {});

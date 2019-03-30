@@ -22,11 +22,11 @@ const title_filter = [
   ["Urban", "21"]
 ];
 
-const checkbox = (title, filterId) => html`
+export const checkbox = (title = "", filterId) => html`
   <label class="checkbox-container">
     ${title}
     <input
-      id="check-${title.toLower()}"
+      id="check-${title.toLower().replace()}"
       type="checkbox"
       checked="true"
       data-filter_id="${filterId}"
