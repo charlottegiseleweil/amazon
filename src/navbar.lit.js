@@ -1,5 +1,5 @@
 import { dropdown as menu } from "./menu.lit.js";
-import { link } from "./link.js";
+import { link } from "./link.lit.js/index.js";
 import { classFromProps } from "./utilities.js";
 import { navbar as d_navbar } from "./menuData.js";
 import { html, render } from "../node_modules/lit-html/lit-html.js";

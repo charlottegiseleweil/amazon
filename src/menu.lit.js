@@ -1,6 +1,6 @@
 import { killDefault, classFromProps } from "./utilities.js";
 import { html } from "../node_modules/lit-html/lit-html.js";
-import { link } from "./link.js";
+import { link } from "./link.lit.js";
 import { classMap } from "../node_modules/lit-html/directives/class-map.js";
 
 // test onClick and OnHover commands in lit

@@ -1,6 +1,6 @@
-import { html } from "../node_modules/lit-html/lit-html.js";
+import { html } from "lit-html";
 import { classFromProps, killDefault } from "./utilities.js";
-import { classMap } from "../node_modules/lit-html/directives/class-map.js";
+import { classMap } from "lit-html/directives/class-map.js";
 
 const base_class = "w3-button w3-hover-grey".split(" ");
 
