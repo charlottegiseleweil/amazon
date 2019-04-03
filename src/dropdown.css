@@ -17,8 +17,13 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  z-index: 1000;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+#main {
+  z-index: -1;
 }
