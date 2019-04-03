@@ -1,6 +1,7 @@
 const load_global = () => console.log("load_global");
 const projection2D = () => console.log("projection2D");
-const goto = arg => () => console.log("gotoing ", arg);
+const goto = (arg, filetype = ".html") => () =>
+  (window.location.href = arg + filetype);
 const show = arg => () => console.log("showing ", arg);
 
 export const navbar = [
@@ -9,7 +10,7 @@ export const navbar = [
   {
     title: "Desarollo futuro",
     links: [
-      { title: "Region de Puerto Maldonado", onClick: goto("#") },
+      { title: "Region de Puerto Maldonado", onClick: goto("futuroPEM") },
       { title: "Region de Tahamanu-Cobija", onClick: goto("#") }
     ]
   },
