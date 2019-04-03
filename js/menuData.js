@@ -6,7 +6,6 @@ const show = arg => () => console.log("showing ", arg);
 export const navbar = [
   { title: "Home", onClick: load_global },
   { title: "Reforestación de la Pampa", onClick: projection2D },
-  { title: "Old desarollo futuro", onClick: goto("../viz_risk/poll_pop") },
   {
     title: "Desarollo futuro",
     links: [
