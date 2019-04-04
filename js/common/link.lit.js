@@ -2,14 +2,13 @@ import { html } from "../../../node_modules/lit-html/lit-html.js";
 import { classFromProps, killDefault } from "../utilities.js";
 import { classMap } from "../../../node_modules/lit-html/directives/class-map.js";
 
-const base_class = "w3-button w3-hover-grey".split(" ");
-
 export const link = ({
-  title,
+  title = undefined,
+  content = undefined,
   onClick,
   onHover = undefined,
   style = [],
-  _baseStyle = base_class
+  _baseStyle = []
 }) => {
   console.log(!!onClick);
 
@@ -19,7 +18,7 @@ export const link = ({
       @click=${onClick}
       class=${classMap(classFromProps({ style, _baseStyle }))}
     >
-      ${title}
+      ${title} ${content}
     </a>
   `;
 };
