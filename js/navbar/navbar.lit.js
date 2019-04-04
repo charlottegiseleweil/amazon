@@ -1,5 +1,5 @@
 import { dropdown as menu } from "./menu.lit.js";
-import { link } from "./link.lit.js";
+import { link } from "../common/link.lit.js";
 import { classFromProps } from "../utilities.js";
 import { navbar as d_navbar } from "../menuData.js";
 import { html, render } from "../../../node_modules/lit-html/lit-html.js";
@@ -21,9 +21,14 @@ const navbar = props => {
 
   return html`
     <div class=${classMap(classFromProps({ style, _baseStyle }))}>
-      ${links.map(l => {
-        return l.links ? menu(l) : link(l);
-      })}
+      ${links
+        .map(l => ({
+          ...l,
+          _baseStyle: "w3-button w3-hover-grey".split(" ")
+        }))
+        .map(l => {
+          return l.links ? menu(l) : link(l);
+        })}
     </div>
   `;
 };
