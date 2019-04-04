@@ -10,7 +10,6 @@ export const classFromProps = ({ style = [], _baseStyle = [] }) =>
 
 export const classify = (classList = []) => {
   const cl = typeof classList === "string" ? classList.split(" ") : classList;
-  console.log(cl);
   return cl.reduce((agg, cur) => {
     agg[cur] = true;
     return agg;

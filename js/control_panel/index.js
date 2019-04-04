@@ -13,8 +13,6 @@ const tabs = [
   ]
 ].map(([title, displayContent]) => ({
   onClick: (setState, state) => () => {
-    console.log(state);
-
     setState({ displayContent });
   },
   title,
