@@ -1,8 +1,8 @@
-import { html, render } from "../../../node_modules/lit-html/lit-html.js";
+import { html, render } from "../../node_modules/lit-html/lit-html.js";
 import { link } from "../common/link.lit.js";
 import { navbar } from "../menuData.js";
 import { classify, withState } from "../utilities.js";
-import { classMap } from "../../../node_modules/lit-html/directives/class-map.js";
+import { classMap } from "../../node_modules/lit-html/directives/class-map.js";
 
 const tabs = [
   ["servicios ecosistemicos (Descargar Resultados)", "downloads and pdf"],
@@ -26,7 +26,11 @@ const tabStyle = i =>
   "bt bb br pa2 bg-black fl tc ttc link bg-animate hover-bg-dark-gray pointer" +
   (i === 0 ? " bl" : "");
 
-const control_panel = ({ tabs = [], state: { displayContent }, setState }) => {
+const control_panel = ({
+  tabs = [],
+  state: { displayContent, isSelected },
+  setState
+}) => {
   console.log(displayContent);
 
   return html`
