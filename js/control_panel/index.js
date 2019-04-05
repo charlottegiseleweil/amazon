@@ -13,33 +13,32 @@ const tabs = [
       <img src="static/pamp-icon.png" alt="eybals" />
     `
   ]
-].map(([title, displayContent]) => ({
+].map(([title, displayContent], i) => ({
   onClick: (setState, state) => () => {
-    setState({ displayContent });
+    setState({ displayContent, selected: i });
   },
   title,
   displayContent
 }));
 
 const tabContainerStyle = "bg-black br2 white flex justify-center";
-const tabStyle = i =>
-  "bt bb br pa2 bg-black fl tc ttc link bg-animate hover-bg-dark-gray pointer" +
-  (i === 0 ? " bl" : "");
+const tabStyle = (i, selected) =>
+  "bt br pa2 bg-black fl tc ttc link bg-animate hover-bg-dark-gray pointer" +
+  (i === 0 ? " bl" : "") +
+  (i === selected ? "" : " bb");
 
 const control_panel = ({
   tabs = [],
-  state: { displayContent, isSelected },
+  state: { displayContent, selected },
   setState
 }) => {
-  console.log(displayContent);
-
   return html`
     <div class=${classMap(classify(tabContainerStyle))}>
       ${tabs.map((t, i) => {
         return html`
           <a
             @click=${t.onClick(setState, displayContent)}
-            class=${classMap(classify(tabStyle(i)))}
+            class=${classMap(classify(tabStyle(i, selected)))}
           >
             <div>${t.title}</div>
           </a>
