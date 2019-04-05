@@ -2,8 +2,8 @@ import { dropdown as menu } from "./menu.lit.js";
 import { link } from "../common/link.lit.js";
 import { classFromProps } from "../utilities.js";
 import { navbar as d_navbar } from "../menuData.js";
-import { html, render } from "../../../node_modules/lit-html/lit-html.js";
-import { classMap } from "../../../node_modules/lit-html/directives/class-map.js";
+import { html, render } from "../../lib/js/lit-html/lit-html.js";
+import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 /** link object {
   title,
   onClick,

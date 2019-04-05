@@ -1,8 +1,8 @@
-import { html, render } from "../../node_modules/lit-html/lit-html.js";
+import { html, render } from "../../lib/js/lit-html/lit-html.js";
 import { link } from "../common/link.lit.js";
 import { navbar } from "../menuData.js";
 import { classify, withState } from "../utilities.js";
-import { classMap } from "../../node_modules/lit-html/directives/class-map.js";
+import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 
 const tabs = [
   ["servicios ecosistemicos (Descargar Resultados)", "downloads and pdf"],

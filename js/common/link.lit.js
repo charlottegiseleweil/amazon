@@ -1,6 +1,6 @@
-import { html } from "../../../node_modules/lit-html/lit-html.js";
+import { html } from "../../lib/js/lit-html/lit-html.js";
 import { classFromProps, killDefault } from "../utilities.js";
-import { classMap } from "../../../node_modules/lit-html/directives/class-map.js";
+import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 
 export const link = ({
   title = undefined,
