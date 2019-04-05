@@ -1,0 +1,11 @@
+{
+  "name": "amazon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/charlottegiseleweil/amazon.git",
+  "author": "Ian Campbell <iancam92@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lit-html": "^1.0.0"
+  }
+}

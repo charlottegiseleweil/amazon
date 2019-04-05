@@ -45,4 +45,4 @@ do
     toposimplify -P 0.1 -o "simplified_topo_$topo" "$topo"
 done
 
-#LUcp simplified_topo_simplified_geo_* ../../assets/data/
+#LUcp simplified_topo_simplified_geo_* ../../data/
