@@ -9,7 +9,9 @@ const tabs = [
   ["modelos y metodologia", "eyes of peas, all black and white"],
   [
     "co-desarrollo de escenarios",
-    "the cream colored eyes, the black pits therewithin"
+    html`
+      <img src="static/pamp-icon.png" alt="eybals" />
+    `
   ]
 ].map(([title, displayContent]) => ({
   onClick: (setState, state) => () => {
