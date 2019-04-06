@@ -56,6 +56,8 @@ export const store = (init = {}) => {
   let state = init;
   let subscribers = [];
 
+  const getState = () => state;
+
   const publish = () => {
     subscribers.forEach(subscription => subscription(state));
   };
@@ -81,5 +83,5 @@ export const store = (init = {}) => {
     return state;
   };
 
-  return { publish, subscribe, update, state };
+  return { publish, subscribe, update, getState };
 };

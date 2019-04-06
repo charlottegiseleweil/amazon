@@ -6,7 +6,6 @@
   "author": "Ian Campbell <iancam92@icloud.com>",
   "license": "MIT",
   "dependencies": {
-    "flyd": "^0.2.8",
     "lit-html": "^1.0.0"
   }
 }
