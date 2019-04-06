@@ -35,7 +35,6 @@ export const withState = (init = {}, name = "state") => (fx, props) => {
 
   const setState = newState => {
     Object.assign(state, newState);
-    console.log(state);
     render();
   };
 
@@ -43,4 +42,44 @@ export const withState = (init = {}, name = "state") => (fx, props) => {
     root = newRoot;
     render();
   };
+};
+
+// any change to props triggers a re-render, can be memoized
+// and old props can also be stored for merging
+export const rerenderFactory = (component, root) => props => {
+  renderize(component(props), root);
+  return props;
+};
+
+//a subscription point gets all of the state
+export const store = (init = {}) => {
+  let state = init;
+  let subscribers = [];
+
+  const publish = () => {
+    subscribers.forEach(subscription => subscription(state));
+  };
+
+  const subscribe = fx => {
+    const id = subscribers.length;
+    subscribers.push(fx);
+    const unsubscribe = () => (subscribers[id] = undefined);
+    return unsubscribe;
+  };
+
+  const update = (newState, path = undefined, silent = false, set = false) => {
+    if (path) {
+      const pathTokens = path.split(".");
+      const last = pathTokens.slice(-1);
+      const rest = pathTokens.slice(0, -1);
+      const spot = rest.reduce((st, p) => st[p], state);
+      spot[last] = newState;
+    } else if (set) state = newState;
+    else Object.assign(state, newState);
+
+    !silent && publish();
+    return state;
+  };
+
+  return { publish, subscribe, update, state };
 };
