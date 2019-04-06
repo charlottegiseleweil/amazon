@@ -10,7 +10,7 @@ const tabs = [
   [
     "escenarios",
     html`
-      <img src="static/pamp-icon.png" alt="eybals" />
+      <img src="../../static/pamp-icon.png" alt="eyballs" />
     `
   ]
 ].map(([title, displayContent], i) => ({
@@ -21,7 +21,7 @@ const tabs = [
   displayContent
 }));
 
-const tabContainerStyle = "bg-black br2 white flex justify-center avenir";
+const tabContainerStyle = "bg-black br2 white flex justify-center";
 const tabStyle = (i, selected) =>
   "bt br pa3 bg-black fl tc ttc link bg-animate hover-bg-dark-gray pointer" +
   (i === 0 ? " bl" : "") +
@@ -45,7 +45,7 @@ const control_panel = ({
         `;
       })}
     </div>
-    <div class="bg-black white pa3 flex justify-center avenir">
+    <div class="bg-black white pa3 flex justify-center">
       ${displayContent}
     </div>
   `;
