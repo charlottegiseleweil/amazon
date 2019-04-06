@@ -5,10 +5,10 @@ import { classify, withState } from "../utilities.js";
 import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 
 const tabs = [
-  ["servicios ecosistemicos (Descargar Resultados)", "downloads and pdf"],
-  ["modelos y metodologia", "eyes of peas, all black and white"],
+  ["servicios ecosistemicos", "downloads and pdf"],
+  ["modelos", "eyes of peas, all black and white"],
   [
-    "co-desarrollo de escenarios",
+    "escenarios",
     html`
       <img src="static/pamp-icon.png" alt="eybals" />
     `
@@ -21,9 +21,9 @@ const tabs = [
   displayContent
 }));
 
-const tabContainerStyle = "bg-black br2 white flex justify-center";
+const tabContainerStyle = "bg-black br2 white flex justify-center avenir";
 const tabStyle = (i, selected) =>
-  "bt br pa2 bg-black fl tc ttc link bg-animate hover-bg-dark-gray pointer" +
+  "bt br pa3 bg-black fl tc ttc link bg-animate hover-bg-dark-gray pointer" +
   (i === 0 ? " bl" : "") +
   (i === selected ? "" : " bb");
 
@@ -45,7 +45,9 @@ const control_panel = ({
         `;
       })}
     </div>
-    <div class="bg-black white pa3 flex justify-center">${displayContent}</div>
+    <div class="bg-black white pa3 flex justify-center avenir">
+      ${displayContent}
+    </div>
   `;
 };
 
@@ -62,6 +64,9 @@ const control_panel = ({
 //   </div>
 // </div>;)
 
-withState({ displayContent: tabs[0].displayContent })(control_panel, {
-  tabs
-})(document.getElementById("control_panel"));
+withState({ displayContent: tabs[0].displayContent, selected: 0 })(
+  control_panel,
+  {
+    tabs
+  }
+)(document.getElementById("control_panel"));

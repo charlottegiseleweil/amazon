@@ -1,4 +1,4 @@
-import { render as renderize } from "../../lib/js/lit-html/lit-html.js";
+import { render as renderize } from "../lib/js/lit-html/lit-html.js";
 export const capitalize = string => string[0].toUpperCase() + string.slice(1);
 export const killDefault = fx => e => {
   e.preventDefault();

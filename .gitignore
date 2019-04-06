@@ -10,3 +10,5 @@ scripts/.idea/**
 *.zip
 *.geojson
 *.geojson.json
+_site
+.yarn-integrity
