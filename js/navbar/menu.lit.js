@@ -22,12 +22,14 @@ export const dropdown = props => {
       <div
         class=${classMap(
           classFromProps({
-            _baseStyle: ["dropdown-content", "bg-black"],
+            _baseStyle: ["dropdown-content", "bg-black", "white"],
             ...props
           })
         )}
       >
-        ${links.map(l => link({ style: ["bg-black"], ...l }))}
+        ${links.map(l =>
+          link({ style: "bg-black white pb2 db".split(" "), ...l })
+        )}
       </div>
     </div>
   `;

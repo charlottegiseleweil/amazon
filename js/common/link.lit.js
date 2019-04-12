@@ -8,9 +8,9 @@ export const link = ({
   onClick,
   onHover = undefined,
   style = [],
-  _baseStyle = []
+  _baseStyle = "link white hover-bg-dark-gray".split(" ")
 }) => {
-  // console.log(title);
+  console.log(classFromProps({ style, _baseStyle }), style, _baseStyle);
 
   return html`
     <a

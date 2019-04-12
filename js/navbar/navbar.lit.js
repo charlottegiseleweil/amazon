@@ -23,7 +23,7 @@ const navbar = props => {
       ${links
         .map(l => ({
           ...l,
-          style: "w3-button w3-hover-grey".split(" ")
+          style: l.style ? [...l.style, "pa3"] : ["pa3"]
         }))
         .map(l => {
           return l.links ? menu(l) : link(l);
@@ -31,5 +31,9 @@ const navbar = props => {
     </div>
   `;
 };
+
+html`
+  <a href="" class=""></a>
+`;
 
 render(navbar({ links: d_navbar }), document.getElementById("navbar"));
