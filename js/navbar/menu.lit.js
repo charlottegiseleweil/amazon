@@ -9,12 +9,15 @@ import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 // takes a list of links and displays them on hover
 export const dropdown = props => {
   const { title, links, onClick, onHover } = props;
+  console.log(title);
+  const classes = classFromProps({
+    _baseStyle: ["dropdown", "bg-black"],
+    ...props
+  });
+  console.log(classes, props);
+
   return html`
-    <div
-      class=${classMap(
-        classFromProps({ _baseStyle: ["dropdown", "bg-black"], ...props })
-      )}
-    >
+    <div class=${classMap(classes)}>
       ${title}
       <div
         class=${classMap(

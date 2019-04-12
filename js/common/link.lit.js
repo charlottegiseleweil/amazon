@@ -10,7 +10,7 @@ export const link = ({
   style = [],
   _baseStyle = []
 }) => {
-  console.log(!!onClick);
+  // console.log(title);
 
   return html`
     <a
