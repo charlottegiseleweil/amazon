@@ -17,14 +17,13 @@ import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 // to put links on the right, add them to the end of the list and include class fr
 const navbar = props => {
   const { links = [], style = [], _baseStyle = ["white", "bg-black"] } = props;
-  console.log(classFromProps({ style, _baseStyle }));
 
   return html`
     <div class=${classMap(classFromProps({ style, _baseStyle }))}>
       ${links
         .map(l => ({
           ...l,
-          _baseStyle: "w3-button w3-hover-grey".split(" ")
+          style: l.style ? [...l.style, "pa3"] : ["pa3"]
         }))
         .map(l => {
           return l.links ? menu(l) : link(l);
