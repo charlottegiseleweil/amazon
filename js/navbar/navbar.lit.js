@@ -32,8 +32,4 @@ const navbar = props => {
   `;
 };
 
-html`
-  <a href="" class=""></a>
-`;
-
 render(navbar({ links: d_navbar }), document.getElementById("navbar"));

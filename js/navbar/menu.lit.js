@@ -14,7 +14,6 @@ export const dropdown = props => {
     _baseStyle: ["dropdown", "bg-black"],
     ...props
   });
-  console.log(classes, props);
 
   return html`
     <div class=${classMap(classes)}>

@@ -10,8 +10,6 @@ export const link = ({
   style = [],
   _baseStyle = "link white hover-bg-dark-gray".split(" ")
 }) => {
-  console.log(classFromProps({ style, _baseStyle }), style, _baseStyle);
-
   return html`
     <a
       href="#"
