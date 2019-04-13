@@ -23,11 +23,10 @@
       crossorigin=""
     />
 
-        <!-- Vega for Altair plots -->
+    <!-- Vega for Altair plots -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@3"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@4"></script>
-    
 
     <!-- Leaflet JS -->
     <script
@@ -35,11 +34,7 @@
       crossorigin=""
     ></script>
 
-
-    <script src='lib/js/includehtml.js'></script>
-
-
-
+    <script src="lib/js/includehtml.js"></script>
   </head>
 
   <link rel="stylesheet" href="css/style.css" />
@@ -54,78 +49,77 @@
     </div>
 
     <div class="w3-third" style="background-color:'yellow';">
-      
       <div id="text">
         <p>Texto sobre escenario analisis...</p>
-        
       </div>
-
 
       <div id="control_panel"></div>
 
-      <div id='map_controls'>
-
-            <div id="radio_container">
-              <tr id="scenario">
-                <td>
-                  <p class="row-label">Eligir Escenario</p>
-                  <div class="input-radio">
-                    <input
-                      type="radio"
-                      class="radio_btn"
-                      name="radio1"
-                      id="btnSost"
-                      checked="checked"
-                      onchange="updateMap2('Sost')"
-                      autocomplete="off"
-                    />
-                    <label for="b_radio-1">Futuro Sostenible</label>
-                  </div>
-                  <div class="input-radio">
-                    <input
-                      type="radio"
-                      class="radio_btn"
-                      name="radio1"
-                      id="btnReal"
-                      value="3"
-                      onchange="updateMap2('Real')"
-                      autocomplete="off"
-                    />
-                    <label for="b_radio-2">Futuro Eco-Turismo</label>
-                  </div>
-                  <div class="input-radio">
-                    <input
-                      type="radio"
-                      class="radio_btn"
-                      name="radio1"
-                      id="btnPeor"
-                      onchange="updateMap2('Peor')"
-                      autocomplete="off"
-                    />
-                    <label for="b_radio-3">Futuro "Peor"</label>
-                  </div>
-                </td>
-              </tr>
-            </div>
-
-            <div id='leyenda' class="leyendaHover">
-              <p> Leyenda <i>Ver toda la leyenda</i></p>
-              <div id="leyendaMin"><img src="static/images/leyenda.png" height=90% alt="Leyenda"></div>
-                <div id="leyendaIntegral"><img src="static/images/leyenda_integral.png" alt="Leyenda"></div>
-            </div>
-
+      <div id="map_controls">
+        <div id="radio_container">
+          <tr id="scenario">
+            <td>
+              <p class="row-label">Eligir Escenario</p>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btnSost"
+                  checked="checked"
+                  onchange="updateMap2('Sost')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-1">Futuro Sostenible</label>
+              </div>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btnReal"
+                  value="3"
+                  onchange="updateMap2('Real')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-2">Futuro Eco-Turismo</label>
+              </div>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btnPeor"
+                  onchange="updateMap2('Peor')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-3">Futuro "Peor"</label>
+              </div>
+            </td>
+          </tr>
         </div>
 
-        <div id="barchart" class="white"></div>
+        <div id="leyenda" class="leyendaHover">
+          <p>Leyenda <i>Ver toda la leyenda</i></p>
+          <div id="leyendaMin">
+            <img src="static/images/leyenda.png" height="90%" alt="Leyenda" />
+          </div>
+          <div id="leyendaIntegral">
+            <img src="static/images/leyenda_integral.png" alt="Leyenda" />
+          </div>
+        </div>
+      </div>
 
+      <div id="barchart" class="white"></div>
     </div>
   </body>
 
   <script type="module" src="js/navbar/navbar.lit.js"></script>
-
-  <script type="module" src="js/control_panel/index.js"></script>
+  <script type="module" src="js/futuroPem.lit.js"></script>
   <script type="module" src="js/control_panel/barChart.js"></script>
-  <script>includeHTML();</script>
+  <script>
+    includeHTML();
+  </script>
 
   <script src="lib/js/L.Map.Sync.js"></script>
   <script src="js/mapsPEM.js"></script>
