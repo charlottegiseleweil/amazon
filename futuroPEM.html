@@ -23,27 +23,26 @@
       crossorigin=""
     />
 
+        <!-- Vega for Altair plots -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4"></script>
+    
+
     <!-- Leaflet JS -->
     <script
       src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
       crossorigin=""
     ></script>
+
+
+    <script src='lib/js/includehtml.js'></script>
+
+
+
   </head>
 
-  <style>
-    .map-diff-line {
-      grid-area: "map-diff-line";
-      margin: 0 auto;
-      padding: 0;
-      width: 0%;
-      background-color: #ccc;
-    }
-
-    .map {
-      height: 46vh; /*make relative*/
-      background-color: blue;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 
   <body>
     <nav id="navbar"></nav>
@@ -55,142 +54,79 @@
     </div>
 
     <div class="w3-third" style="background-color:'yellow';">
-      <!-- Control Panel -->
-      <div id="control_panel"></div>
-      <div id="radio_container">
-        <tr id="scenario">
-          <td>
-            <p class="row-label">Scenario</p>
-            <div class="input-radio">
-              <input
-                type="radio"
-                class="radio_btn"
-                name="radio1"
-                id="btnSost"
-                checked="checked"
-                onchange="updateMap2('Sost')"
-                autocomplete="off"
-              />
-              <label for="b_radio-1">Futuro Sostenible</label>
-            </div>
-            <div class="input-radio">
-              <input
-                type="radio"
-                class="radio_btn"
-                name="radio1"
-                id="btnReal"
-                value="3"
-                onchange="updateMap2('Real')"
-                autocomplete="off"
-              />
-              <label for="b_radio-2">Futuro Eco-Turismo</label>
-            </div>
-            <div class="input-radio">
-              <input
-                type="radio"
-                class="radio_btn"
-                name="radio1"
-                id="btnPeor"
-                onchange="updateMap2('Peor')"
-                autocomplete="off"
-              />
-              <label for="b_radio-3">Futuro "Peor"</label>
-            </div>
-          </td>
-        </tr>
+      
+      <div id="text">
+        <p>Texto sobre escenario analisis...</p>
+        
       </div>
 
-      <!-- End Control Panel -->
+
+      <div id="control_panel"></div>
+
+      <div id='map_controls'>
+
+            <div id="radio_container">
+              <tr id="scenario">
+                <td>
+                  <p class="row-label">Eligir Escenario</p>
+                  <div class="input-radio">
+                    <input
+                      type="radio"
+                      class="radio_btn"
+                      name="radio1"
+                      id="btnSost"
+                      checked="checked"
+                      onchange="updateMap2('Sost')"
+                      autocomplete="off"
+                    />
+                    <label for="b_radio-1">Futuro Sostenible</label>
+                  </div>
+                  <div class="input-radio">
+                    <input
+                      type="radio"
+                      class="radio_btn"
+                      name="radio1"
+                      id="btnReal"
+                      value="3"
+                      onchange="updateMap2('Real')"
+                      autocomplete="off"
+                    />
+                    <label for="b_radio-2">Futuro Eco-Turismo</label>
+                  </div>
+                  <div class="input-radio">
+                    <input
+                      type="radio"
+                      class="radio_btn"
+                      name="radio1"
+                      id="btnPeor"
+                      onchange="updateMap2('Peor')"
+                      autocomplete="off"
+                    />
+                    <label for="b_radio-3">Futuro "Peor"</label>
+                  </div>
+                </td>
+              </tr>
+            </div>
+
+            <div id='leyenda' class="leyendaHover">
+              <p> Leyenda <i>Ver toda la leyenda</i></p>
+              <div id="leyendaMin"><img src="static/images/leyenda.png" height=90% alt="Leyenda"></div>
+                <div id="leyendaIntegral"><img src="static/images/leyenda_integral.png" alt="Leyenda"></div>
+            </div>
+
+        </div>
+
+        <div id="barchart" class="white"></div>
+
     </div>
   </body>
+
   <script type="module" src="js/navbar/navbar.lit.js"></script>
 
   <script type="module" src="js/control_panel/index.js"></script>
+  <script type="module" src="js/control_panel/barChart.js"></script>
+  <script>includeHTML();</script>
 
-  <script src="lib/L.Map.Sync.js"></script>
-  <script>
-    /*var ecoshard_example = 'prod_poll_dep_unrealized_en_10s_ssp5_md5_b5fb16243689850078961e0228f774f2';
-	var tiletest = 'http://ipbes.ecoshard.org:8080/workspace/tiles/' + ecoshard_example + '/{z}/{x}/{y}.png';*/
-
-    var tileset_LULC_MAP_Hoy =
-      "https://earthengine.googleapis.com/map/d1db03125fe15eaa6346ddc7e0d68c49/{z}/{x}/{y}?token=04f8d91483c5fd3f1cdbe36682c70e1b";
-
-    var tileset_LULC_PEM_Sost =
-      "https://earthengine.googleapis.com/map/6fec32bd05c5b890c7592e2ff672907e/{z}/{x}/{y}?token=e82968ddf69c4ba9a0aac9d44be8c0a1";
-
-    var tileset_LULC_PEM_Peor =
-      "https://earthengine.googleapis.com/map/ed6617d31bb27aba07eb2fe678afa7fd/{z}/{x}/{y}?token=a3a72ebc27bfd4b072d24ceb3177e639";
-
-    var tileset_LULC_PEM_Real =
-      "https://earthengine.googleapis.com/map/d8949b95a266e40ddc1fcdce6f403dc5/{z}/{x}/{y}?token=98768ed906bcbdaac9b2f6436aa33784";
-
-    var basemap = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
-    );
-
-    var basemap2 = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
-    );
-
-    var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
-      attribution: "Current Land Cover Map [PRO-Agua]"
-    });
-
-    var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
-      attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
-    });
-
-    var LULC_PEM_Peor = L.tileLayer(tileset_LULC_PEM_Peor, {
-      attribution: "Co-desarollado Escenario Peor [PRO-Agua]"
-    });
-
-    var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
-      attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
-    });
-
-    var map1 = L.map("map1", {
-      layers: [basemap, LULC_MAP_Hoy],
-      center: [-12.85, -69.7],
-      zoom: 10
-    });
-
-    var map2 = L.map("map2", {
-      layers: [basemap2, LULC_PEM_Sost],
-      center: [-12.85, -69.7],
-      zoom: 10,
-      zoomControl: false
-    });
-
-    map1.sync(map2);
-    map2.sync(map1);
-
-    function updateMap2(scenario) {
-      console.log("Updating map2 with scenario " + scenario);
-
-      map2.eachLayer(function(layer) {
-        if (
-          layer._url !=
-          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-        ) {
-          map2.removeLayer(layer);
-        }
-      });
-
-      if (scenario == "Peor") {
-        var lyr = LULC_PEM_Peor;
-      } else if (scenario == "Real") {
-        var lyr = LULC_PEM_Real;
-      } else if (scenario == "Sost") {
-        var lyr = LULC_PEM_Sost;
-      }
-
-      lyr.addTo(map2);
-    }
-  </script>
+  <script src="lib/js/L.Map.Sync.js"></script>
+  <script src="js/mapsPEM.js"></script>
 </html>

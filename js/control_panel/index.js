@@ -5,12 +5,36 @@ import { classify, withState } from "../utilities.js";
 import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 
 const tabs = [
-  ["servicios ecosistemicos", "downloads and pdf"],
-  ["modelos", "eyes of peas, all black and white"],
+  ["servicios ecosistemicos",
+    html`
+
+
+      <style>
+        .p{
+        display:block;
+      }
+      </style>
+
+
+      <a href='work in progress'>Descargar resultados</a>
+
+
+
+
+
+      <!-- Below not working and this is really sad! Ian help?-->
+      <script src='lib/js/includehtml.js'></script>
+      <div w3-include-html='test.html'></div>
+      <script>includeHTML();</script>
+    `
+  ],
+  ["modelos", "Coming soon ... Metodologias etc y enlaces a InVEST"],
   [
     "escenarios",
     html`
-      <img src="static/pamp-icon.png" alt="eybals" />
+      <img src="static/images/desarollando_escenarios.JPG" height=200px alt="Img" />
+      <p> Desarollando Escenarios </p>
+      <img src="static/images/desarollando_escenarios1.JPG" height=200px alt="Img" />
     `
   ]
 ].map(([title, displayContent], i) => ({

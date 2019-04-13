@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Needed for Navbar-->
     <link rel="stylesheet" href="lib/css/tachyons.min.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@3"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@4"></script>
-    <link
-      rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-black.css"
-    />
+    
   </head>
 
   <body class="bg-black-90 white-80 avenir fw5">
     <nav id="navbar"></nav>
     <div class="flex">
       <div class="w-70">
-        <div class="bg-red">
-          <div
+        <div>
+          <iframe
             style="width: 100%; height: 90vh;"
             src="https://charlotte.users.earthengine.app/view/pampa"
-          ></div>
+          ></iframe>
         </div>
       </div>
       <div class="w-30">
         <div id="text" class="measure pa3">
-          this is a box for text. Look! You can see things here :)
+          Background (media links?) + Concept note on the proposed analysis on optimizing reforestation strategy in La Pampa (Luis?)
         </div>
-        <div id="control_panel"></div>
-        <div id="barchart" class="white"></div>
       </div>
     </div>
   </body>
-  <script type="module" src="js/control_panel/index.js"></script>
-  <script type="module" src="js/control_panel/barChart.js"></script>
   <script type="module" src="js/navbar/navbar.lit.js"></script>
 </html>
