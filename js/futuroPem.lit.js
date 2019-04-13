@@ -3,6 +3,7 @@
 import { html, render } from "../lib/js/lit-html/lit-html.js";
 import { control_panel } from "./control_panel/index.lit.js";
 import { withState } from "./utilities.js";
+import { servicios } from "../html/tab_servicios.js";
 const tabs = [
   [
     "servicios ecosistemicos",
@@ -17,7 +18,7 @@ const tabs = [
 
       <!-- Below not working and this is really sad! Ian help?-->
 
-      <div w3-include-html="test.html"></div>
+      ${servicios()}
     `
   ],
   ["modelos", "Coming soon ... Metodologias etc y enlaces a InVEST"],
