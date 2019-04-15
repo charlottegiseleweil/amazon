@@ -1,4 +1,10 @@
-var tileset_LULC_MAP_Hoy =
+
+    /*
+
+
+    Earth Engine scrapped tiles (token work ~48hrs)
+
+    var tileset_LULC_MAP_Hoy =
       "https://earthengine.googleapis.com/map/d1db03125fe15eaa6346ddc7e0d68c49/{z}/{x}/{y}?token=ef24106521754a644b33aa92333f76c9";
 
     var tileset_LULC_PEM_Sost =
@@ -9,6 +15,20 @@ var tileset_LULC_MAP_Hoy =
 
     var tileset_LULC_PEM_Real =
       "https://earthengine.googleapis.com/map/d8949b95a266e40ddc1fcdce6f403dc5/{z}/{x}/{y}?token=f72bd6e1dfc03ba2f406020f3074bad7";
+
+    */
+
+    var tileset_LULC_PEM_Sost = 
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Sostenible/{z}/{x}/{y}.png"
+
+    var tileset_LULC_MAP_Hoy =
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_MAP/{z}/{x}/{y}.png";
+
+    var tileset_LULC_PEM_Peor =
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Peor/{z}/{x}/{y}.png";
+    
+    var tileset_LULC_PEM_Real =
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Rea/{z}/{x}/{y}.png";
 
     var basemap = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
