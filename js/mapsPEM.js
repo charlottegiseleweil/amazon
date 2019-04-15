@@ -1,14 +1,34 @@
-var tileset_LULC_MAP_Hoy =
-      "https://earthengine.googleapis.com/map/d1db03125fe15eaa6346ddc7e0d68c49/{z}/{x}/{y}?token=04f8d91483c5fd3f1cdbe36682c70e1b";
+
+    /*
+
+
+    Earth Engine scrapped tiles (token work ~48hrs)
+
+    var tileset_LULC_MAP_Hoy =
+      "https://earthengine.googleapis.com/map/d1db03125fe15eaa6346ddc7e0d68c49/{z}/{x}/{y}?token=ef24106521754a644b33aa92333f76c9";
 
     var tileset_LULC_PEM_Sost =
-      "https://earthengine.googleapis.com/map/6fec32bd05c5b890c7592e2ff672907e/{z}/{x}/{y}?token=e82968ddf69c4ba9a0aac9d44be8c0a1";
+      "https://earthengine.googleapis.com/map/6fec32bd05c5b890c7592e2ff672907e/{z}/{x}/{y}?token=c6eea883df13a494804cd00c113e3007";
 
     var tileset_LULC_PEM_Peor =
-      "https://earthengine.googleapis.com/map/ed6617d31bb27aba07eb2fe678afa7fd/{z}/{x}/{y}?token=a3a72ebc27bfd4b072d24ceb3177e639";
+      "https://earthengine.googleapis.com/map/ed6617d31bb27aba07eb2fe678afa7fd/{z}/{x}/{y}?token=819683add916005b9aebf538c213db98";
 
     var tileset_LULC_PEM_Real =
-      "https://earthengine.googleapis.com/map/d8949b95a266e40ddc1fcdce6f403dc5/{z}/{x}/{y}?token=98768ed906bcbdaac9b2f6436aa33784";
+      "https://earthengine.googleapis.com/map/d8949b95a266e40ddc1fcdce6f403dc5/{z}/{x}/{y}?token=f72bd6e1dfc03ba2f406020f3074bad7";
+
+    */
+
+    var tileset_LULC_PEM_Sost = 
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Sostenible/{z}/{x}/{y}.png"
+
+    var tileset_LULC_MAP_Hoy =
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_MAP/{z}/{x}/{y}.png";
+
+    var tileset_LULC_PEM_Peor =
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Peor/{z}/{x}/{y}.png";
+    
+    var tileset_LULC_PEM_Real =
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Rea/{z}/{x}/{y}.png";
 
     var basemap = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
