@@ -1,29 +1,128 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- w3 style thingz -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.w3schools.com/lib/w3-theme-black.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="lib/css/tachyons.min.css" />
+    <link rel="stylesheet" href="css/dropdown.css" />
 
-<head>
-	  <!-- w3 style thingz -->
-  
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
 
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-	
+    <!--Needed for Chart D3.js/C3.js-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="lib/js/c3.min.js"></script>
+    <link rel="stylesheet" href="lib/css/c3.min.css" />
 
-</head>
+    <!-- Vega for Altair plots -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4"></script>
 
-<body>
-	
-	<p> Menu here </p>
+    <!-- Leaflet JS -->
+    <script
+      src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+  </head>
 
-	<div class='w3-twothird'>
-		<iframe style="width: 100%; height: 90vh;" src='https://charlotte.users.earthengine.app/view/desarollofuturopem'></iframe>
-	</div>
+  <link rel="stylesheet" href="css/style.css" />
 
-	<div class='w3-third' style="background-color:'yellow';">
-		<p> yo</p>
-	</div>
+  <body>
+    <nav id="navbar"></nav>
 
+    <div class="w3-twothird" id="maps">
+      <div id="map1" class="map"></div>
+      <hr class="map-diff-line" />
+      <div id="map2" class="map"></div>
+    </div>
 
-</body>
+    <div class="w3-third" style="background-color:'yellow';">
+      <div id="text">
+        <p>Texto sobre escenario analisis...</p>
+      </div>
+
+      <div id="control_panel"></div>
+
+      <div id="map_controls">
+        <div id="radio_container">
+          <tr id="scenario">
+            <td>
+              <p class="row-label">Eligir Escenario</p>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btnSost"
+                  checked="checked"
+                  onchange="updateMap2('Sost')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-1">Futuro Sostenible</label>
+              </div>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btnReal"
+                  value="3"
+                  onchange="updateMap2('Real')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-2">Futuro Eco-Turismo</label>
+              </div>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btnPeor"
+                  onchange="updateMap2('Peor')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-3">Futuro "Peor"</label>
+              </div>
+            </td>
+          </tr>
+        </div>
+
+        <div id="leyenda" class="leyendaHover">
+          <p>Leyenda <i>Ver toda la leyenda</i></p>
+          <div id="leyendaMin">
+            <img src="static/images/leyenda.png" height="90%" alt="Leyenda" />
+          </div>
+          <div id="leyendaIntegral">
+            <img src="static/images/leyenda_integral.png" alt="Leyenda" />
+          </div>
+        </div>
+      </div>
+
+      <div id="chartPEM"></div>
+    </div>
+  </body>
+
+  <script src="js/chartPEM.js"></script>
+
+  <script type="module" src="js/navbar/navbar.lit.js"></script>
+  <script type="module" src="js/futuroPem.lit.js"></script>
+  <script type="module" src="js/control_panel/barChart.js"></script>
+
+  <script src="lib/js/L.Map.Sync.js"></script>
+  <script src="js/mapsPEM.js"></script>
+</html>
