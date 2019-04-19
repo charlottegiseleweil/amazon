@@ -1,27 +1,24 @@
 <!DOCTYPE html>
+
+<!-- To include Spanish accents -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+
+
 <html>
   <head>
     <!-- w3 style thingz -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-black.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="lib/css/tachyons.min.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
 
     <!-- Leaflet CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-      crossorigin=""
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+
+    <script src="lib/js/includehtml.js"></script>
+    <script src="js/tabs.js"></script>
 
     <!--Needed for Chart D3.js/C3.js-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -34,94 +31,88 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@4"></script>
 
     <!-- Leaflet JS -->
-    <script
-      src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
-      crossorigin=""
-    ></script>
-  </head>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" crossorigin=""></script>
 
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- Leaflet JS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tabs.css" />
+
+  </head>
 
   <body>
     <nav id="navbar"></nav>
 
     <div class="w3-twothird" id="maps">
       <div id="map1" class="map"></div>
+      <div id="map1_text" class="map_text">
+        <h1>2019</h1>
+      </div>
       <hr class="map-diff-line" />
       <div id="map2" class="map"></div>
+      <div id="map2_text">
+        <h1>2035</h1>
+      </div>
+      <div id="map2_controls">
+        <div w3-include-html="html/pickEscenario.html"></div>
+      </div>
     </div>
 
-    <div class="w3-third" style="background-color:'yellow';">
-      <div id="text">
-        <p>Texto sobre escenario analisis...</p>
+    <div class="w3-third rightPanel">
+      <div id="intro_text">
+        <p>Construyendo soluciones científicas para Madre de Dios:  Evaluación de escenarios de desarollo futuro</p>
       </div>
 
-      <div id="control_panel"></div>
+      <!--OLD IAN <div id="control_panel"></div>-->
 
-      <div id="map_controls">
-        <div id="radio_container">
-          <tr id="scenario">
-            <td>
-              <p class="row-label">Eligir Escenario</p>
-              <div class="input-radio">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="radio1"
-                  id="btnSost"
-                  checked="checked"
-                  onchange="updateMap2('Sost')"
-                  autocomplete="off"
-                />
-                <label for="b_radio-1">Futuro Sostenible</label>
-              </div>
-              <div class="input-radio">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="radio1"
-                  id="btnReal"
-                  value="3"
-                  onchange="updateMap2('Real')"
-                  autocomplete="off"
-                />
-                <label for="b_radio-2">Futuro Eco-Turismo</label>
-              </div>
-              <div class="input-radio">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="radio1"
-                  id="btnPeor"
-                  onchange="updateMap2('Peor')"
-                  autocomplete="off"
-                />
-                <label for="b_radio-3">Futuro "Peor"</label>
-              </div>
-            </td>
-          </tr>
+      <!--Tabs-->
+      <div id="tabsPanel">
+        <div class="tab">
+          <button id=defaultOpen class="tablinks" onclick="openTab(event, 'Servicios')">Servicios Ecosistemicos</button>
+          <button class="tablinks" onclick="openTab(event, 'Modelos')">Modelos</button>
+          <button class="tablinks" onclick="openTab(event, 'Escenarios')">Escenarios</button>
         </div>
 
-        <div id="leyenda" class="leyendaHover">
-          <p>Leyenda <i>Ver toda la leyenda</i></p>
-          <div id="leyendaMin">
-            <img src="static/images/leyenda.png" height="90%" alt="Leyenda" />
-          </div>
-          <div id="leyendaIntegral">
-            <img src="static/images/leyenda_integral.png" alt="Leyenda" />
-          </div>
+        <!-- Tab content -->
+        <div id="Servicios" class="tabcontent">
+          <div w3-include-html="html/tab_servicios.html"></div>
+        </div>
+
+        <div id="Modelos" class="tabcontent">
+          <div w3-include-html="html/tab_method.html"></div>
+        </div>
+
+        <div id="Escenarios" class="tabcontent">
+          <div w3-include-html="html/tab_escenarios.html"></div>
         </div>
       </div>
 
-      <div id="chartPEM"></div>
+
+
+
+
+
+
+
+      <div id="mapControls">
+       <div w3-include-html="html/mapControls.html"></div>
+      </div>
+
+      <div id="chartPEM" class="chart"></div>
     </div>
   </body>
+
+  <script>includeHTML();</script>
 
   <script src="js/chartPEM.js"></script>
 
   <script type="module" src="js/navbar/navbar.lit.js"></script>
   <script type="module" src="js/futuroPem.lit.js"></script>
   <script type="module" src="js/control_panel/barChart.js"></script>
+
+  <script>
+  // Tabs: Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
 
   <script src="lib/js/L.Map.Sync.js"></script>
   <script src="js/mapsPEM.js"></script>

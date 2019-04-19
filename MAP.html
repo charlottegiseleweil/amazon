@@ -1,310 +1,237 @@
-<!DOCTYPE html>
+<!-- To include Spanish accents -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+
+
 <html>
-  <head>
-    <title>Prototipo Pro-Agua</title>
+	<head>
+	   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	   <title>Prototipo de Visualizador PRO Agua</title>
+	
+	  <!-- Leaflet & PlugIns (MiniMap) -->
+	  <link rel="stylesheet" href="lib/css/Control.MiniMap.css" />
+	  <link rel="stylesheet" href="lib/css/leaflet.draw.css"/>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+	  <script src="lib/js/leaflet.draw.js"></script>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"/>
+	   <script src="lib/js/Control.MiniMap.js" type="text/javascript"></script> 
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styleMAP.css"/>
+  <link rel="stylesheet" href="css/slidersMAP.css"/>
+  <link rel="stylesheet" href="css/tabsMAP.css"/>
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/transitions.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.css"
-    />
+	  
+	<!--jQuery-->
+	<script src="lib/js/jquery-2.1.1.min.js"></script> 
 
-    <!-- w3 style thingz -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="css/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-black.css"
-    />
+	<!-- CARTO -->
+	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 
-    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
-    <script src="https://d3js.org/topojson.v3.min.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/helpers.js"></script>
-    <script src="js/filters.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto"
-    />
-    <link rel="shortcut icon" href="#" />
-
-    <!-- include for navbar -->
+	<!-- Needed for Navbar-->
     <link rel="stylesheet" href="lib/css/tachyons.min.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
-    <!-- include for navbar -->
-  </head>
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
 
-  <body>
-    <!-- include for navbar -->
-    <div class="w3-top" id="navbar"></div>
-    <!-- include for navbar -->
-    <div id="main">
-      <div id="map"></div>
-      <div id="filters-container">
-        <div id="land-use-container">
-          <div id="land-use-button"><i class="fas fa-filter"></i>Land Use</div>
-          <div id="checkboxes-container">
-            <div class="column-left">
-              <label class="checkbox-container"
-                >Agriculture
-                <input
-                  id="check-agriculture"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="0"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Grass
-                <input
-                  id="check-grass"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="14"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Agriculture Grass
-                <input
-                  id="check-agriculture_grass"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="15"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Pasture Grass
-                <input
-                  id="check-pasture_grass"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="16"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Swamp
-                <input
-                  id="check-swamp"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="2"
-                />
-                <span class="checkmark round"></span>
-              </label>
 
-              <label class="checkbox-container"
-                >Mountain Forest
-                <input
-                  id="check-mountain_forest"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="4"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Non-Floodable Forest
-                <input
-                  id="check-non_floodable_forest"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="5"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Secondary Vegetation
-                <input
-                  id="check-secondary_vegetation"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="22"
-                />
-                <span class="checkmark round"></span>
-              </label>
+	</head>
 
-              <!-- <label class="checkbox-container disabled">Pasture
-                        <input id="check-pasture" type="checkbox" data-filter_id="9">
-                        <span class="checkmark round"></span>
-                    </label> -->
 
-              <label class="checkbox-container"
-                >Thicket
-                <input
-                  id="check-thicket"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="11"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Andean Scrubland
-                <input
-                  id="check-andean_scrubland"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="13"
-                />
-                <span class="checkmark round"></span>
-              </label>
 
-              <label class="checkbox-container"
-                >Rocky Ground
-                <input
-                  id="check-rocky_ground"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="17"
-                />
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-            </div>
+	<body class="bg-black-60 white-80 avenir fw5">
 
-            <div class="column-right">
-              <label class="checkbox-container"
-                >Water
-                <input
-                  id="check-water"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="1"
-                />
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-              <label class="checkbox-container"
-                >Glacier
-                <input
-                  id="check-glacier"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="8"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Wetland
-                <input
-                  id="check-wetland"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="10"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Wet Savannah
-                <input
-                  id="check-wet_savannah"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="19"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Floodable Forest
-                <input
-                  id="check-floodable_forest"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="3"
-                />
-                <span class="checkmark round"></span>
-              </label>
+	<nav id="navbar"></nav>
 
-              <label class="checkbox-container"
-                >Mining
-                <input
-                  id="check-mining"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="12"
-                />
-                <input type="checkbox" />
-                <span class="checkmark"></span>
-              </label>
+	  <div id="map">
+	  </div>
 
-              <!-- <label class="checkbox-container disabled">Savannah
-                        <input id="check-savannah" type="checkbox" data-filter_id="18">
-                        <span class="checkmark round"></span>
-                    </label> -->
-              <label class="checkbox-container"
-                >Unpaved Roads
-                <input
-                  id="check-unpaved_roads"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="6"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Paved Roads
-                <input
-                  id="check-paved_roads"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="7"
-                />
-                <span class="checkmark round"></span>
-              </label>
+	<div id="logo" style="position: absolute;
+	 					  top: 55px;
+	   					  right: 10px;
+	   					  z-index: 500;">
+		<a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="static/logos/natcap.png" alt="NatCap" width="100" height="80"></a>
+	</div>
 
-              <label class="checkbox-container"
-                >Naked Land
-                <input
-                  id="check-naked_land"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="20"
-                />
-                <span class="checkmark round"></span>
-              </label>
-              <label class="checkbox-container"
-                >Urban
-                <input
-                  id="check-urban"
-                  type="checkbox"
-                  checked="true"
-                  data-filter_id="21"
-                />
-                <span class="checkmark round"></span>
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- include for navbar -->
-    <script type="module" src="js/navbar/navbar.lit.js"></script>
-    <!-- include for navbar -->
-  </body>
+	<!--<div id="leyenda" class="panel-right-top">	
+		<div id="LUleyenda" class="hide"> <p> Leyenda: Uso del Suelo </p> <img src="images/leyenda_integral.png" alt="LU Legend" width="170" height="250"></div>
+
+		<div id="RECleyenda" class="hide"> <p> Fóto-Usario-Día </p> <img src="images/equipo_taller2.JPG" alt="Rec Legend" width="100" height="190"></div>
+	</div>-->
+
+	<div id="WIP" class="panel-center">
+		
+		Esta página está en desarrollo y mostrará los resultados de los servicios de los ecosistemas para el área MAP
+
+	</div>
+
+	<div id="column" class="panel-left-bottom">
+
+	  	<div class="tab">
+		  <button class="tablinks" onclick="openTab(event, 'Geografía')">Geografía</button>
+
+		  <button class="tablinks" onclick="openTab(event, 'Salud')">Salud</button>
+		  <button class="tablinks" onclick="openTab(event, 'Agua')">Agua</button>
+		  <button class="tablinks" onclick="openTab(event, 'Hábitat')">Hábitat</button>
+		  <!--<button class="tablinks" onclick="openTab(event, 'Recreación')">Recreación</button>
+		  <button class="tablinks" onclick="openTab(event, 'Población')">Población</button>
+			<button class="tablinks" onclick="openTab(event, 'About')">About</button>-->
+		</div>
+
+		<div id="Geografía" class="tabcontent">
+
+			<p><label class="switch"><input type="checkbox" id='aoi'><span class="slider"></span></label>Área de interés</p>
+			<p><label class="switch"><input type="checkbox" id='watersheds'><span class="slider"></span></label>Cuencas hidrográficas</p>
+		  
+
+				<fieldset><legend><b>Topografía y clima</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>DEM</p>
+					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>Precipitación</p>
+					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>Temperatura</p>
+				</fieldset>
+
+				<fieldset><legend><b>Satélito datos</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='Satellite'><span class="slider"></span></label>LandSat</p>
+				</fieldset>
+			
+		</div>
+
+		<!--<div id="Carbón" class="tabcontent">
+	
+				<fieldset><legend><b>InVEST Carbono resultados</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>Forest Edge Effect Model</p>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbon'><span class="slider"></span></label>Storage Model</p>
+				</fieldset>
+
+				<fieldset><legend><b>Carbono Validation datasets</b></legend>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Peru Carbon Map (Asner 200x)</p>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Brazil Carbon Map (ref)</p>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Bolivia Carbon Map (ref)</p>
+			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Full Carbon Map (ref)</p>
+				</fieldset>
+
+		</div>-->
+
+		<div id="Salud" class="tabcontent">
+	
+				<fieldset><legend><b>Mosquito-borne disease</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>dengue, zika y/o chikuengunya</p>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbon'><span class="slider"></span></label>...</p>
+				</fieldset>
+
+				<fieldset><legend><b>...</b></legend>
+	
+				</fieldset>
+
+		</div>
+
+
+		<div id="Agua" class="tabcontent">
+				<fieldset><legend><b>Activos Naturales</b></legend>
+					<p><label class="switch"><input type="checkbox" id='corrientes'><span class="slider"></span></label>Corriente</p>
+				</fieldset>
+
+				<fieldset><legend><b>Rendimiento estacional de agua</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>Escorrentía superficial [mm] per año</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>Escorrentía superficial [mm] per mes</p>
+					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>Flujo base [mm] per año</p>
+					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>Recarga local [mm] per año</p>
+					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
+				</fieldset>
+
+				<fieldset><legend><b>Sedimento</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>Exportación de sedimentos [toneladas/año]</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>Índice de retención de sedimentos [toneladas/año]</p>
+					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>Pérdida potencial de suelo (USLE) [toneladas/año]</p>
+					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
+				</fieldset>
+
+
+
+		</div>
+
+		<div id="Hábitat" class="tabcontent">
+
+				<fieldset><legend><b>Recreación y turismo</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='turismolugares'><span class="slider"></span></label>Lugares turisticos (TripAdvisor)</p>
+					 <p><label class="switch"><input type="checkbox" id='rec'><span class="slider"></span></label>Foto-usario-día (InVEST modelado)</p>
+				</fieldset>
+
+				<fieldset><legend><b>Carbono</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>InVEST modelado (Con effecto de del bosque)</p>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>InVEST modelado (Sin effecto de del bosque)</p>
+					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>Datps de validación (Asner, 2010)</p>
+				</fieldset>
+
+				<fieldset><legend><b>Cualidad del hábitat</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>Hábitat sensitivos</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>Amenazas</p>
+					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
+				<!--</fieldset>
+
+		</div>-->
+
+		<!--<div id="Recreación" class="tabcontent">
+				<fieldset><legend><b>Recreación y turismo</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='checkbox2'><span class="slider"></span></label>  Foto-usario-día per año</p>
+					 <p><label class="switch"><input type="checkbox" id='checkbox2'><span class="slider"></span></label>  Foto-usario-día per mes</p>
+					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
+				<!--</fieldset>
+
+				<fieldset><legend><b>Turismo datos</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>  Lugares de TripAdvisor</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>  Lugares de Lonely Planet</p>
+				</fieldset>
+
+		</div>-->
+
+		<!-- <div id="Población" class="tabcontent">
+				<fieldset><legend><b>Rendimiento estacional de agua</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>sediment exported reaching stream [tons/pixel]</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>potential soil loss [tons/pixel]</p>
+					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>sediment retention [tons/pixel]</p>
+				</fieldset>
+
+				<fieldset><legend><b>Per watershed</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>sediment exported reaching stream [tons/watershed]</p>
+					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>potential soil loss [tons/watershed]</p>
+					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>sediment retention [tons/watershed</p>
+				</fieldset>
+
+		</div> -->
+
+
+		<!--<div id="About" class="tabcontent">
+				<fieldset><legend><b>The Natural Capital Project</b></legend>
+					 <p><a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40">   The Natural Capital Project</a> develops practical tools and approaches to account for nature’s contributions to society, so that leaders of countries, companies, communities, and organizations worldwide can make smarter decisions for a more sustainable future</p>
+				</fieldset>
+
+				<fieldset><legend><b>Collaborators</b></legend>
+			  		<p>
+			  			<a href="http://www.minam.gob.pe/" target="_blank"><img src="img/minam_small.jpg" alt="MINAM" width="202" height="38"></a>
+			  			<a href="http://cincia.wfu.edu/en/" target="_blank"><img src="img/cincia.png" alt="CINCIA" width="170" height="44"></a>
+			  			<a href="http://www.unamad.edu.pe/" target="_blank"><img src="img/unamad.png" alt="UNAMAD" width="240" height="40"></a>
+			  			<a href="http://www.ufac.br/" target="_blank"><img src="img/ufac.png" alt="UFAC" width="50" height="70"></a>
+			  			<a href="https://www.usaid.gov/" target="_blank"><img src="img/usaid.png" alt="USAID" width="129" height="40"></a>
+			  			<a href="https://www.moore.org/" target="_blank"><img src="img/moore2.png" alt="Moore" width="100" height="40"></a>
+			  			<a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40"></a>
+			  		</p>
+			  		
+				</fieldset>
+		</div> -->
+	</div>
+
+
+ <script src="lib/js/leaflet.shpfile.js"></script>
+	 <script src="lib/js/shp.js"></script>
+
+	 <script src='js/MAP/map_styling.js'> </script>
+	 <script src='js/MAP/map.js'> </script>
+	 <script src='js/MAP/main.js'> </script>
+	 <script src='js/MAP/tabs.js'> </script>
+	
+	<script type="module" src="js/navbar/navbar.lit.js"></script>
+
+	
+	</body>
 </html>
