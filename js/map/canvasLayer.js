@@ -1,20 +1,25 @@
+let pixelInTile = {};
+function imageReceived(tile, { x, y, z }) {
+  let canvas = document.createElement("canvas");
+  let context = canvas.getContext("2d");
+  canvas.width = this.getTileSize().x;
+  canvas.height = this.getTileSize().y;
+  const key = x + ":" + y + ":" + z;
+  context.drawImage(tile, 0, 0);
+  pixelInTile[key] = ({ offsetX, offsetY }) =>
+    context.getImageData(offsetX, offsetY, 1, 1).data;
+}
+
 L.CanvasLayer = L.TileLayer.extend({
-  pixelInTile: {},
   createTile: function(coords, done) {
     let tile = new Image();
     tile.crossOrigin = "Anonymous";
 
-    function imageReceived() {
-      let canvas = document.createElement("canvas");
-      let context = canvas.getContext("2d");
-      canvas.width = tile.width;
-      canvas.height = tile.height;
-      context.drawImage(tile, 0, 0);
-      console.log(context.getImageData(10, 10, 1, 1).data);
-      this.pixelInTile;
-    }
-
-    tile.addEventListener("load", imageReceived.bind(this), false);
+    tile.addEventListener(
+      "load",
+      imageReceived.bind(this, tile, coords),
+      false
+    );
     L.DomEvent.on(
       tile,
       "load",
@@ -33,15 +38,6 @@ L.CanvasLayer = L.TileLayer.extend({
   },
 
   _tileOnLoad: function(done, tile, { x, y, z }) {
-    var canvas = L.DomUtil.create("canvas");
-    canvas.width = this.getTileSize().x;
-    canvas.hieght = this.getTileSize().y;
-    const key = x + ":" + y + ":" + z;
-    ctx = canvas.getContext("2d");
-    ctx.drawImage(tile, 0, 0);
-    this.pixelInTile[key] = ({ offsetX, offsetY }) =>
-      ctx.getImageData(offsetX, offsetY, 1, 1).data;
-
     // For https://github.com/Leaflet/Leaflet/issues/3332
     if (L.Browser.ielt9) {
       setTimeout(L.Util.bind(done, this, null, tile), 0);

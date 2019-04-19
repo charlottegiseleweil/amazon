@@ -24,11 +24,14 @@ const pointCapture = (map, tileSize, displayId = undefined) => e => {
   tilePoint.z = map.getZoom();
   // the tile data block
   const key = tilePoint.x + ":" + tilePoint.y + ":" + tilePoint.z;
-  const pointVals = Object.entries(map._layers).map(
-    ([k, layer]) => layer._tiles[key]
-  );
-  console.log(pointVals);
+  const pointVals = Object.entries(map._layers).map(([k, layer]) => {
+    console.log(pixelInTile[key](pointInTile));
+    return pixelInTile[key](pointInTile);
+  });
+  // console.log(pointVals);
+  document.getElementById(displayId).innerHTML = pointVals;
 };
+console.log(pixelInTile);
 
 const layers = [
   {
@@ -117,7 +120,7 @@ var map2 = L.map("map2", {
 map1.sync(map2);
 map2.sync(map1);
 
-var pc = pointCapture(map2, 256, "text");
+var pc = pointCapture(map2, 256, "cursorDisplay");
 map2.addEventListener("mousemove", pc);
 
 function updateMap2(scenario) {
