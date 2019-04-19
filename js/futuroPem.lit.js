@@ -8,12 +8,6 @@ const tabs = [
   [
     "servicios ecosistemicos",
     html`
-      <style>
-        .p {
-          display: block;
-        }
-      </style>
-
       <a href="work in progress">Descargar resultados</a>
 
       <!-- Below not working and this is really sad! Ian help?-->
