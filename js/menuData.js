@@ -10,7 +10,7 @@ export const navbar = [
   //{ title: "Home", onClick: goto("index") },
   { title: "Reforestación de la Pampa", onClick: goto("pampa") },
   {
-    title: "Desarollo futuro",
+    title: "Desarollo futuro en Madre de Dios",
     links: [
       { title: "Region de Puerto Maldonado", onClick: goto("futuroPEM") },
       { title: "Region de Tahamanu-Cobija", onClick: goto("futuroTAH") }
