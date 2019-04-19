@@ -1,4 +1,13 @@
-    .map-diff-line {
+html, body {
+
+  font-size: 14px;
+
+  }
+
+
+/*Maps*/
+
+.map-diff-line {
       grid-area: "map-diff-line";
       margin: 0 auto;
       padding: 0;
@@ -70,23 +79,31 @@
 
 #tabsPanel{
 
-  height: 45vh;
+  max-height: 45vh;
   overflow:auto;
+  border: 1px solid black;
+  /*margin: 10px;*/
+
+}
+
+#tabsPanel p{
+  font-size:12px;
 }
 
 #mapControls{
-
-    height: 15vh;
-    overflow: auto;
+    height: 16vh;
+    overflow: visible;
 }
 
 .rightPanel{
   height: 100vh;
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 .chart{
       position: relative;
-      height: 25vh;
+      height: 22vh;
       max-height: 320px;
       overflow: auto;
   }

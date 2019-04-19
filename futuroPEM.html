@@ -67,7 +67,7 @@
       <!--Tabs-->
       <div id="tabsPanel">
         <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'Servicios')">Servicios Ecosistemicos</button>
+          <button id=defaultOpen class="tablinks" onclick="openTab(event, 'Servicios')">Servicios Ecosistemicos</button>
           <button class="tablinks" onclick="openTab(event, 'Modelos')">Modelos</button>
           <button class="tablinks" onclick="openTab(event, 'Escenarios')">Escenarios</button>
         </div>
@@ -108,6 +108,11 @@
   <script type="module" src="js/navbar/navbar.lit.js"></script>
   <script type="module" src="js/futuroPem.lit.js"></script>
   <script type="module" src="js/control_panel/barChart.js"></script>
+
+  <script>
+  // Tabs: Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
 
   <script src="lib/js/L.Map.Sync.js"></script>
   <script src="js/mapsPEM.js"></script>
