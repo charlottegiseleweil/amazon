@@ -1,4 +1,8 @@
-let pixelInTile = {};
+// TODO: encapsulate this, such that it doesn't clutter the global namespace
+// :handle the preload mouseHover issue
+// :handle changing layers
+
+L.pixelInTile = {};
 function imageReceived(tile, { x, y, z }) {
   let canvas = document.createElement("canvas");
   let context = canvas.getContext("2d");
@@ -6,7 +10,7 @@ function imageReceived(tile, { x, y, z }) {
   canvas.height = this.getTileSize().y;
   const key = x + ":" + y + ":" + z;
   context.drawImage(tile, 0, 0);
-  pixelInTile[key] = ({ offsetX, offsetY }) =>
+  L.pixelInTile[key] = ({ offsetX, offsetY }) =>
     context.getImageData(offsetX, offsetY, 1, 1).data;
 }
 
@@ -48,9 +52,4 @@ L.CanvasLayer = L.TileLayer.extend({
   _onTileRemove: function(e) {
     e.tile.onload = null;
   }
-  //   (getValueAt: function(x, y, z) {
-  //     var pixelData = this.canvas.getContext("2d").getImageData(offX, offY, 1, 1)
-  //       .data;
-  //     console.log(pixelData);
-  //   })
 });

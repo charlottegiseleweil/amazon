@@ -1,38 +1,3 @@
-/*
-
-
-    Earth Engine scrapped tiles (token work ~48hrs)
-
-    var tileset_LULC_MAP_Hoy =
-      "https://earthengine.googleapis.com/map/d1db03125fe15eaa6346ddc7e0d68c49/{z}/{x}/{y}?token=ef24106521754a644b33aa92333f76c9";
-
-    var tileset_LULC_PEM_Sost =
-      "https://earthengine.googleapis.com/map/6fec32bd05c5b890c7592e2ff672907e/{z}/{x}/{y}?token=c6eea883df13a494804cd00c113e3007";
-
-    var tileset_LULC_PEM_Peor =
-      "https://earthengine.googleapis.com/map/ed6617d31bb27aba07eb2fe678afa7fd/{z}/{x}/{y}?token=819683add916005b9aebf538c213db98";
-
-    var tileset_LULC_PEM_Real =
-      "https://earthengine.googleapis.com/map/d8949b95a266e40ddc1fcdce6f403dc5/{z}/{x}/{y}?token=f72bd6e1dfc03ba2f406020f3074bad7";
-
-    */
-
-const pointCapture = (map, tileSize, displayId = undefined) => e => {
-  var layerPoint = map.project(e.latlng).floor();
-  var tilePoint = layerPoint.divideBy(tileSize).floor();
-  var pointInTile = layerPoint.subtract(tilePoint.multiplyBy(tileSize));
-  tilePoint.z = map.getZoom();
-  // the tile data block
-  const key = tilePoint.x + ":" + tilePoint.y + ":" + tilePoint.z;
-  const pointVals = Object.entries(map._layers).map(([k, layer]) => {
-    console.log(pixelInTile[key](pointInTile));
-    return pixelInTile[key](pointInTile);
-  });
-  // console.log(pointVals);
-  document.getElementById(displayId).innerHTML = pointVals;
-};
-console.log(pixelInTile);
-
 const layers = [
   {
     id: "sost",
@@ -120,8 +85,12 @@ var map2 = L.map("map2", {
 map1.sync(map2);
 map2.sync(map1);
 
-var pc = pointCapture(map2, 256, "cursorDisplay");
-map2.addEventListener("mousemove", pc);
+var handler = pixelValuesAtPoint(
+  map2,
+  256,
+  vals => (document.getElementById("cursorDisplay").innerHTML = vals)
+);
+map2.addEventListener("mousemove", handler);
 
 function updateMap2(scenario) {
   console.log("Updating map2 with scenario " + scenario);
