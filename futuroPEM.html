@@ -1,30 +1,24 @@
 <!DOCTYPE html>
+
+<!-- To include Spanish accents -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+
+
 <html>
   <head>
     <!-- w3 style thingz -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-black.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="lib/css/tachyons.min.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
 
     <!-- Leaflet CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-      crossorigin=""
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
 
     <script src="lib/js/includehtml.js"></script>
-
+    <script src="js/tabs.js"></script>
 
     <!--Needed for Chart D3.js/C3.js-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -37,13 +31,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@4"></script>
 
     <!-- Leaflet JS -->
-    <script
-      src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
-      crossorigin=""
-    ></script>
-  </head>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" crossorigin=""></script>
 
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- Leaflet JS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tabs.css" />
+
+  </head>
 
   <body>
     <nav id="navbar"></nav>
@@ -63,15 +57,41 @@
       </div>
     </div>
 
-    <div class="w3-third" class="rightPanel">
+    <div class="w3-third rightPanel">
       <div id="intro_text">
         <p>Construyendo soluciones científicas para Madre de Dios:  Evaluación de escenarios de desarollo futuro</p>
       </div>
 
-      <!--<div id="control_panel"></div>-->
+      <!--OLD IAN <div id="control_panel"></div>-->
+
+      <!--Tabs-->
       <div id="tabsPanel">
-        <div w3-include-html="html/tab_servicios.html"></div>
+        <div class="tab">
+          <button class="tablinks" onclick="openTab(event, 'Servicios')">Servicios Ecosistemicos</button>
+          <button class="tablinks" onclick="openTab(event, 'Modelos')">Modelos</button>
+          <button class="tablinks" onclick="openTab(event, 'Escenarios')">Escenarios</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Servicios" class="tabcontent">
+          <div w3-include-html="html/tab_servicios.html"></div>
+        </div>
+
+        <div id="Modelos" class="tabcontent">
+          <p>Modelos WIP</p> 
+        </div>
+
+        <div id="Escenarios" class="tabcontent">
+          <div w3-include-html="html/tab_escenarios.html"></div>
+        </div>
       </div>
+
+
+
+
+
+
+
 
       <div id="mapControls">
        <div w3-include-html="html/mapControls.html"></div>
