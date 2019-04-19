@@ -86,6 +86,9 @@
     map1.sync(map2);
     map2.sync(map1);
 
+    // Add scale
+    L.control.scale().addTo(map2)
+
     function updateMap2(scenario) {
       console.log("Updating map2 with scenario " + scenario);
 
