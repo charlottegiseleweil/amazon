@@ -25,7 +25,6 @@
 
     <script src="lib/js/includehtml.js"></script>
 
-
     <!--Needed for Chart D3.js/C3.js-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="lib/js/c3.min.js"></script>
@@ -55,7 +54,7 @@
       </div>
       <hr class="map-diff-line" />
       <div id="map2" class="map"></div>
-      <div id="map2_text">
+      <div id="map2_text" class="absolute">
         <h1>2035</h1>
       </div>
       <div id="map2_controls">
@@ -65,23 +64,26 @@
 
     <div class="w3-third" class="rightPanel">
       <div id="intro_text">
-        <p>Construyendo soluciones científicas para Madre de Dios:  Evaluación de escenarios de desarollo futuro</p>
+        <p>
+          Construyendo soluciones científicas para Madre de Dios: Evaluación de
+          escenarios de desarollo futuro
+        </p>
       </div>
 
-      <!--<div id="control_panel"></div>-->
+      <div id="control_panel"></div>
       <div id="tabsPanel">
         <div w3-include-html="html/tab_servicios.html"></div>
       </div>
 
       <div id="mapControls">
-       <div w3-include-html="html/mapControls.html"></div>
+        <div w3-include-html="html/mapControls.html"></div>
       </div>
 
       <div id="chartPEM" class="chart"></div>
     </div>
   </body>
 
-  <script>includeHTML();</script>
+  <!-- <script>includeHTML();</script>s -->
 
   <script src="js/chartPEM.js"></script>
 

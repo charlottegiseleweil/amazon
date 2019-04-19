@@ -1,6 +1,6 @@
 import { html } from "../lib/js/lit-html/lit-html.js";
 
-export const servicios = () => html`<!-- to embed : 
+export const tab_servicios = html`<!-- to embed : 
 	<div w3-include-html="html/tab_servicios.html"></div>
 -->
 
