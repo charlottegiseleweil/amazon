@@ -12,7 +12,7 @@ const tabs = [
   { title: "modelos", content: tab_modelos },
   { title: "escenarios", content: tab_escenarios }
 ].map(({ title, content }, i) => ({
-  onClick: (setState, state) => () => {
+  onClick: setState => () => {
     setState({ content, selected: i });
   },
   title,
