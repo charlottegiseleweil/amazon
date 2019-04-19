@@ -88,8 +88,20 @@ map2.sync(map1);
 var handler = pixelValuesAtPoint(
   map2,
   256,
-  vals => (document.getElementById("cursorDisplay").innerHTML = vals)
+  ({ pixelValues, latlng: { lat, lng } }) =>
+    (document.getElementById("mouse_tip").innerHTML = pixelValues)
 );
+
+document.addEventListener("mousemove", function(e) {
+  document
+    .getElementById("mouse_tip")
+    .setAttribute("style", `left:${e.pageX + 5}px; top: ${e.pageY - 55}px`);
+  // console.log("ping");
+
+  // el.style.left = `${e.pageX + 5}`;
+  // el.style.top = `${e.pageY - 55}`;
+});
+
 map2.addEventListener("mousemove", handler);
 
 function updateMap2(scenario) {

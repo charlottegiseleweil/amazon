@@ -1,28 +1,39 @@
-    .map-diff-line {
-      grid-area: "map-diff-line";
-      margin: 0 auto;
-      padding: 0;
-      width: 0%;
-      background-color: #ccc;
-    }
+.map-diff-line {
+  grid-area: "map-diff-line";
+  margin: 0 auto;
+  padding: 0;
+  width: 0%;
+  background-color: #ccc;
+}
 
-    .map {
-      height: 46vh; /*make relative*/
-      background-color: blue;
-    }
+.map {
+  height: 46vh; /*make relative*/
+  background-color: blue;
+}
 
-    .leyendaHover:hover #leyendaIntegral {
-       display: block;
-      }
-    .leyendaHover:hover #leyendaMin {
-       display: none;
-      }
+.leyendaHover:hover #leyendaIntegral {
+  display: block;
+}
+.leyendaHover:hover #leyendaMin {
+  display: none;
+}
 
-    .leyendaHover #leyendaIntegral {
-       display: none;
-      }
-    .leyendaHover #leyendaMin {
-       display: block;
-       height: 15vh;
-      }
-  
+.leyendaHover #leyendaIntegral {
+  display: none;
+}
+.leyendaHover #leyendaMin {
+  display: block;
+  height: 15vh;
+}
+#mouse_tip {
+  position: absolute;
+  float: left;
+  z-index: 1000;
+  width: 115px;
+  font-size: small;
+  background-color: rgba(200, 50, 50, 0.5);
+  color: rgb(0, 255, 0);
+  font-weight: bold;
+  text-align: left;
+  border: 1px solid black;
+}

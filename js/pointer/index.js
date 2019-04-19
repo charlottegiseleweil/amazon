@@ -10,21 +10,20 @@ const pixelValuesAtPoint = (
   // the tile data block
   const key = tilePoint.x + ":" + tilePoint.y + ":" + tilePoint.z;
   const pixelValues = Object.entries(map._layers).map(([k, layer]) => {
-    console.log(L.pixelInTile[key](pointInTile));
     return L.pixelInTile[key](pointInTile);
   });
-  callback(pixelValues);
+  callback({ pixelValues, latlng: e.latlng });
 };
 
 // example usage
 // const exampleHandler = pixelValuesAtPoint(
 //   map,
 //   256,
-//   (vals => (document.getElementById("displayId").innerHTML = vals))
+//   ({ pixelValues, latlng: { lat, lng } }) =>
+//     (document.getElementById("mouse_tip").innerHTML = `(${Number(lat).toFixed(
+//       3
+//     )}, ${Number(lng).toFixed(3)})
+//       pixelValues)`)
 // );
 
-// map.addEventListener(
-//   "mousemove",
-//   exampleHandler,
-//   false
-// );
+// map.addEventListener("mousemove", exampleHandler, false);
