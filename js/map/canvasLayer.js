@@ -1,8 +1,20 @@
 L.CanvasLayer = L.TileLayer.extend({
-  tileData: {},
+  pixelInTile: {},
   createTile: function(coords, done) {
-    var tile = document.createElement("img");
+    let tile = new Image();
+    tile.crossOrigin = "Anonymous";
 
+    function imageReceived() {
+      let canvas = document.createElement("canvas");
+      let context = canvas.getContext("2d");
+      canvas.width = tile.width;
+      canvas.height = tile.height;
+      context.drawImage(tile, 0, 0);
+      console.log(context.getImageData(10, 10, 1, 1).data);
+      this.pixelInTile;
+    }
+
+    tile.addEventListener("load", imageReceived.bind(this), false);
     L.DomEvent.on(
       tile,
       "load",
@@ -13,10 +25,7 @@ L.CanvasLayer = L.TileLayer.extend({
       "error",
       L.Util.bind(this._tileOnError, this, done, tile)
     );
-    if (this.options.crossOrigin || this.options.crossOrigin === "") {
-      tile.crossOrigin =
-        this.options.crossOrigin === true ? "" : this.options.crossOrigin;
-    }
+
     tile.alt = "";
     tile.setAttribute("role", "presentation");
     tile.src = this.getTileUrl(coords);
@@ -27,12 +36,10 @@ L.CanvasLayer = L.TileLayer.extend({
     var canvas = L.DomUtil.create("canvas");
     canvas.width = this.getTileSize().x;
     canvas.hieght = this.getTileSize().y;
-    console.log(this.getTileUrl({ x, y, z }));
     const key = x + ":" + y + ":" + z;
     ctx = canvas.getContext("2d");
-    this.tileData[key];
     ctx.drawImage(tile, 0, 0);
-    tile.getPixelData = ({ offsetX, offsetY }) =>
+    this.pixelInTile[key] = ({ offsetX, offsetY }) =>
       ctx.getImageData(offsetX, offsetY, 1, 1).data;
 
     // For https://github.com/Leaflet/Leaflet/issues/3332

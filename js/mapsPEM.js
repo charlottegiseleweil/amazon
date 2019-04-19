@@ -20,25 +20,14 @@
 const pointCapture = (map, tileSize, displayId = undefined) => e => {
   var layerPoint = map.project(e.latlng).floor();
   var tilePoint = layerPoint.divideBy(tileSize).floor();
+  var pointInTile = layerPoint.subtract(tilePoint.multiplyBy(tileSize));
   tilePoint.z = map.getZoom();
   // the tile data block
   const key = tilePoint.x + ":" + tilePoint.y + ":" + tilePoint.z;
-  Object.entries(map._layers).map(([k, layer]) => {
-    var tile = layer._tileData[key].el;
-    console.log(layer._tileData[key]);
-
-    // Read the data value from the tile if it xists
-    if (tile) {
-      var pointInTile = layerPoint.subtract(tilePoint.multiplyBy(tileSize));
-      document.getElementById(
-        displayId
-      ).innerHTML = `current elevation: ${pointInTile} is ${tile.getPixelData(
-        pointInTile
-      )}`;
-    } else {
-      document.getElementById(displayId).innerHTML = "Elevation: undefined";
-    }
-  });
+  const pointVals = Object.entries(map._layers).map(
+    ([k, layer]) => layer._tiles[key]
+  );
+  console.log(pointVals);
 };
 
 const layers = [
@@ -84,7 +73,6 @@ const layers = [
     all[id] = layer;
     return all;
   }, {});
-console.log(layers);
 
 var basemap = L.tileLayer(
   "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
@@ -118,7 +106,6 @@ var map1 = L.map("map1", {
   center: [-12.85, -69.7],
   zoom: 10
 });
-console.log({ map1 });
 
 var map2 = L.map("map2", {
   layers: [basemap2, layers["sost"], labels2],
