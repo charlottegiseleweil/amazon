@@ -23,6 +23,9 @@
       crossorigin=""
     />
 
+    <script src="lib/js/includehtml.js"></script>
+
+
     <!--Needed for Chart D3.js/C3.js-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="lib/js/c3.min.js"></script>
@@ -47,75 +50,38 @@
 
     <div class="w3-twothird" id="maps">
       <div id="map1" class="map"></div>
+      <div id="map1_text" class="map_text">
+        <h1>2019</h1>
+      </div>
       <hr class="map-diff-line" />
       <div id="map2" class="map"></div>
+      <div id="map2_text">
+        <h1>2035</h1>
+      </div>
+      <div id="map2_controls">
+        <div w3-include-html="html/pickEscenario.html"></div>
+      </div>
     </div>
 
-    <div class="w3-third" style="background-color:'yellow';">
-      <div id="text">
-        <p>Texto sobre escenario analisis...</p>
+    <div class="w3-third" class="rightPanel">
+      <div id="intro_text">
+        <p>Construyendo soluciones científicas para Madre de Dios:  Evaluación de escenarios de desarollo futuro</p>
       </div>
 
-      <div id="control_panel"></div>
-
-      <div id="map_controls">
-        <div id="radio_container">
-          <tr id="scenario">
-            <td>
-              <p class="row-label">Eligir Escenario</p>
-              <div class="input-radio">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="radio1"
-                  id="btnSost"
-                  checked="checked"
-                  onchange="updateMap2('Sost')"
-                  autocomplete="off"
-                />
-                <label for="b_radio-1">Futuro Sostenible</label>
-              </div>
-              <div class="input-radio">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="radio1"
-                  id="btnReal"
-                  value="3"
-                  onchange="updateMap2('Real')"
-                  autocomplete="off"
-                />
-                <label for="b_radio-2">Futuro Eco-Turismo</label>
-              </div>
-              <div class="input-radio">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="radio1"
-                  id="btnPeor"
-                  onchange="updateMap2('Peor')"
-                  autocomplete="off"
-                />
-                <label for="b_radio-3">Futuro "Peor"</label>
-              </div>
-            </td>
-          </tr>
-        </div>
-
-        <div id="leyenda" class="leyendaHover">
-          <p>Leyenda <i>Ver toda la leyenda</i></p>
-          <div id="leyendaMin">
-            <img src="static/images/leyenda.png" height="90%" alt="Leyenda" />
-          </div>
-          <div id="leyendaIntegral">
-            <img src="static/images/leyenda_integral.png" alt="Leyenda" />
-          </div>
-        </div>
+      <!--<div id="control_panel"></div>-->
+      <div id="tabsPanel">
+        <div w3-include-html="html/tab_servicios.html"></div>
       </div>
 
-      <div id="chartPEM"></div>
+      <div id="mapControls">
+       <div w3-include-html="html/mapControls.html"></div>
+      </div>
+
+      <div id="chartPEM" class="chart"></div>
     </div>
   </body>
+
+  <script>includeHTML();</script>
 
   <script src="js/chartPEM.js"></script>
 
