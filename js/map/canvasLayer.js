@@ -2,18 +2,27 @@
 // :handle the preload mouseHover issue
 // :handle changing layers
 
+// export, and should be better encapsulated
 L.pixelInTile = {};
+
+//private
 function imageReceived(tile, { x, y, z }) {
   let canvas = document.createElement("canvas");
   let context = canvas.getContext("2d");
   canvas.width = this.getTileSize().x;
   canvas.height = this.getTileSize().y;
+
   const key = x + ":" + y + ":" + z;
   context.drawImage(tile, 0, 0);
-  L.pixelInTile[key] = ({ offsetX, offsetY }) =>
-    context.getImageData(offsetX, offsetY, 1, 1).data;
-}
+  if (!L.pixelInTile[this.options.id]) L.pixelInTile[this.options.id] = {};
 
+  L.pixelInTile[this.options.id][key] = ({ x, y }) => {
+    console.log({ x, y });
+
+    return context.getImageData(x, y, 1, 1).data;
+  };
+}
+//export, well encapsulated
 L.CanvasLayer = L.TileLayer.extend({
   createTile: function(coords, done) {
     let tile = new Image();
@@ -53,3 +62,24 @@ L.CanvasLayer = L.TileLayer.extend({
     e.tile.onload = null;
   }
 });
+
+//export, needs access to
+const pixelValuesAtPoint = (
+  map,
+  tileSize,
+  callback = pixelValues => undefined
+) => e => {
+  var layerPoint = map.project(e.latlng).floor();
+  var tilePoint = layerPoint.divideBy(tileSize).floor();
+  var pointInTile = layerPoint.subtract(tilePoint.multiplyBy(tileSize));
+  tilePoint.z = map.getZoom();
+  // the tile data block
+  const key = tilePoint.x + ":" + tilePoint.y + ":" + tilePoint.z;
+  const pixelValues = Object.entries(map._layers).map(([k, layer]) => {
+    return (
+      L.pixelInTile[layer.options.id] &&
+      L.pixelInTile[layer.options.id][key](pointInTile)
+    );
+  });
+  callback({ pixelValues, latlng: e.latlng });
+};

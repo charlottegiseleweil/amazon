@@ -34,7 +34,6 @@ const getNameForPixelValue = ([r, g, b, a]) => {
     return agg;
   }, {});
   const key = `${r}:${g}:${b}:${a}`;
-  console.log({ colorMapFuturo, key });
 
   return colorMapFuturo[key].title;
 };
