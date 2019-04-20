@@ -89,17 +89,15 @@ var handler = pixelValuesAtPoint(
   map2,
   256,
   ({ pixelValues, latlng: { lat, lng } }) =>
-    (document.getElementById("mouse_tip").innerHTML = pixelValues)
+    (document.getElementById("mouse_tip").innerHTML = getNameForPixelValues(
+      pixelValues
+    ))
 );
 
 document.addEventListener("mousemove", function(e) {
   document
     .getElementById("mouse_tip")
     .setAttribute("style", `left:${e.pageX + 5}px; top: ${e.pageY - 55}px`);
-  // console.log("ping");
-
-  // el.style.left = `${e.pageX + 5}`;
-  // el.style.top = `${e.pageY - 55}`;
 });
 
 map2.addEventListener("mousemove", handler);

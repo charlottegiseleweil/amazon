@@ -28,6 +28,7 @@
 #mouse_tip {
   position: absolute;
   float: left;
+  word-break: break-word;
   z-index: 1000;
   width: 115px;
   font-size: small;
