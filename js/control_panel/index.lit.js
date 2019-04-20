@@ -28,7 +28,7 @@ export const control_panel = ({
         `;
       })}
     </div>
-    <div class="bg-black white pa3 flex justify-center avenir">
+    <div class="bg-black white pa3 justify-center avenir">
       ${displayContent}
     </div>
   `;

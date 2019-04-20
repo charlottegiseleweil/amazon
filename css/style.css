@@ -1,3 +1,10 @@
+html,
+body {
+  font-size: 14px;
+}
+
+/*Maps*/
+
 .map-diff-line {
   grid-area: "map-diff-line";
   margin: 0 auto;
@@ -7,7 +14,7 @@
 }
 
 .map {
-  height: 46vh; /*make relative*/
+  height: 47vh;
   background-color: blue;
 }
 
@@ -18,13 +25,6 @@
   display: none;
 }
 
-.leyendaHover #leyendaIntegral {
-  display: none;
-}
-.leyendaHover #leyendaMin {
-  display: block;
-  height: 15vh;
-}
 #mouse_tip {
   position: absolute;
   float: left;
@@ -38,3 +38,113 @@
   text-align: left;
   border: 1px solid black;
 }
+.leyendaHover #leyendaIntegral {
+  display: none;
+}
+.leyendaHover #leyendaMin {
+  display: block;
+  height: 15vh;
+}
+
+.h1 #map1_text {
+  font-size: 4vh !important;
+  font-weight: bold;
+}
+
+#map1_text {
+  display: flex;
+  position: fixed;
+  bottom: 47vh;
+  left: 52vw;
+  z-index: 1000;
+  color: white;
+
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+#map2_text {
+  display: flex;
+  position: fixed;
+  bottom: 2vh;
+  left: 52vw;
+  z-index: 1000;
+  color: white;
+
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+#map2_controls {
+  display: flex;
+  position: fixed;
+  font-size: 1.5vh;
+  bottom: 2vh;
+  left: 52vw;
+  z-index: 1000;
+  color: white;
+}
+
+#tabsPanel {
+  max-height: 45vh;
+  overflow: auto;
+  border: 1px solid black;
+  /*margin: 10px;*/
+}
+
+#tabsPanel p {
+  font-size: 12px;
+}
+
+#mapControls {
+  height: 16vh;
+  overflow: visible;
+}
+
+.rightPanel {
+  height: 100vh;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+.chart {
+  position: relative;
+  height: 22vh;
+  max-height: 320px;
+  overflow: auto;
+}
+
+/*#radio_container{
+    border: 1px solid white;
+    padding-bottom: 1px;
+    text-align: center;
+  }
+
+
+
+.radio_btn{
+    margin-bottom: 2px;
+    -webkit-appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    outline: none;
+    border-radius: 100%;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: white;
+  }
+  /*
+
+  <h3 id="map2_controls">Escenarios</h3>
+
+  #map2_controls{
+
+    display: flex; 
+    position: fixed;
+    font-size: 1vh;
+    bottom: 1vh;
+    left: 55vw;
+    z-index: 1000;
+    color: white;
+  }*/
