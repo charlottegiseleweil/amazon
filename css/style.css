@@ -5,7 +5,7 @@ html, body {
   }
 
 
-/*Maps*/
+/* Desarollo Futuro - Maps + RightPanel*/
 
 .map-diff-line {
       grid-area: "map-diff-line";
@@ -79,8 +79,8 @@ html, body {
 
 #tabsPanel{
 
-  max-height: 45vh;
-  overflow:auto;
+  /*max-height: 45vh;
+  overflow:auto;*/
   border: 1px solid black;
   /*margin: 10px;*/
 
@@ -96,7 +96,7 @@ html, body {
 }
 
 .rightPanel{
-  height: 100vh;
+  height: 94vh;
   padding-right: 1em;
   padding-left: 1em;
 }
