@@ -17,6 +17,9 @@ body {
   height: 47vh;
   background-color: blue;
 }
+#maps:hover #mouse_tip {
+  display: block;
+}
 
 .leyendaHover:hover #leyendaIntegral {
   display: block;
@@ -26,18 +29,19 @@ body {
 }
 
 #mouse_tip {
+  display: none;
   position: absolute;
   float: left;
   word-break: break-word;
-  z-index: 1000;
+  z-index: 10000;
   width: 115px;
   font-size: small;
   background-color: rgba(200, 50, 50, 0.5);
   color: rgb(0, 255, 0);
   font-weight: bold;
   text-align: left;
-  border: 1px solid black;
 }
+
 .leyendaHover #leyendaIntegral {
   display: none;
 }
