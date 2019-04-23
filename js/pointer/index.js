@@ -48,19 +48,21 @@ const getNameForPixelValue = pixel => {
   return colorMapFuturo[key] && colorMapFuturo[key].title;
 };
 
-const handler = pixelValuesAtPoint(
-  map2,
-  256,
-  ({ pixelValues, latlng: { lat, lng } }) =>
-    (document.getElementById("mouse_tip").innerHTML = getNameForPixelValues(
-      pixelValues
-    ))
-);
+const handlers = inspectableMaps
+  .map(map => [
+    map.map,
+    pixelValuesAtPoint(map, 256, ({ pixelValues, latlng: { lat, lng } }) => {
+      console.log(pixelValues);
+
+      return (document.getElementById(
+        "mouse_tip"
+      ).innerHTML = getNameForPixelValues(pixelValues));
+    })
+  ])
+  .forEach(([map, handler]) => map.addEventListener("mousemove", handler));
 
 document.addEventListener("mousemove", function(e) {
   document
     .getElementById("mouse_tip")
     .setAttribute("style", `left:${e.pageX + 5}px; top: ${e.pageY - 55}px`);
 });
-
-map2.addEventListener("mousemove", handler);

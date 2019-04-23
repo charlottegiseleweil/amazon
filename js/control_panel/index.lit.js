@@ -1,7 +1,5 @@
-import { html, render } from "../../lib/js/lit-html/lit-html.js";
-import { link } from "../common/link.lit.js";
-import { navbar } from "../menuData.js";
-import { classify, withState } from "../utilities.js";
+import { html } from "../../lib/js/lit-html/lit-html.js";
+import { classify } from "../utilities.js";
 import { classMap } from "../../lib/js/lit-html/directives/class-map.js";
 
 const tabContainerStyle = "bg-black br2 white flex justify-center avenir";
@@ -9,6 +7,15 @@ const tabStyle = (i, selected) =>
   "bt br pa3 bg-black fl tc ttc link bg-animate hover-bg-dark-gray pointer" +
   (i === 0 ? " bl" : "") +
   (i === selected ? "" : " bb");
+
+const tab = (selected, displayContent, setState) => (t, i) => html`
+  <a
+    @click=${t.onClick(setState, displayContent)}
+    class=${classMap(classify(tabStyle(i, selected)))}
+  >
+    <div>${t.title}</div>
+  </a>
+`;
 
 export const control_panel = ({
   tabs = [],

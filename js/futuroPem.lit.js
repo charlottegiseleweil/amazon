@@ -1,20 +1,11 @@
 // import { radioContainer } from "../mapController/controller.js";
 // import { includeHTML } from "../lib/js/includehtml.js";
-import { html, render } from "../lib/js/lit-html/lit-html.js";
+import { html } from "../lib/js/lit-html/lit-html.js";
 import { control_panel } from "./control_panel/index.lit.js";
 import { withState } from "./utilities.js";
 import { servicios } from "../html/tab_servicios.js";
 const tabs = [
-  [
-    "servicios ecosistemicos",
-    html`
-      <a href="work in progress">Descargar resultados</a>
-
-      <!-- Below not working and this is really sad! Ian help?-->
-
-      ${servicios()}
-    `
-  ],
+  ["servicios ecosistemicos", servicios()],
   ["modelos", "Coming soon ... Metodologias etc y enlaces a InVEST"],
   [
     "escenarios",

@@ -1,15 +1,15 @@
 const layers = [
   {
+    id: "label",
+    canvas: false,
     urlTemplate:
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
     subdomains: "abcd",
-    id: "label",
-    maxZoom: 19,
-    canvas: false
+    maxZoom: 19
   },
   {
     id: "base",
-    canvas: false,
+    canvas: true,
     urlTemplate:
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
     attribution: "OpenStreetMap"
@@ -46,11 +46,11 @@ const layers = [
   .map(options => {
     const { id, urlTemplate, canvas = true } = options;
     const layer = canvas
-      ? new L.CanvasLayer(urlTemplate, {
+      ? canvasLayer(urlTemplate, {
           ...options,
           crossOrigin: "anonymous"
         })
-      : new L.TileLayer(urlTemplate, options);
+      : { layer: new L.TileLayer(urlTemplate, options) };
     return {
       id,
       layer
@@ -71,18 +71,34 @@ const layers = [
 //   )
 // );
 
-var map1 = L.map("map1", {
-  layers: [layers["base"], layers["hoy"], layers["label"]],
-  center: [-12.85, -69.7],
-  zoom: 10
+let inspectableMaps = [
+  { layerIds: "base hoy label".split(" ") },
+  { layerIds: "base sost label".split(" "), options: { zoomControl: false } }
+].map(({ layerIds, options }, i) => {
+  const mapLayers = layerIds.map(id => ({
+    id,
+    layer: layers[id].layer,
+    ppm: layers[id].pointToPixelMapper
+  }));
+
+  const pointToPixelMapper = mapLayers.reduce((agg, { id, ppm }) => {
+    agg[id] = ppm;
+    return agg;
+  }, {});
+
+  return {
+    map: L.map(`map${i + 1}`, {
+      layers: mapLayers.map(l => l.layer),
+      center: [-12.85, -69.7],
+      zoom: 10,
+      ...options
+    }),
+    pointToPixelMapper
+  };
 });
 
-var map2 = L.map("map2", {
-  layers: [layers["base"], layers["sost"], layers["label"]],
-  center: [-12.85, -69.7],
-  zoom: 10,
-  zoomControl: false
-});
+// this should be the same stuff that you wrote previously here
+const [map1, map2] = inspectableMaps.map(m => m.map);
 
 map1.sync(map2);
 map2.sync(map1);
@@ -90,9 +106,10 @@ map2.sync(map1);
 // Add scale
 L.control.scale().addTo(map2);
 
+function toggleMap(map, scenarioId) {
+  console.log(`Updating ${map} with scenario ` + scenario);
+}
 function updateMap2(scenario) {
-  console.log("Updating map2 with scenario " + scenario);
-
   map2.eachLayer(function(layer) {
     if (
       layer._url !=
@@ -101,6 +118,6 @@ function updateMap2(scenario) {
       map2.removeLayer(layer);
     }
   });
-
-  layers[scenario.toLowerCase()].addTo(map2);
+  const { layer, pointToPixelMapper } = layers[scenario.toLowerCase()];
+  layer.addTo(map2);
 }
