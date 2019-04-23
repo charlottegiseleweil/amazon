@@ -6,11 +6,25 @@
 
 <html>
 <head>
-  <!-- Needed for Navbar-->
+      <!-- Needed for Navbar-->
     <link rel="stylesheet" href="lib/css/tachyons.min.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="css/overlay.css" />
     <script src="lib/js/includehtml.js"></script>
+    <!-- About Overlay -->
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <div w3-include-html="about.html"></div>
+      </div>
+    </div>
+    <!-- End Of About Overlay -->
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+    <!-- End Of: Needed for Navbar-->
+
+
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styleMAP.css"/>
@@ -64,5 +78,8 @@ src="https://conservation.maps.arcgis.com/apps/MapSeries/index.html?appid=548c9e
 ></iframe>
 </body>
 
+  <!-- Needed for Navbar-->
   <script>includeHTML();</script>
+  <script src="js/overlay.js"></script>
+  
 </html>
