@@ -4,7 +4,14 @@
 
 <html>
 	<head>
-	   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<!-- Needed for Navbar-->
+	    <link rel="stylesheet" href="lib/css/tachyons.min.css" />
+	    <link rel="stylesheet" href="css/dropdown.css" />
+	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+	    <script src="lib/js/includehtml.js"></script>
+	
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	   <title>Prototipo de Visualizador PRO Agua</title>
 	
@@ -29,10 +36,6 @@
 	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 
-	<!-- Needed for Navbar-->
-    <link rel="stylesheet" href="lib/css/tachyons.min.css" />
-    <link rel="stylesheet" href="css/dropdown.css" />
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
 
 
 	</head>
@@ -41,7 +44,9 @@
 
 	<body class="bg-black-60 white-80 avenir fw5">
 
-	<nav id="navbar"></nav>
+	  <nav id="navbar">
+      	<div w3-include-html="html/navbar.html"></div>
+  	  </nav>
 
 	  <div id="map">
 	  </div>
@@ -230,7 +235,7 @@
 	 <script src='js/MAP/main.js'> </script>
 	 <script src='js/MAP/tabs.js'> </script>
 	
-	<script type="module" src="js/navbar/navbar.lit.js"></script>
+  <script>includeHTML();</script>
 
 	
 	</body>

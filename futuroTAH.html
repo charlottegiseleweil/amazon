@@ -4,13 +4,16 @@
   	<!-- Needed for Navbar-->
     <link rel="stylesheet" href="lib/css/tachyons.min.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="lib/js/includehtml.js"></script>
+    
   </head>
 
 
   <body class="bg-black-60 white-80 avenir fw5">
-    <nav id="navbar"></nav>
-
+    <nav id="navbar">
+        <div w3-include-html="html/navbar.html"></div>
+    </nav>
     <p> Coming soon ... </p>
     
 
@@ -19,5 +22,5 @@
  
 
 
-  <script type="module" src="js/navbar/navbar.lit.js"></script>
+  <script>includeHTML();</script>
 </html>
