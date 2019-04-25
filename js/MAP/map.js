@@ -4,41 +4,26 @@ function map(){
 
 	////////////////////////////////////////////
     // Basemaps ////////////////////////////////
-
-
     var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
     {
     attribution: 'Webmap Prototype Charlotte Gisèle Weil, <a href="https://www.naturalcapitalproject.org/" target="_blank">The Natural Capital Project</a>. Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
     maxZoom: 12
     });
 
-    var ESRIImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri'
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
     });
-
-    var CartoLight = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    });
-
-
-    var ESRIOcean = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}.png', {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, GEBCO, NOAA, and DeLorme'
-    });
-
-    //var Satellite = L.tileLayer(// TODO!!!
-
-
-
-    //var ESRIStreets= L.esri.basemapLayer('Streets');
-
     ////////////////////////////////////////////
 
     map_styling();
+
+
     ////////////////////////////////////////////
     ////// Data ////////////////////////////////
 
-    //L.mapbox.accessToken = 'pk.eyJ1IjoiY2hhcmxvdHRlZ2lzZWxld2VpbCIsImEiOiJjaXZrMGZ5MTAwMmd6MzNtcXY1bnZzN3l4In0.3YJ6A1AYhcA4M4W9hb1DPQ';
+    // MapBox old stuffs
 
+    //L.mapbox.accessToken = 'pk.eyJ1IjoiY2hhcmxvdHRlZ2lzZWxld2VpbCIsImEiOiJjaXZrMGZ5MTAwMmd6MzNtcXY1bnZzN3l4In0.3YJ6A1AYhcA4M4W9hb1DPQ';
     /*var mymap = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/charlottegiseleweil.d0vnpeg3/tiles/{z}/{x}/{y}?access_token='+ 'pk.eyJ1IjoiY2hhcmxvdHRlZ2lzZWxld2VpbCIsImEiOiJjaXZrMGZ5MTAwMmd6MzNtcXY1bnZzN3l4In0.3YJ6A1AYhcA4M4W9hb1DPQ',
                             {
                                 tileSize: 512,
@@ -46,9 +31,37 @@ function map(){
                                 attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }).addTo(map);
 */
-	var geosur = new L.Shapefile("./data/geosur.zip",{
+	//for i in []:
+    var AOI = new L.Shapefile("./../data/shapefiles/AOI.zip",{
+            style: shpStyle},{
 	        onEachFeature: function(feature, layer) {}
 	      });
+
+    var AOI_TAH = new L.Shapefile("./../data/shapefiles/AOI_TAH.zip",{
+            style: shpStyle},{
+            onEachFeature: function(feature, layer) {}
+          });
+
+    var AOI_PEM = new L.Shapefile("./../data/shapefiles/AOI_PEM.zip",{
+            style: shpStyle},{
+            onEachFeature: function(feature, layer) {}
+          });
+
+    var cuencas = new L.Shapefile("./../data/shapefiles/cuencas.zip",{
+            onEachFeature: function(feature, layer) {}
+          });
+
+
+
+
+
+    ///// Tilesets Layers /////
+
+    var tileset_LULC_PEM_Real = 
+      "https://charlottegiseleweil.github.io/tiles/amazon/Carbon_MAP/{z}/{x}/{y}.png"
+    var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
+      attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
+    });
 
 
     /*var LU = new L.Shapefile("./data/LU_merged.zip",{
@@ -154,10 +167,13 @@ function createCheckboxForLayer(cssSelector, layer,legendDiv) {
 createCheckboxForLayer('#geosur', geosur,'#LUleyenda')
 createCheckboxForLayer('#rec', rec,'#RECleyenda')
 createCheckboxForLayer('#landuse', landuse)
-createCheckboxForLayer('#corrientes', corrientes)
-createCheckboxForLayer('#watersheds', watersheds)
-createCheckboxForLayer('#aoi', aoi)
-createCheckboxForLayer('#turismolugares', turismolugares)
+createCheckboxForLayer('#corrientes', LULC_PEM_Real)
+
+
+createCheckboxForLayer('#watersheds', cuencas)
+createCheckboxForLayer('#aoi', AOI)
+createCheckboxForLayer('#Satellite', Esri_WorldImagery)
+
 
 
 

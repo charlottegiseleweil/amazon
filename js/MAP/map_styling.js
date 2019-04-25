@@ -2,6 +2,17 @@
 
 function map_styling(){
 
+  function shpStyle(feature) {
+    return {
+        fillColor: 'white',
+        weight: 3,
+        opacity: 2,
+        color: '#aa0a1f',
+        Array: '0',
+        fillOpacity: 0
+        };
+    }
+
     function getColor(d) {
     return d > 200  ? '#E31A1C' :
            d > 100   ? '#FED976' :
@@ -83,7 +94,7 @@ function map_styling(){
         };
     }
 
-
+    window.shpStyle = shpStyle;
     window.WSHEDstyle = WSHEDstyle;
     window.AOIstyle = AOIstyle;
     window.RECstyle = RECstyle;
