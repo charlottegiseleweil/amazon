@@ -13,6 +13,24 @@ function map_styling(){
         };
     }
 
+    function blueShpStyle(feature) {
+    return {
+        fillColor: 'lightblue',
+        weight: 3,
+        opacity: 2,
+        color: 'blue',
+        Array: '0',
+        fillOpacity: .2
+        };
+    }
+
+    window.shpStyle = shpStyle;
+    window.blueShpStyle = blueShpStyle;
+
+
+
+    // Below this is old stuffs
+
     function getColor(d) {
     return d > 200  ? '#E31A1C' :
            d > 100   ? '#FED976' :
@@ -94,7 +112,7 @@ function map_styling(){
         };
     }
 
-    window.shpStyle = shpStyle;
+
     window.WSHEDstyle = WSHEDstyle;
     window.AOIstyle = AOIstyle;
     window.RECstyle = RECstyle;
