@@ -61,16 +61,6 @@ const layers = [
     return all;
   }, {});
 
-// var [basemap, basemap2] = [1, 2].map(() =>
-//   L.tileLayer(
-//     "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-//     {
-//       attribution: "OpenStreetMap",
-//       id: "base"
-//     }
-//   )
-// );
-
 let inspectableMaps = [
   { layerIds: "base hoy label".split(" ") },
   { layerIds: "base sost label".split(" "), options: { zoomControl: false } }
