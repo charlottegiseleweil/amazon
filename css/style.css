@@ -3,8 +3,6 @@ body {
   font-size: 14px;
 }
 
-/*Maps*/
-
 .map-diff-line {
   grid-area: "map-diff-line";
   margin: 0 auto;
@@ -17,6 +15,27 @@ body {
   height: 47vh;
   background-color: blue;
 }
+
+.leyendaHover:hover #leyendaIntegral {
+  display: block;
+}
+.leyendaHover:hover #leyendaMin {
+  display: none;
+}
+
+.leyendaHover #leyendaIntegral {
+  display: none;
+}
+.leyendaHover #leyendaMin {
+  display: block;
+  height: 15vh;
+}
+
+.h1 #map1_text {
+  font-size: 4vh !important;
+  font-weight: bold;
+}
+
 #maps:hover #mouse_tip {
   display: block;
 }
@@ -91,10 +110,7 @@ body {
 }
 
 #tabsPanel {
-  max-height: 45vh;
-  overflow: auto;
   border: 1px solid black;
-  /*margin: 10px;*/
 }
 
 #tabsPanel p {
@@ -107,7 +123,7 @@ body {
 }
 
 .rightPanel {
-  height: 100vh;
+  height: 94vh;
   padding-right: 1em;
   padding-left: 1em;
 }
@@ -118,38 +134,3 @@ body {
   max-height: 320px;
   overflow: auto;
 }
-
-/*#radio_container{
-    border: 1px solid white;
-    padding-bottom: 1px;
-    text-align: center;
-  }
-
-
-
-.radio_btn{
-    margin-bottom: 2px;
-    -webkit-appearance: none;
-    width: 1.1rem;
-    height: 1.1rem;
-    outline: none;
-    border-radius: 100%;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    color: white;
-  }
-  /*
-
-  <h3 id="map2_controls">Escenarios</h3>
-
-  #map2_controls{
-
-    display: flex; 
-    position: fixed;
-    font-size: 1vh;
-    bottom: 1vh;
-    left: 55vw;
-    z-index: 1000;
-    color: white;
-  }*/

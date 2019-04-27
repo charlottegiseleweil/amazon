@@ -2,6 +2,35 @@
 
 function map_styling(){
 
+  function shpStyle(feature) {
+    return {
+        fillColor: 'white',
+        weight: 3,
+        opacity: 2,
+        color: '#aa0a1f',
+        Array: '0',
+        fillOpacity: 0
+        };
+    }
+
+    function blueShpStyle(feature) {
+    return {
+        fillColor: 'lightblue',
+        weight: 3,
+        opacity: 2,
+        color: 'blue',
+        Array: '0',
+        fillOpacity: .2
+        };
+    }
+
+    window.shpStyle = shpStyle;
+    window.blueShpStyle = blueShpStyle;
+
+
+
+    // Below this is old stuffs
+
     function getColor(d) {
     return d > 200  ? '#E31A1C' :
            d > 100   ? '#FED976' :

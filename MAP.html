@@ -4,7 +4,28 @@
 
 <html>
 	<head>
-	   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<title>Prototipo de Visualizador PRO Agua</title>
+	
+	<!-- Needed for Navbar-->
+    <link rel="stylesheet" href="lib/css/tachyons.min.css" />
+    <link rel="stylesheet" href="css/dropdown.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="css/overlay.css" />
+    <script src="lib/js/includehtml.js"></script>
+    <!-- About Overlay -->
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <div w3-include-html="about.html"></div>
+      </div>
+    </div>
+    <!-- End Of About Overlay -->
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+    <!-- End Of: Needed for Navbar-->
+	
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 	   <title>Prototipo de Visualizador PRO Agua</title>
 	
@@ -20,6 +41,7 @@
   <link rel="stylesheet" href="css/styleMAP.css"/>
   <link rel="stylesheet" href="css/slidersMAP.css"/>
   <link rel="stylesheet" href="css/tabsMAP.css"/>
+  <link rel="stylesheet" href="css/tabs.css"/>
 
 	  
 	<!--jQuery-->
@@ -29,10 +51,6 @@
 	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 
-	<!-- Needed for Navbar-->
-    <link rel="stylesheet" href="lib/css/tachyons.min.css" />
-    <link rel="stylesheet" href="css/dropdown.css" />
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
 
 
 	</head>
@@ -41,7 +59,9 @@
 
 	<body class="bg-black-60 white-80 avenir fw5">
 
-	<nav id="navbar"></nav>
+	  <nav id="navbar">
+      	<div w3-include-html="html/navbar.html"></div>
+  	  </nav>
 
 	  <div id="map">
 	  </div>
@@ -67,123 +87,101 @@
 
 	<div id="column" class="panel-left-bottom">
 
-	  	<div class="tab">
-		  <button class="tablinks" onclick="openTab(event, 'Geografía')">Geografía</button>
+      <div id="tabsPanel">
 
+      <div class="tab">
+		  <button class="tablinks" onclick="openTab(event, 'Area de interés')">Area de interés</button>
+		  <button class="tablinks" onclick="openTab(event, 'Climá')">Climá</button>
 		  <button class="tablinks" onclick="openTab(event, 'Salud')">Salud</button>
 		  <button class="tablinks" onclick="openTab(event, 'Agua')">Agua</button>
 		  <button class="tablinks" onclick="openTab(event, 'Hábitat')">Hábitat</button>
-		  <!--<button class="tablinks" onclick="openTab(event, 'Recreación')">Recreación</button>
-		  <button class="tablinks" onclick="openTab(event, 'Población')">Población</button>
-			<button class="tablinks" onclick="openTab(event, 'About')">About</button>-->
-		</div>
+	  </div>
 
-		<div id="Geografía" class="tabcontent">
+	  <!-- Tab content -->
+		<div id="Area de interés" class="tabcontent"> <span onclick="this.parentElement.style.display='none'"class="w3-button w3-display-topright">X</span>
 
-			<p><label class="switch"><input type="checkbox" id='aoi'><span class="slider"></span></label>Área de interés</p>
+			<p><label class="switch"><input type="checkbox" id='aoi'><span class="slider"></span></label>Área de interés MAP</p>
 			<p><label class="switch"><input type="checkbox" id='watersheds'><span class="slider"></span></label>Cuencas hidrográficas</p>
 		  
+		  	<fieldset><legend><b>Áreas de enfoque</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='AOI_PEM'><span class="slider"></span></label>Alrededos de Puerto Maldonado</p>
+					 <p><label class="switch"><input type="checkbox" id='AOI_TAH'><span class="slider"></span></label>Tahuamanu-Cobija</p>
+			</fieldset>
 
-				<fieldset><legend><b>Topografía y clima</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>DEM</p>
-					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>Precipitación</p>
-					 <p><label class="switch"><input type="checkbox" id='landuse'><span class="slider"></span></label>Temperatura</p>
-				</fieldset>
-
-				<fieldset><legend><b>Satélito datos</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='Satellite'><span class="slider"></span></label>LandSat</p>
-				</fieldset>
-			
+			<p><label class="switch"><input type="checkbox" id='Satellite'><span class="slider"></span></label>Imagen satélito</p>
+	
 		</div>
 
-		<!--<div id="Carbón" class="tabcontent">
+
+
+		<div id="Climá" class="tabcontent"> <span onclick="this.parentElement.style.display='none'"class="w3-button w3-display-topright">X</span>
+
+				<fieldset><legend><b>Climá</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='????'><span class="slider"></span></label>Precipitación</p>
+					 <p><label class="switch"><input type="checkbox" id='????'><span class="slider"></span></label>Temperatura</p>
+				</fieldset>
 	
-				<fieldset><legend><b>InVEST Carbono resultados</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>Forest Edge Effect Model</p>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbon'><span class="slider"></span></label>Storage Model</p>
+				<fieldset><legend><b>Carbon</b></legend>
+					 <p><label class="switch"><input type="checkbox" id='Carbon_MAP'><span class="slider"></span></label>Almacenamiento de Carbon (Total - modelado con InVEST)</p>
+					 <p><label class="switch"><input type="checkbox" id='Carbon_MAP_Arriba????'><span class="slider"></span></label>Almacenamiento de Carbon (Arriba - modelado con InVEST)</p>
 				</fieldset>
 
-				<fieldset><legend><b>Carbono Validation datasets</b></legend>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Peru Carbon Map (Asner 200x)</p>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Brazil Carbon Map (ref)</p>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Bolivia Carbon Map (ref)</p>
-			  		<p><label class="switch small"><input type="checkbox"><span class="slider"></span></label> Full Carbon Map (ref)</p>
-				</fieldset>
-
-		</div>-->
-
-		<div id="Salud" class="tabcontent">
-	
-				<fieldset><legend><b>Mosquito-borne disease</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>dengue, zika y/o chikuengunya</p>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbon'><span class="slider"></span></label>...</p>
-				</fieldset>
-
-				<fieldset><legend><b>...</b></legend>
-	
+				<fieldset><legend><b>Datos global de Carbon</b></legend>
+			  		<p><label class="switch small"><input type="checkbox" id='Carbon_GFW????'><span class="slider"></span></label> GFW?</p>
 				</fieldset>
 
 		</div>
 
 
-		<div id="Agua" class="tabcontent">
-				<fieldset><legend><b>Activos Naturales</b></legend>
-					<p><label class="switch"><input type="checkbox" id='corrientes'><span class="slider"></span></label>Corriente</p>
-				</fieldset>
 
-				<fieldset><legend><b>Rendimiento estacional de agua</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>Escorrentía superficial [mm] per año</p>
-					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>Escorrentía superficial [mm] per mes</p>
-					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>Flujo base [mm] per año</p>
-					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>Recarga local [mm] per año</p>
-					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
-				</fieldset>
+		<div id="Agua" class="tabcontent"> <span onclick="this.parentElement.style.display='none'"class="w3-button w3-display-topright">X</span>
 
-				<fieldset><legend><b>Sedimento</b></legend>
+				<fieldset><legend><b>Calidad de Agua: Sedimentos</b></legend>
 					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>Exportación de sedimentos [toneladas/año]</p>
 					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>Índice de retención de sedimentos [toneladas/año]</p>
 					 <p><label class="switch"><input type="checkbox" id='sed_retention'><span class="slider"></span></label>Pérdida potencial de suelo (USLE) [toneladas/año]</p>
 					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
 				</fieldset>
 
-
+				<fieldset><legend><b>Rendimiento estacional de agua</b></legend>
+					 <p>[Trabajo en procesamiento]</p>
+				</fieldset>
 
 		</div>
 
-		<div id="Hábitat" class="tabcontent">
 
-				<fieldset><legend><b>Recreación y turismo</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='turismolugares'><span class="slider"></span></label>Lugares turisticos (TripAdvisor)</p>
-					 <p><label class="switch"><input type="checkbox" id='rec'><span class="slider"></span></label>Foto-usario-día (InVEST modelado)</p>
-				</fieldset>
 
-				<fieldset><legend><b>Carbono</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>InVEST modelado (Con effecto de del bosque)</p>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>InVEST modelado (Sin effecto de del bosque)</p>
-					 <p><label class="switch"><input type="checkbox" id='InVESTcarbonforest'><span class="slider"></span></label>Datps de validación (Asner, 2010)</p>
-				</fieldset>
 
-				<fieldset><legend><b>Cualidad del hábitat</b></legend>
+		<div id="Salud" class="tabcontent"> <span onclick="this.parentElement.style.display='none'"class="w3-button w3-display-topright">X</span>
+	
+			<h3> Análisis en progreso, <a href="https://ccb.stanford.edu/christopher-anderson" target="_blank">Christopher Anderson</a></h3>
+
+		      <ul>
+		          <li><a href="https://code.earthengine.google.com/6d293791191579d983dcf1c5ac2c7477" target="_blank">Codigo Google Earth Engine para la cartografía de la temperatura, la capa de nubes, el índice de área de la hoja</a></li>
+		          <li><a href="https://github.com/christobal54/mosquito-mapping" target="_blank">    El repositorio de Chris para ejecutar las análisis de mapear mosquitos</a></li>
+		          <li><a href="https://github.com/stanford-ccb/ccb" target="_blank">El repositorio para correr modelos de distribución de especies.</a></li>
+		          <li><a href="https://photos.google.com/share/AF1QipNm5MOjTHjWZH3J4Gkt6zdy4wLVukfDM0Pd2q1-HkSGj1iy02Yhyg9Zhkkc6gRP1w?key=czBOZXZzWmxIZnJzWTBaT1Z5Zl94OF9hcEZiaEJ3" target="_blank">Fotos</a></li>
+		      </ul>
+
+		</div>
+
+
+
+		<div id="Hábitat" class="tabcontent"> <span onclick="this.parentElement.style.display='none'"class="w3-button w3-display-topright">X</span>
+
+				<fieldset><legend><b>Calidad del hábitat</b></legend>
 					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>Hábitat sensitivos</p>
 					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>Amenazas</p>
 					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
-				<!--</fieldset>
-
-		</div>-->
-
-		<!--<div id="Recreación" class="tabcontent">
-				<fieldset><legend><b>Recreación y turismo</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='checkbox2'><span class="slider"></span></label>  Foto-usario-día per año</p>
-					 <p><label class="switch"><input type="checkbox" id='checkbox2'><span class="slider"></span></label>  Foto-usario-día per mes</p>
-					 <!--Add a 'information' button after each thing - leading to InVEST User Guide !!-->
-				<!--</fieldset>
-
-				<fieldset><legend><b>Turismo datos</b></legend>
-					 <p><label class="switch"><input type="checkbox" id='sed_export'><span class="slider"></span></label>  Lugares de TripAdvisor</p>
-					 <p><label class="switch"><input type="checkbox" id='usle'><span class="slider"></span></label>  Lugares de Lonely Planet</p>
 				</fieldset>
 
-		</div>-->
+				<fieldset><legend><b>Recreación y turismo</b></legend>
+					<p>[Trabajo en procesamiento]</p>
+					 <!--<p><label class="switch"><input type="checkbox" id='turismolugares'><span class="slider"></span></label>Lugares turisticos (TripAdvisor)</p>
+					 <p><label class="switch"><input type="checkbox" id='rec'><span class="slider"></span></label>Foto-usario-día (InVEST modelado)</p>-->
+				</fieldset>
+
+		</div>
 
 		<!-- <div id="Población" class="tabcontent">
 				<fieldset><legend><b>Rendimiento estacional de agua</b></legend>
@@ -200,37 +198,23 @@
 
 		</div> -->
 
-
-		<!--<div id="About" class="tabcontent">
-				<fieldset><legend><b>The Natural Capital Project</b></legend>
-					 <p><a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40">   The Natural Capital Project</a> develops practical tools and approaches to account for nature’s contributions to society, so that leaders of countries, companies, communities, and organizations worldwide can make smarter decisions for a more sustainable future</p>
-				</fieldset>
-
-				<fieldset><legend><b>Collaborators</b></legend>
-			  		<p>
-			  			<a href="http://www.minam.gob.pe/" target="_blank"><img src="img/minam_small.jpg" alt="MINAM" width="202" height="38"></a>
-			  			<a href="http://cincia.wfu.edu/en/" target="_blank"><img src="img/cincia.png" alt="CINCIA" width="170" height="44"></a>
-			  			<a href="http://www.unamad.edu.pe/" target="_blank"><img src="img/unamad.png" alt="UNAMAD" width="240" height="40"></a>
-			  			<a href="http://www.ufac.br/" target="_blank"><img src="img/ufac.png" alt="UFAC" width="50" height="70"></a>
-			  			<a href="https://www.usaid.gov/" target="_blank"><img src="img/usaid.png" alt="USAID" width="129" height="40"></a>
-			  			<a href="https://www.moore.org/" target="_blank"><img src="img/moore2.png" alt="Moore" width="100" height="40"></a>
-			  			<a href="https://www.naturalcapitalproject.org/" target="_blank"><img src="img/natcap.png" alt="NatCap" width="50" height="40"></a>
-			  		</p>
-			  		
-				</fieldset>
-		</div> -->
+	</div>
+		
 	</div>
 
 
- <script src="lib/js/leaflet.shpfile.js"></script>
+ 	 <script src="lib/js/leaflet.shpfile.js"></script>
 	 <script src="lib/js/shp.js"></script>
 
 	 <script src='js/MAP/map_styling.js'> </script>
 	 <script src='js/MAP/map.js'> </script>
 	 <script src='js/MAP/main.js'> </script>
 	 <script src='js/MAP/tabs.js'> </script>
+	 <script src='js/tabs.js'> </script>
 	
-	<script type="module" src="js/navbar/navbar.lit.js"></script>
+  <!-- Needed for Navbar-->
+  <script>includeHTML();</script>
+  <script src="js/overlay.js"></script>
 
 	
 	</body>
