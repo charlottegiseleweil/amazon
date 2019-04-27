@@ -37,12 +37,13 @@ max-height: 100%;
 	   position: absolute;
 	   bottom: 35px;
 	   left: 10px;
-	   padding-left: 20px;
-	   padding-right: 20px;
+	   /*padding-left: 20px;
+	   padding-right: 20px;*/
 	   border:1px solid #000;
 	   background-color: #D4D4D4;
 	   color: #000;
 	   min-width: 30px;
+	   max-width: 500px;
 	   max-height: 1400px;
 	   z-index: 500;
 }
@@ -67,7 +68,7 @@ max-height: 100%;
 	border-radius: 5px;
     position: absolute;
     top: 20vh;
-    right: 40vh;
+    right: 1vh;
     padding: 15px;
     border: 2px solid #bddab1;
     background-color: black;

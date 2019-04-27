@@ -4,114 +4,18 @@ function map(){
 
 	////////////////////////////////////////////
     // Basemaps ////////////////////////////////
-
-
     var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
-    {
-    attribution: 'Webmap Prototype Charlotte Gisèle Weil, <a href="https://www.naturalcapitalproject.org/" target="_blank">The Natural Capital Project</a>. Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-    maxZoom: 12
+    {attribution: 'Webmap Prototype Charlotte Gisèle Weil, <a href="https://www.naturalcapitalproject.org/" target="_blank">The Natural Capital Project</a>. Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+    maxZoom: 12});
+
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
     });
-
-    var ESRIImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri'
-    });
-
-    var CartoLight = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    });
-
-
-    var ESRIOcean = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}.png', {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, GEBCO, NOAA, and DeLorme'
-    });
-
-    //var Satellite = L.tileLayer(// TODO!!!
-
-
-
-    //var ESRIStreets= L.esri.basemapLayer('Streets');
-
     ////////////////////////////////////////////
-
-    map_styling();
-    ////////////////////////////////////////////
-    ////// Data ////////////////////////////////
-
-    //L.mapbox.accessToken = 'pk.eyJ1IjoiY2hhcmxvdHRlZ2lzZWxld2VpbCIsImEiOiJjaXZrMGZ5MTAwMmd6MzNtcXY1bnZzN3l4In0.3YJ6A1AYhcA4M4W9hb1DPQ';
-
-    /*var mymap = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/charlottegiseleweil.d0vnpeg3/tiles/{z}/{x}/{y}?access_token='+ 'pk.eyJ1IjoiY2hhcmxvdHRlZ2lzZWxld2VpbCIsImEiOiJjaXZrMGZ5MTAwMmd6MzNtcXY1bnZzN3l4In0.3YJ6A1AYhcA4M4W9hb1DPQ',
-                            {
-                                tileSize: 512,
-                                zoomOffset: -1,
-                                attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                            }).addTo(map);
-*/
-	var geosur = new L.Shapefile("./data/geosur.zip",{
-	        onEachFeature: function(feature, layer) {}
-	      });
-
-
-    /*var LU = new L.Shapefile("./data/LU_merged.zip",{
-            onEachFeature: function(feature, layer) {}
-          });
-
-    {
-    style: function(feature) {
-        switch (feature.properties.LU_Code) {
-            case '1': return {color: "#ff0000"};
-            case '3':   return {color: "#0000ff"};
-        }
-    }
-}*/
-
-var rec = new L.Shapefile("./data/rec_results.zip",{
-            style: RECstyle},{
-            onEachFeature: function(feature, layer) {}
-          });
 
     
 
- var aoi = new L.Shapefile("./data/aoi.zip",{
-            style: AOIstyle},{
-            onEachFeature: function(feature, layer) {}
-          });
-
- var geosur = new L.Shapefile("./data/geosur_extract.zip",{
-            style: LUstyle},{
-            onEachFeature: function(feature, layer) {}
-          });
-
-
-/*var landuse = new L.Shapefile("./data/LU_min.zip",{
-            style: stylee},{
-            onEachFeature: function(feature, layer) {}
-          });*/         
-
-var turismolugares = new L.Shapefile("./data/airports.zip",{
-            //style: WSHEDstyle},{
-            onEachFeature: function(feature, layer) {}
-          });
-
-var watersheds = new L.Shapefile("./data/watersheds.zip",{
-            style: WSHEDstyle},{
-            onEachFeature: function(feature, layer) {}
-          });
-
-var corrientes = new L.Shapefile("./data/corrientes.zip",{
-            },{
-            onEachFeature: function(feature, layer) {}
-          });
-
-	
-    var raster = './data/carbon_map.tif',
-    imageBounds = [[-10.99, -69.7], [-10.9, -69.5]];
-
-    var geobosque = L.imageOverlay(raster, imageBounds); //zindex here!
-
-	////////////////////////////////////////////
-
-
-	// set base map and controls
+    // Set Basemap + Scale + Zoom
     var map = new L.Map('map', {
         zoomControl: false,
         layer_selector: false,
@@ -121,16 +25,85 @@ var corrientes = new L.Shapefile("./data/corrientes.zip",{
         maxZoom:13
     });
 
-    // scale
     L.control.scale({ position: 'bottomright' }).addTo(map);
-
-    // zoom
     L.control.zoom({ position: 'topleft' }).addTo(map);
 
     // Mini-map
     var tileUrl='https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}';
-	var mb = new L.TileLayer(tileUrl, {minZoom: 0, maxZoom: 14});
+    var mb = new L.TileLayer(tileUrl, {minZoom: 0, maxZoom: 14});
     var miniMap = new L.Control.MiniMap(mb, { toggleDisplay: true }).addTo(map); 
+    // - - - -  - - - -  - - - - - 
+
+
+    ////////////////////////////////////////////
+    ////// Data ////////////////////////////////
+
+    var layers = []
+    map_styling();
+
+	////// Shapefile layers /////
+
+    function shapefileLayer(variable,style=shpStyle){
+        layers[variable] = new L.Shapefile("./../data/shapefiles/"+variable+".zip",{
+            style: style},{
+            onEachFeature: function(feature, layer) {}
+          });
+    };
+
+    shapefileLayer("AOI");
+    shapefileLayer("AOI_TAH");
+    shapefileLayer("AOI_PEM");
+    shapefileLayer("cuencas", blueShpStyle);
+
+
+    /*
+    Delete the below if above works !
+
+    var AOI = new L.Shapefile("./../data/shapefiles/AOI.zip",{
+            style: shpStyle},{
+	        onEachFeature: function(feature, layer) {}
+	      });
+
+    var AOI_TAH = new L.Shapefile("./../data/shapefiles/AOI_TAH.zip",{
+            style: shpStyle},{
+            onEachFeature: function(feature, layer) {}
+          });
+
+    var AOI_PEM = new L.Shapefile("./../data/shapefiles/AOI_PEM.zip",{
+            style: shpStyle},{
+            onEachFeature: function(feature, layer) {}
+          });
+
+    var cuencas = new L.Shapefile("./../data/shapefiles/cuencas.zip",{
+            style: shpStyle},{
+            onEachFeature: function(feature, layer) {}
+          });
+    */
+
+    ///// Tilesets Layers /////
+    
+    var tileset = "None"
+    
+    function tilesetLayer(variable, attribution){
+        tileset = "https://charlottegiseleweil.github.io/tiles/amazon/"+variable+"/{z}/{x}/{y}.png";
+        layers[variable] = L.tileLayer(tileset, {
+            attribution: attribution});
+    };
+
+    tilesetLayer("Carbon_MAP","Almacenamiento de Carbono modelado con InVEST - PRO Agua");
+    tilesetLayer("Sedimentos_MAP","Almacenamiento de Carbono modelado con InVEST - PRO Agua");
+
+
+	
+    /* Rasters diplayed directly ho ho ho ? 
+
+    var raster = './data/carbon_map.tif',
+    imageBounds = [[-10.99, -69.7], [-10.9, -69.5]];
+
+    var geobosque = L.imageOverlay(raster, imageBounds); //zindex here! */
+
+	////////////////////////////////////////////
+
 
 
 // Functions to toggle layers
@@ -150,15 +123,17 @@ function createCheckboxForLayer(cssSelector, layer,legendDiv) {
   });
 }
 
-// Layers per checkbox
-createCheckboxForLayer('#geosur', geosur,'#LUleyenda')
-createCheckboxForLayer('#rec', rec,'#RECleyenda')
-createCheckboxForLayer('#landuse', landuse)
-createCheckboxForLayer('#corrientes', corrientes)
-createCheckboxForLayer('#watersheds', watersheds)
-createCheckboxForLayer('#aoi', aoi)
-createCheckboxForLayer('#turismolugares', turismolugares)
 
+
+// Layers per checkbox
+createCheckboxForLayer('#watersheds', layers["cuencas"])
+createCheckboxForLayer('#aoi', layers["AOI"])
+createCheckboxForLayer('#AOI_PEM', layers["AOI_PEM"])
+createCheckboxForLayer('#AOI_TAH', layers["AOI_TAH"])
+createCheckboxForLayer('#Satellite', Esri_WorldImagery)
+
+createCheckboxForLayer('#sed_export', layers["Sedimentos_MAP"],'#sedimentosLeyenda')
+createCheckboxForLayer('#Carbon_MAP', layers["Carbon_MAPlayers"],'#carbonLeyenda')
 
 
 };

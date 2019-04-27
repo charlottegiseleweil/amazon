@@ -5,7 +5,7 @@ html, body {
   }
 
 
-/*Maps*/
+/* Desarollo Futuro - Maps + RightPanel*/
 
 .map-diff-line {
       grid-area: "map-diff-line";
@@ -15,25 +15,25 @@ html, body {
       background-color: #ccc;
     }
 
-    .map {
-      height: 47vh; 
-      background-color: blue;
-    }
+.map {
+  height: 47vh; 
+  background-color: blue;
+}
 
-    .leyendaHover:hover #leyendaIntegral {
-       display: block;
-      }
-    .leyendaHover:hover #leyendaMin {
-       display: none;
-      }
+.leyendaHover:hover #leyendaIntegral {
+   display: block;
+  }
+.leyendaHover:hover #leyendaMin {
+   display: none;
+  }
 
-    .leyendaHover #leyendaIntegral {
-       display: none;
-      }
-    .leyendaHover #leyendaMin {
-       display: block;
-       height: 15vh;
-      }
+.leyendaHover #leyendaIntegral {
+   display: none;
+  }
+.leyendaHover #leyendaMin {
+   display: block;
+   height: 15vh;
+  }
   
 .h1 #map1_text{
     font-size: 4vh !important;
@@ -79,8 +79,8 @@ html, body {
 
 #tabsPanel{
 
-  max-height: 45vh;
-  overflow:auto;
+  /*max-height: 45vh;
+  overflow:auto;*/
   border: 1px solid black;
   /*margin: 10px;*/
 
@@ -96,7 +96,7 @@ html, body {
 }
 
 .rightPanel{
-  height: 100vh;
+  height: 94vh;
   padding-right: 1em;
   padding-left: 1em;
 }
