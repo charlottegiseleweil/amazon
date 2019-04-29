@@ -18,7 +18,7 @@ const getNameForPixelValue = pixel => {
     ["Humedales", 4.0, 112, 207, 204, 255],
     ["Sabana humedales", 5.0, 244, 223, 138, 255],
     // ["Sabana",6, ]
-    // ["Herbazal",7, ]
+    // ["Restauracion",7, 253, 191, 111, 255],
     ["Pasto/Herbazal", 8.0, 253, 191, 111, 255],
     ["Pasto", 9.0, 253, 191, 111, 255],
     ["Pasto/Agricultura", 10.0, 253, 191, 189, 255],

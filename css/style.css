@@ -54,10 +54,10 @@ body {
   word-break: break-word;
   z-index: 10000;
   width: 115px;
-  font-size: small;
-  background-color: rgba(200, 50, 50, 0.5);
-  color: rgb(0, 255, 0);
-  font-weight: bold;
+  font-size: medium;
+  /*background-color: rgba(200, 50, 50, 0.5);*/
+  color: white;
+  /*font-weight: bold;*/
   text-align: left;
   border: black;
 }
