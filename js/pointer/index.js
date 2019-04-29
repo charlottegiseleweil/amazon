@@ -11,7 +11,7 @@ const getNameForPixelValue = pixel => {
   }
   const [r, g, b, a] = pixel || [undefined, undefined, undefined, undefined];
   const colorMapFuturo = [
-    ["Refresh by Zooming", 0, 0, 0, 0, 0],
+    [" ", 0, 0, 0, 0, 0],
     ["Bosque inundable", 1.0, 63, 143, 103, 255],
     ["Bosque no inundable ", 2.0, 15, 104, 55, 255],
     ["Vegetacion secundaria", 3.0, 51, 160, 44, 255],
