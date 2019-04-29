@@ -64,5 +64,5 @@ handlers.forEach(([map, handler]) =>
 document.addEventListener("mousemove", function(e) {
   document
     .getElementById("mouse_tip")
-    .setAttribute("style", `left:${e.pageX + 5}px; top: ${e.pageY - 55}px;`);
+    .setAttribute("style", `left:${e.pageX}px; top: ${e.pageY - 45}px;`);
 });
