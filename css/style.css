@@ -126,6 +126,8 @@ body {
   height: 94vh;
   padding-right: 1em;
   padding-left: 1em;
+  overflow: scroll;
+
 }
 
 .chart {
@@ -133,4 +135,8 @@ body {
   height: 22vh;
   max-height: 320px;
   overflow: auto;
+}
+
+#rightPanelPampa h4{
+  color: #7fc46f;
 }
