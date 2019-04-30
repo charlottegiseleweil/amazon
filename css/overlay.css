@@ -16,21 +16,16 @@
 /* Position the content inside the overlay */
 .overlay-content {
   position: relative;
+
   top: 25%; /* 25% from the top */
   width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
+  /*text-align: center; /* Centered text/links */
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  padding: 60px;
 }
 
 /* The navigation links inside the overlay */
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block; /* Display block instead of inline */
-  transition: 0.3s; /* Transition effects on hover (color) */
-}
+
 
 /* When you mouse over the navigation links, change their color */
 .overlay a:hover, .overlay a:focus {
