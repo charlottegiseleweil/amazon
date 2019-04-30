@@ -1,7 +1,8 @@
 'use strict';
 
-function map(){
-
+//function map(){
+$(document).ready(function(){
+    
 	////////////////////////////////////////////
     // Basemaps ////////////////////////////////
     var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
@@ -38,17 +39,19 @@ function map(){
     ////////////////////////////////////////////
     ////// Data ////////////////////////////////
 
-    var layers = []
-    map_styling();
+   var layers = []
+   map_styling();
+   // mapLayers();
+
 
 	////// Shapefile layers /////
 
-    function shapefileLayer(variable,style=shpStyle){
+   function shapefileLayer(variable,style=shpStyle){
         layers[variable] = new L.Shapefile("./../data/shapefiles/"+variable+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
-    };
+    }; 
 
     shapefileLayer("AOI");
     shapefileLayer("AOI_TAH");
@@ -88,7 +91,7 @@ function map(){
         tileset = "https://charlottegiseleweil.github.io/tiles/amazon/"+variable+"/{z}/{x}/{y}.png";
         layers[variable] = L.tileLayer(tileset, {
             attribution: attribution});
-    };
+    }; 
 
     tilesetLayer("Carbon_MAP","Almacenamiento de Carbono modelado con InVEST - PRO Agua");
     tilesetLayer("Sedimentos_MAP","Almacenamiento de Carbono modelado con InVEST - PRO Agua");
@@ -136,4 +139,4 @@ createCheckboxForLayer('#sed_export', layers["Sedimentos_MAP"],'#sedimentosLeyen
 createCheckboxForLayer('#Carbon_MAP', layers["Carbon_MAPlayers"],'#carbonLeyenda')
 
 
-};
+});

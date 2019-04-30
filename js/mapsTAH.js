@@ -64,6 +64,22 @@
     // Add scale
     L.control.scale().addTo(map2)
 
+
+    // Add shapefile or area AOI de enfoque
+    var layers = []
+    map_styling();
+    ////// Shapefile layers /////
+    function shapefileLayer(variable,style=shpStyle){
+        layers[variable] = new L.Shapefile("./../data/shapefiles/"+variable+".zip",{
+            style: style},{
+            onEachFeature: function(feature, layer) {}
+          });
+      }; 
+    shapefileLayer("AOI_TAH");
+    layers["AOI_TAH"].addTo(map2);
+
+
+
     function updateMap2(scenario) {
       console.log("Updating map2 with scenario " + scenario);
 

@@ -118,3 +118,30 @@ function map_styling(){
     window.RECstyle = RECstyle;
     window.LUstyle = LUstyle;
 }; 
+
+
+
+/*function mapLayers(){
+    
+    var layers = []
+	map_styling()
+
+
+	function shapefileLayer(variable,style=shpStyle){
+        layers[variable] = new L.Shapefile("./../data/shapefiles/"+variable+".zip",{
+            style: style},{
+            onEachFeature: function(feature, layer) {}
+          });
+    };
+
+    var tileset = "None"
+    function tilesetLayer(variable, attribution){
+        tileset = "https://charlottegiseleweil.github.io/tiles/amazon/"+variable+"/{z}/{x}/{y}.png";
+        layers[variable] = L.tileLayer(tileset, {
+            attribution: attribution});
+    };
+
+    window.shapefileLayer = shapefileLayer;
+    window.tilesetLayer = tilesetLayer;
+    window.mapLayers = mapLayers;
+};*/
