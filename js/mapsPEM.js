@@ -48,6 +48,7 @@
       subdomains: 'abcd',
       maxZoom: 19
     });
+
     var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
       subdomains: 'abcd',
       maxZoom: 19
@@ -98,7 +99,7 @@
     map_styling();
     ////// Shapefile layers /////
     function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("data/shapefiles/"+variable+".zip",{
+        layers[variable] = new L.Shapefile("../data/shapefiles/"+variable+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
@@ -109,6 +110,16 @@
 
     function updateMap2(scenario) {
       console.log("Updating map2 with scenario " + scenario);
+
+      map2.eachLayer(function(layer) {
+        if (
+          layer._url !=
+          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+        ) {
+          map2.removeLayer(layer);
+          console.log('(Removed layer ',layer._url, ' )');
+        }
+      });
 
       /*map2.eachLayer(function(layer) {
         if  (layer._url) {
@@ -130,7 +141,7 @@
       }
 
       lyr.addTo(map2);
-      labels3.addTo(map2);
+      labels2.addTo(map2);
       layers["AOI_PEM"].addTo(map2);
 
     }

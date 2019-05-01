@@ -104,7 +104,8 @@
       }
 
       lyr.addTo(map2);
-      labels3.addTo(map2);
+      labels2.addTo(map2);
+      layers["AOI_TAH"].addTo(map2);
 
     }
   
