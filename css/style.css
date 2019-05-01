@@ -13,7 +13,6 @@ body {
 
 .map {
   height: 47vh;
-  background-color: blue;
 }
 
 .leyendaHover:hover #leyendaIntegral {
