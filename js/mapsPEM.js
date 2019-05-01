@@ -1,22 +1,6 @@
-
-    /*
-
-
-    Earth Engine scrapped tiles (token work ~48hrs)
-
-    var tileset_LULC_MAP_Hoy =
-      "https://earthengine.googleapis.com/map/d1db03125fe15eaa6346ddc7e0d68c49/{z}/{x}/{y}?token=ef24106521754a644b33aa92333f76c9";
-
-    var tileset_LULC_PEM_Sost =
-      "https://earthengine.googleapis.com/map/6fec32bd05c5b890c7592e2ff672907e/{z}/{x}/{y}?token=c6eea883df13a494804cd00c113e3007";
-
-    var tileset_LULC_PEM_Peor =
-      "https://earthengine.googleapis.com/map/ed6617d31bb27aba07eb2fe678afa7fd/{z}/{x}/{y}?token=819683add916005b9aebf538c213db98";
-
-    var tileset_LULC_PEM_Real =
-      "https://earthengine.googleapis.com/map/d8949b95a266e40ddc1fcdce6f403dc5/{z}/{x}/{y}?token=f72bd6e1dfc03ba2f406020f3074bad7";
-
-    */
+// - - - - - - -
+// Define Layers
+// - - - - - - -
 
     var tileset_LULC_PEM_Sost = 
       "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Sostenible/{z}/{x}/{y}.png"
@@ -74,6 +58,12 @@
       attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
     });
 
+
+// - - - - - - -
+// Maps 1 & 2 
+// - - - - - - -
+
+
     var map1 = L.map("map1", {
       layers: [basemap, LULC_MAP_Hoy,labels],
       center: [-12.85, -69.7],
@@ -107,6 +97,9 @@
     shapefileLayer("AOI_PEM");
     layers["AOI_PEM"].addTo(map2);
 
+// - - - - - - -
+// Update Map 
+// - - - - - - -
 
     function updateMap2(scenario) {
       console.log("Updating map2 with scenario " + scenario);
@@ -145,4 +138,13 @@
       layers["AOI_PEM"].addTo(map2);
 
     }
+
+
+// - - - - - - - -
+// Pointer things
+// - - - - - - - - 
+
+
+/// ....
+
   

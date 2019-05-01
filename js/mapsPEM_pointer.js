@@ -1,3 +1,6 @@
+//  ---- Part 1  -----
+// ---- for Pointer ----
+
 const optionsToLayersAndPPM = options => {
   const { id, urlTemplate, canvas = true } = options;
   const layer = canvas
@@ -91,7 +94,14 @@ let inspectableMaps = [
   };
 });
 
-// this should be the same stuff that you wrote previously here
+
+
+
+//  ---- Part 2  -----
+// ----   Maps   ----
+
+
+
 const [map1, map2] = inspectableMaps.map(m => m.map);
 
 map1.sync(map2);
