@@ -87,7 +87,7 @@
     map2.sync(map1);
 
     // Add scale
-    L.control.scale().addTo(map2)
+    L.control.scale().addTo(map1)
 
 
     // Add shapefile or area AOI de enfoque

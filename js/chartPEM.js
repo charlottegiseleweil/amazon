@@ -26,7 +26,7 @@ var chart = c3.generate({
         max: 82663712,
         min: -82663712,
         label: { 
-          text: 'Cambio en Almacenamiento de Carbono [Mg]',
+          text: 'Δ Almacenamiento de Carbono [Mg]',
           position: 'outer-middle'
         }
       },
@@ -35,7 +35,7 @@ var chart = c3.generate({
         max: 5270184,
         min: -5270184,
         label: { 
-          text: 'Cambio en cantidad de sedimentos [tonaledas]',
+          text: 'Δ Sedimentos [tonaledas]',
           position: 'outer-middle'
         }
       }

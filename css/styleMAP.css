@@ -35,7 +35,7 @@ max-height: 100%;
 .panel-left-bottom{
 	   border-radius: 5px;
 	   position: absolute;
-	   bottom: 35px;
+	   bottom: 10px;
 	   left: 10px;
 	   /*padding-left: 20px;
 	   padding-right: 20px;*/

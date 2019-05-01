@@ -48,6 +48,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/tabs.css" />
+    <link rel="stylesheet" href="css/styleMAP.css" />
+
   </head>
 
 
@@ -67,6 +69,9 @@
       </div>
       <hr class="map-diff-line" />
       <div id="map2" class="map"></div>
+      <div id="map2_legend" class="panel-left-bottom">
+        <div w3-include-html="html/mapControls.html"></div>
+      </div>
       <div id="map2_text">
         <h1>2035</h1>
       </div>
@@ -82,8 +87,6 @@
           Evaluación de escenarios de desarollo futuro en la areas de Tahuamanu-Cobija
         </p>
       </div>
-
-      <!--OLD IAN <div id="control_panel"></div>-->
 
       <!--Tabs-->
       <div id="tabsPanel">
@@ -112,15 +115,17 @@
         </div>
       </div>
 
+      <!-- old position of legend 
       <div id="mapControls">
         <div w3-include-html="html/mapControls.html"></div>
-      </div>
-
+      </div> -->
+      <br>
+      <center style="margin:0px;"> Cambios en servicios ecosistémicos por cada escenario</center>
       <div id="chartPEM" class="chart"></div>
     </div>
   </body>
 
-  <script src="js/map/canvasLayer.js"></script>
+  <!--<script src="js/map/canvasLayer.js"></script>-->
 
   <!-- Needed for Navbar-->
   <script>
