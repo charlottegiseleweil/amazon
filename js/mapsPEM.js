@@ -48,8 +48,11 @@
       subdomains: 'abcd',
       maxZoom: 19
     });
-
     var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
+    var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
       subdomains: 'abcd',
       maxZoom: 19
     });
@@ -95,7 +98,7 @@
     map_styling();
     ////// Shapefile layers /////
     function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("../data/shapefiles/"+variable+".zip",{
+        layers[variable] = new L.Shapefile("data/shapefiles/"+variable+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
@@ -107,14 +110,16 @@
     function updateMap2(scenario) {
       console.log("Updating map2 with scenario " + scenario);
 
-      map2.eachLayer(function(layer) {
-        if (
-          layer._url !=
-          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-        ) {
-          map2.removeLayer(layer);
-        }
-      });
+      /*map2.eachLayer(function(layer) {
+        if  (layer._url) {
+          console.log(layer._url);
+          if (layer._url.toString().startsWith("https://charlottegiseleweil\
+                                    .github.io/tiles/amazon/Usodelsuelo")){
+            map2.removeLayer(layer);
+            console.log('removed layer ');
+          }
+        };
+      });*/
 
       if (scenario == "Peor") {
         var lyr = LULC_PEM_Peor;
@@ -125,5 +130,8 @@
       }
 
       lyr.addTo(map2);
+      labels3.addTo(map2);
+      layers["AOI_PEM"].addTo(map2);
+
     }
   

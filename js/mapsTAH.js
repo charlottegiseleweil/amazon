@@ -33,6 +33,11 @@
       maxZoom: 19
     });
 
+    var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
+
     var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
       attribution: "Current Land Cover Map [PRO-Agua]"
     });
@@ -70,7 +75,7 @@
     map_styling();
     ////// Shapefile layers /////
     function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("../data/shapefiles/"+variable+".zip",{
+        layers[variable] = new L.Shapefile("data/shapefiles/"+variable+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
@@ -99,5 +104,7 @@
       }
 
       lyr.addTo(map2);
+      labels3.addTo(map2);
+
     }
   
