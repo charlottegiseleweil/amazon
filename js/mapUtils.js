@@ -128,7 +128,7 @@ function map_styling(){
 
 
 	function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("./../data/shapefiles/"+variable+".zip",{
+        layers[variable] = new L.Shapefile("../data/shapefiles/"+variable+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });

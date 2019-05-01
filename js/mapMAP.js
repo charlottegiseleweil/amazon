@@ -47,7 +47,7 @@ $(document).ready(function(){
 	////// Shapefile layers /////
 
    function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("./../data/shapefiles/"+variable+".zip",{
+        layers[variable] = new L.Shapefile("../data/shapefiles/"+variable+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
@@ -62,22 +62,22 @@ $(document).ready(function(){
     /*
     Delete the below if above works !
 
-    var AOI = new L.Shapefile("./../data/shapefiles/AOI.zip",{
+    var AOI = new L.Shapefile("../data/shapefiles/AOI.zip",{
             style: shpStyle},{
 	        onEachFeature: function(feature, layer) {}
 	      });
 
-    var AOI_TAH = new L.Shapefile("./../data/shapefiles/AOI_TAH.zip",{
+    var AOI_TAH = new L.Shapefile("../data/shapefiles/AOI_TAH.zip",{
             style: shpStyle},{
             onEachFeature: function(feature, layer) {}
           });
 
-    var AOI_PEM = new L.Shapefile("./../data/shapefiles/AOI_PEM.zip",{
+    var AOI_PEM = new L.Shapefile("../data/shapefiles/AOI_PEM.zip",{
             style: shpStyle},{
             onEachFeature: function(feature, layer) {}
           });
 
-    var cuencas = new L.Shapefile("./../data/shapefiles/cuencas.zip",{
+    var cuencas = new L.Shapefile("../data/shapefiles/cuencas.zip",{
             style: shpStyle},{
             onEachFeature: function(feature, layer) {}
           });
