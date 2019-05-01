@@ -1,6 +1,3 @@
-//  ---- Part 1  -----
-// ---- for Pointer ----
-
 const optionsToLayersAndPPM = options => {
   const { id, urlTemplate, canvas = true } = options;
   const layer = canvas
@@ -94,11 +91,6 @@ let inspectableMaps = [
   };
 });
 
-
-
-
-//  ---- Part 2  -----
-// ----   Maps   ----
 
 
 
