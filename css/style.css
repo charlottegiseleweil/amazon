@@ -140,3 +140,20 @@ body {
 #rightPanelPampa h4{
   color: #7fc46f;
 }
+
+
+.titulo {
+      font-size: xx-large;
+      text-align: center;
+      position: absolute;
+      top: 50vh;
+      left: 0;
+      right: 0;
+      color: white;
+    }
+
+.coolButton {
+      background-color: rgb(255,255,255,0);
+      color: white;
+      border: 2px solid white;
+    }

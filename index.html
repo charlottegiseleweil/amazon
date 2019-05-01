@@ -25,34 +25,25 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
     <!-- End Of: Needed for Navbar-->
 
+    <link rel="stylesheet" href="css/style.css"/>
+
   </head>
 
-  <style>
-    .titulo {
-      font-size: xx-large;
-      text-align: center;
-      position: absolute;
-      top: 50vh;
-      color: white;
-    }
-  </style>
 
-  <body class="bg-black-60 white-80 avenir fw5">
+  <body class="bg-black white-80 avenir fw5">
     <nav id="navbar">
       <div w3-include-html="html/navbar.html"></div>
     </nav>
 
-    <img src="static/images/Planet_MDD.png" alt="CI" />
-
-
-
+    <img src="static/images/Planet.png" alt="CI" />
 
     
-    <div class='titulo'>
+    <center class='titulo'>
       <h1> Desarrollo y servicios ecosistémicos en la Amazonía: PRO-Agua</h1>
-      <button>Acerca del proyecto</button>
-      <button>¡Inicia!</button>
-    </div>
+      <h3><i> ¡Bienvenido en el Visualizador! </i></h3>
+      <button class="coolButton" onClick="openNav();">Acerca del proyecto</button>
+      <button class="coolButton" onClick="location.href='futuroPEM.html';">¡Inicia!</button>
+    </center>
 
 
   </body>
