@@ -2,12 +2,8 @@
 .DS_Store
 milestone.docx
 ~$lestone.docx
-Scan_poroma_201120180622_001.pdf
-Scan_poroma_201120180623_001.pdf
 *.xlsx
-andres/d3.js
 scripts/.idea/**
-*.zip
 *.geojson
 *.geojson.json
 _site
