@@ -89,7 +89,7 @@
     map_styling();
     ////// Shapefile layers /////
     function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("../data/shapefiles/"+variable+".zip",{
+        layers[variable] = new L.Shapefile("data/shapefiles/"+variable+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
@@ -98,7 +98,7 @@
     layers["AOI_PEM"].addTo(map2);
 
 // - - - - - - -
-// Update Map 
+// Update Map 2
 // - - - - - - -
 
     function updateMap2(scenario) {
@@ -147,4 +147,3 @@
 
 /// ....
 
-  

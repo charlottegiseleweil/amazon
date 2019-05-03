@@ -34,7 +34,7 @@ const layerOptions = [
     map: 2,
     attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]",
     urlTemplate:
-      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Sostenible/{z}/{x}/{y}.png"
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_TAH_Sostenible/{z}/{x}/{y}.png"
   },
   {
     id: "hoy",
@@ -48,20 +48,15 @@ const layerOptions = [
     map: 2,
     attribution: "Co-desarollado Escenario Peor [PRO-Agua]",
     urlTemplate:
-      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Peor/{z}/{x}/{y}.png"
-  },
-  {
-    id: "real",
-    map: 2,
-    attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]",
-    urlTemplate:
-      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Rea/{z}/{x}/{y}.png"
+        "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_TAH_Peor/{z}/{x}/{y}.png"
+
   }
 ];
 
 const mapOptions = [
-  { layerIds: "base hoy label".split(" ") },
-  { layerIds: "base2 sost label2".split(" "), options: { zoomControl: false } }
+  { layerIds: "base hoy label".split(" ") , options: { center:[-11.158259, -69.604771] }},
+  { layerIds: "base2 sost label2".split(" "), options: { zoomControl: false,
+                                                          center:[-11.158259, -69.604771] } }
 ];
 
 const layers = toInspectableLayers(layerOptions);
@@ -87,8 +82,8 @@ function shapefileLayer(variable,style=shpStyle){
         onEachFeature: function(feature, layer) {}
       });
   }; 
-shapefileLayer("AOI_PEM");
-shpLayers["AOI_PEM"].addTo(map2);
+shapefileLayer("AOI_TAH");
+shpLayers["AOI_TAH"].addTo(map2);
 
 /**
  * @typedef {{}} layer
@@ -132,8 +127,9 @@ const toggleMap = (
 
 const updateMap2 = toggleMap(
   layers,
-  ["base2", "$", "label2", shpLayers["AOI_PEM"]],
+  ["base2", "$", "label2", shpLayers["AOI_TAH"]],
   inspectableMaps[1]
 );
+
 
 
