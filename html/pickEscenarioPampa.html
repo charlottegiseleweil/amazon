@@ -1,0 +1,58 @@
+ <!-- to embed : 
+  <div w3-include-html="html/pickEscenario.html"></div>
+-->
+
+<div id="radio_container">
+          <tr id="scenario">
+            <td>
+              <!--<p class="row-label">Eligir Escenario</p>-->
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btn4"
+                  onchange="updateMap2('Prio')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-3">Priorizado</label>
+              </div>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btn2"
+                  value="3"
+                  onchange="updateMap2('Cerca')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-2">Reforestar cerca vias</label>
+              </div>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btn1"
+                  onchange="updateMap2('Nada')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-1">Nada reforestado</label>
+              </div>
+              <div class="input-radio">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="radio1"
+                  id="btn3"
+                  checked="checked"
+                  onchange="updateMap2('Todo')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-3">Todo reforestado</label>
+              </div>
+              
+            </td>
+          </tr>
+</div>
