@@ -13,27 +13,27 @@ function map_styling(){
         };
     }
 
-    function blueShpStyle(feature) {
+    function hidricoShpStyle(feature) {
     return {
-        fillColor: 'lightblue',
-        weight: 3,
-        opacity: 2,
-        color: 'blue',
+        fillColor: getBlues(feature.properties.diffBP_t_h),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
         Array: '0',
-        fillOpacity: .2
+        fillOpacity: .7
         };
     }
 
     window.shpStyle = shpStyle;
-    window.blueShpStyle = blueShpStyle;
+    window.hidricoShpStyle = hidricoShpStyle;
 
 
 
     // Below this is old stuffs
 
-    function getColor(d) {
+    function getBlues(d) {
     return d > 200  ? '#E31A1C' :
-           d > 100   ? '#FED976' :
+           d > 50   ? '#FED976' :
                       '#FFEDA0';
     };
 

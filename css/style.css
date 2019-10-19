@@ -98,19 +98,38 @@ body {
   font-weight: bold;
 }
 
+.mapControls {
+  z-index: 500;
+  padding: 1vh;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#mapTitle {
+    position: absolute;
+    top: 60px;
+    left: 28%;
+}
+
 #map2_controls {
   display: flex;
   position: fixed;
   font-size: 1.5vh;
   bottom: 3vh;
   left: 52vw;
-  z-index: 1000;
-  color: white;
 }
+
 #map2_legend{
-    padding:5px;
-    background-color:white;
-    color:black;
+     position: absolute;
+     bottom: 10px;
+     left: 10px;
+     /*padding-left: 20px;
+     padding-right: 20px;*/
+     min-width: 30px;
+     max-width: 500px;
+     max-height: 1400px;
   }
 
 #tabsPanel {

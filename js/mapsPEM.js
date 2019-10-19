@@ -16,16 +16,12 @@
 
     var basemap = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
+      {attribution: "OpenStreetMap"}
     );
 
     var basemap2 = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
+      {attribution: "OpenStreetMap"}
     );
 
     var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
@@ -97,34 +93,70 @@
     shapefileLayer("AOI_PEM");
     layers["AOI_PEM"].addTo(map2);
 
-// - - - - - - -
-// Update Map 2
-// - - - - - - -
+    shapefileLayer("testSubWS",hidricoShpStyle);
 
-    function updateMap2(scenario) {
-      console.log("Updating map2 with scenario " + scenario);
+// - - - - - - - - - - - - - - - - - - - - 
+// update Map 1
+// - -
 
-      map2.eachLayer(function(layer) {
-        if (
-          layer._url !=
-          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+/* JavaScript improvemt TODO 
+function removeLayers(layer,map) {
+    if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+          ) {
+    map.removeLayer(layer)}
+   };
+*/
+
+function updateMap1(mode) {
+  if (mode == 'LU') {
+      // Remove layers
+      map1.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
         ) {
-          map2.removeLayer(layer);
-          console.log('(Removed layer ',layer._url, ' )');
+          map1.removeLayer(layer);
         }
       });
 
-      /*map2.eachLayer(function(layer) {
-        if  (layer._url) {
-          console.log(layer._url);
-          if (layer._url.toString().startsWith("https://charlottegiseleweil\
-                                    .github.io/tiles/amazon/Usodelsuelo")){
-            map2.removeLayer(layer);
-            console.log('removed layer ');
-          }
-        };
-      });*/
+      // Add layers
+      lyr = LULC_MAP_Hoy;
+      lyr.addTo(map1);
+      labels.addTo(map1);
+  }
+  else if (mode == "Hidrico") {
+    // Remove layers
+      map1.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+        ) {
+          map1.removeLayer(layer);
+        }
+      });
 
+    // Add layers
+    lyr = layers["testSubWS"];
+    lyr.addTo(map1);
+    labels.addTo(map1);
+
+  }
+  else {
+    console.log("Unknown mode : "+mode)
+  }
+};
+
+function updateMap2(mode,scenario) {
+  scenario = $('input[name=escenarios]:checked').val();
+  
+  console.log("Updating map2 with scenario " + scenario);
+
+  if (mode == 'LU') {
+      // Remove layers
+      map2.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+        ) {
+          map2.removeLayer(layer);
+        }
+      });
+
+      // Pick layer to add (according to scenario)
       if (scenario == "Peor") {
         var lyr = LULC_PEM_Peor;
       } else if (scenario == "Real") {
@@ -133,11 +165,31 @@
         var lyr = LULC_PEM_Sost;
       }
 
+      // Add layers
       lyr.addTo(map2);
-      labels2.addTo(map2);
-      layers["AOI_PEM"].addTo(map2);
+      labels.addTo(map2);
+  }
+  else if (mode == "Hidrico") {
+    // Remove layers
+    map2.eachLayer(function(layer) {
+        if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+        ) {
+          map2.removeLayer(layer);
+        }
+      });
 
-    }
+    // Pick layer to add (according to scenario)
+    lyr = layers["testSubWS"];
+
+    // Add layers
+    lyr.addTo(map2);
+    labels.addTo(map2);
+
+  }
+  else {
+    console.log("Unknown mode : "+mode)
+  }
+};
 
 
 // - - - - - - - -

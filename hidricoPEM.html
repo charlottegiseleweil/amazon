@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Prototipo de Visualizador PRO Agua</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+    <!-- Needed for Navbar-->
+    <link rel="stylesheet" href="css/dropdown.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="css/overlay.css" />
+    <script src="lib/js/includehtml.js"></script>
+    <!-- About Overlay -->
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <div w3-include-html="about.html"></div>
+      </div>
+    </div>
+    <!-- End Of About Overlay -->
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous" ></script>
+    <!-- End Of: Needed for Navbar-->
+
+    <!-- Libs -->
+    <!-- w3 style thingz -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+     <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
+     <!-- tachyons -->
+    <link rel="stylesheet" href="lib/css/tachyons.min.css" />
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+      crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <!--Needed for Chart D3.js/C3.js-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="lib/js/c3.min.js"></script>
+    <link rel="stylesheet" href="lib/css/c3.min.css" />
+
+    <script src="js/tabs.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tabs.css" />
+    <link rel="stylesheet" href="css/styleMAP.css" />
+  </head>
+
+
+
+
+  <body class="bg-white black">
+
+    <nav id="navbar">
+      <div w3-include-html="html/navbar.html"></div>
+    </nav>
+
+    <div class="w3-twothird" id="maps">
+      <div id="mouse_tip"></div>
+      <div id="map1" class="map"></div>
+      
+      <div id="mapTitle" class="mapControls">
+        <h1 id="titulo">Loading...</h1>
+        <input id="nat-cap-box" type="radio" class="no_show" onclick="switchMode()" name="mode" autocomplete="off">
+      <label id="changeButton"> </label>
+      </div>
+      <div id="map1_text">
+        <h1>2019</h1>
+      </div>
+      <hr class="map-diff-line" />
+      <div id="map2" class="map"></div>
+      <div id="map2_legend" class="mapControls">
+        <div w3-include-html="html/mapControls.html"></div>
+      </div>
+      <div id="map2_text">
+        <h1>2035</h1>
+      </div>
+      <div id="map2_controls" class="mapControls" style="z-index:1000;">
+        <div w3-include-html="html/pickEscenario.html"></div>
+      </div>
+    </div>
+
+    <div class="w3-third rightPanel">
+      <div id="intro_text" style="text-align:center;">
+        <h3><i style="color:grey;">¿Creciendo sosteniblemente o no?</i><h3><h4>Evaluación de escenarios</h4>
+      </div>
+
+      <!--Tabs-->
+      <div id="tabsPanel">
+        <div class="tab">
+          <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'DiagH')">
+            Diagnóstico hídrico
+          </button>
+          <button class="tablinks" onclick="openTab(event, 'Escenarios')">Escenarios
+          </button>
+          <button class="tablinks" onclick="openTab(event, 'Método')">
+            Método
+          </button>    
+        </div>
+
+        <!-- Tab content -->
+        <div id="DiagH" class="tabcontent">
+          <div w3-include-html="html/tab_diagnosticoH.html"></div>
+        </div>
+        
+        <div id="Escenarios" class="tabcontent">
+          <div w3-include-html="html/tab_escenarios.html"></div>
+        </div>
+
+        <div id="Método" class="tabcontent">
+          <div w3-include-html="html/tab_method.html"></div>
+        </div>
+      </div>
+
+      <!-- old position of legend 
+      <div id="mapControls">
+        <div w3-include-html="html/mapControls.html"></div>
+      </div> -->
+      <br>
+      <center style="margin:0px;">Impacto en las ciudades</center>
+      <div id="chartPEM" class="chart"></div>
+    </div>
+  </body>
+
+  <script src="js/pointer/canvasLayer.js"></script>
+
+  <!-- Needed for Navbar-->
+  <script>
+    includeHTML();
+    // Tabs: Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
+  <script src="js/overlay.js"></script>
+  <script src="js/chartPEM.js"></script>
+
+
+  <script src="lib/js/L.Map.Sync.js"></script>
+  <script src="lib/js/leaflet.shpfile.js"></script>
+  <script src="lib/js/shp.js"></script>
+  <script src='js/mapUtils.js'> </script>
+
+  <!-- w/o Pointer -->
+  <script src="js/mapsPEM.js"></script>
+
+<script>
+let modesLabels = {
+    title: {
+        "LU" : "Uso del suelo",
+        "Hidrico" : "Riesgo/indice hídrico"
+    },
+    subtitle: {
+      "LU" : "Ver el Riesgo Hídrico",
+        "Hidrico" : "Ver el Uso del Suelo"
+    },
+    leyenda: {
+        "LU" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
+        "Hidrico" : "LEYENDA CONTENTS RIESGO TODO"
+    }
+};
+
+let modeIsLU = true;
+let mode = "LU";
+let scenario = 'Sost';
+
+   function switchMode(){
+
+    mode = ((modeIsLU==true) ? 'LU' : 'Hidrico');
+    console.log("Mode is "+mode)
+
+    // Change Title & legend contents
+    document.getElementById('leyendaTitle').innerHTML = modesLabels["title"][mode];
+    document.getElementById('leyendaContents').innerHTML = modesLabels["leyenda"][mode];
+
+    document.getElementById('titulo').innerHTML = modesLabels["title"][mode];
+    document.getElementById('changeButton').innerHTML = modesLabels["subtitle"][mode];
+
+    // Update Maps
+    updateMap1(mode)
+    updateMap2(mode,scenario)
+
+    modeIsLU = !modeIsLU;
+
+};
+
+$( document ).ready(function() {
+    console.log('readay');
+    //switchMode('Hidrico');
+});
+  </script>
+
+  <!-- w/ pointer 
+  <script src="js/pointer/helperPointer.js"></script>
+  <script src="js/mapsPEM_pointer.js"></script>
+  <script src="js/pointer/index.js"></script>-->
+</html>
