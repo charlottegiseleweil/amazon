@@ -3,6 +3,16 @@ body {
   font-size: 14px;
 }
 
+
+a {
+  color: steelblue;
+}
+a:hover{
+  text-decoration: underline;
+  color:royalblue;
+  font-size:large;
+}
+
 .map-diff-line {
   grid-area: "map-diff-line";
   margin: 0 auto;
@@ -121,7 +131,7 @@ body {
   display: flex;
   position: fixed;
   font-size: 1.5vh;
-  bottom: 3vh;
+  bottom: 2vh;
   left: 52vw;
 }
 
@@ -159,7 +169,7 @@ body {
 
 .chart {
   position: relative;
-  height: 28vh;
+  height: 36vh;
   /*max-height: 320px;*/
   overflow: auto;
 }

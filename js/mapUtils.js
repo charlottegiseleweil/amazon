@@ -23,7 +23,7 @@ function map_styling(){
     function hidricoBaseStyle(feature) {
     return {
         fillColor: indiceHidricoColors(feature.properties.ISH_BASE),
-        weight: 1,opacity: .9,color: 'white',Array: '0',fillOpacity: 1
+        weight: 1,opacity: .9,color: 'white',Array: '0',fillOpacity: .5
         };
     }
     window.hidricoBaseStyle = hidricoBaseStyle;
@@ -31,7 +31,7 @@ function map_styling(){
     function hidricoPEORStyle(feature) {
     return {
         fillColor: indiceHidricoColors(feature.properties.ISH_PEOR),
-        weight: 1,opacity: .6,color: 'white',Array: '0',fillOpacity: .6
+        weight: 1,opacity: .6,color: 'white',Array: '0',fillOpacity: .5
         };
     }
     window.hidricoPEORStyle = hidricoPEORStyle;
@@ -39,7 +39,7 @@ function map_styling(){
     function hidricoREALStyle(feature) {
     return {
         fillColor: indiceHidricoColors(feature.properties.ISH_REAL),
-        weight: 1,opacity: .7,color: 'white',Array: '0',fillOpacity: .6
+        weight: 1,opacity: .7,color: 'white',Array: '0',fillOpacity: .5
         };
     }
     window.hidricoREALStyle = hidricoREALStyle;
@@ -47,7 +47,7 @@ function map_styling(){
     function hidricoSOSTStyle(feature) {
     return {
         fillColor: indiceHidricoColors(feature.properties.ISH_SOST),
-        weight: 1,opacity: .8,color: 'white',Array: '0',fillOpacity: .6
+        weight: 1,opacity: .8,color: 'white',Array: '0',fillOpacity: .5
         };
     }
     window.hidricoSOSTStyle = hidricoSOSTStyle;

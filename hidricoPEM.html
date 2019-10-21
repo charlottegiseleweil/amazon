@@ -54,25 +54,43 @@
 
 
 
+
+
+
+
+
+
+
+
   <body class="bg-white black">
 
     <nav id="navbar">
       <div w3-include-html="html/navbar.html"></div>
     </nav>
 
+    <!-- Map 1 --> 
+
     <div class="w3-twothird" id="maps">
       <div id="mouse_tip"></div>
       <div id="map1" class="map"></div>
       
       <div id="mapTitle" class="mapControls">
-        <h1 id="titulo">Loading...</h1>
-        <input id="nat-cap-box" type="radio" class="no_show" onclick="switchMode()" name="mode" autocomplete="off">
-      <label id="changeButton"> </label>
+        <center>
+          <h2 id="titulo">Loading...</h2>
+          <!--<input id="nat-cap-box" type="radio" class="no_show" onclick="switchMode()" name="mode" autocomplete="off">
+          <label id="changeButton"> </label>-->
+          <a id="changeButton" onclick="switchMode()" style="font-style: italic;"></a>
+        </center>
       </div>
       <div id="map1_text">
         <h1>2019</h1>
       </div>
+
       <hr class="map-diff-line" />
+
+
+
+      <!-- Map 2 --> 
 
       <div id="map2" class="map"></div>
 
@@ -105,7 +123,7 @@
 
     <div class="w3-third rightPanel">
       <div id="intro_text" style="text-align:center;">
-        <h3><i style="color:grey;">¿Creciendo sosteniblemente o no?</i><h3><h4>Evaluación de escenarios</h4>
+        <h4><i style="color:grey;">¿Creciendo sosteniblemente o no?</i><h4><h5>Evaluación de escenarios</h5>
       </div>
 
       <!--Tabs-->
@@ -140,7 +158,7 @@
         <div w3-include-html="html/mapControls.html"></div>
       </div> -->
       <br>
-      <center style="margin:0px;">Impacto en las ciudades</center>
+      <center><h6 style='margin-top: 0px;'>Impacto en las ciudades</h6></center>
       <div id="chartPEM" class="chart"></div>
     </div>
   </body>
@@ -169,11 +187,11 @@
 let modesLabels = {
     title: {
         "LU" : "Uso del suelo",
-        "Hidrico" : "Indice hídrico"
+        "Hidrico" : "Índice de servicios hídrico"
     },
     subtitle: {
-      "LU" : "Ver el Riesgo Hídrico",
-        "Hidrico" : "Ver el Uso del Suelo"
+      "LU" : "Ver el riesgo hídrico",
+        "Hidrico" : "Ver el uso del suelo"
     },
     leyenda: {
         "LU" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",

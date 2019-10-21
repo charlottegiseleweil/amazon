@@ -4,40 +4,52 @@ var chart = c3.generate({
       x: 'x',
       columns: [
         ['x','Sostenible','Eco-turismo','Peor'],
-        ['Carbono', -734912, -13201024, -82663712],
-        ['Sedimentos_Mazuko', 458056, 974264, 3900108],
-        ['Sedimentos_Puerto', 548868, 1599384, 5270184]
+        
+        ['ES en Mazuko (%)',6.53,1.43,80.28],
+        ['ES en Puerto (%)',-4.6,8.07,21.64],
+        ['FES en Mazuko (%)', 1.99,9.78,40.48],
+        ['FES en Puerto (%)',-1.11,4.1,3.46],
+        ['Sedimentos en Mazuko (Mt)', 0.08,0.60,3.42],
+        ['Sedimentos en Puerto (Mt)',0.10,1.11,4.57],
+        
       ],
       axes: {
-        Sedimentos_Mazuko: 'y2',
-        Sedimentos_Puerto: 'y2'
+        'Sedimentos en Puerto (Mt)': 'y2',
+        'Sedimentos en Mazuko (Mt)': 'y2'
       },
-      types: {
-        Carbono: 'bar',
-        Sedimentos_Mazuko: 'bar',
-        Sedimentos_Puerto: 'bar' 
-      }
+      type:'bar',
+      colors: {
+        'ES en Puerto (%)': '#2da9ba',
+        'FES en Puerto (%)':'#6a6ede',
+        'Sedimentos en Puerto (Mt)':'#ba6c1e',
+        'ES en Mazuko (%)': '#8bc4cc',
+        'FES en Mazuko (%)':'#a9aac9',
+        'Sedimentos en Mazuko (Mt)':'#c28e5b'
+      },
+    },
+    legend: {
+        position: 'inner-bottom'
     },
     axis: {
       x:{
         type : 'category',
       },
       y: {
-        max: 82663712,
-        min: -82663712,
+        max: 60,
+        min: -60,
         label: { 
-          text: 'Δ Almacenamiento de Carbono [Mg]',
+          text: 'Impacto en los flujos (%)',
           position: 'outer-middle'
         }
       },
       y2: {
         show: true, 
-        max: 5270184,
-        min: -5270184,
+        max: 3.7,
+        min: -3.7,
         label: { 
-          text: 'Δ Sedimentos [tonaledas]',
-          position: 'outer-middle'
-        }
+          text: 'Impacto en calidad de agua (Sedimentos)' ,// (Mt Sedimentos)',
+          position: 'outer-middle' 
+        },
       }
     }
 });
