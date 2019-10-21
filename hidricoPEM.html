@@ -94,32 +94,29 @@
 
       <div id="map2" class="map"></div>
 
+      <!-- Legend -->
       <div id="map2_legend" class="mapControls">
-        <!--<div w3-include-html="html/mapControls.html"></div>-->
         <div id="leyenda" class="leyendaHover">
           <h6 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
             Leyenda 
           </h6>
           <div id="leyendaContents">
-            <div id='leyendaMin'>
-              <img src='static/images/leyenda.png' style='max-height:12vh;'alt='Leyenda' />
-            </div>
-
-            <div id='leyendaIntegral'>
-              <img src='static/images/leyenda_integral.png' style='max-height:12vh;' alt='Leyenda' />
-            </div>
           </div> <!-- End leyendaContents-->
         </div> <!-- End leyenda -->
-
-
       </div>
+
+
       <div id="map2_text">
         <h1>2035</h1>
       </div>
       <div id="map2_controls" class="mapControls" style="z-index:1000;">
         <div w3-include-html="html/pickEscenario.html"></div>
       </div>
+
     </div>
+
+
+    <!-- Side Panel -->
 
     <div class="w3-third rightPanel">
       <div id="intro_text" style="text-align:center;">
@@ -187,10 +184,10 @@
 let modesLabels = {
     title: {
         "LU" : "Uso del suelo",
-        "Hidrico" : "Índice de servicios hídrico"
+        "Hidrico" : "Índice de servicios hídricos"
     },
     subtitle: {
-      "LU" : "Ver el riesgo hídrico",
+      "LU" : "Ver los servicios hídricos",
         "Hidrico" : "Ver el uso del suelo"
     },
     leyenda: {

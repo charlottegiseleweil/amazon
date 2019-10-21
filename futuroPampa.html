@@ -61,28 +61,51 @@
 
     <div class="w3-twothird" id="maps">
       <div id="mouse_tip"></div>
+
+      <!-- Map 1 -->
+
       <div id="map1" class="map"></div>
       <div id="map1_text" class="map_text">
         <h1>2019</h1>
       </div>
+
       <hr class="map-diff-line" />
+
+      <!-- Map 2 -->
+
       <div id="map2" class="map"></div>
-      <div id="map2_legend" class="panel-left-bottom">
-        <div w3-include-html="html/mapControls.html"></div>
+
+      <!-- Legend -->
+      <div id="map2_legend" class="mapControls">
+        <div id="leyenda" class="leyendaHover">
+          <h4 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
+            Uso del suelo
+          </h4>
+          <div id="leyendaContents">
+            <div id='leyendaMin'>
+              <img src='static/images/leyenda.png' style='max-height:12vh;'alt='Leyenda' />
+            </div>
+            <div id='leyendaIntegral'>
+              <img src='static/images/leyenda_integral.png' style='max-height:12vh;' alt='Leyenda' />
+            </div>
+          </div> <!-- End leyendaContents-->
+        </div> <!-- End leyenda -->
       </div>
-      <div id="map2_text">
+
+
+      <div id="map2_text" style="bottom: 7vh;">
         <h1>2035</h1>
       </div>
-      <div id="map2_controls">
+      <div id="map2_controls" class="mapControls" style="z-index:1000;">
         <div w3-include-html="html/pickEscenarioPampa.html"></div>
       </div>
     </div>
 
+    <!-- Side Panel -->
+
     <div class="w3-third rightPanel">
-      <div id="intro_text">
-        <p>
-          <i style="color:grey;">¿...? [Texto de introduccion falta] </i>Donde reforestar se importa...
-        </p>
+      <div id="intro_text" style="text-align:center;">
+        <h4><i style="color:grey;">¿Donde reforestar?</i><h4><h5>Evaluación de escenarios</h5>
       </div>
 
       <!--Tabs-->
@@ -114,9 +137,8 @@
 
 
       <br>
-      <center style="margin:0px;"> Cambios en servicios ecosistémicos por cada escenario</center>
-      <h1> Martin/Jorge Nos faltan resultados sintetizados </h1>
-      <!--<div id="chartPEM" class="chart"></div>-->
+      <center style="margin:0px;"> Cambios en servicios ecosistémicos por cada escenario de reforestación</center>
+      <div id="chartPampa" class="chart"></div>
     </div>
   </body>
 
@@ -128,7 +150,7 @@
   </script>
   <script src="js/overlay.js"></script>
 
-  <script src="js/chartPEM.js"></script>
+  <script src="js/chartPampa.js"></script>
 
   <script>
     // Tabs: Get the element with id="defaultOpen" and click on it
