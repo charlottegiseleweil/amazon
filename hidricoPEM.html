@@ -73,9 +73,27 @@
         <h1>2019</h1>
       </div>
       <hr class="map-diff-line" />
+
       <div id="map2" class="map"></div>
+
       <div id="map2_legend" class="mapControls">
-        <div w3-include-html="html/mapControls.html"></div>
+        <!--<div w3-include-html="html/mapControls.html"></div>-->
+        <div id="leyenda" class="leyendaHover">
+          <h4 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
+            Uso de suelo 
+          </h4>
+          <div id="leyendaContents">
+            <div id='leyendaMin'>
+              <img src='static/images/leyenda.png' style='max-height:12vh;'alt='Leyenda' />
+            </div>
+
+            <div id='leyendaIntegral'>
+              <img src='static/images/leyenda_integral.png' style='max-height:12vh;' alt='Leyenda' />
+            </div>
+          </div> <!-- End leyendaContents-->
+        </div> <!-- End leyenda -->
+
+
       </div>
       <div id="map2_text">
         <h1>2035</h1>
@@ -151,7 +169,7 @@
 let modesLabels = {
     title: {
         "LU" : "Uso del suelo",
-        "Hidrico" : "Riesgo/indice hídrico"
+        "Hidrico" : "Indice hídrico"
     },
     subtitle: {
       "LU" : "Ver el Riesgo Hídrico",
@@ -159,13 +177,12 @@ let modesLabels = {
     },
     leyenda: {
         "LU" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
-        "Hidrico" : "LEYENDA CONTENTS RIESGO TODO"
+        "Hidrico" : "<img src='static/images/leyenda_IndiceHidrico.png' style='max-height:10vh;'alt='Leyenda' />"
     }
 };
 
-let modeIsLU = true;
-let mode = "LU";
-let scenario = 'Sost';
+let modeIsLU = false;     // Default mode (not LU)
+let scenario = 'Sost';    // Default scenario (SOST) -- actually embedded in UpdateMap2 fct.
 
    function switchMode(){
 
@@ -187,10 +204,7 @@ let scenario = 'Sost';
 
 };
 
-$( document ).ready(function() {
-    console.log('readay');
-    //switchMode('Hidrico');
-});
+
   </script>
 
   <!-- w/ pointer 

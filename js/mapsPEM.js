@@ -61,15 +61,15 @@
 
 
     var map1 = L.map("map1", {
-      layers: [basemap, LULC_MAP_Hoy,labels],
+      layers: [basemap],// LULC_MAP_Hoy,labels],
       center: [-12.85, -69.7],
-      zoom: 10
+      zoom: 9
     });
 
     var map2 = L.map("map2", {
-      layers: [basemap2, LULC_PEM_Sost,labels2],
+      layers: [basemap2],// LULC_PEM_Sost,labels2],
       center: [-12.85, -69.7],
-      zoom: 10,
+      zoom: 9,
       zoomControl: false
     });
 
@@ -83,9 +83,9 @@
     // Add shapefile or area AOI de enfoque
     var layers = []
     map_styling();
-    ////// Shapefile layers /////
-    function shapefileLayer(variable,style=shpStyle){
-        layers[variable] = new L.Shapefile("data/shapefiles/"+variable+".zip",{
+    ////// Shapefile layers -- make Styles in mapUtils.js/////
+    function shapefileLayer(shapefileName,style=shpStyle){
+        layers[shapefileName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
             style: style},{
             onEachFeature: function(feature, layer) {}
           });
@@ -93,11 +93,15 @@
     shapefileLayer("AOI_PEM");
     layers["AOI_PEM"].addTo(map2);
 
-    shapefileLayer("testSubWS",hidricoShpStyle);
+    // Make Shapefile layers for Indice Hidrico 
+    // TODO: to optimize shapefileLayer and style function there
+    
+    shapefileLayer("IndiceHidrico",hidricoBaseStyle);
+    shapefileLayer("IndiceHidricoREAL",hidricoREALStyle);
+    shapefileLayer("IndiceHidricoSOST",hidricoSOSTStyle);
+    shapefileLayer("IndiceHidricoPEOR",hidricoPEORStyle);
 
-// - - - - - - - - - - - - - - - - - - - - 
-// update Map 1
-// - -
+
 
 /* JavaScript improvemt TODO 
 function removeLayers(layer,map) {
@@ -132,7 +136,7 @@ function updateMap1(mode) {
       });
 
     // Add layers
-    lyr = layers["testSubWS"];
+    lyr = layers["IndiceHidrico"];
     lyr.addTo(map1);
     labels.addTo(map1);
 
@@ -144,7 +148,7 @@ function updateMap1(mode) {
 
 function updateMap2(mode,scenario) {
   scenario = $('input[name=escenarios]:checked').val();
-  
+
   console.log("Updating map2 with scenario " + scenario);
 
   if (mode == 'LU') {
@@ -161,13 +165,13 @@ function updateMap2(mode,scenario) {
         var lyr = LULC_PEM_Peor;
       } else if (scenario == "Real") {
         var lyr = LULC_PEM_Real;
-      } else if (scenario == "Sost") {
+      } else {//if (scenario == "Sost") {
         var lyr = LULC_PEM_Sost;
       }
 
       // Add layers
       lyr.addTo(map2);
-      labels.addTo(map2);
+      labels2.addTo(map2);
   }
   else if (mode == "Hidrico") {
     // Remove layers
@@ -179,17 +183,31 @@ function updateMap2(mode,scenario) {
       });
 
     // Pick layer to add (according to scenario)
-    lyr = layers["testSubWS"];
+    if (scenario == "Peor") {
+        var lyr = layers["IndiceHidricoPEOR"]//layers["IndiceHidrico2"["ISH_PEOR"]];
+      } else if (scenario == "Real") {
+        var lyr = layers["IndiceHidricoREAL"]//layers["IndiceHidrico"["ISH_REAL"]];
+      } else {//if (scenario == "Sost") {
+        var lyr = layers["IndiceHidricoSOST"];
+      }
 
     // Add layers
     lyr.addTo(map2);
-    labels.addTo(map2);
+    labels2.addTo(map2);
 
   }
   else {
     console.log("Unknown mode : "+mode)
   }
 };
+
+
+
+// ---
+$( document ).ready(function() {
+    switchMode();
+
+});
 
 
 // - - - - - - - -
