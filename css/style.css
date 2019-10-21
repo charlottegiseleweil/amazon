@@ -13,6 +13,11 @@ a:hover{
   font-size:large;
 }
 
+.navbarLink:hover{
+  text-decoration: none;
+  color:inherit;
+  font-size:inherit;
+}
 .map-diff-line {
   grid-area: "map-diff-line";
   margin: 0 auto;
@@ -179,18 +184,33 @@ a:hover{
 }
 
 
+/* Landing page */ 
+
 .titulo {
       font-size: xx-large;
       text-align: center;
       position: absolute;
-      top: 50vh;
+      top: 30vh;
       left: 0;
       right: 0;
       color: white;
+      margin: 0 30vh;
     }
 
-.coolButton {
-      background-color: rgb(255,255,255,0);
-      color: white;
-      border: 2px solid white;
-    }
+.coolButtonSmall {
+    background-color: black;
+    color: white;
+    opacity: .7;
+    border: 2px solid white;
+    max-width: 60vh;
+    margin: 0 5vh;
+    font-size: x-large;
+}
+.coolButtonSmall:hover{
+  background-color: saddlebrown;
+}
+
+.coolButtonTexts{
+    font-size: large;
+    font-style: italic;
+}
