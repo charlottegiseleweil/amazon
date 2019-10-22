@@ -6,10 +6,11 @@ var chart = c3.generate({
         ['x','Sostenible','Eco-turismo','Peor'],
         
         ['ES en Mazuko (%)',6.53,1.43,80.28],
-        ['ES en Puerto (%)',-4.6,8.07,21.64],
+        
         ['FES en Mazuko (%)', 1.99,9.78,40.48],
-        ['FES en Puerto (%)',-1.11,4.1,3.46],
         ['Sedimentos en Mazuko (Mt)', 0.08,0.60,3.42],
+        ['ES en Puerto (%)',-4.6,8.07,21.64],
+        ['FES en Puerto (%)',-1.11,4.1,3.46],
         ['Sedimentos en Puerto (Mt)',0.10,1.11,4.57],
         
       ],

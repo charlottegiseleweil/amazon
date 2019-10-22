@@ -77,9 +77,7 @@
       <div id="mapTitle" class="mapControls">
         <center>
           <h2 id="titulo">Loading...</h2>
-          <!--<input id="nat-cap-box" type="radio" class="no_show" onclick="switchMode()" name="mode" autocomplete="off">
-          <label id="changeButton"> </label>-->
-          <a id="changeButton" onclick="switchMode()" style="font-style: italic;"></a>
+          <a id="changeButton" onclick="switchMode('Hidrico')" style="font-style: italic;"></a>
         </center>
       </div>
       <div id="map1_text">
@@ -136,7 +134,7 @@
           </button>    
         </div>
 
-        <!-- Tab content -->
+        <!-- Tab contents -->
         <div id="DiagH" class="tabcontent">
           <div w3-include-html="html/tab_diagnosticoH.html"></div>
         </div>
@@ -150,10 +148,6 @@
         </div>
       </div>
 
-      <!-- old position of legend 
-      <div id="mapControls">
-        <div w3-include-html="html/mapControls.html"></div>
-      </div> -->
       <br>
       <center><h6 style='margin-top: 0px;'>Impacto en las ciudades</h6></center>
       <div id="chartPEM" class="chart"></div>
@@ -179,51 +173,14 @@
 
   <!-- w/o Pointer -->
   <script src="js/mapsPEM.js"></script>
-
-<script>
-let modesLabels = {
-    title: {
-        "LU" : "Uso del suelo",
-        "Hidrico" : "Índice de servicios hídricos"
-    },
-    subtitle: {
-      "LU" : "Ver los servicios hídricos",
-        "Hidrico" : "Ver el uso del suelo"
-    },
-    leyenda: {
-        "LU" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
-        "Hidrico" : "<img src='static/images/leyenda_IndiceHidrico.png' style='max-height:10vh;'alt='Leyenda' />"
-    }
-};
-
-let modeIsLU = false;     // Default mode (not LU)
-let scenario = 'Sost';    // Default scenario (SOST) -- actually embedded in UpdateMap2 fct.
-
-   function switchMode(){
-
-    mode = ((modeIsLU==true) ? 'LU' : 'Hidrico');
-    console.log("Mode is "+mode)
-
-    // Change Title & legend contents
-    document.getElementById('leyendaTitle').innerHTML = modesLabels["title"][mode];
-    document.getElementById('leyendaContents').innerHTML = modesLabels["leyenda"][mode];
-
-    document.getElementById('titulo').innerHTML = modesLabels["title"][mode];
-    document.getElementById('changeButton').innerHTML = modesLabels["subtitle"][mode];
-
-    // Update Maps
-    updateMap1(mode)
-    updateMap2(mode,scenario)
-
-    modeIsLU = !modeIsLU;
-
-};
-
-
-  </script>
-
-  <!-- w/ pointer 
+<!-- w/ pointer 
   <script src="js/pointer/helperPointer.js"></script>
   <script src="js/mapsPEM_pointer.js"></script>
   <script src="js/pointer/index.js"></script>-->
+
+
+  <!-- switchMode -->
+  <script src="js/switchMode.js"></script>
+
+  
 </html>

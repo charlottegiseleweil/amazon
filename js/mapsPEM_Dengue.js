@@ -16,6 +16,7 @@
 
     var basemap = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+      {attribution: "OpenStreetMap"}
     );
 
     var basemap2 = L.tileLayer(
@@ -89,14 +90,8 @@
             onEachFeature: function(feature, layer) {}
           });
       }; 
-
-    // AOI
     shapefileLayer("AOI_PEM");
     layers["AOI_PEM"].addTo(map2);
-
-    // Rivers
-    shapefileLayer("corrientes",riverStyle);
-    layers["rivers"] = layers["corrientes"];
 
     // Make Shapefile layers for Indice Hidrico 
     // TODO: to optimize shapefileLayer and style function there

@@ -15,6 +15,21 @@ function map_styling(){
         };
     }
     window.shpStyle = shpStyle;
+
+    // Rivers
+      // Default
+
+  function riverStyle(feature) {
+    return {
+        fillColor: 'white',
+        weight: 2,
+        opacity: .8,
+        color: '#1390ff',
+        Array: '0',
+        fillOpacity: 0
+        };
+    }
+    window.riverStyle = riverStyle;
     
 
     // IndiceHidrico
