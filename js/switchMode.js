@@ -3,7 +3,7 @@ let modesLabels = {
     title: {
         "LU" : "Uso del suelo",
         "Hidrico" : "Índice de servicios hídricos",
-        "Dengue": "Riesgo epidemiológico (población)"
+        "Dengue": "Riesgo epidemiológico (Población)"
     },
     subtitle: {
       "LU" : "Ver los riesgos",//"Ver los servicios hídricos",

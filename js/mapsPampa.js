@@ -1,8 +1,38 @@
 
+// - - - - - - -
+// Basemaps
+// - - - - - - -
 
-    var tileset_LULC_MAP_Hoy =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_MAP/{z}/{x}/{y}.png";
+    var basemap = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+    );
 
+    var basemap2 = L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+      {attribution: "OpenStreetMap"}
+    );
+
+    var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
+
+    var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
+    var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
+
+// - - - - - - -
+// Uso del suelo
+// - - - - - - -
+
+    // OLD USO DE SUELO. 2019 UPDATED IN Escenario Nada.
+    /*var tileset_LULC_MAP_Hoy =
+      "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_MAP/{z}/{x}/{y}.png";*/
 
     var tileset_LULC_Pampa_CERCA_VIAS = 
       "https://charlottegiseleweil.github.io/tiles/amazon/laPampa_escenarios/LULC_CERCA_VIAS/{z}/{x}/{y}.png"
@@ -16,41 +46,15 @@
     var tileset_LULC_Pampa_TODO_REFORESTADO =
       "https://charlottegiseleweil.github.io/tiles/amazon/laPampa_escenarios/LULC_TODO_REFORESTADO/{z}/{x}/{y}.png";
     
-    var basemap = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
-    );
 
-    var basemap2 = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
-      {
-        attribution: "OpenStreetMap"
-      }
-    );
 
-    var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
 
-    var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
-
-    var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
-
-    var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
+    /*var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
       attribution: "Current Land Cover Map [PRO-Agua]"
-    });
+    });*/
 
-    var LULC_MAP_Hoy2 = L.tileLayer(tileset_LULC_MAP_Hoy, {
-      attribution: "Current Land Cover Map [PRO-Agua]"
+    var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_Pampa_NADA_REFORESTADO, {
+      attribution: "Land Cover Map in 2019 [PRO-Agua]"
     });
 
     var LULC_Pampa_CERCA_VIAS = L.tileLayer(tileset_LULC_Pampa_CERCA_VIAS, {
@@ -77,7 +81,7 @@
     });
 
     var map2 = L.map("map2", {
-      layers: [basemap2, LULC_MAP_Hoy2, LULC_Pampa_TODO_REFORESTADO,labels2],
+      layers: [basemap2, LULC_Pampa_TODO_REFORESTADO,labels2],
       zoom: 11,
       zoomControl: false
     });

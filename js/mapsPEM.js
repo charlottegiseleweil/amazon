@@ -1,5 +1,5 @@
 // - - - - - - -
-// Define Layers
+// Land use maps
 // - - - - - - -
 
     var tileset_LULC_PEM_Sost = 
@@ -13,6 +13,26 @@
     
     var tileset_LULC_PEM_Real =
       "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Rea/{z}/{x}/{y}.png";
+
+    var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
+      attribution: "Current Land Cover Map [PRO-Agua]"
+    });
+
+    var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
+      attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
+    });
+
+    var LULC_PEM_Peor = L.tileLayer(tileset_LULC_PEM_Peor, {
+      attribution: "Co-desarollado Escenario Peor [PRO-Agua]"
+    });
+
+    var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
+      attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
+    });
+    
+// - - - - - - -
+// Basemaps
+// - - - - - - -
 
     var basemap = L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
@@ -37,25 +57,8 @@
       maxZoom: 19
     });
 
-    var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
-      attribution: "Current Land Cover Map [PRO-Agua]"
-    });
-
-    var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
-      attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
-    });
-
-    var LULC_PEM_Peor = L.tileLayer(tileset_LULC_PEM_Peor, {
-      attribution: "Co-desarollado Escenario Peor [PRO-Agua]"
-    });
-
-    var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
-      attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
-    });
-
-
 // - - - - - - -
-// Maps 1 & 2 
+// Launch maps
 // - - - - - - -
 
 
@@ -79,6 +82,10 @@
     L.control.scale().addTo(map1)
 
 
+// - - - - - - -
+// Shapefiles
+// - - - - - - -
+
     // Add shapefile or area AOI de enfoque
     var layers = []
     map_styling();
@@ -98,6 +105,10 @@
     shapefileLayer("corrientes",riverStyle);
     layers["rivers"] = layers["corrientes"];
 
+// - - - - - - -
+// Indice Hidrico
+// - - - - - - -
+
     // Make Shapefile layers for Indice Hidrico 
     // TODO: to optimize shapefileLayer and style function there
     
@@ -115,6 +126,11 @@ function removeLayers(layer,map) {
     map.removeLayer(layer)}
    };
 */
+
+
+// - - - - - - - - - - - -
+// Functions to switch Maps
+// - - - - - - - - - - - - 
 
 function updateMap1(mode) {
   if (mode == 'LU') {
@@ -206,6 +222,10 @@ function updateMap2(mode,scenario) {
   }
 };
 
+
+// - - - - - - - -
+// Initialization
+// - - - - - - - - 
 
 
 // ---
