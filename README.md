@@ -16,19 +16,3 @@ representantes de la comunidad para lograr resultados relevantes para la gente l
 * Avanzar en el conocimiento científico adaptando herramientas para las condiciones y prioridades locales.
 * Construir un caso para la planificación integrada de cuencas, al conectar el manejo del suelo con agua y otros beneficios que tiene la naturaleza para la gente.
 * Empoderar a los tomadores de decisión que influyen en el ordenamiento territorial: líderes, personal técnico, estudiantes y otros actores clave.
-
-## Preprocessing scripts you need to have PyShp, geojson, transform, MapShaper 
- - PyShp : https://github.com/GeospatialPython/pyshp
- - GeoJson : https://github.com/frewsxcv/python-geojson
- - PyProj : https://github.com/jswhit/pyproj 
- - MapShaper : https://github.com/mbloch/mapshaper
- - TopoJSON : https://github.com/topojson/topojson
-
-```bash
-python preprocessing.py
-```
-This will generate GeoJSON files from shp files on data folder in the root.
-Then to simplify the spatial file an convert it to TopoJSON execute:
-```bash
-sh topojson.sh
-```
