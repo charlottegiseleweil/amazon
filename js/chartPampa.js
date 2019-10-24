@@ -7,8 +7,8 @@ var chart = c3.generate({
         
         ['Reducción de sedimentos (5 años)',34.76,6.91,6.87],
         ['Reducción de sedimentos (20 años)',42.63,14.84,10.61],
-        ['Carbono almacenado (5 años)', 8.5,41.9,40.7],
-        ['Carbono almacenado (20 años)',6.4,32.5,31.7],
+        ['Carbono almacenado (5 años)', 2479231.922,499637.4919,515230.4334],
+        ['Carbono almacenado (20 años)',3257587.467,645579.1456,660115.6875],
         
       ],
       axes: {
@@ -34,7 +34,7 @@ var chart = c3.generate({
         /*max: 40,
         min: 0,*/
         label: { 
-          text: 'Cambio en Carbono almacenado (%)',
+          text: 'Carbono almacenado (tonaledas)',
           position: 'outer-middle'
         }
       },
