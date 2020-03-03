@@ -164,13 +164,17 @@ function map_styling(){
 //Flood colors
 function floodBaseStyle(feature) {
     return {
-        fillColor: indiceFloodColors(feature.properties.ISH_BASE),
-        weight: 1,opacity: .9,color: 'white',Array: '0',fillOpacity: .5
+        fillColor: '#004de6',
+        weight: 1,opacity: .9,color: 'white',Array: '0',fillOpacity: .5,
         };
     }
-function indiceFloodColors(d) {
-    return '#004de6'
-    };
+
+//AOI colors
+function AOIBaseStyle(feature) {
+    return {
+        weight: 4,opacity: 0.9,color: '#ff4d4d',Array: '0',fillOpacity: .0
+        };
+    }
 
 
 
