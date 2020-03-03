@@ -161,6 +161,17 @@ function map_styling(){
     window.LUstyle = LUstyle;
 }; 
 
+//Flood colors
+function floodBaseStyle(feature) {
+    return {
+        fillColor: indiceFloodColors(feature.properties.ISH_BASE),
+        weight: 1,opacity: .9,color: 'white',Array: '0',fillOpacity: .5
+        };
+    }
+function indiceFloodColors(d) {
+    return '#004de6'
+    };
+
 
 
 /*function mapLayers(){

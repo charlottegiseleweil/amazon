@@ -3,18 +3,21 @@ let modesLabels = {
     title: {
         "LU" : "Uso del suelo",
         "Hidrico" : "Índice de servicios hídricos",
-        "Dengue": "Riesgo epidemiológico" //(Población) 
+        "Dengue": "Riesgo epidemiológico", //(Población)
+        "Flood" : "Riesgo de inundaciones" 
     },
     subtitle: {
       "LU" : "Ver los riesgos",//"Ver los servicios hídricos",
       "Hidrico" : "Ver el uso del suelo",
       "Dengue": "Ver el uso del suelo",
+      "Flood" : "Ver el uso del suelo" 
 
     },
     leyenda: {
         "LU" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
         "Hidrico" : "<img src='static/images/leyenda_IndiceHidrico.png' style='max-height:10vh;'alt='Leyenda' />",
         "Dengue": "<img src='static/images/leyenda_dengue.png' style='max-height:20vh;'alt='Leyenda' />",
+        "Flood" : "<img src='static/images/leyenda_IndiceFlood.png' style='max-height:10vh;'alt='Leyenda' />",
     }
 };
 
