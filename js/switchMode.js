@@ -7,10 +7,10 @@ let modesLabels = {
         "Flood" : "Riesgo de inundaciones" 
     },
     subtitle: {
-      "LU" : "Ver los riesgos",//"Ver los servicios hídricos",
-      "Hidrico" : "Ver el uso del suelo",
-      "Dengue": "Ver el uso del suelo",
-      "Flood" : "Ver el uso del suelo" 
+      "LU" : "Ver mapa de riesgos",//"Ver los servicios hídricos",
+      "Hidrico" : "Ver mapa de uso del suelo",
+      "Dengue": "Ver mapa de uso del suelo",
+      "Flood" : "Ver mapa de uso del suelo" 
 
     },
     leyenda: {
