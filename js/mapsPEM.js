@@ -18,6 +18,10 @@
       attribution: "Current Land Cover Map [PRO-Agua]"
     });
 
+    var LULC_MAP_Hoy_background = L.tileLayer(tileset_LULC_MAP_Hoy, {
+        attribution: "Current Land Cover Map [PRO-Agua]"
+    });
+
     var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
       attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
     });
@@ -90,19 +94,19 @@
     var layers = []
     map_styling();
     ////// Shapefile layers -- make Styles in mapUtils.js/////
-    function shapefileLayer(shapefileName,style=shpStyle){
-        layers[shapefileName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
-            style: style},{
-            onEachFeature: function(feature, layer) {}
+    function shapefileLayer(layerName, shapefileName,style=shpStyle){
+      layers[layerName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
+          style: style},{
+          onEachFeature: function(feature, layer) {}
           });
-      }; 
+    };  
 
     // AOI
-    shapefileLayer("AOI_PEM");
+    shapefileLayer("AOI_PEM","AOI_PEM");
     layers["AOI_PEM"].addTo(map2);
 
     // Rivers
-    shapefileLayer("corrientes",riverStyle);
+    shapefileLayer("corrientes","corrientes",riverStyle);
     layers["rivers"] = layers["corrientes"];
 
 // - - - - - - -
@@ -112,12 +116,14 @@
     // Make Shapefile layers for Indice Hidrico 
     // TODO: to optimize shapefileLayer and style function there
     
-    shapefileLayer("IndiceHidrico",hidricoBaseStyle);
-    shapefileLayer("IndiceHidricoREAL",hidricoREALStyle);
-    shapefileLayer("IndiceHidricoSOST",hidricoSOSTStyle);
-    shapefileLayer("IndiceHidricoPEOR",hidricoPEORStyle);
+    shapefileLayer("IndiceHidrico","IndiceHidrico",hidricoBaseStyle);
+    shapefileLayer("IndiceHidricoREAL","IndiceHidricoREAL",hidricoREALStyle);
+    shapefileLayer("IndiceHidricoSOST","IndiceHidricoSOST",hidricoSOSTStyle);
+    shapefileLayer("IndiceHidricoPEOR","IndiceHidricoPEOR",hidricoPEORStyle);
 
 
+//AOI box
+shapefileLayer("AOI_box","Rectangulo_PEM",AOIBaseStyle);
 
 /* JavaScript improvemt TODO 
 function removeLayers(layer,map) {
@@ -181,6 +187,9 @@ function updateMap2(mode,scenario) {
         }
       });
 
+      // Add Background
+      LULC_MAP_Hoy_background.addTo(map2);
+
       // Pick layer to add (according to scenario)
       if (scenario == "Peor") {
         var lyr = LULC_PEM_Peor;
@@ -193,6 +202,9 @@ function updateMap2(mode,scenario) {
       // Add layers
       lyr.addTo(map2);
       labels2.addTo(map2);
+
+      let aoi_lyr = layers["AOI_box"];
+      aoi_lyr.addTo(map2);
   }
   else if (mode == "Hidrico") {
     // Remove layers
@@ -202,6 +214,8 @@ function updateMap2(mode,scenario) {
           map2.removeLayer(layer);
         }
       });
+
+     
 
     // Pick layer to add (according to scenario)
     if (scenario == "Peor") {

@@ -20,6 +20,10 @@
       attribution: "Current Land Cover Map [PRO-Agua]"
     });
 
+    var LULC_MAP_Hoy_background = L.tileLayer(tileset_LULC_MAP_Hoy, {
+      attribution: "Current Land Cover Map [PRO-Agua]"
+    });
+
     var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
       attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
     });
@@ -129,12 +133,12 @@
     var layers = []
     map_styling();
     ////// Shapefile layers -- make Styles in mapUtils.js/////
-    function shapefileLayer(shapefileName,style=shpStyle){
-        layers[shapefileName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
-            style: style},{
-            onEachFeature: function(feature, layer) {}
+    function shapefileLayer(layerName, shapefileName=layerName,style=shpStyle){
+      layers[layerName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
+          style: style},{
+          onEachFeature: function(feature, layer) {}
           });
-      }; 
+    }; 
 
     // AOI
     shapefileLayer("AOI_PEM");
@@ -144,17 +148,12 @@
     shapefileLayer("corrientes",riverStyle);
     layers["rivers"] = layers["corrientes"];
 
+    //AOI box
+    shapefileLayer("AOI_box","Rectangulo_PEM",AOIBaseStyle);
 
 
 
 
-/* JavaScript improvemt TODO 
-function removeLayers(layer,map) {
-    if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-          ) {
-    map.removeLayer(layer)}
-   };
-*/
 
 
 // - - - - - - - - - - - -
@@ -210,6 +209,9 @@ function updateMap2(mode,scenario) {
         }
       });
 
+      // Add Background
+      LULC_MAP_Hoy_background.addTo(map2);
+
       // Pick layer to add (according to scenario)
       if (scenario == "Peor") {
         var lyr = LULC_PEM_Peor;
@@ -222,6 +224,9 @@ function updateMap2(mode,scenario) {
       // Add layers
       lyr.addTo(map2);
       labels2.addTo(map2);
+      
+      let aoi_lyr = layers["AOI_box"];
+      aoi_lyr.addTo(map2);
   }
   else if (mode == "Dengue") {
     // Remove layers

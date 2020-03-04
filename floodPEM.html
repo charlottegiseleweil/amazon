@@ -101,13 +101,13 @@
       <div id="map2" class="map"></div>
 
       <!-- Legend -->
-      <div id="map2_legend" class="mapControls">
+      <div id="map2_legend" class="mapControls"style="bottom: 1vh;">
         <div id="leyenda" class="leyendaHover">
           <h6 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
             Leyenda 
           </h6>
-          <div id="leyendaContents">
-          </div> <!-- End leyendaContents-->
+          <div id="leyendaContents"></div> <!-- End leyendaContents-->
+          <!--<div id="map2_controls_yrs"w3-include-html="html/pickYear.html"></div>-->
         </div> <!-- End leyenda -->
       </div>
 
@@ -115,9 +115,11 @@
       <div id="map2_text">
         <h1>2035</h1>
       </div>
+      
       <div id="map2_controls" class="mapControls" style="z-index:1000;">
         <div w3-include-html="html/pickEscenario.html"></div>
       </div>
+      
 
     </div>
 
@@ -157,8 +159,8 @@
       </div>
 
       <br>
-      <center><h6 style='margin-top: 0px;'>Impacto en las ciudades</h6></center>
-      <div id="chartPEM" class="chart"></div>
+      <center><h6 style='margin-top: 0px;'> Área expuesta a inundaciones</h6></center>
+      <div id="chartPEM_flood" class="chart"></div>
     </div>
   </body>
 
@@ -171,7 +173,7 @@
     document.getElementById("defaultOpen").click();
   </script>
   <script src="js/overlay.js"></script>
-  <script src="js/chartPEM.js"></script>
+  <script src="js/chartPEM_flood.js"></script>
 
 
   <script src="lib/js/L.Map.Sync.js"></script>

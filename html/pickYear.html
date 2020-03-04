@@ -1,0 +1,41 @@
+ <!-- to embed : 
+  <div w3-include-html="html/pickEscenario.html"></div>
+-->
+
+<div id="radio_container">
+              <div class="input-radio" style="float: left; margin-left: 1vw;">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="yrs"
+                  value="10"
+                  onchange="updateMap2(mode,'Sost')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-1">10 años</label>
+              </div>
+              <div class="input-radio" style="float: left; margin-left: 1vw;">
+                <input
+                  checked
+                  type="radio"
+                  class="radio_btn"
+                  name="yrs"
+                  value="50"
+                  onchange="updateMap2(mode,'Real')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-2">50 años</label>
+              </div>
+              <div class="input-radio" style="float: left; margin-left: 1vw;">
+                <input
+                  type="radio"
+                  class="radio_btn"
+                  name="yrs"
+                  value="100"
+                  onchange="updateMap2(mode,'Peor')"
+                  autocomplete="off"
+                />
+                <label for="b_radio-3">100 años</label>
+              </div>
+            
+</div>

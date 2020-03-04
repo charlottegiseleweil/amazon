@@ -136,20 +136,27 @@ a:hover{
   display: flex;
   position: fixed;
   font-size: 1.5vh;
-  bottom: 2vh;
+  bottom: 2.5vh;
   left: 52vw;
 }
 
+#map2_controls_yrs{
+  display: flex;
+  font-size: 1.5vh;
+  left: 3vw;
+  min-width: 30px;
+  max-width: 500px;
+}
+
 #map2_legend{
-     position: absolute;
-     bottom: 10px;
-     left: 10px;
-     /*padding-left: 20px;
-     padding-right: 20px;*/
-     min-width: 30px;
-     max-width: 500px;
-     max-height: 1400px;
-  }
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  min-width: 30px;
+  max-width: 500px;
+  max-height: 1400px;
+}
+
 
 #tabsPanel {
   border: 1px solid black;

@@ -221,11 +221,9 @@ function updateMap2(mode,scenario) {
     
     lyr = layers["Flood50yr"];
     labels.addTo(map2);
-    lyr.setZIndex(1);
     lyr.addTo(map2);
     
     let aoi_lyr = layers["AOI_box"];
-    aoi_lyr.setZIndex(100);
     aoi_lyr.addTo(map2);
      
     
