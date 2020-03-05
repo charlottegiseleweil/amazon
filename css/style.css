@@ -147,6 +147,14 @@ a:hover{
   min-width: 30px;
   max-width: 500px;
 }
+#map2_legend_flood{
+  position: absolute;
+  top: 56vh;
+  left: 10px;
+  min-width: 30px;
+  max-width: 500px;
+  max-height: 1400px;
+}
 
 #map2_legend{
   position: absolute;

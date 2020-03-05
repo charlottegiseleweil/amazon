@@ -111,6 +111,18 @@
         </div> <!-- End leyenda -->
       </div>
 
+       <!-- Pick flood return -->
+       <div id="map2_legend_flood" class="mapControls">
+        <div id="leyenda" class="leyendaHover">
+          <h6 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
+            Retorno de inundaciones
+          </h6>
+        <div id="map2_controls_yrs"w3-include-html="html/pickYear.html"></div>
+        </div> <!-- End leyenda -->
+      </div>
+
+      
+
 
       <div id="map2_text">
         <h1>2035</h1>
@@ -119,6 +131,7 @@
       <div id="map2_controls" class="mapControls" style="z-index:1000;">
         <div w3-include-html="html/pickEscenario.html"></div>
       </div>
+
       
 
     </div>
@@ -135,7 +148,7 @@
       <div id="tabsPanel">
         <div class="tab">
           <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'DiagH')">
-            Diagnóstico de inundaciones 
+            Diagnóstico 
           </button>
           <button class="tablinks" onclick="openTab(event, 'Escenarios')">Escenarios
           </button>
@@ -159,7 +172,7 @@
       </div>
 
       <br>
-      <center><h6 style='margin-top: 0px;'> Área expuesta a inundaciones</h6></center>
+      <center><h6 id="chart_header" style='margin-top: 0px;'> Área expuesta a inundaciones de 50 años</h6></center>
       <div id="chartPEM_flood" class="chart"></div>
     </div>
   </body>

@@ -113,10 +113,15 @@ layers["rivers"] = layers["corrientes"];
 // Indice Flood
 // - - - - - - -
 
-shapefileLayer("Flood50yrBase","Floodplain_50year_return_from_DEM_Raw_MadreDios",floodBaseStyle);
-shapefileLayer("Flood50yr","Floodplain_50year_return_from_DEM_Raw_MadreDios",floodBaseStyle);
+shapefileLayer("Flood10yrBase","Floodplain_10yr_return_from_DEM_PEM",floodBaseStyle);
+shapefileLayer("Flood10yr","Floodplain_10yr_return_from_DEM_PEM",floodBaseStyle);
+shapefileLayer("Flood50yrBase","Floodplain_50yr_return_from_DEM_PEM",floodBaseStyle);
+shapefileLayer("Flood50yr","Floodplain_50yr_return_from_DEM_PEM",floodBaseStyle);
+shapefileLayer("Flood100yrBase","Floodplain_100yr_return_from_DEM_PEM",floodBaseStyle);
+shapefileLayer("Flood100yr","Floodplain_100yr_return_from_DEM_PEM",floodBaseStyle);
 
 //AOI box
+shapefileLayer("AOI_box_bl","Rectangulo_PEM",AOIBaseStyle);
 shapefileLayer("AOI_box","Rectangulo_PEM",AOIBaseStyle);
 
     
@@ -128,6 +133,7 @@ shapefileLayer("AOI_box","Rectangulo_PEM",AOIBaseStyle);
 // - - - - - - - - - - - - 
 
 function updateMap1(mode) {
+  let year = $('input[name=yr]:checked').val();
   if (mode == 'LU') {
       // Remove layers
       map1.eachLayer(function(layer) {
@@ -143,16 +149,34 @@ function updateMap1(mode) {
       labels.addTo(map1);
   }
   else if (mode == "Flood") {
+    // Remove layers
+    map1.eachLayer(function(layer) {
+      if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
+      ) {
+        map1.removeLayer(layer);
+        
+      }
+    });
 
     // Add layers
     lyr = LULC_MAP_Hoy;
     lyr.addTo(map1);
     labels.addTo(map1);
 
-    // Add layers
-    lyr = layers["Flood50yrBase"];
+    // Add flood
+    // Pick layer to add (according to year)
+    if (year == "10") {
+      lyr = layers["Flood10yrBase"];
+    } else if (year == "50") {
+      lyr = layers["Flood50yrBase"];
+    } else {//if year = 100
+      lyr = layers["Flood100yrBase"];
+    }
+    
     lyr.addTo(map1);
-    labels.addTo(map1);
+
+    let aoi_lyr = layers["AOI_box_bl"];
+    aoi_lyr.addTo(map1);
 
   }
   else {
@@ -160,8 +184,9 @@ function updateMap1(mode) {
   }
 };
 
-function updateMap2(mode,scenario) {
+function updateMap2(mode,scenario,year) {
   scenario = $('input[name=escenarios]:checked').val();
+  year = $('input[name=yr]:checked').val();
 
   console.log("Updating map2 with scenario " + scenario);
 
@@ -215,26 +240,36 @@ function updateMap2(mode,scenario) {
 
     // Add LU
     lyr.addTo(map2);
-    labels2.addTo(map2);
 
     // Add flood
+    // Pick layer to add (according to year)
+    if (year == "10") {
+      lyr = layers["Flood10yr"];
+    } else if (year == "50") {
+      lyr = layers["Flood50yr"];
+    } else {//if year = 100
+      lyr = layers["Flood100yr"];
+    }
     
-    lyr = layers["Flood50yr"];
-    labels.addTo(map2);
     lyr.addTo(map2);
-    
+    labels.addTo(map2);
+
     let aoi_lyr = layers["AOI_box"];
     aoi_lyr.addTo(map2);
-     
-    
-
-    
 
   }
   else {
     console.log("Unknown mode : "+mode)
   }
 };
+
+function changeYr(){
+  updateMap1("Flood");
+  updateMap2("Flood","Peor","10");
+
+  changeData($('input[name=yr]:checked').val());
+  document.getElementById("chart_header").innerHTML = "Área expuesta a inundaciones de "+ $('input[name=yr]:checked').val() + " años";
+}
 
 
 // - - - - - - - -
