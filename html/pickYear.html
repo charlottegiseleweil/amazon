@@ -1,41 +1,13 @@
- <!-- to embed : 
-  <div w3-include-html="html/pickEscenario.html"></div>
--->
+
 
 <div id="radio_container">
-              <div class="input-radio" style="float: left; margin-left: 1vw;">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="yr"
-                  value="10"
-                  onchange="changeYr()"
-                  autocomplete="off"
-                />
-                <label for="b_radio-1">10 años</label>
-              </div>
-              <div class="input-radio" style="float: left; margin-left: 1vw;">
-                <input
-                  checked
-                  type="radio"
-                  class="radio_btn"
-                  name="yr"
-                  value="50"
-                  onchange="changeYr()"
-                  autocomplete="off"
-                />
-                <label for="b_radio-2">50 años</label>
-              </div>
-              <div class="input-radio" style="float: left; margin-left: 1vw;">
-                <input
-                  type="radio"
-                  class="radio_btn"
-                  name="yr"
-                  value="100"
-                  onchange="changeYr()"
-                  autocomplete="off"
-                />
-                <label for="b_radio-3">100 años</label>
-              </div>
-            
+  <div class="switch-field">
+    <input type="radio" id="radio-three" name="yr" value="10" onchange="changeYr()" >
+    <label for="radio-three">10 años</label>
+    <input type="radio" id="radio-four" name="yr" value="50" onchange="changeYr()" checked />
+    <label for="radio-four">50 años</label>
+    <input type="radio" id="radio-five" name="yr" onchange="changeYr()" value="100" />
+    <label for="radio-five">100 años</label>
+</div>
+                    
 </div>

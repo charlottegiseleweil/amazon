@@ -83,7 +83,7 @@ map1.sync(map2);
 map2.sync(map1);
 
 // Add scale
-L.control.scale().addTo(map1)
+L.control.scale({position: 'bottomright'}).addTo(map2)
 
 
 // - - - - - - -
@@ -135,6 +135,8 @@ shapefileLayer("AOI_box","Rectangulo_PEM",AOIBaseStyle);
 function updateMap1(mode) {
   let year = $('input[name=yr]:checked').val();
   if (mode == 'LU') {
+      // remove possibility to see flood
+      document.getElementById("cover").style.visibility = "hidden";
       // Remove layers
       map1.eachLayer(function(layer) {
         if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
@@ -149,6 +151,8 @@ function updateMap1(mode) {
       labels.addTo(map1);
   }
   else if (mode == "Flood") {
+    // add possibility to see flood
+    document.getElementById("cover").style.visibility = "visible";
     // Remove layers
     map1.eachLayer(function(layer) {
       if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
@@ -252,7 +256,7 @@ function updateMap2(mode,scenario,year) {
     }
     
     lyr.addTo(map2);
-    labels.addTo(map2);
+    labels2.addTo(map2);
 
     let aoi_lyr = layers["AOI_box"];
     aoi_lyr.addTo(map2);

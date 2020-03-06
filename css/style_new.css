@@ -1,10 +1,12 @@
 html,
 body {
   font-size: 14px;
+  background-color: rgb(230 230 230);
 }
 
-h2 h1{
-  margin: 1px 0;
+h2, h1{
+  margin: 0;
+  margin-bottom: 2px;
 }
 
 
@@ -31,7 +33,10 @@ a:hover{
 }
 
 .map {
-  height: 46vh;
+  height: 78vh;
+  width: 49%;
+  float: left;
+  margin: 0.5% 0.5%;
 }
 
 .leyendaHover:hover #leyendaIntegral {
@@ -96,11 +101,10 @@ a:hover{
 #map1_text {
   display: flex;
   position: absolute;
-  bottom: 46.5vh;
-  left: 52vw;
+  top: 0;
+  right: 1vw;
   z-index: 1000;
   color: white;
-
   font-size: 4vh;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -110,18 +114,17 @@ a:hover{
 #map2_text {
   display: flex;
   position: absolute;
-  bottom: 4vh;
-  left: 52vw;
+  top: 0;
+  right: 1vw;
   z-index: 1000;
   color: white;
-
   font-size: 4vh;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
 }
 
-.mapControls {
+.map_legend {
   z-index: 500;
   padding: 1vh;
   background-color: white;
@@ -130,45 +133,84 @@ a:hover{
   border-radius: 5px;
 }
 
-.mapControls_new {
+.mapControls{
   z-index: 500;
   padding: 1vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 3vh;
   color: white;
-  
+  width: 25%;
+  float: left;
 }
-#mapTitle_new {
-  position: absolute;
-  top: 10px;
-  left: 28%;
 
-  z-index: 1000;
-  color: white;
-
-  font-size: 4vh;
-  font-weight: bold;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+.switch-field {
+    display: flex;
+    overflow: hidden;
 }
+
+.switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+    background-color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 11px;
+    line-height: 1;
+    text-align: center;
+    padding: 6px 10px;
+    margin-right: -1px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+    background-color:#aae09e
+}
+
+.switch-field input:checked + label {
+    background-color: #7fc46f;
+    box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+    border-radius: 1px 0 0 1px;
+}
+
+.switch-field label:last-of-type {
+    border-radius: 0 1px 1px 0;
+}
+
 
 #changeButton{
   font-size: 2vh;
-  padding: 3px;
-  border: solid rgb(170, 221, 241) 1px;
-  color: rgb(170, 221, 241);
+  padding: 3px 6px;
+  border: solid #7fc46f 1px;
+  background-color: #7fc46f;
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 1px;
+}
+#changeButton:hover{
+    background-color:#aae09e;
+    text-decoration: none;
 }
 
 #mapTitle {
-    position: absolute;
-    top: 60px;
-    left: 28%;
+    width: 50%; 
+    z-index: 500;
+    padding: 1vh;
+    color: white;
+    float: left;
 }
 
 #map2_controls {
-  display: flex;
-  position: absolute;
   font-size: 1.5vh;
-  bottom: 2.5vh;
-  left: 52vw;
 }
 
 #map2_controls_yrs{
@@ -216,6 +258,7 @@ a:hover{
   padding-right: 1em;
   padding-left: 1em;
   overflow: scroll;
+  background-color: white;
 
 }
 
@@ -240,7 +283,7 @@ a:hover{
       left: 0;
       right: 0;
       color: white;
-      margin: 0 30vh;
+      margin: 1px 30vh;
     }
 
 .coolButtonSmall {
