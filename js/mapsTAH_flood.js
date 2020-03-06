@@ -11,8 +11,6 @@ var tileset_LULC_MAP_Hoy =
 var tileset_LULC_PEM_Peor =
     "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Peor/{z}/{x}/{y}.png";
 
-var tileset_LULC_PEM_Real =
-    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Rea/{z}/{x}/{y}.png";
 
 var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
     attribution: "Current Land Cover Map [PRO-Agua]"
@@ -30,9 +28,6 @@ var LULC_PEM_Peor = L.tileLayer(tileset_LULC_PEM_Peor, {
     attribution: "Co-desarollado Escenario Peor [PRO-Agua]"
 });
 
-var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
-    attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
-});
     
 // - - - - - - -
 // Basemaps
@@ -68,16 +63,17 @@ var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager
 
 var map1 = L.map("map1", {
     layers: [basemap],// LULC_MAP_Hoy,labels],
-    center: [-12.85, -69.7],
-    zoom: 9
+    center: [-11.41, -69.80],
+    zoom: 8
 });
 
 var map2 = L.map("map2", {
     layers: [basemap2],// LULC_PEM_Sost,labels2],
-    center: [-12.85, -69.7],
-    zoom: 9,
+    center: [-11.41, -69.80],
+    zoom: 8,
     zoomControl: false
 });
+
 
 map1.sync(map2);
 map2.sync(map1);
@@ -113,16 +109,16 @@ layers["rivers"] = layers["corrientes"];
 // Indice Flood
 // - - - - - - -
 
-shapefileLayer("Flood10yrBase","Floodplain_10yr_return_from_DEM_PEM",floodBaseStyle);
-shapefileLayer("Flood10yr","Floodplain_10yr_return_from_DEM_PEM",floodBaseStyle);
-shapefileLayer("Flood50yrBase","Floodplain_50yr_return_from_DEM_PEM",floodBaseStyle);
-shapefileLayer("Flood50yr","Floodplain_50yr_return_from_DEM_PEM",floodBaseStyle);
-shapefileLayer("Flood100yrBase","Floodplain_100yr_return_from_DEM_PEM",floodBaseStyle);
-shapefileLayer("Flood100yr","Floodplain_100yr_return_from_DEM_PEM",floodBaseStyle);
+shapefileLayer("Flood10yrBase","Floodplain_10yr_return_from_DEM_TAH",floodBaseStyle);
+shapefileLayer("Flood10yr","Floodplain_10yr_return_from_DEM_TAH",floodBaseStyle);
+shapefileLayer("Flood50yrBase","Floodplain_50yr_return_from_DEM_TAH",floodBaseStyle);
+shapefileLayer("Flood50yr","Floodplain_50yr_return_from_DEM_TAH",floodBaseStyle);
+shapefileLayer("Flood100yrBase","Floodplain_100yr_return_from_DEM_TAH",floodBaseStyle);
+shapefileLayer("Flood100yr","Floodplain_100yr_return_from_DEM_TAH",floodBaseStyle);
 
 //AOI box
-shapefileLayer("AOI_box_bl","AOI_PEM",AOIBaseStyle);
-shapefileLayer("AOI_box","AOI_PEM",AOIBaseStyle);
+shapefileLayer("AOI_box_bl","AOI_TAH",AOIBaseStyle);
+shapefileLayer("AOI_box","AOI_TAH",AOIBaseStyle);
 
     
     
@@ -165,7 +161,7 @@ function updateMap1(mode) {
     // Add layers
     lyr = LULC_MAP_Hoy;
     lyr.addTo(map1);
-    labels.addTo(map1);
+   
 
     // Add flood
     // Pick layer to add (according to year)
@@ -181,6 +177,9 @@ function updateMap1(mode) {
 
     let aoi_lyr = layers["AOI_box_bl"];
     aoi_lyr.addTo(map1);
+
+    //Add labels
+    labels.addTo(map1);
 
   }
   else {
@@ -209,8 +208,6 @@ function updateMap2(mode,scenario,year) {
         // Pick layer to add (according to scenario)
         if (scenario == "Peor") {
             var lyr = LULC_PEM_Peor;
-        } else if (scenario == "Real") {
-            var lyr = LULC_PEM_Real;
         } else {//if (scenario == "Sost") {
             var lyr = LULC_PEM_Sost;
         }
@@ -235,8 +232,6 @@ function updateMap2(mode,scenario,year) {
     // Pick layer to add (according to scenario)
     if (scenario == "Peor") {
         var lyr = LULC_PEM_Peor;
-      } else if (scenario == "Real") {
-        var lyr = LULC_PEM_Real;
       } else {//if (scenario == "Sost") {
         var lyr = LULC_PEM_Sost;
       }
