@@ -67,13 +67,13 @@ var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager
 
 
 var map1 = L.map("map1", {
-    layers: [basemap],// LULC_MAP_Hoy,labels],
+    layers: [basemap],
     center: [-12.85, -69.7],
     zoom: 9
 });
 
 var map2 = L.map("map2", {
-    layers: [basemap2],// LULC_PEM_Sost,labels2],
+    layers: [basemap2],
     center: [-12.85, -69.7],
     zoom: 9,
     zoomControl: false
@@ -149,24 +149,21 @@ function updateMap1(mode) {
       lyr = LULC_MAP_Hoy;
       lyr.addTo(map1);
       labels.addTo(map1);
+      let aoi_lyr = layers["AOI_box_bl"];
+      aoi_lyr.addTo(map1);
   }
   else if (mode == "Flood") {
     // add possibility to see flood
     document.getElementById("controlyr").style.visibility = "visible";
     // Remove layers
     map1.eachLayer(function(layer) {
-      if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
+      if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
       ) {
         map1.removeLayer(layer);
-        
       }
     });
+    LULC_MAP_Hoy.addTo(map1);
 
-    // Add layers
-    lyr = LULC_MAP_Hoy;
-    lyr.addTo(map1);
-
-    // Add flood
     // Pick layer to add (according to year)
     if (year == "10") {
       lyr = layers["Flood10yrBase"];
@@ -204,7 +201,7 @@ function updateMap2(mode,scenario,year) {
         });
 
        // Add Background
-        LULC_MAP_Hoy_background.addTo(map2);
+       // LULC_MAP_Hoy_background.addTo(map2);
        
         // Pick layer to add (according to scenario)
         if (scenario == "Peor") {
@@ -218,6 +215,8 @@ function updateMap2(mode,scenario,year) {
         // Add layers
         lyr.addTo(map2);
         labels2.addTo(map2);
+        let aoi_lyr = layers["AOI_box"];
+        aoi_lyr.addTo(map2);
   }
   else if (mode == "Flood") {
     // Remove layers
@@ -229,7 +228,7 @@ function updateMap2(mode,scenario,year) {
       });
 
     // Add Background
-    LULC_MAP_Hoy_background.addTo(map2);
+    //LULC_MAP_Hoy_background.addTo(map2);
     
 
     // Pick layer to add (according to scenario)

@@ -1,0 +1,21 @@
+<!-- to embed : 
+	<div w3-include-html="html/tab_method.html"></div>
+-->
+<stron>TODO</stron>
+<p>Los mapas de inundaciones se derivan de un análisis de datos hidrológicos disponibles de <a href="http://www.snirh.gov.br/hidroweb/publico/mapa_hidroweb.jsf">ANA</a> y de un 
+    modelo de elevación digital derivado de satélites. Derivamos áreas inundadas por períodos de retorno de 10, 50, 100 años. 
+    Cuanto mayor es el período de retorno, mayor es el riesgo de inundación. El área inundada se deriva de la siguiente manera.
+     Tuvimos acceso a xxx estaciones de medición hidrológica en el río Acre y Purus desde <a href="http://www.snirh.gov.br/hidroweb/publico/mapa_hidroweb.jsf">ANA</a>. Utilizamos los niveles de agua observados 
+     en cada estación para determinar la probabilidad de que se supere un cierto nivel de agua. Luego interpolamos estos niveles de agua
+      para todos los ríos. Por lo tanto, sabíamos cuán alta puede ser el agua para inundaciones con diferentes períodos de retorno en 
+      todas las partes de la cuenca Acre y Purus. Luego, delineamos el área de la llanura de inundación para cada período de retorno del
+       modelo de elevación digital. Para la cuenca Madre de Dios, no hay datos disponibles. Por lo tanto, utilizamos ecuaciones derivadas 
+       de la cuenca Acre y Purus para predecir los niveles de agua en Madre de Dios. Por lo tanto, el análisis es más incierto en la cuenca
+        Madre de Dios. Los resultados de estos análisis son áreas inundadas con diferentes períodos de retorno en cada cuenca fluvial.</p>
+<p>Para el análisis de exposición, superpusimos las áreas inundadas con los datos de uso del suelo para los diferentes escenarios. La exposición a la inundación es, por lo tanto, una función de la probabilidad de peligro (es decir, los períodos de retorno de la inundación) y la exposición, es decir, dónde se encuentran los edificios, carreteras y agricultura.
+</p>
+
+
+<h4> Servicios Ecosistémicos </h4>
+<div w3-include-html="html/tab_servicios.html"></div>
+
