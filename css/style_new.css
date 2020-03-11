@@ -4,7 +4,7 @@ body {
   background-color: rgb(230 230 230);
 }
 
-h2, h1{
+h2, h1, h6{
   margin: 0;
   margin-bottom: 2px;
 }
@@ -33,9 +33,7 @@ a:hover{
 }
 
 .map {
-  height: 78vh;
-  width: 49%;
-  float: left;
+  height: 39vh;
   margin: 0.5% 0.5%;
 }
 
@@ -134,12 +132,25 @@ a:hover{
 }
 
 .mapControls{
-  z-index: 500;
-  padding: 1vh;
-  padding-top: 3vh;
+  position: absolute;
+  top: 10vh;
+  right: 1vw;
+  z-index: 1000;
   color: white;
-  width: 25%;
-  float: left;
+  font-size: 2vh;
+  height: 44px;
+  font-weight: bold;
+  text-align: right;
+}
+#controlyr{
+  color: rgba(0, 0, 0, 0.6);
+  top: 10vh;
+  right: 1vw;
+  z-index: 1000;
+  font-size: 2vh;
+  height: 44px;
+  padding-left: 9px;
+  margin-bottom: 3px;
 }
 
 .switch-field {
@@ -202,7 +213,7 @@ a:hover{
 }
 
 #mapTitle {
-    width: 50%; 
+    width: 100%; 
     z-index: 500;
     padding: 1vh;
     color: white;
@@ -264,8 +275,7 @@ a:hover{
 
 .chart {
   position: relative;
-  height: 36vh;
-  /*max-height: 320px;*/
+  height: 32vh;
 }
 
 #rightPanelPampa h4{

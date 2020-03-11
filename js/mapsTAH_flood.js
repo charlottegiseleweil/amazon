@@ -2,14 +2,14 @@
 // Land use maps
 // - - - - - - -
 
-var tileset_LULC_PEM_Sost = 
-    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Sostenible/{z}/{x}/{y}.png"
+var tileset_LULC_TAH_Sost = 
+    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_TAH_Sostenible/{z}/{x}/{y}.png"
 
 var tileset_LULC_MAP_Hoy =
     "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_MAP/{z}/{x}/{y}.png";
 
-var tileset_LULC_PEM_Peor =
-    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Peor/{z}/{x}/{y}.png";
+var tileset_LULC_TAH_Peor =
+    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_TAH_Peor/{z}/{x}/{y}.png";
 
 
 var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
@@ -20,11 +20,11 @@ var LULC_MAP_Hoy_background = L.tileLayer(tileset_LULC_MAP_Hoy, {
     attribution: "Current Land Cover Map [PRO-Agua]"
 });
 
-var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
+var LULC_TAH_Sost = L.tileLayer(tileset_LULC_TAH_Sost, {
     attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
 });
 
-var LULC_PEM_Peor = L.tileLayer(tileset_LULC_PEM_Peor, {
+var LULC_TAH_Peor = L.tileLayer(tileset_LULC_TAH_Peor, {
     attribution: "Co-desarollado Escenario Peor [PRO-Agua]"
 });
 
@@ -79,7 +79,7 @@ map1.sync(map2);
 map2.sync(map1);
 
 // Add scale
-L.control.scale({position: 'bottomright'}).addTo(map2)
+L.control.scale({position: 'bottomright'}).addTo(map1)
 
 
 // - - - - - - -
@@ -132,7 +132,7 @@ function updateMap1(mode) {
   let year = $('input[name=yr]:checked').val();
   if (mode == 'LU') {
       // remove possibility to see flood
-      document.getElementById("cover").style.visibility = "hidden";
+      document.getElementById("controlyr").style.visibility = "hidden";
       // Remove layers
       map1.eachLayer(function(layer) {
         if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
@@ -148,7 +148,7 @@ function updateMap1(mode) {
   }
   else if (mode == "Flood") {
     // add possibility to see flood
-    document.getElementById("cover").style.visibility = "visible";
+    document.getElementById("controlyr").style.visibility = "visible";
     // Remove layers
     map1.eachLayer(function(layer) {
       if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png"
@@ -207,9 +207,9 @@ function updateMap2(mode,scenario,year) {
        
         // Pick layer to add (according to scenario)
         if (scenario == "Peor") {
-            var lyr = LULC_PEM_Peor;
+            var lyr = LULC_TAH_Peor;
         } else {//if (scenario == "Sost") {
-            var lyr = LULC_PEM_Sost;
+            var lyr = LULC_TAH_Sost;
         }
 
         // Add layers
@@ -231,9 +231,9 @@ function updateMap2(mode,scenario,year) {
 
     // Pick layer to add (according to scenario)
     if (scenario == "Peor") {
-        var lyr = LULC_PEM_Peor;
+        var lyr = LULC_TAH_Peor;
       } else {//if (scenario == "Sost") {
-        var lyr = LULC_PEM_Sost;
+        var lyr = LULC_TAH_Sost;
       }
 
 

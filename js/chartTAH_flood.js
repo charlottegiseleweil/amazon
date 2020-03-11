@@ -38,11 +38,6 @@ var chart = c3.generate({
 }});
 
 function changeData(year){
-  chart.unload({
-    ids: ['Infraestructura'],
-    ids: ['Agricultura'],
-    ids: ['Vegetación natural'],
-    });
 
     let col;
 

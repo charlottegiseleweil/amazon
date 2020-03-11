@@ -76,16 +76,7 @@
           <a id="changeButton" onclick="switchMode('Flood')" style="font-style: italic;"></a>
         </center>
       </div>
-       <!-- Pick flood return and scenarios -->
       
-      <div class="mapControls" id="cover">
-        Retorno de inundaciones
-        <div  w3-include-html="html/pickYear.html"></div>
-      </div>
-      <div class="mapControls">
-          Escenarios Futoro
-        <div w3-include-html="html/pickEscenario_TAH_new.html"></div>
-      </div>
 
       <div style="clear: both;">
         <div id="mouse_tip"></div>
@@ -93,15 +84,7 @@
           <div id="map1_text">
             <h1 style="margin: 0;">2019</h1>
           </div>
-          <!-- Legend -->
-          <div id="map2_legend" class="map_legend"style="bottom: 1vh;">
-            <div id="leyenda" class="leyendaHover">
-              <h6 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
-                Leyenda 
-              </h6>
-              <div id="leyendaContents"></div> <!-- End leyendaContents-->
-            </div> <!-- End leyenda -->
-          </div>
+          
       </div>
       
       
@@ -113,8 +96,19 @@
         <div id="map2_text">
           <h1 style="margin: 0;">2035</h1>
         </div>
-
-         
+        <div class="mapControls">
+          Escenarios Futoro <br>
+        <div w3-include-html="html/pickEscenario_TAH_new.html"></div>
+        </div>
+        <!-- Legend -->
+        <div id="map2_legend" class="map_legend"style="bottom: 1vh;">
+          <div id="leyenda" class="leyendaHover">
+            <h6 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
+              Leyenda 
+            </h6>
+            <div id="leyendaContents"></div> <!-- End leyendaContents-->
+          </div> <!-- End leyenda -->
+        </div>
       </div>
     </div>
     
@@ -156,8 +150,11 @@
 
      <br>
       <center><h6 id="chart_header" style='margin-top: 0px;'> Área expuesta a inundaciones de 50 años</h6></center>
+      <div id="controlyr">
+        Retorno de inundaciones
+        <div  w3-include-html="html/pickYear.html"></div>
+      </div>
       <div id="chartTAH_flood" class="chart" ></div>
-      
     </div>
 
   </body>
