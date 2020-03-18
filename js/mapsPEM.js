@@ -101,9 +101,6 @@
           });
     };  
 
-    // AOI
-    shapefileLayer("AOI_PEM","AOI_PEM");
-    layers["AOI_PEM"].addTo(map2);
 
     // Rivers
     shapefileLayer("corrientes","corrientes",riverStyle);
@@ -123,16 +120,8 @@
 
 
 //AOI box
-shapefileLayer("AOI_box","Rectangulo_PEM",AOIBaseStyle);
-
-/* JavaScript improvemt TODO 
-function removeLayers(layer,map) {
-    if (layer._url !="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-          ) {
-    map.removeLayer(layer)}
-   };
-*/
-
+shapefileLayer("AOI_box_bl","AOI_PEM",AOIBaseStyle);
+shapefileLayer("AOI_box","AOI_PEM",AOIBaseStyle);
 
 // - - - - - - - - - - - -
 // Functions to switch Maps
@@ -152,6 +141,8 @@ function updateMap1(mode) {
       lyr = LULC_MAP_Hoy;
       lyr.addTo(map1);
       labels.addTo(map1);
+      let aoi_lyr = layers["AOI_box_bl"];
+      aoi_lyr.addTo(map1);
   }
   else if (mode == "Hidrico") {
     // Remove layers

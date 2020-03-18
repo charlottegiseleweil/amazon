@@ -101,9 +101,6 @@ function shapefileLayer(layerName, shapefileName,style=shpStyle){
         });
     }; 
 
-// AOI
-shapefileLayer("AOI_PEM","AOI_PEM");
-layers["AOI_PEM"].addTo(map2);
 
 // Rivers
 shapefileLayer("corrientes","corrientes",riverStyle);

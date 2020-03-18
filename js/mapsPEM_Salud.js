@@ -129,32 +129,21 @@
 // Shapefiles
 // - - - - - - -
 
-    // Add shapefile or area AOI de enfoque
-    var layers = []
-    map_styling();
-    ////// Shapefile layers -- make Styles in mapUtils.js/////
-    function shapefileLayer(layerName, shapefileName=layerName,style=shpStyle){
-      layers[layerName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
-          style: style},{
-          onEachFeature: function(feature, layer) {}
-          });
-    }; 
-
-    // AOI
-    shapefileLayer("AOI_PEM");
-    layers["AOI_PEM"].addTo(map2);
-
-    // Rivers
-    shapefileLayer("corrientes",riverStyle);
-    layers["rivers"] = layers["corrientes"];
-
-    //AOI box
-    shapefileLayer("AOI_box","Rectangulo_PEM",AOIBaseStyle);
+  // Add shapefile or area AOI de enfoque
+  var layers = []
+  map_styling();
+  ////// Shapefile layers -- make Styles in mapUtils.js/////
+  function shapefileLayer(layerName, shapefileName=layerName,style=shpStyle){
+    layers[layerName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
+        style: style},{
+        onEachFeature: function(feature, layer) {}
+        });
+  }; 
 
 
-
-
-
+  //AOI box
+  shapefileLayer("AOI_box_bl","AOI_PEM",AOIBaseStyle);
+  shapefileLayer("AOI_box","AOI_PEM",AOIBaseStyle);
 
 // - - - - - - - - - - - -
 // Functions to switch Maps
@@ -174,6 +163,8 @@ function updateMap1(mode) {
       lyr = LULC_MAP_Hoy;
       lyr.addTo(map1);
       labels.addTo(map1);
+      let aoi_lyr = layers["AOI_box_bl"];
+      aoi_lyr.addTo(map1);
   }
   else if (mode == "Dengue") {
     // Remove layers
