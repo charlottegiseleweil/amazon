@@ -47,37 +47,45 @@ var basemap2 = L.tileLayer(
     {attribution: "OpenStreetMap"}
 );
 
-var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd',
-    maxZoom: 19
-});
-
-var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd',
-    maxZoom: 19
-});
-var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd',
-    maxZoom: 19
-});
-
 // - - - - - - -
 // Launch maps
 // - - - - - - -
-
-
 var map1 = L.map("map1", {
-    layers: [basemap],
-    center: [-12.85, -69.7],
-    zoom: 9
+  layers: [basemap],
+  center: [-12.85, -69.7],
+  zoom: 9
 });
 
 var map2 = L.map("map2", {
-    layers: [basemap2],
-    center: [-12.85, -69.7],
-    zoom: 9,
-    zoomControl: false
+  layers: [basemap2],
+  center: [-12.85, -69.7],
+  zoom: 9,
+  zoomControl: false
 });
+
+// - - - - - - -
+// Add labels
+// - - - - - - -
+map1.createPane('labels');
+map1.getPane('labels').style.zIndex = 2000;
+map1.getPane('labels').style.pointerEvents = 'none';
+var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd',
+    maxZoom: 19,
+    pane: 'labels'
+});
+
+map2.createPane('labels');
+map2.getPane('labels').style.zIndex = 2000;
+map2.getPane('labels').style.pointerEvents = 'none';
+var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd',
+    maxZoom: 19,
+    pane: 'labels'
+});
+
+
+
 
 map1.sync(map2);
 map2.sync(map1);

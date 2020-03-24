@@ -47,43 +47,50 @@
       {attribution: "OpenStreetMap"}
     );
 
-    var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
-
-    var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
-    var labels3 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
+   
 
 // - - - - - - -
 // Launch maps
 // - - - - - - -
+var map1 = L.map("map1", {
+  layers: [basemap],// LULC_MAP_Hoy,labels],
+  center: [-12.85, -69.7],
+  zoom: 9
+});
 
+var map2 = L.map("map2", {
+  layers: [basemap2],// LULC_PEM_Sost,labels2],
+  center: [-12.85, -69.7],
+  zoom: 9,
+  zoomControl: false
+});
 
-    var map1 = L.map("map1", {
-      layers: [basemap],// LULC_MAP_Hoy,labels],
-      center: [-12.85, -69.7],
-      zoom: 9
-    });
+// - - - - - - -
+// Add labels
+// - - - - - - -
+map1.createPane('labels');
+map1.getPane('labels').style.zIndex = 600;
+map1.getPane('labels').style.pointerEvents = 'none';
+var labels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd',
+    maxZoom: 19,
+    pane: 'labels'
+});
 
-    var map2 = L.map("map2", {
-      layers: [basemap2],// LULC_PEM_Sost,labels2],
-      center: [-12.85, -69.7],
-      zoom: 9,
-      zoomControl: false
-    });
+map2.createPane('labels');
+map2.getPane('labels').style.zIndex = 600;
+map2.getPane('labels').style.pointerEvents = 'none';
+var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd',
+    maxZoom: 19,
+    pane: 'labels'
+});
 
-    map1.sync(map2);
-    map2.sync(map1);
+  map1.sync(map2);
+  map2.sync(map1);
 
-    // Add scale
-    L.control.scale().addTo(map1)
+  // Add scale
+  L.control.scale().addTo(map1)
 
 
 // - - - - - - -
@@ -93,11 +100,18 @@
     // Add shapefile or area AOI de enfoque
     var layers = []
     map_styling();
+
+    
+
+
     ////// Shapefile layers -- make Styles in mapUtils.js/////
-    function shapefileLayer(layerName, shapefileName,style=shpStyle){
+    function shapefileLayer(layerName, shapefileName,style=shpStyle, tooltipProp="ISH_BASE"){
       layers[layerName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
-          style: style},{
-          onEachFeature: function(feature, layer) {}
+          style: style,
+          onEachFeature: function (feature, layer) {
+            layer.bindTooltip("Value: " + feature.properties[tooltipProp].toFixed(2)); 
+            },
+         
           });
     };  
 
@@ -114,9 +128,9 @@
     // TODO: to optimize shapefileLayer and style function there
     
     shapefileLayer("IndiceHidrico","IndiceHidrico",hidricoBaseStyle);
-    shapefileLayer("IndiceHidricoREAL","IndiceHidricoREAL",hidricoREALStyle);
-    shapefileLayer("IndiceHidricoSOST","IndiceHidricoSOST",hidricoSOSTStyle);
-    shapefileLayer("IndiceHidricoPEOR","IndiceHidricoPEOR",hidricoPEORStyle);
+    shapefileLayer("IndiceHidricoREAL","IndiceHidricoREAL",hidricoREALStyle, "ISH_REAL");
+    shapefileLayer("IndiceHidricoSOST","IndiceHidricoSOST",hidricoSOSTStyle, "ISH_SOST");
+    shapefileLayer("IndiceHidricoPEOR","IndiceHidricoPEOR",hidricoPEORStyle, "ISH_PEOR");
 
 
 //AOI box
