@@ -44,7 +44,6 @@ function map_styling(){
     window.hidricoBaseStyle = hidricoBaseStyle;
     
     function hidricoPEORStyle(feature) {
-        console.log(feature);
     return {
         fillColor: indiceHidricoColors(feature.properties.ISH_PEOR),
         weight: 1,opacity: .6,color: 'white',Array: '0',fillOpacity: .5
