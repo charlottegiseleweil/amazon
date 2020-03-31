@@ -38,7 +38,6 @@ let scenario = 'Sost';    // Default scenario (SOST) -- actually embedded in Upd
     document.getElementById('leyendaContents').innerHTML = modesLabels["leyenda"][mode];
 
     document.getElementById('titulo').innerHTML = modesLabels["title"][mode];
-    document.getElementById('changeButton').innerHTML = modesLabels["subtitle"][mode];
 
     modeIsLU = !modeIsLU;
 

@@ -165,7 +165,7 @@ function map_styling(){
 function floodBaseStyle(feature) {
     return {
         fillColor: '#004de6',
-        weight: 2,opacity: .9,color: 'white',Array: '0',fillOpacity: .2,
+        weight: 0.5,opacity: .9,color: '#004de6',Array: '0',fillOpacity: .2,
         };
     }
 

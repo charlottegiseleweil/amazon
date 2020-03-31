@@ -67,18 +67,24 @@
     </nav>
 
     <div class="w3-twothird" id="maps">
-
-      <div id="mapTitle" >
-        <center>
-          <h2  id="titulo">Loading...</h2>
-          <a id="changeButton" onclick="switchMode('Flood')" style="font-style: italic;"></a>
-        </center>
-      </div>
       
 
     <div style="clear: both;">
-        <div id="mouse_tip"></div>
+      
         <div id="map1" class="map">
+          <div id="mapTitle" >
+            <center>
+              <h2  id="titulo">Loading...</h2>
+              <div id="radio_container" >
+                <div class="switch-field">
+                    <input type="radio" id="btnRiesgos" name="mode" value="Flood" onchange="switchMode('Flood')" checked >
+                    <label for="btnRiesgos">Riesgos</label>
+                    <input type="radio" id="btnUso" name="mode" value="LU" onchange="switchMode('LU')"  />
+                    <label for="btnUso">Uso del suelo</label>
+                </div>      
+            </div>
+            </center>
+          </div>
           <div id="map1_text">
             <h1 style="margin: 0;">2019</h1>
           </div>
@@ -93,8 +99,7 @@
         <div id="map2_text">
           <h1 style="margin: 0;">2035</h1>
         </div>
-        <div class="mapControls">
-          Escenarios Futoro
+        <div class="mapControls_scenario">
           <div w3-include-html="html/pickEscenario_new.html"></div>
         </div>
         <!-- Legend -->

@@ -85,7 +85,7 @@ map1.sync(map2);
 map2.sync(map1);
 
 // Add scale
-L.control.scale({position: 'bottomright'}).addTo(map1)
+L.control.scale({position: 'bottomleft'}).addTo(map1)
 
 
 // - - - - - - -
