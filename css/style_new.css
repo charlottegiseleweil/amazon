@@ -33,7 +33,7 @@ a:hover{
 }
 
 .map {
-  height: 46vh;
+  height: 45.5vh;
   margin: 0.15% 0.25%;
 }
 
@@ -168,14 +168,13 @@ a:hover{
 }
 
 .switch-field label {
-  background-color: #aae09e;
   color: black;
   font-size: 11px;
   line-height: 1;
   text-align: center;
   padding: 2px 5px;
   margin-right: -1px;
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.2);
   transition: all 0.1s ease-in-out;
   text-shadow: none;
   font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -183,12 +182,13 @@ a:hover{
 
 .switch-field label:hover {
     cursor: pointer;
-    background-color:#7fc46f;
+    background-color:#7b7e7b;
+    color: white;
 }
 
 .switch-field input:checked + label {
-    background-color: #7fc46f;
-    color: white;
+   background-color: #7b7e7b;
+   color: white;
 }
 
 .switch-field label:first-of-type {
@@ -243,17 +243,17 @@ a:hover{
   height: 2.5vh;
   width: 2.5vh;
   border-radius: 50%;
-  border: 2px #aae09e solid;
+  border: 2px rgba(0, 0, 0, 0.2) solid;
 }
 
 /* On mouse-over, add a background color */
 .escenarios-field:hover input ~ .checkmark {
-  background-color: #aae09e
+  background-color: #7b7e7b
 }
 
 /* When the radio button is checked, add a blue background */
 .escenarios-field input:checked ~ .checkmark {
-  background-color: #7fc46f;
+  background-color: #7b7e7b;
   border: none;
 }
 
@@ -299,6 +299,7 @@ a:hover{
   height: 6vh;
   font-size: 30px;
   color: black;
+  margin-bottom: 10px;
 }
 
 #map2_controls {

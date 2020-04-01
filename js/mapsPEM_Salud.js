@@ -69,16 +69,16 @@
 // - - - - - - - - - - - 
 
     var tileset_Dengue_PEM_Sost = 
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Sost_Lluvio/{z}/{x}/{y}.png"
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Sost/{z}/{x}/{y}.png"
 
     var tileset_Dengue_PEM_Hoy =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_2017/{z}/{x}/{y}.png";
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM/{z}/{x}/{y}.png";
 
     var tileset_Dengue_PEM_Peor =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Peor_Lluvio/{z}/{x}/{y}.png";
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Peor/{z}/{x}/{y}.png";
     
     var tileset_Dengue_PEM_Real =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Real_Lluvio/{z}/{x}/{y}.png";
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Real/{z}/{x}/{y}.png";
 
 
 
@@ -200,8 +200,6 @@ function updateMap2(mode,scenario) {
         }
       });
 
-      // Add Background
-      LULC_MAP_Hoy_background.addTo(map2);
 
       // Pick layer to add (according to scenario)
       if (scenario == "Peor") {

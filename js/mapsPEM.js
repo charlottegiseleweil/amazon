@@ -105,11 +105,12 @@ var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager
 
 
     ////// Shapefile layers -- make Styles in mapUtils.js/////
-    function shapefileLayer(layerName, shapefileName,style=shpStyle, tooltipProp="ISH_BASE"){
+    function shapefileLayer(layerName, shapefileName,style=shpStyle, tooltipProp="ISH_BASE", tooltip=false){
       layers[layerName] = new L.Shapefile("data/shapefiles/"+shapefileName+".zip",{
           style: style,
           onEachFeature: function (feature, layer) {
-            layer.bindTooltip("Value: " + feature.properties[tooltipProp].toFixed(2)); 
+            if(tooltip) 
+            {layer.bindTooltip("Value: " + feature.properties[tooltipProp].toFixed(2)); }
             },
          
           });
@@ -127,10 +128,10 @@ var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager
     // Make Shapefile layers for Indice Hidrico 
     // TODO: to optimize shapefileLayer and style function there
     
-    shapefileLayer("IndiceHidrico","IndiceHidrico",hidricoBaseStyle);
-    shapefileLayer("IndiceHidricoREAL","IndiceHidricoREAL",hidricoREALStyle, "ISH_REAL");
-    shapefileLayer("IndiceHidricoSOST","IndiceHidricoSOST",hidricoSOSTStyle, "ISH_SOST");
-    shapefileLayer("IndiceHidricoPEOR","IndiceHidricoPEOR",hidricoPEORStyle, "ISH_PEOR");
+    shapefileLayer("IndiceHidrico","IndiceHidrico",hidricoBaseStyle,"ISH_BASE", true);
+    shapefileLayer("IndiceHidricoREAL","IndiceHidricoREAL",hidricoREALStyle, "ISH_REAL", true);
+    shapefileLayer("IndiceHidricoSOST","IndiceHidricoSOST",hidricoSOSTStyle, "ISH_SOST", true);
+    shapefileLayer("IndiceHidricoPEOR","IndiceHidricoPEOR",hidricoPEORStyle, "ISH_PEOR", true);
 
 
 //AOI box
@@ -152,11 +153,10 @@ function updateMap1(mode) {
       });
 
       // Add layers
-      lyr = LULC_MAP_Hoy;
-      lyr.addTo(map1);
+      LULC_MAP_Hoy.addTo(map1);
       labels.addTo(map1);
-      let aoi_lyr = layers["AOI_box_bl"];
-      aoi_lyr.addTo(map1);
+      layers["AOI_box_bl"].addTo(map1);
+      console.log(layers["AOI_box_bl"]);
   }
   else if (mode == "Hidrico") {
     // Remove layers
@@ -192,8 +192,6 @@ function updateMap2(mode,scenario) {
         }
       });
 
-      // Add Background
-      LULC_MAP_Hoy_background.addTo(map2);
 
       // Pick layer to add (according to scenario)
       if (scenario == "Peor") {
@@ -207,7 +205,6 @@ function updateMap2(mode,scenario) {
       // Add layers
       lyr.addTo(map2);
       labels2.addTo(map2);
-
       let aoi_lyr = layers["AOI_box"];
       aoi_lyr.addTo(map2);
   }

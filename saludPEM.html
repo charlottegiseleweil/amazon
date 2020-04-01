@@ -53,71 +53,63 @@
     <script src="js/tabs.js"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style_new.css" />
     <link rel="stylesheet" href="css/tabs.css" />
     <link rel="stylesheet" href="css/styleMAP.css" />
   </head>
 
-
-
-
-
-
-
-
-
-
-
-
-  <body class="bg-white black">
+  <body class="bg-white black"style="overflow: hidden; background-color: rgb(48, 48, 48);">
 
     <nav id="navbar">
       <div w3-include-html="html/navbar.html"></div>
     </nav>
 
-    <!-- Map 1 --> 
-
     <div class="w3-twothird" id="maps">
-      <div id="mouse_tip"></div>
-      <div id="map1" class="map"></div>
-      
-      <div id="mapTitle" class="mapControls">
-        <center>
-          <h2 id="titulo">Loading...</h2>
-          <a id="changeButton" onclick="switchMode('Dengue')" style="font-style: italic;"></a>
-        </center>
+
+      <div style="clear: both;">
+
+        <!-- Map 1 --> 
+        <div id="map1" class="map">
+          <div id="mapTitle" >
+            <center>
+              <h2  id="titulo">Loading...</h2>
+              <div id="radio_container" >
+                <div class="switch-field">
+                    <input type="radio" id="btnRiesgos" name="mode" value="Dengue" onchange="switchMode('Dengue')" checked >
+                    <label for="btnRiesgos">Riesgo epidemiológico</label>
+                    <input type="radio" id="btnUso" name="mode" value="LU" onchange="switchMode('LU')"  />
+                    <label for="btnUso">Uso del suelo</label>
+                </div>      
+            </div>
+            </center>
+          </div>
+          <div id="map1_text">
+            <h1 style="margin: 0;">2019</h1>
+          </div>
+        </div>
+        
+
+        <!-- Map 2 --> 
+
+        <div id="map2" class="map">
+          <div id="map2_text">
+            <h1 style="margin: 0;">2035</h1>
+          </div>
+          <div class="mapControls_scenario">
+            <div w3-include-html="html/pickEscenario_new.html"></div>
+          </div>
+          <!-- Legend -->
+          <div id="map2_legend" class="map_legend"style="bottom: 1vh;">
+            <div id="leyenda" class="leyendaHover">
+              <h6 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
+                Leyenda 
+              </h6>
+              <div id="leyendaContents"></div> 
+            </div> <!-- End leyenda -->
+          </div>
+        </div>
       </div>
-      <div id="map1_text">
-        <h1>2019</h1>
-      </div>
-
-      <hr class="map-diff-line" />
-
-
-
-      <!-- Map 2 --> 
-
-      <div id="map2" class="map"></div>
-
-      <!-- Legend -->
-      <div id="map2_legend" class="mapControls">
-        <div id="leyenda" class="leyendaHover">
-          <h6 id="leyendaTitle" style="margin-bottom: 0; margin-top: 0;">
-            Leyenda 
-          </h6>
-          <div id="leyendaContents">
-          </div> <!-- End leyendaContents-->
-        </div> <!-- End leyenda -->
-      </div>
-
-
-      <div id="map2_text">
-        <h1>2035</h1>
-      </div>
-      <div id="map2_controls" class="mapControls" style="z-index:1000;">
-        <div w3-include-html="html/pickEscenario.html"></div>
-      </div>
-
+    
     </div>
 
 

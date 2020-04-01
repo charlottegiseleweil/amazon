@@ -16,7 +16,7 @@ let modesLabels = {
     leyenda: {
         "LU" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
         "Hidrico" : "<img src='static/images/leyenda_IndiceHidrico.png' style='max-height:10vh;'alt='Leyenda' />",
-        "Dengue": "<img src='static/images/leyenda_dengue.png' style='max-height:20vh;'alt='Leyenda' />",
+        "Dengue": "<img src='static/images/legend_dengue.png' style='max-height:15vh;'alt='Leyenda' />",
         "Flood" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
     }
 };
