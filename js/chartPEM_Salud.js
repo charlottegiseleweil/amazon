@@ -1,20 +1,24 @@
-var chart = c3.generate({
+let chart = c3.generate({
   bindto: '#chartPEM_Salud',
-  padding: { left: 60, right: 0, bottom:-10 },
   data: {
     x: 'x',
     columns: [
       ['x','Sostenible','Eco-turismo','Peor'],
+      ['Área Riesgo disminuido',9,15,58],
+      ['Área Mayor riesgo',449,222,2359],
       
-      ['Mayor riesgo',449,222,2359],
-      ['Riesgo disminuido',9,15,58],
+      ['Personas con mayor riesgo de dengue',8172,4883,77290],
       
     ],
-    
+    axes: {
+      'Personas con mayor riesgo de dengue': 'y2',
+    },
+
     type:'bar',
     colors: {
-      'Mayor riesgo': '#ff0400',
-      'Riesgo disminuido':'#3caf3c',
+      'Área Mayor riesgo': '#ff0400',
+      'Área Riesgo disminuido':'#3caf3c',
+      'Personas con mayor riesgo de dengue':'#c28e5b',
     },
   },
   legend: {
@@ -26,13 +30,22 @@ var chart = c3.generate({
     },
     y: {
       max: 2359,
+      min: 100,
+      label: { 
+        text: 'Área (km^2)',
+        position: 'outer-middle'
+      }
+    },
+    y2: {
+      show: true, 
+      max: 79000,
       min: 0,
       label: { 
-        text: 'Área total (km^2)',
-        position: 'outer-middle'
+        text: 'Personas' ,
+        position: 'outer-middle' 
       },
-      ticks: 3,
+    }
   }
-}});
+});
 
 
