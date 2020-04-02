@@ -85,7 +85,7 @@ h2{
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background: rgb(80, 80, 80);
     cursor: pointer;
     border-radius: 50%;
 }
