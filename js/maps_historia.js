@@ -61,13 +61,17 @@ function shapefileLayer(layerName, shapefileName,style=shpStyle){
 shapefileLayer("CBE_flood_2015","mapa6",floodBaseStyle);
 shapefileLayer("I_flood_2015","mapa12",floodBaseStyle);
 
-shapefileLayer("CBE_flood_levels_0","Nivel_172msnm_area",floodBaseStyle);
+shapefileLayer("CBE_flood_levels_0","Nivel_179msnm",floodBaseStyle);
 shapefileLayer("I_flood_levels_0","mapa12",floodBaseStyle);
-shapefileLayer("CBE_flood_levels_1","Nivel_174msnm",floodBaseStyle);
+shapefileLayer("CBE_flood_levels_1","Nivel_181msnm",floodBaseStyle);
+shapefileLayer("I_flood_levels_0","mapa12",floodBaseStyle);
+shapefileLayer("CBE_flood_levels_2","Nivel_186msnm",floodBaseStyle);
 shapefileLayer("I_flood_levels_1","mapa12",floodBaseStyle);
-shapefileLayer("CBE_flood_levels_2","Nivel_178msnm2",floodBaseStyle);
+shapefileLayer("CBE_flood_levels_3","Nivel_188msnm",floodBaseStyle);
 shapefileLayer("I_flood_levels_2","mapa12",floodBaseStyle);
-shapefileLayer("CBE_flood_levels_3","Nivel_179.5msnm2",floodBaseStyle);
+shapefileLayer("CBE_flood_levels_4","Nivel_190msnm",floodBaseStyle);
+shapefileLayer("I_flood_levels_3","mapa12",floodBaseStyle);
+shapefileLayer("CBE_flood_levels_5","Nivel_192msnm",floodBaseStyle);
 shapefileLayer("I_flood_levels_3","mapa12",floodBaseStyle);
 
 
@@ -154,11 +158,11 @@ floodRangeSlider.onAdd = function (map) {
 };
 
 floodRangeSlider.update = function (props) {
-    this._div.innerHTML = '<div id="slider" ><p id="slider_value"><span id="flood_m">8</span> m</p><input type="range" min="0" max="3" value="3" class="slider" id="flood_range"></div>';
+    this._div.innerHTML = '<div id="slider" ><p id="slider_value"><span id="flood_m">8</span> m</p><input type="range" min="0" max="5" value="2" class="slider" id="flood_range"></div>';
 };
 
 function changeFloodLevel(value){
-  let flood_levels = [1,3,7,8];
+  let flood_levels = [1,3,8,10,12,14];
   var output = document.getElementById("flood_m");
   output.innerHTML = flood_levels[value];
 
