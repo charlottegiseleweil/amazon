@@ -3,11 +3,11 @@ let chart = c3.generate({
   data: {
     x: 'x',
     columns: [
-      ['x','Sostenible','Eco-turismo','Peor'],
-      ['Área Riesgo disminuido',3,25,83],
-      ['Área Mayor riesgo',419,224,2652],
+      ['x','Sostenible','Peor'],
+      ['Área Riesgo disminuido',0.3,98],
+      ['Área Mayor riesgo',101,2678],
       
-      ['Personas con mayor riesgo de dengue',8000,5000,80000],
+      ['Personas con mayor riesgo de dengue',100,78000],
       
     ],
     axes: {
