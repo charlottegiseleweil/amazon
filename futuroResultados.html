@@ -3,15 +3,16 @@
 <!-- To include Spanish accents -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 
+
 <html>
-  <head>
+<head>
+
+  
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149667597-3"></script>
       <script src="js/gtag.js"></script>
 
-    <title>Prototipo de Visualizador PRO Agua</title>
-  	
-    <!-- Needed for Navbar-->
+      <!-- Needed for Navbar-->
     <link rel="stylesheet" href="lib/css/tachyons.min.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -30,30 +31,107 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
     <!-- End Of: Needed for Navbar-->
 
-  </head>
 
 
-  <body class="bg-black-60 white-80 avenir fw5">
-    <nav id="navbar">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styleMAP.css"/>
+
+  <!-- w3 style thingz -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="lib/css/tachyons.min.css" />
+  <link rel="stylesheet" href="css/dropdown.css" />
+
+
+</head>
+
+<body class="bg-black-80 white avenir fw5">
+  <nav id="navbar">
       <div w3-include-html="html/navbar.html"></div>
-    </nav>
+  </nav>
+  <div style="padding: 0 80px 10px 80px;">
+    <center><h1>Descargar Resultados</h1></center>
 
-    <div style="margin-right: 20vh; margin-left: 40vh;">
-      <h2> Esta página está en desarrollo </h2>
+    <hr style="clear: both;">
+    <div class="w3-half" style="padding-left: 40px; display: block;">
+      <h3 style="color: #7fc46f; margin-bottom: 0;">Diagnóstico hídrico</h3>
+      <ul>
+        
+      </ul>
+    </div>
+    
+    <div class="w3-half" >
+      <h3 style="color: #7fc46f; margin-bottom: 0;">Diagnóstico epidemiológico</h3>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1P9mhnxmaSoyf6qC5ADS6lfwCrhRqxXZI" target="_blank">
+          Raster - Riesgo Region de Puerto Maldonado </a></li>
+        <li><a href="https://drive.google.com/drive/folders/1P9mhnxmaSoyf6qC5ADS6lfwCrhRqxXZI" target="_blank">
+          Raster - Riesgo Region de Tahuamanu-Cobija </a></li>
 
-        <br><hr><br>
-      <h4> Descargar resultados preliminares: </h4>
-      <div w3-include-html="html/tab_servicios.html"></div>
+      </ul>
     </div>
 
+    <hr style="clear: both;">
+    <div class="w3-half" style="padding-left: 40px; display: block;">
+      <h3 style="color: #7fc46f; margin-bottom: 0;">Diagnóstico de inundaciones</h3>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1SkYkmvPDVsdGfxYSlhR8arevhe_r5Y5F" target="_blank">
+          Shapefile - Riesgo Region de Puerto Maldonado </a></li>
+        <li><a href="https://drive.google.com/drive/folders/1xtAszVo-ix9wQSoGnCSNSTCguIBbSR6U" target="_blank">
+          Shapefile - Riesgo Region de Tahuamanu-Cobija </a></li>
+
+        <li><a href="https://drive.google.com/drive/folders/1rMst0Ld2T079hv047D1Yu10llEpqaYHu" target="_blank"> Inundaciones Herencia Trinacional </a></li>
+      </ul>
+    </div>
+    
+    <div class="w3-half" >
+      <h3 style="color: #7fc46f; margin-bottom: 0;">Restauración minera</h3>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1Boh0kZro1ubxiH_d7F0wKWHXxc8l_7UX" target="_blank">
+          Mineras </a></li>
+
+      </ul>
+    </div>
+
+    <hr style="clear: both;">
+    <div class="w3-half" style="padding-left: 40px; display: block;">
+      <h3 style="color: #7fc46f; margin-bottom: 0;">Uso del suelo</h3>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1Ap2qKGFXgzPlFF4ttv1rwYySqszts-6H" target="_blank">
+          Raster - Escenario futuro Region de Puerto Maldonado</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1Ap2qKGFXgzPlFF4ttv1rwYySqszts-6H" target="_blank">
+            Raster - Escenario futuro Region de Tahuamanu-Cobija</a></li>
+
+        <li><a href="https://drive.google.com/drive/folders/1ncth97ORyd-lEOhRfMeBwIgYXL4iDlpQ" target="_blank"> Raster - 2019 </a></li>
+      </ul>
+    </div>
+    
+    <div class="w3-half" >
+      <h3 style="color: #7fc46f; margin-bottom: 0;">Area de interes</h3>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1Y1bvHSD1d3sO8puuj1oGbkmBwiDJILZ0" target="_blank">
+          Shapefile - AOI </a></li>
+
+      </ul>
+    </div>
+    
 
     
 
-  </body>
- 
+   
+
+  
+  </div>
+
+
+
+
+</body>
+
   <!-- Needed for Navbar-->
   <script>includeHTML();</script>
   <script src="js/overlay.js"></script>
-
-
+  
 </html>
