@@ -72,7 +72,7 @@
       "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Sost/{z}/{x}/{y}.png"
 
     var tileset_Dengue_PEM_Hoy =
-      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM/{z}/{x}/{y}.png";
+      "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Pres/{z}/{x}/{y}.png";
 
     var tileset_Dengue_PEM_Peor =
       "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_Peor/{z}/{x}/{y}.png";
