@@ -140,7 +140,7 @@
 
         <!-- Tab contents -->
         <div id="DiagH" class="tabcontent">
-          <div w3-include-html="html/tab_diagnosticoFlood.html"></div>
+          <div w3-include-html="html/tab_diagnosticoF_TAH.html"></div>
         </div>
         
         <div id="Escenarios" class="tabcontent">
@@ -160,6 +160,22 @@
         Retorno de inundaciones
         <div  w3-include-html="html/pickYear.html"></div>
       </div>
+    </div>
+
+
+
+    <script>
+      // Soecial function to show and remove big region image
+      function closeBigImg(){
+        document.getElementById("cover_all_img").style.display = "none";
+      }
+      function showBigImg(){
+        document.getElementById("cover_all_img").style.display = "block";
+      }
+    </script>
+    <div id="cover_all_img">
+      <a href="javascript:void(0)" style="    color: white; font-size: 37px; text-align: right; float: right; padding-right: 30px;" onclick="closeBigImg()">×</a>
+      <img id="big_img" src="../static/images/regional_flood_TAH.png"  alt="Regional flood"/>
     </div>
 
   </body>

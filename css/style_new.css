@@ -384,3 +384,21 @@ a:hover{
     font-size: large;
     font-style: italic;
 }
+
+#cover_all_img{
+  top: 0;
+  bottom: 0;
+  right:0;
+  left:0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.90);
+  z-index: 1000;
+  display: none;
+}
+#big_img{
+  width: 55%;
+  margin:auto;
+  margin-top: 50px;
+  display: block;
+
+}
