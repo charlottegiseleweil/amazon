@@ -5,7 +5,12 @@
 #header_historia{
     padding: 10px 22px 4px 22px;
     line-height: 19px;
-    font-size: 18px;
+    font-size: 24px;
+    color: #7fc46f;
+}
+.sub-header_historia{
+    line-height: 19px;
+    font-size: 15px;
     color: #7fc46f;
 }
 h2{
