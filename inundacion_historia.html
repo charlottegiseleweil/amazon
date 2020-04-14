@@ -59,15 +59,12 @@
   </head>
 
 
-  <body class="bg-black-60  black" style=" background-color: rgb(48, 48, 48);">
+  <body class="bg-black-60  black" style=" background-color: rgb(48, 48, 48); overflow: hidden;">
     <nav id="navbar">
       <div w3-include-html="html/navbar.html"></div>
     </nav>
-    
 
-  
-
-    <div class="w3-twothird">
+    <div class="w3-twothird" style="overflow: hidden;">
       
       <div id="mapa" class="map" style="clear: both; ">
         <div id="area_control" class="mapControls">
@@ -97,7 +94,7 @@
       
     </div>
 
-    <div class="w3-third" style="padding: 0 5px; color: white; ">
+    <div class="w3-third" style="padding: 0 8px; color: white; overflow-y: scroll; height: 90vh;">
       <center>
         <h1 id="header_historia"> Inundación de 2015 </h1>
         <h2 class="sub-header_historia">Vulnerabilidad de los asentamientos humanos de la cuenca alta trinacional del Río Acre. </h2>
@@ -108,15 +105,15 @@
         <img src='static/images/flood.jpg' style='max-height:30vh; padding: 0 5%; margin-top: 4px;' alt='Leyenda' />
         <h3 class="map_title">22 de febrero de 2015, Brasiléia y Cobija bajo agua. Fuente: Gleilson Miranda/Secom Acre 2015.</h3>
       </center>
-       <p id ="mapText"> En Cobija, capital del Departamento Pando, Bolivia, había para esas fechas 2,100
-        personas instaladas en 12 albergues. (ONU 2015). Otro tanto sucedió en las ciudades de
-        Brasiléia y Epitaciolândia, Acre, Brasil, donde los niveles de inundación superaron los 13
-        m como dan cuenta diversas fuentes informativas. (El Comercio, América Noticias, Acre
-        Noticias, Reliefweb, Ejutv, RPP Noticias, Acre Alerta, Agencia Brasil, Folha de S. Paulo,
-        O alto Acre). <br><br>
-        Esta gran inundación, considerada “histórica” en la región, permitió una aproximación de
-        estudio de caso, que culminó en la elaboración de una base de datos en un sistema de
-        información geográfica (SIG). Este instrumento ilustra los niveles que alcanzó el agua 
+       <p id ="mapText"> Cobija, capital del Departamento Pando, Bolivia está ubicado en la margen derecha del Rio Acre, 
+         limitando con los municipios brasileños de Epitaciolândia y Brasiléia.  La ciudad cuenta con una densidad actual 
+         de 166 habitantes por km².Otro tanto sucedió en las ciudades de Brasiléia y Epitaciolândia, Acre, Brasil,
+          donde los niveles de inundación superaron los 13 m como dan cuenta diversas fuentes informativas. (El Comercio,
+           América Noticias, Acre Noticias, Reliefweb, Ejutv, RPP Noticias, Acre Alerta, Agencia Brasil, Folha de S. Paulo, O alto Acre).
+        <br><br>
+        Esta gran inundación, considerada “histórica” en la región, permitió una aproximación de estudio de caso,
+         que culminó en la elaboración de una base de datos en un sistema de información geográfica (SIG).
+          Este instrumento ilustra los niveles que alcanzó el agua.
         </p>
     </div>
     <div style="clear: both; height: 1vh; "></div>
@@ -132,7 +129,6 @@
     includeHTML();
   </script>
   <script src="js/overlay.js"></script>
-  <script src="js/chartPEM_flood.js"></script>
 
 
   <script src="lib/js/L.Map.Sync.js"></script>
