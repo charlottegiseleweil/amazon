@@ -1,4 +1,4 @@
-# Natural Capital en la Amazonia ~ Visualizador (prototipo)
+# Natural Capital en la Amazonia ~ Visualizador 
 ## The PRO-Agua project
 
 * Building a community of practice that includes decision-makers, researchers, students, and decision-
