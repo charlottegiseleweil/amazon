@@ -31,7 +31,7 @@ var LULC_PEM_Peor = L.tileLayer(tileset_LULC_PEM_Peor, {
 });
 
 var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
-    attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
+    attribution: "Co-desarollado Escenario Real [PRO-Agua]"
 });
     
 // - - - - - - -

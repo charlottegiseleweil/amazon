@@ -3,7 +3,7 @@ let chart = c3.generate({
   data: {
     x: 'x',
     columns: [
-      ['x','Sostenible','Eco-turismo','Peor'],
+      ['x','Sostenible','Real','Peor'],
       ['Área Riesgo disminuido',3,25,83],
       ['Área Mayor riesgo',419,224,2652],
       

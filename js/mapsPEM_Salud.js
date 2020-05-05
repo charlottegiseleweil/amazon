@@ -33,7 +33,7 @@
     });
 
     var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
-      attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]"
+      attribution: "Co-desarollado Escenario Real [PRO-Agua]"
     });
     
 // - - - - - - -
@@ -95,7 +95,7 @@
     });
 
     var Dengue_PEM_Real = L.tileLayer(tileset_Dengue_PEM_Real, {
-      attribution: "Riesgo Epidemiologico - Escenario Eco-turismo [PRO-Agua]"
+      attribution: "Riesgo Epidemiologico - Escenario Real [PRO-Agua]"
     });
 
 

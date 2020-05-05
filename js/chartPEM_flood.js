@@ -4,7 +4,7 @@ var chart = c3.generate({
     data: {
       x: 'x',
       columns: [
-        ['x','Baseline','Sostenible','Eco-turismo','Peor'],
+        ['x','Baseline','Sostenible','Real','Peor'],
         
         ['Infraestructura',342.8667,283.1985,666.2259,1466.6868],
         ['Agricultura', 950.3172,1288.1952,1054.044,3313.9827],

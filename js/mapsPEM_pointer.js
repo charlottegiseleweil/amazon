@@ -53,7 +53,7 @@ const layerOptions = [
   {
     id: "real",
     map: 2,
-    attribution: "Co-desarollado Escenario Eco-turismo [PRO-Agua]",
+    attribution: "Co-desarollado Escenario Real [PRO-Agua]",
     urlTemplate:
       "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Rea/{z}/{x}/{y}.png"
   }

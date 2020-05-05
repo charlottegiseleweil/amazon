@@ -87,7 +87,7 @@ var LULC_PEM_Peor = L.tileLayer(tileset_LULC_TAH_Peor, {
     });
 
     var Dengue_TAH_Real = L.tileLayer(tileset_Dengue_TAH_Real, {
-      attribution: "Riesgo Epidemiologico - Escenario Eco-turismo [PRO-Agua]"
+      attribution: "Riesgo Epidemiologico - Escenario Real [PRO-Agua]"
     });
 
 

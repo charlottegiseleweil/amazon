@@ -4,7 +4,7 @@ var chart = c3.generate({
     data: {
       x: 'x',
       columns: [
-        ['x','Sostenible','Eco-turismo','Peor'],
+        ['x','Sostenible','Real','Peor'],
         
         ['ES en Mazuko (%)',6.53,1.43,80.28],
         
