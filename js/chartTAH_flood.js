@@ -4,11 +4,11 @@ var chart = c3.generate({
     data: {
       x: 'x',
       columns: [
-        ['x','Baseline','Sostenible','Peor'],
+        ['x','Sostenible','Peor'],
         
-        ['Infraestructura',11.574,23.0823,64.7388],
-        ['Agricultura', 263.088,432.4419,918.1269],
-        ['Vegetación natural', 4091.3325,3910.0095,3229.9974],
+        ['Infraestructura',13.3,55.8],
+        ['Agricultura', 185.6,724.1],
+        ['Vegetación natural', -199.3,-955.5],
         
       ],
       
@@ -27,8 +27,8 @@ var chart = c3.generate({
         type : 'category',
       },
       y: {
-        max: 4500,
-        min: 0,
+       min:-1000,
+       max:800,
         label: { 
           text: 'Área expuesta(km^2)',
           position: 'outer-middle'
@@ -44,23 +44,23 @@ function changeData(year){
   switch(year) {
     case "10":
      col = [
-        ['Infraestructura',8.7408,16.8804,51.4728],
-        ['Agricultura', 205.1739,332.4744,687.6603],
-        ['Vegetación natural', 3009.0582,2873.1537,2383.7823],
+        ['Infraestructura',8.1,42.7],
+        ['Agricultura', 127.3,482,5],
+        ['Vegetación natural', -135.9,-625.3],
       ]
       break;
     case "50":
       col = [
-        ['Infraestructura',11.574,23.0823,64.7388],
-        ['Agricultura', 263.088,432.4419,918.1269],
-        ['Vegetación natural', 4091.3325,3910.0095,3229.9974],
+        ['Infraestructura',11.5,53.2],
+        ['Agricultura', 169.4, 655.0 ],
+        ['Vegetación natural',-181.3,-861.3],
       ]
       break;
     case "100":
       col = [
-        ['Infraestructura',12.8259,26.127,66.618],
-        ['Agricultura', 288.6435,474.201,1012.725],
-        ['Vegetación natural', 4503.5577,4304.2383,3548.018],
+        ['Infraestructura',13.3,55.8],
+        ['Agricultura', 185.6,724.1],
+        ['Vegetación natural', -199.3,-955.5],
       ]
       break;
     default: 

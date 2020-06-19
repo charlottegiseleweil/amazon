@@ -128,11 +128,12 @@ var labels2 = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager
     // Make Shapefile layers for Indice Hidrico 
     // TODO: to optimize shapefileLayer and style function there
     
-    shapefileLayer("IndiceHidrico","IndiceHidrico",hidricoBaseStyle,"ISH_BASE", true);
-    shapefileLayer("IndiceHidricoREAL","IndiceHidricoREAL",hidricoREALStyle, "ISH_REAL", true);
-    shapefileLayer("IndiceHidricoSOST","IndiceHidricoSOST",hidricoSOSTStyle, "ISH_SOST", true);
-    shapefileLayer("IndiceHidricoPEOR","IndiceHidricoPEOR",hidricoPEORStyle, "ISH_PEOR", true);
+    shapefileLayer("IndiceHidrico","PEM_ISH_v2_Base_Idx",hidricoBaseStyle_i,"Base_idx", false);
+    shapefileLayer("IndiceHidricoREAL","PEM_ISH_v2_Real_Idx",hidricoREALStyle, "ISH_REAL", false);
+    shapefileLayer("IndiceHidricoSOST","PEM_ISH_v2_Sost_Idx",hidricoSOSTStyle, "ISH_SOST", false);
+    shapefileLayer("IndiceHidricoPEOR","PEM_ISH_v2_Peor_Idx",hidricoPEORStyle, "ISH_PEOR", false);
 
+    
 
 //AOI box
 shapefileLayer("AOI_box_bl","AOI_PEM",AOIBaseStyle);
@@ -251,10 +252,4 @@ $( document ).ready(function() {
 });
 
 
-// - - - - - - - -
-// Pointer things
-// - - - - - - - - 
-
-
-/// ....
 

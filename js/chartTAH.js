@@ -1,44 +1,144 @@
+
 var chart = c3.generate({
-    bindto: '#chartPEM',
-    data: {
-      x: 'x',
-      columns: [
-        ['x','Sostenible','Peor'],
-        ['Carbono', 14395616,  -40316184],
-        ['Sedimentos_Iberia', 6719, 495291],
-        ['Sedimentos_Inapari', -6649, 488327]
-      ],
-      axes: {
-        Sedimentos_Iberia: 'y2',
-        Sedimentos_Inapari: 'y2'
-      },
-      types: {
-        Carbono: 'bar',
-        Sedimentos_Iberia: 'bar',
-        Sedimentos_Inapari: 'bar' 
+  bindto: '#chartTAH',
+  data: {
+    x: 'x',
+    columns: [
+      ['x','Sostenible','Real','Peor'],
+      
+      ['Escorrentía superficial (%)',1,32],
+      ['Flujo durante de la estación seca (%)',-1,-4],
+    ],
+   
+    type:'bar',
+    colors: {
+      'Escorrentía superficial (%)': '#2da9ba',
+      'Flujo durante de la estación seca (%)':'#6a6ede',
+    },
+  },
+  legend: {
+      position: 'inner-bottom'
+  },
+  axis: {
+    x:{
+      type : 'category',
+    },
+    y: {
+      max: 40,
+      min: -40,
+      label: { 
+        text: 'Impacto en los flujos (%)',
+        position: 'outer-middle'
       }
     },
-    axis: {
-      x:{
-        type : 'category',
-      },
-      y: {
-        max: 40316184,
-        min: -40316184,
-        label: { 
-          text: 'Cambio en Almacenamiento de Carbono [Mg]',
-          position: 'outer-middle'
-        }
-      },
-      y2: {
-        show: true, 
-        max: 495291,
-        min: -495291,
-        label: { 
-          text: 'Cambio en cantidad de Sedimentos [tonaledas]',
-          position: 'outer-middle'
-        }
-      }
-    }
+  }
 });
+
+
+var chart1 = c3.generate({
+bindto: '#chartTAH1',
+data: {
+  x: 'x',
+  columns: [
+    ['x','Sostenible','Peor'],
+
+    ['Personas rurales con recarga afectada', 11520,42470],
+    ['Carga de sedimentos (thousand tons)',15,1052],
+
+  ],
+  axes: {
+    'Carga de sedimentos (thousand tons)': 'y2',
+  },
+  type:'bar',
+  colors: {
+
+    'Carga de sedimentos (thousand tons)':'#ba6c1e',
+  },
+},
+legend: {
+    position: 'inner-bottom'
+},
+axis: {
+  x:{
+    type : 'category',
+  },
+  y: {
+    max: 42470,
+    min: 0,
+    label: { 
+      text: 'Personas rurales con recarga afectada',
+      position: 'outer-middle'
+    }
+  },
+  y2: {
+    show: true, 
+    max: 1000,
+    min: 0,
+    label: { 
+      text: 'Carga de sedimentos' ,
+      position: 'outer-middle' 
+    },
+  }
+}
+});
+
+
+
+
+
+function changeCity(){
+changeData($('input[name=city]:checked').val());
+}
+function changeData(city){
+let col;
+let col1;
+
+switch(city) {
+  case "Iberia":
+   col = [
+      ['Escorrentía superficial (%)',1,32],
+      ['Flujo durante de la estación seca (%)',-1,-4],
+    ]
+    col1=[
+      ['Carga de sedimentos (thousand tons)',15,1052],
+    ]
+    break;
+  case "Iñapari":
+    col = [
+      ['Escorrentía superficial (%)',0.5,45],
+      ['Flujo durante de la estación seca (%)', -0.5,-39],
+    ]
+    col1=[
+      ['Carga de sedimentos (thousand tons)', 1,131],
+    ]
+    break;
+  case "CBE":
+  col = [
+    ['Escorrentía superficial (%)',4,38],
+    ['Flujo durante de la estación seca (%)', -0.08,-26],
+  ]
+  col1=[
+    ['Carga de sedimentos (thousand tons)', 20,856],
+  ]
+  break;
+  default: 
+}
+
+
+
+chart.load({
+  columns: col,
+  type: 'bar'
+});
+
+chart1.load({
+  columns: col1,
+  type: 'bar'
+});
+
+}
+
+
+
+
 

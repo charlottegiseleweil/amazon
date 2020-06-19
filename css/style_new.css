@@ -152,6 +152,16 @@ a:hover{
   margin-bottom: 3px;
 }
 
+#controlCity{
+  color: rgba(0, 0, 0, 0.6);
+  top: 10vh;
+  right: 1vw;
+  z-index: 1000;
+  font-size: 2vh;
+  padding-left: 9px;
+  margin-bottom: 3px;
+}
+
 .switch-field {
   display: flex;
   margin: auto;
@@ -358,6 +368,10 @@ a:hover{
 .chart {
   position: relative;
   height: 32vh;
+}
+#chartTAH1, #chartTAH, #chartPEM1, #chartPEM{
+
+  height: 36vh;
 }
 
 #rightPanelPampa h4{

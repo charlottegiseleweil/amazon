@@ -6,27 +6,16 @@ var chart = c3.generate({
       columns: [
         ['x','Sostenible','Real','Peor'],
         
-        ['ES en Mazuko (%)',6.53,1.43,80.28],
-        
-        ['FES en Mazuko (%)', 1.99,9.78,40.48],
-        ['Sedimentos en Mazuko (Mt)', 0.08,0.60,3.42],
-        ['ES en Puerto (%)',-4.6,8.07,21.64],
-        ['FES en Puerto (%)',-1.11,4.1,3.46],
-        ['Sedimentos en Puerto (Mt)',0.10,1.11,4.57],
-        
+        ['Escorrentía superficial (%)',0.73,4,16],
+        ['Flujo durante de la estación seca (%)', -0.08,-0.30,-0.15],
       ],
       axes: {
-        'Sedimentos en Puerto (Mt)': 'y2',
-        'Sedimentos en Mazuko (Mt)': 'y2'
+        'Flujo durante de la estación seca (%)': 'y2',
       },
       type:'bar',
       colors: {
-        'ES en Puerto (%)': '#2da9ba',
-        'FES en Puerto (%)':'#6a6ede',
-        'Sedimentos en Puerto (Mt)':'#ba6c1e',
-        'ES en Mazuko (%)': '#8bc4cc',
-        'FES en Mazuko (%)':'#a9aac9',
-        'Sedimentos en Mazuko (Mt)':'#c28e5b'
+        'Escorrentía superficial (%)': '#2da9ba',
+        'Flujo durante de la estación seca (%)':'#6a6ede',
       },
     },
     legend: {
@@ -37,21 +26,116 @@ var chart = c3.generate({
         type : 'category',
       },
       y: {
-        max: 60,
-        min: -60,
+        max: 27,
+        min: -27,
         label: { 
-          text: 'Impacto en los flujos (%)',
+          text: 'Escorrentía superficial (%)',
           position: 'outer-middle'
         }
       },
       y2: {
         show: true, 
-        max: 3.7,
-        min: -3.7,
+        max: 0.3,
+        min: -0.3,
         label: { 
-          text: 'Impacto en calidad de agua (Sedimentos)' ,// (Mt Sedimentos)',
+          text: 'FES (%)' ,
           position: 'outer-middle' 
         },
       }
     }
 });
+
+
+var chart1 = c3.generate({
+  bindto: '#chartPEM1',
+  data: {
+    x: 'x',
+    columns: [
+      ['x','Sostenible','Real','Peor'],
+
+      ['Personas rurales con recarga afectada', 1945,2270,7590],
+      ['Carga de sedimentos (thousand tons)', 119,972,5706],
+
+    ],
+    axes: {
+      'Carga de sedimentos (thousand tons)': 'y2',
+    },
+    type:'bar',
+    colors: {
+
+      'Carga de sedimentos (thousand tons)':'#ba6c1e',
+    },
+  },
+  legend: {
+      position: 'inner-bottom'
+  },
+  axis: {
+    x:{
+      type : 'category',
+    },
+    y: {
+      max: 7590,
+      min: 0,
+      label: { 
+        text: 'Personas rurales con recarga afectada',
+        position: 'outer-middle'
+      }
+    },
+    y2: {
+      show: true, 
+      max: 9000,
+      min: 0,
+      label: { 
+        text: 'Carga de sedimentos' ,
+        position: 'outer-middle' 
+      },
+    }
+  }
+});
+
+
+
+
+
+function changeCity(){
+  changeData($('input[name=city]:checked').val());
+}
+function changeData(city){
+  let col;
+  let col1;
+
+  switch(city) {
+    case "Puerto":
+     col = [
+        ['Escorrentía superficial (%)',-0.09,6,27],
+        ['Flujo durante de la estación seca (%)',-0.03,-0.03,-0.02],
+      ]
+      col1=[
+        ['Carga de sedimentos (thousand tons)',128,1721,9105],
+      ]
+      break;
+    case "Mazuko":
+      col = [
+        ['Escorrentía superficial (%)',0.73,4,16],
+        ['Flujo durante de la estación seca (%)', -0.08,-0.30,-0.15],
+      ]
+      col1=[
+        ['Carga de sedimentos (thousand tons)', 119,972,5706],
+      ]
+      break;
+    default: 
+  }
+
+  chart.load({
+    columns: col,
+    type: 'bar'
+  });
+  
+  chart1.load({
+    columns: col1,
+    type: 'bar'
+  });
+
+}
+
+

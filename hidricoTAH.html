@@ -95,7 +95,7 @@
             <h1 style="margin: 0;">2035</h1>
           </div>
           <div class="mapControls_scenario">
-            <div w3-include-html="html/pickEscenario_new.html"></div>
+            <div w3-include-html="html/pickEscenario_TAH.html"></div>
           </div>
           <!-- Legend -->
           <div id="map2_legend" class="map_legend"style="bottom: 1vh;">
@@ -147,13 +147,12 @@
 <br>
       <!-- <center><h6 style='margin-top: 0px;'>Impacto en las ciudades</h6></center>-->
       <div id="controlCity" style="text-align: center;">
-        <div  w3-include-html="html/pickCityPEM.html"></div>
+        <div  w3-include-html="html/pickCityTAH.html"></div>
       </div>
       <center><h6 style='margin-top: 0px;'>Impacto en Personas rurales y Carga de sedimentos</h6></center>
-    
-      <div id="chartPEM1" class="chart"></div>
+      <div id="chartTAH1" class="chart"></div>
       <center><h6 style='margin-top: 0px;'>Impacto en los flujos</h6></center>
-      <div id="chartPEM" class="chart"></div>
+      <div id="chartTAH" class="chart"></div>
       <br><br>
       
     </div>
@@ -168,7 +167,7 @@
     document.getElementById("defaultOpen").click();
   </script>
   <script src="js/overlay.js"></script>
-  <script src="js/chartPEM.js"></script>
+  <script src="js/chartTAH.js"></script>
 
 
   <script src="lib/js/L.Map.Sync.js"></script>
@@ -177,7 +176,7 @@
   <script src='js/mapUtils.js'> </script>
 
   <!-- w/o Pointer -->
-  <script src="js/mapsPEM.js"></script>
+  <script src="js/mapsTAH.js"></script>
 <!-- w/ pointer 
   <script src="js/pointer/helperPointer.js"></script>
   <script src="js/mapsPEM_pointer.js"></script>

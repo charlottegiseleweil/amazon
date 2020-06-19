@@ -35,48 +35,55 @@ function map_styling(){
     // IndiceHidrico
     
 
-    function hidricoBaseStyle(feature) {
+    function hidricoBaseStyle_i(feature) {
     return {
-        fillColor: indiceHidricoColors(feature.properties.ISH_BASE),
-        weight: 1,opacity: .9,color: 'white',Array: '0',fillOpacity: .5
+        fillColor: indiceHidricoColors(feature.properties.Base_idx),
+        weight: 0.5,opacity: .9,color: '#958f8f',Array: '0',fillOpacity: .5
         };
     }
-    window.hidricoBaseStyle = hidricoBaseStyle;
+    window.hidricoBaseStyle_i = hidricoBaseStyle_i;
+
+    function hidricoBaseStyle(feature) {
+        return {
+            fillColor: indiceHidricoColors(feature.properties.Base_Idx),
+            weight: 0.5,opacity: .9,color: '#958f8f',Array: '0',fillOpacity: .5
+            };
+        }
+        window.hidricoBaseStyle = hidricoBaseStyle;
     
     function hidricoPEORStyle(feature) {
     return {
-        fillColor: indiceHidricoColors(feature.properties.ISH_PEOR),
-        weight: 1,opacity: .6,color: 'white',Array: '0',fillOpacity: .5
+        fillColor: indiceHidricoColors(feature.properties.Peor_Idx),
+        weight: 0.5,opacity: .6,color: '#958f8f',Array: '0',fillOpacity: .5
         };
     }
     window.hidricoPEORStyle = hidricoPEORStyle;
 
     function hidricoREALStyle(feature) {
     return {
-        fillColor: indiceHidricoColors(feature.properties.ISH_REAL),
-        weight: 1,opacity: .7,color: 'white',Array: '0',fillOpacity: .5
+        fillColor: indiceHidricoColors(feature.properties.Real_Idx),
+        weight: 0.5,opacity: .7,color: '#958f8f',Array: '0',fillOpacity: .5
         };
     }
     window.hidricoREALStyle = hidricoREALStyle;
 
     function hidricoSOSTStyle(feature) {
     return {
-        fillColor: indiceHidricoColors(feature.properties.ISH_SOST),
-        weight: 1,opacity: .8,color: 'white',Array: '0',fillOpacity: .5
+        fillColor: indiceHidricoColors(feature.properties.Sost_Idx),
+        weight: 0.5,opacity: .8,color: '#958f8f',Array: '0',fillOpacity: .5
         };
     }
     window.hidricoSOSTStyle = hidricoSOSTStyle;
 
 
     function indiceHidricoColors(d) {
-    return  d>3.8 ? '#2166ac':
-            d>3.6 ? '#4393c3':
-            d>3.4 ? '#92c5de':
-            d>3.2 ? '#d1e5f0':
-            d>3.0 ? '#fddbc7':
-            d>2.8 ? '#f4a582':
-            d>2.6 ? '#d6604d':
-                    '#b2182b';
+    return  d>0.9 ? '#4878b7':
+            d>0.8 ? '#849cb8':
+            d>0.7 ? '#c1c0b8':
+            d>0.6 ? '#fde3b8':
+            d>0.5 ? '#f0ac8c':
+            d>0.4 ? '#e2745f':
+                    '#d43c33';
     };
 
 //Watersheds
