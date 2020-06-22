@@ -125,6 +125,7 @@ a:hover{
   color: black;
   border: 1px solid black;
   border-radius: 5px;
+  width: 31vh;
 }
 
 .mapControls{
