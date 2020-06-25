@@ -372,7 +372,8 @@ a:hover{
 }
 #chartTAH1, #chartTAH, #chartPEM1, #chartPEM{
 
-  height: 36vh;
+  height: 20vh;
+  width: 60vh;
 }
 
 #rightPanelPampa h4{

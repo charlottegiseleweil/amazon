@@ -25,7 +25,10 @@ var chart = c3.generate({
     },
     y: {
       max: 40,
-      min: -40,
+      min: -10,
+      tick: {
+        values: [-10,0,20,40]
+      },
       label: { 
         text: 'Impacto en los flujos (%)',
         position: 'outer-middle'
@@ -65,6 +68,9 @@ axis: {
   y: {
     max: 42470,
     min: 0,
+    tick: {
+      values: [1,20000,40000]
+    },
     label: { 
       text: 'Personas rurales con recarga afectada',
       position: 'outer-middle'
@@ -74,6 +80,9 @@ axis: {
     show: true, 
     max: 1000,
     min: 0,
+    tick: {
+      values: [0, 500, 1000]
+    },
     label: { 
       text: 'Carga de sedimentos' ,
       position: 'outer-middle' 

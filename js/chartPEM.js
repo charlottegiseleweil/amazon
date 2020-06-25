@@ -1,4 +1,3 @@
-
 var chart = c3.generate({
     bindto: '#chartPEM',
     data: {
@@ -28,8 +27,11 @@ var chart = c3.generate({
       y: {
         max: 27,
         min: -27,
+        tick: {
+          values: [-30,-15,0,15,30]
+        },
         label: { 
-          text: 'Escorrentía superficial (%)',
+          text: 'ES (%)',
           position: 'outer-middle'
         }
       },
@@ -37,6 +39,9 @@ var chart = c3.generate({
         show: true, 
         max: 0.3,
         min: -0.3,
+        tick: {
+          values: [-0.3,-0.15,0,0.15,0.3]
+        },
         label: { 
           text: 'FES (%)' ,
           position: 'outer-middle' 
@@ -76,8 +81,11 @@ var chart1 = c3.generate({
     y: {
       max: 7590,
       min: 0,
+      tick: {
+        values: [0,4000,8000]
+      },
       label: { 
-        text: 'Personas rurales con recarga afectada',
+        text: 'Personas ',
         position: 'outer-middle'
       }
     },
@@ -85,6 +93,9 @@ var chart1 = c3.generate({
       show: true, 
       max: 9000,
       min: 0,
+      tick: {
+        values: [0,4000,8000]
+      },
       label: { 
         text: 'Carga de sedimentos' ,
         position: 'outer-middle' 
