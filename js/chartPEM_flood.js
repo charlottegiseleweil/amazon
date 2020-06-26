@@ -9,7 +9,7 @@ var chart = c3.generate({
         ['Infraestructura',-68.1,340.1,1174.4],
         ['Agricultura', 343.9,105.1,2473.0],
         ['Vegetación natural',-275.1,-445.1,-3645.6],
-        ['Personas al riesgo',4290,4540,6280 ],
+        ['Personas al riesgo',5100,6000,8500 ],
         
       ],
 
@@ -33,7 +33,7 @@ var chart = c3.generate({
         type : 'category',
       },
       y: {
-        max: 6000,
+        max: 3500,
         min: -3500,
         label: { 
           text: 'Área expuesta(km^2)',
@@ -43,13 +43,15 @@ var chart = c3.generate({
     },
       y2: {
         show: true, 
-        max: 6000,
-        min: -3500,
+        max: 8000,
+        min: -8000,
         label: { 
           text: 'Personas al riesgo' ,
           position: 'outer-middle' 
         },
-        ticks: 2,
+        tick: {
+          values: [0, 2000,4000,6000,8000]
+        },
       }
 }});
 
@@ -63,6 +65,7 @@ function changeData(year){
         ['Infraestructura',-45.0,237.2,832.2],
         ['Agricultura',310.4,97.8,2128.6 ],
         ['Vegetación natural',-264.6,-334.9,-2959.4],
+        ['Personas al riesgo',4600,5300, 7300 ],
       ]
       break;
     case "50":
@@ -70,6 +73,7 @@ function changeData(year){
         ['Infraestructura',-59.7,323.4,1123.8],
         ['Agricultura', 337.9,103.7,2363.7],
         ['Vegetación natural',-277.5,-427.1,-3485.8],
+        ['Personas al riesgo',4900,5900, 8300 ],
       ]
       break;
     case "100":
@@ -77,14 +81,13 @@ function changeData(year){
         ['Infraestructura',-68.1,340.1,1174.4],
         ['Agricultura', 343.9,105.1,2473.0],
         ['Vegetación natural',-275.1,-445.1,-3645.6],
-        ['Personas al riesgo',4290,4540,6280 ],
+        ['Personas al riesgo',5100,6000,8500 ],
       ]
       break;
     default: 
   }
 
   chart.load({
-    unload: ['Personas al riesgo'],
     columns: col,
     type: 'bar',
 
