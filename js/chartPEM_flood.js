@@ -9,12 +9,12 @@ var chart = c3.generate({
         ['Infraestructura',-68.1,340.1,1174.4],
         ['Agricultura', 343.9,105.1,2473.0],
         ['Vegetación natural',-275.1,-445.1,-3645.6],
-        ['Personas al riesgo',5100,6000,8500 ],
+        ['Aumento de Personas al riesgo',5100,6000,8500 ],
         
       ],
 
       axes: {
-        'Personas al riesgo': 'y2',
+        'Aumento de Personas al riesgo': 'y2',
       },
       
       type:'bar',
@@ -22,7 +22,7 @@ var chart = c3.generate({
         'Infraestructura': '#a6a6a6',
         'Agricultura':'#ffd633',
         'Vegetación natural':'#009933',
-        'Personas al riesgo':'#c28e5b'
+        'Aumento de Personas al riesgo':'#c28e5b'
       },
     },
     legend: {
@@ -46,7 +46,7 @@ var chart = c3.generate({
         max: 8000,
         min: -8000,
         label: { 
-          text: 'Personas al riesgo' ,
+          text: 'Aumento de Personas al riesgo' ,
           position: 'outer-middle' 
         },
         tick: {

@@ -1,5 +1,6 @@
 var chart = c3.generate({
     bindto: '#chartPEM',
+    padding: { left: 60, right: 60, bottom:-10 },
     data: {
       x: 'x',
       columns: [
@@ -85,7 +86,7 @@ var chart1 = c3.generate({
         values: [0,4000,8000]
       },
       label: { 
-        text: 'Personas ',
+        text: 'Aumento de Personas en riesgo',
         position: 'outer-middle'
       }
     },
@@ -97,7 +98,7 @@ var chart1 = c3.generate({
         values: [0,4000,8000]
       },
       label: { 
-        text: 'Carga de sedimentos' ,
+        text: 'Aumento de Carga de sedimentos' ,
         position: 'outer-middle' 
       },
     }

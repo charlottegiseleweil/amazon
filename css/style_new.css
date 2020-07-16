@@ -125,7 +125,6 @@ a:hover{
   color: black;
   border: 1px solid black;
   border-radius: 5px;
-  width: 31vh;
 }
 
 .mapControls{
@@ -372,8 +371,7 @@ a:hover{
 }
 #chartTAH1, #chartTAH, #chartPEM1, #chartPEM{
 
-  height: 20vh;
-  width: 60vh;
+  height: 35vh;
 }
 
 #rightPanelPampa h4{

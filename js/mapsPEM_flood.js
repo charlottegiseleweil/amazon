@@ -194,7 +194,6 @@ function updateMap2(mode,scenario,year) {
   scenario = $('input[name=escenarios]:checked').val();
   year = $('input[name=yr]:checked').val();
 
-  console.log("Updating map2 with scenario " + scenario);
 
   if (mode == 'LU') {
         // Remove layers

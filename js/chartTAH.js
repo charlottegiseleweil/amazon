@@ -72,7 +72,7 @@ axis: {
       values: [1,20000,40000]
     },
     label: { 
-      text: 'Personas rurales con recarga afectada',
+      text: 'Aumento de Personas en riesgo',
       position: 'outer-middle'
     }
   },
@@ -84,7 +84,7 @@ axis: {
       values: [0, 500, 1000]
     },
     label: { 
-      text: 'Carga de sedimentos' ,
+      text: 'Aumento de Carga de sedimentos' ,
       position: 'outer-middle' 
     },
   }

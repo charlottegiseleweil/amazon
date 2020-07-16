@@ -15,6 +15,7 @@ let modesLabels = {
     },
     leyenda: {
         "LU" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
+        //"LU": "<img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' />",
         "Hidrico" : "<img src='static/images/leyenda_IndiceHidrico.png' style='max-height:10vh;'alt='Leyenda' />",
         "Dengue": "<img src='static/images/legend_dengue.png' style='max-height:15vh;'alt='Leyenda' />",
         "Flood" : "<div id='leyendaMin'><img src='static/images/leyenda.png' style='max-height:10vh;'alt='Leyenda' /></div><div id='leyendaIntegral'><img src='static/images/leyenda_integral.png' style='max-height:10vh;' alt='Leyenda' /></div>",
@@ -27,7 +28,6 @@ let scenario = 'Sost';    // Default scenario (SOST) -- actually embedded in Upd
    function switchMode(notLUmode){
 
     mode = ((modeIsLU==true) ? 'LU' : notLUmode);
-    console.log("Mode is "+mode)
 
     // Update Maps
     updateMap1(mode)
