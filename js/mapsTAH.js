@@ -2,36 +2,30 @@
 // Land use maps
 // - - - - - - -
 
-var tileset_LULC_PEM_Sost = 
-"https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Sostenible/{z}/{x}/{y}.png"
+var tileset_LULC_TAH_Sost = 
+    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_TAH_Sostenible/{z}/{x}/{y}.png"
 
 var tileset_LULC_MAP_Hoy =
-"https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_MAP/{z}/{x}/{y}.png";
+    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_MAP/{z}/{x}/{y}.png";
 
-var tileset_LULC_PEM_Peor =
-"https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Peor/{z}/{x}/{y}.png";
+var tileset_LULC_TAH_Peor =
+    "https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_TAH_Peor/{z}/{x}/{y}.png";
 
-var tileset_LULC_PEM_Real =
-"https://charlottegiseleweil.github.io/tiles/amazon/Usodelsuelo_PEM_Rea/{z}/{x}/{y}.png";
 
 var LULC_MAP_Hoy = L.tileLayer(tileset_LULC_MAP_Hoy, {
-attribution: "Current Land Cover Map [PRO-Agua]"
+    attribution: "Current Land Cover Map [PRO-Agua]"
 });
 
 var LULC_MAP_Hoy_background = L.tileLayer(tileset_LULC_MAP_Hoy, {
-  attribution: "Current Land Cover Map [PRO-Agua]"
+    attribution: "Current Land Cover Map [PRO-Agua]"
 });
 
-var LULC_PEM_Sost = L.tileLayer(tileset_LULC_PEM_Sost, {
-attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
+var LULC_TAH_Sost = L.tileLayer(tileset_LULC_TAH_Sost, {
+    attribution: "Co-desarollado Escenario Sostenible [PRO-Agua]"
 });
 
-var LULC_PEM_Peor = L.tileLayer(tileset_LULC_PEM_Peor, {
-attribution: "Co-desarollado Escenario Peor [PRO-Agua]"
-});
-
-var LULC_PEM_Real = L.tileLayer(tileset_LULC_PEM_Real, {
-attribution: "Co-desarollado Escenario Real [PRO-Agua]"
+var LULC_TAH_Peor = L.tileLayer(tileset_LULC_TAH_Peor, {
+    attribution: "Co-desarollado Escenario Peor [PRO-Agua]"
 });
 
 // - - - - - - -
@@ -135,8 +129,9 @@ shapefileLayer("IndiceHidricoPEOR","TAH_ISH_v2_Peor_Idx",hidricoPEORStyle, "ISH_
 
 
 //AOI box
-shapefileLayer("AOI_box_bl","AOI_PEM",AOIBaseStyle);
-shapefileLayer("AOI_box","AOI_PEM",AOIBaseStyle);
+shapefileLayer("AOI_box_bl","AOI_TAH",AOIBaseStyle);
+shapefileLayer("AOI_box","AOI_TAH",AOIBaseStyle);
+
 
 // - - - - - - - - - - - -
 // Functions to switch Maps
@@ -195,11 +190,9 @@ map2.eachLayer(function(layer) {
 
 // Pick layer to add (according to scenario)
 if (scenario == "Peor") {
-  var lyr = LULC_PEM_Peor;
-} else if (scenario == "Real") {
-  var lyr = LULC_PEM_Real;
+  var lyr = LULC_TAH_Peor;
 } else {//if (scenario == "Sost") {
-  var lyr = LULC_PEM_Sost;
+  var lyr = LULC_TAH_Sost;
 }
 
 // Add layers
